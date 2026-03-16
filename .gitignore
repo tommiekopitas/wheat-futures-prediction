@@ -7,4 +7,11 @@ data/
 *.h5
 *.pt
 *.pkl
-*.joblib
+*.joblib.DS_Store
+
+.DS_Store
+notebooks/cy-bench/
+data/raw/cybench/
+data/processed/
+*.zip
+*.xlsx
