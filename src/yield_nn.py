@@ -455,15 +455,15 @@ CONFIGS = {
         'train': {'lr': 1e-3, 'weight_decay': 5e-2, 'epochs': 300, 'patience': 30},
     },
     # ── FT-Transformer ────────────────────────────────────
-    'FT-Transformer (d=32, L=2)': {
+    'FT-Transformer (d=16, L=1)': {
         'cls': FTTransformer,
-        'kwargs': {'d_token': 32, 'n_heads': 4, 'n_layers': 2, 'dropout': 0.2},
-        'train': {'lr': 1e-4, 'weight_decay': 1e-3, 'epochs': 200, 'patience': 25},
+        'kwargs': {'d_token': 16, 'n_heads': 2, 'n_layers': 1, 'dropout': 0.2},
+        'train': {'lr': 5e-4, 'weight_decay': 1e-3, 'epochs': 1, 'patience': 10},
     },
-    'FT-Transformer (d=64, L=3)': {
+    'FT-Transformer (d=16, L=2)': {
         'cls': FTTransformer,
-        'kwargs': {'d_token': 64, 'n_heads': 4, 'n_layers': 3, 'dropout': 0.3},
-        'train': {'lr': 1e-4, 'weight_decay': 1e-3, 'epochs': 200, 'patience': 25},
+        'kwargs': {'d_token': 16, 'n_heads': 2, 'n_layers': 2, 'dropout': 0.3},
+        'train': {'lr': 1e-4, 'weight_decay': 1e-3, 'epochs': 1, 'patience': 10},
     },
     # ── 1D-CNN ────────────────────────────────────────────
     '1D-CNN (64ch)': {
