@@ -15,3 +15,12 @@ data/raw/cybench/
 data/processed/
 *.zip
 *.xlsx
+notebooks/insert_nn.py
+notebooks/nn_cells.json
+.gitignore
+notebooks/wheat_futures_regional_v15_nn_cachepatch.ipynb
+notebooks/wheat_futures_regional_v15_nn_patch.ipynb
+notebooks/wheat_futures_regional_v15_fixed.ipynb
+notebooks/wheat_futures_regional_v16_merged.ipynb
+notebooks/wheat_futures_regional_v16_with_nn.ipynb
+src/standalone_nn_eval.py
