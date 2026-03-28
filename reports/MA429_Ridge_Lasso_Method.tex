@@ -1,0 +1,248 @@
+%Version 3.1 December 2024
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%=========================================================================================%%
+%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
+%%=========================================================================================%%
+
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-chicago.bst%  
+ 
+%%\documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+\documentclass[pdflatex,sn-mathphys-num, oneside]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+%%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+\usepackage{geometry}
+\geometry{
+  reset,          
+  a4paper,
+  textwidth=190mm,% Forces the text width (A4 is 210mm wide - 10L - 10R = 190mm)
+  textheight=267mm, % Forces the text height (A4 is 297mm tall - 15T - 15B = 267mm)
+  left=10mm,
+  right=10mm,
+  top=15mm,
+  bottom=15mm
+}
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+% --- NEW SPACE-SAVING COMMANDS ---
+\usepackage{microtype}      % 1. Optimizes horizontal text packing (Saves ~5% space)
+\linespread{0.96}           % 2. Reduces vertical space between lines (Saves ~5% space)
+\usepackage{newtxtext}      % 3. Ensures you are using the most modern, compact Times font
+\usepackage{newtxmath}
+% ---------------------------------
+
+\begin{document}
+
+\title[Article Title]{Are meteorological, agricultural, and satellite features from the CY-Bench Dataset good predictors of European Wheat Futures Price Changes?}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author{\fnm{68729}}
+\author{\fnm{candidate number}}
+\author{\fnm{candidate number}}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
+\clearpage
+
+\section{Executive Summary}\label{sec1}
+
+\clearpage
+
+\section{Table of Contents}\label{sec2}
+
+\clearpage
+
+\section{Introduction (1 page)}\label{sec3}
+
+\clearpage
+
+\section{(Optional) Literature Review (1 page)}\label{sec3}
+
+\clearpage
+
+\section{Data Pre-processing (2 pages)}\label{sec3}
+
+\clearpage
+
+\section{Redefining the Prediction Task (1 page)}\label{sec3}
+
+\clearpage
+
+\section{Feature Engineering and Selection (2 pages)}\label{sec3}
+
+\clearpage
+
+\section{Method 1 (2 pages)}\label{sec3}
+Ridge and Lasso regression are evaluated together as the linear baseline methods for both our primary prediction task of wheat futures price, as well as the secondary task of wheat yield prediction. Both are appropriate first choices for this high-dimensional tabular setting for similar but distinct reasons. Comparing them directly tests whether dense coefficient shrinkage or sparse feature selection better characterises the underlying signal in our agricultural feature set.
+
+For the Futures Price Prediction Task, Ridge is chosen because its L2 penalty shrinks correlated coefficients toward each other rather than eliminating them, preserving the joint contribution of related agricultural indicators such as normalized difference vegetation index (NDVI), a satellite-based remote sensing method, and soil moisture that together capture crop stress conditions. Lasso complements this with an L1 penalty that drives irrelevant coefficients to exactly zero, functioning as a feature selector completely eliminating these features. If the return signal across 76 agricultural features is concentrated in a small subset, we would expect Lasso to identify and retain only those features, which should outperform Ridge by removing noise from uninformative predictors. Both models are computationally trivial to fit across all 515 regions, making them practical to run independently for every region across every walk-forward window. Both also serve as a baseline method to compare against, where a strong result from either model would imply the futures return signal is largely linear and that escalating to ensemble methods potentially adds no value, while a poor result from both motivates the tree-based architectures that follow. Finally, regularised regression methods feature prominently in the literature we reviewed~\cite{bib14,bib16}, making this a natural point of methodological comparison between our study and established benchmarks.
+
+The sole hyperparameter for Ridge Regression is the regularisation strength $\alpha$, which controls the trade-off between fit and coefficient shrinkage. We sample $\alpha$ from a log-uniform distribution over a range of [0.01,100]. The log-uniform distribution is appropriate here because the effect of regularisation on model performance is multiplicative rather than additive, meaning that doubling $\alpha$ from 0.1 to 0.2 has a similar effect to doubling it from 10 to 20, ensuring that we spend equal time looking at different orders of magnitude and not focusing too much on higher $\alpha$ while neglecting the lower bound. The lower bound of 0.01 corresponds to Ordinary Least Squares behaviour, where regularisation is minimal, and the upper bound of 100 enforces strong shrinkage appropriate for a noisy financial target. Twenty random draws are evaluated over the validation period from 2017 to 2019, with directional accuracy used as the selection criterion rather than R\textsuperscript{2}, since the practical objective is to correctly predict the sign of the 5-day return rather than its magnitude. This is an important distinction since by using the directional accuracy we can more accurately predict if the model is predicting trends and patterns rather than trying to predict precise market movements that could result in poor R\textsuperscript{2} results, regardless if the direction was correct.
+
+ Lasso uses a narrower log-uniform range of [1e-5, 0.1], reflecting that L1 regularisation operates at a fundamentally different scale compared to Ridge. Lasso coefficients reach zero at much smaller $\alpha$ values compared to Ridge coefficients, so applying the same upper bound of 100 would produce a degenerate all-zero model. Lasso, like Ridge, uses 20 random draws over the validation period from 2017 to 2019 with directional accuracy as the selection criterion for the same reasons as Ridge as stated above. 
+
+The optimal Ridge configuration is $\alpha$ = 63.51, in the upper quarter of its search range, reflecting that strong regularisation is beneficial when the target is noisy and many features carry weak signal. Lasso's optimal $\alpha$=0.000146, very close to the lower bound of its range, resulting in a strikingly different results. This indicates that even very mild L1 shrinkage causes the model to deteriorate, the signal is not concentrated in a sparse feature subset and a dense solution is preferred, which is consistent with Ridge's strong regularisation requirement. Ridge achieves a validation directional accuracy of 49.93\% and R\textsuperscript{2} of −0.047. Lasso achieves a marginally better validation directional accuracy of 50.72\% and R\textsuperscript{2} of −0.042.
+
+Both models are fit using a walk-forward expanding window scheme, trained independently on each of the 515 regions using all daily observations prior to each test year, with a Standard Scaler fitted on training data only and predictions aggregated via production-weighted averaging.
+
+On the test set from 2020 through 2023, Ridge achieves R\textsuperscript{2} = −0.0212, directional accuracy of 46.97\%, and RMSE of 0.0409. Lasso performs marginally better across all metrics with R\textsuperscript{2} = −0.0183, directional accuracy of 47.55\%, and RMSE of 0.0409. Both models see directional accuracy fall below their validation results and RMSE approximately double from 0.020 to 0.041, signs that the performance on the test set is reduced compared to the validation results. The RMSE increase reflects the substantially larger absolute return magnitudes during the test period, which encompasses COVID-19 supply chain disruptions and the 2022 Russia-Ukraine conflict during which wheat prices surged to their highest levels since 2008, rather than purely model degradation. The negative R\textsuperscript{2} for both models confirms that neither outperforms the unconditional mean, showing that both Ridge and Lasso Regression are no better than just predicting the mean return every day for the wheat futures price prediction task, consistent with what would be expected under semi-strong market efficiency. The marginal Lasso advantage over Ridge on the futures task suggests at most a very weak degree of feature sparsity in the predictive signal, but the difference is too small to be practically meaningful given the overall poor results from both models. 
+
+For the secondary task of Yield Prediction, both models are tuned separately per country over the validation period from 2013 to 2015 with region NRMSE as the scoring criterion. Ridge optimal $\alpha$ is 75.79 for Germany, 21.37 for France, and 75.79 for Poland. Germany's high value reflects its 251 different regions being widest relative to training observations, requiring stronger shrinkage to prevent overfitting. France's lower value reflects its 90 regions providing a better estimation problem where more feature variation can be retained usefully. For Lasso, optimal alphas are 0.0126 for Germany, 0.00315 for France, and 0.0847 for Poland. All $\alpha$ values are small relative to the Ridge values, again consistent with Lasso needing much less regularisation than Ridge to achieve its best performance. On the validation set, Lasso slightly outperforms Ridge for Germany, 12.11\% vs 13.03\% NRMSE scores, Ridge narrowly wins for France with 10.67\% vs 10.88\%, and Ridge wins more clearly for Poland at 16.65\% vs 17.44\%.
+
+Both models are then evaluated on the test period from 2016 through 2020 in a walk-forward scheme, training on all prior region-years and predicting regional yield with predictions aggregated to national level using production weights.
+
+These final test set yield results show that for the end-of-season, we can see performance varies considerably by country. For Germany, Ridge is the worst-performing linear model with region NRMSE at 18.76\% and EU NRMSE at 13.39\% while Lasso improves substantially getting a region NRMSE of 16.32\% and EU NRMSE score of 9.14\%, confirming that L1 sparsity is beneficial when the end-of-season feature set spans 351 columns and many are redundant. For France, both models perform similarly at regional level, with Ridge 21.77\% and Lasso 22.25\%, with both falling well short of Paudel et al.~\cite{bib16}'s best results of approximately 6\% for national NRMSE, which we can attribute to their use of WOFOST (water-limited yield biomass, leaf area index, development stage), compared to ours where we use only raw CY-Bench climate and remote sensing variables aggregated by calendar month. Poland, which was not included in Paudel et al.\cite{bib16}, shows that Ridge achieves the best end-of-season result of any model in any country with region NRMSE at 12.61\% and EU NRMSE at 4.08\%, while Lasso degrades to 17.30\% regionally and 13.47\% at EU level. This reversal from the validation ranking suggests that for Poland's small 16-region sample, Ridge's dense shrinkage is more stable out-of-sample than Lasso's variable selection, which is sensitive to which features are retained across different training windows. The Polish Ridge result should be treated cautiously given the small sample size and inability to compare against the Paudel et al.\cite{bib16} results.
+
+Across lead times, the pattern for Germany is consistent for both models. Ridge achieves its best German performance at mid-season (17.13\%) rather than end-of-season (18.76\%), with quarter-season only marginally worse at 17.24\%. Lasso follows the same pattern, peaking at mid-season (15.65\%) relative to end-of-season (16.32\%) and quarter-season (16.40\%). This suggests that for Germany, the mid-season feature set strikes the best balance between containing enough growing-season information and avoiding the noise introduced by late-season variables. France degrades differently, with Ridge moving from 21.77\% at end-of-season to 25.46\% at mid-season and 21.78\% at quarter-season. Poland shows sharp decline at mid-season for both models with Ridge going from 12.61\% at end-of-season to to 18.90\% at mid-season. Lasso goes from 17.30\% at end-of-season to 18.40\% at mid-season, reinforcing the instability of estimates with only 16 regions. Across all lead times and countries, the degradation from end-of-season toward earlier lead times is at most modest for Germany and France, consistent with the finding of Paudel et al.~\cite{bib16} that structural yield drivers such as soil characteristics and long-term climate patterns carry predictive power throughout the season rather than only at harvest. 
+
+Overall, Lasso outperforms Ridge for Germany across all lead times while Ridge is more stable for Poland, and the two are comparable for France. This pattern, and in particular the inability of both linear models to capture non-linear interactions between weather, soil, and vegetation features, motivates the examination of tree-based ensemble methods next, which can represent relationships that neither Ridge nor Lasso are capable of modelling.
+
+\clearpage
+
+\section{Method 2 (2 pages)}\label{sec3}
+
+\clearpage
+
+\section{Method 3 (2 pages)}\label{sec3}
+
+\clearpage
+
+\section{Method 4 (2 pages)}\label{sec3}
+
+\clearpage
+
+\section{Model Result Comparison (1 page)}\label{sec3}
+
+\clearpage
+
+\section{Conclusion (1 page)}\label{sec3}
+
+\clearpage
+
+\bibliography{sn-bibliography}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+\clearpage
+
+\section{Generative AI Statement}
+
+\clearpage
+
+\begin{appendices}
+
+\section{Section title of first appendix}\label{secA1}
+
+An appendix contains supplementary information that is not an essential part of the text itself but which may be helpful in providing a more comprehensive understanding of the research problem or it is information that is too cumbersome to be included in the body of the paper.
+
+%%=============================================%%
+%% For submissions to Nature Portfolio Journals %%
+%% please use the heading ``Extended Data''.   %%
+%%=============================================%%
+
+%%=============================================================%%
+%% Sample for another appendix section			       %%
+%%=============================================================%%
+
+%% \section{Example of another appendix section}\label{secA2}%
+%% Appendices may be used for helpful, supporting or essential material that would otherwise 
+%% clutter, break up or be distracting to the text. Appendices can consist of sections, figures, 
+%% tables and equations etc.
+
+\end{appendices}
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+
+\end{document}
