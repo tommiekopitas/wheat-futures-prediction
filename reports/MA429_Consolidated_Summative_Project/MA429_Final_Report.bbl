@@ -1,0 +1,582 @@
+%% BioMed_Central_Bib_Style_v1.01
+
+\begin{thebibliography}{37}
+% BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
+\ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
+\ifx \binits  \undefined \def \binits#1{#1}\fi
+\ifx \bauthor  \undefined \def \bauthor#1{#1}\fi
+\ifx \batitle  \undefined \def \batitle#1{#1}\fi
+\ifx \bjtitle  \undefined \def \bjtitle#1{#1}\fi
+\ifx \bvolume  \undefined \def \bvolume#1{\textbf{#1}}\fi
+\ifx \byear  \undefined \def \byear#1{#1}\fi
+\ifx \bissue  \undefined \def \bissue#1{#1}\fi
+\ifx \bfpage  \undefined \def \bfpage#1{#1}\fi
+\ifx \blpage  \undefined \def \blpage #1{#1}\fi
+\ifx \burl  \undefined \def \burl#1{\textsf{#1}}\fi
+\ifx \doiurl  \undefined \def \doiurl#1{\url{https://doi.org/#1}}\fi
+\ifx \betal  \undefined \def \betal{\textit{et al.}}\fi
+\ifx \binstitute  \undefined \def \binstitute#1{#1}\fi
+\ifx \binstitutionaled  \undefined \def \binstitutionaled#1{#1}\fi
+\ifx \bctitle  \undefined \def \bctitle#1{#1}\fi
+\ifx \beditor  \undefined \def \beditor#1{#1}\fi
+\ifx \bpublisher  \undefined \def \bpublisher#1{#1}\fi
+\ifx \bbtitle  \undefined \def \bbtitle#1{#1}\fi
+\ifx \bedition  \undefined \def \bedition#1{#1}\fi
+\ifx \bseriesno  \undefined \def \bseriesno#1{#1}\fi
+\ifx \blocation  \undefined \def \blocation#1{#1}\fi
+\ifx \bsertitle  \undefined \def \bsertitle#1{#1}\fi
+\ifx \bsnm \undefined \def \bsnm#1{#1}\fi
+\ifx \bsuffix \undefined \def \bsuffix#1{#1}\fi
+\ifx \bparticle \undefined \def \bparticle#1{#1}\fi
+\ifx \barticle \undefined \def \barticle#1{#1}\fi
+\bibcommenthead
+\ifx \bconfdate \undefined \def \bconfdate #1{#1}\fi
+\ifx \botherref \undefined \def \botherref #1{#1}\fi
+\ifx \url \undefined \def \url#1{\textsf{#1}}\fi
+\ifx \bchapter \undefined \def \bchapter#1{#1}\fi
+\ifx \bbook \undefined \def \bbook#1{#1}\fi
+\ifx \bcomment \undefined \def \bcomment#1{#1}\fi
+\ifx \oauthor \undefined \def \oauthor#1{#1}\fi
+\ifx \citeauthoryear \undefined \def \citeauthoryear#1{#1}\fi
+\ifx \endbibitem  \undefined \def \endbibitem {}\fi
+\ifx \bconflocation  \undefined \def \bconflocation#1{#1}\fi
+\ifx \arxivurl  \undefined \def \arxivurl#1{\textsf{#1}}\fi
+\csname PreBibitemsHook\endcsname
+
+%%% 1
+\bibitem[\protect\citeauthoryear{van Klompenburg et~al.}{2020}]{bib14}
+\begin{barticle}
+\bauthor{\bsnm{Klompenburg}, \binits{T.}},
+\bauthor{\bsnm{Kassahun}, \binits{A.}},
+\bauthor{\bsnm{Catal}, \binits{C.}}:
+\batitle{Crop yield prediction using machine learning: {A} systematic
+  literature review}.
+\bjtitle{Comput. Electron. Agric.}
+\bvolume{177},
+\bfpage{105709}
+(\byear{2020})
+\doiurl{10.1016/j.compag.2020.105709}
+\end{barticle}
+\endbibitem
+
+%%% 2
+\bibitem[\protect\citeauthoryear{Oikonomidis et~al.}{2023}]{bib15}
+\begin{barticle}
+\bauthor{\bsnm{Oikonomidis}, \binits{A.}},
+\bauthor{\bsnm{Catal}, \binits{C.}},
+\bauthor{\bsnm{Kassahun}, \binits{A.}}:
+\batitle{Deep learning for crop yield prediction: a systematic literature
+  review}.
+\bjtitle{N. Z. J. Crop Hortic. Sci.}
+\bvolume{51}(\bissue{1}),
+\bfpage{1}--\blpage{26}
+(\byear{2023})
+\doiurl{10.1080/01140671.2022.2032213}
+\end{barticle}
+\endbibitem
+
+%%% 3
+\bibitem[\protect\citeauthoryear{Muruganantham et~al.}{2022}]{bib20}
+\begin{barticle}
+\bauthor{\bsnm{Muruganantham}, \binits{P.}},
+\bauthor{\bsnm{Wibowo}, \binits{S.}},
+\bauthor{\bsnm{Grandhi}, \binits{S.}},
+\bauthor{\bsnm{Samrat}, \binits{N.H.}},
+\bauthor{\bsnm{Islam}, \binits{N.}}:
+\batitle{A systematic literature review on crop yield prediction with deep
+  learning and remote sensing}.
+\bjtitle{Remote Sens.}
+\bvolume{14}(\bissue{9}),
+\bfpage{1990}
+(\byear{2022})
+\doiurl{10.3390/rs14091990}
+\end{barticle}
+\endbibitem
+
+%%% 4
+\bibitem[\protect\citeauthoryear{Paudel et~al.}{2021}]{bib16}
+\begin{barticle}
+\bauthor{\bsnm{Paudel}, \binits{D.}},
+\bauthor{\bsnm{Boogaard}, \binits{H.}},
+\bauthor{\bsnm{Wit}, \binits{A.}},
+\bauthor{\bsnm{Janssen}, \binits{S.}},
+\bauthor{\bsnm{Osinga}, \binits{S.}},
+\bauthor{\bsnm{Pylianidis}, \binits{C.}},
+\bauthor{\bsnm{Athanasiadis}, \binits{I.N.}}:
+\batitle{Machine learning for large-scale crop yield forecasting}.
+\bjtitle{Agric. Syst.}
+\bvolume{187},
+\bfpage{103016}
+(\byear{2021})
+\doiurl{10.1016/j.agsy.2020.103016}
+\end{barticle}
+\endbibitem
+
+%%% 5
+\bibitem[\protect\citeauthoryear{Paudel et~al.}{2025}]{bib17}
+\begin{bchapter}
+\bauthor{\bsnm{Paudel}, \binits{D.}},
+\bauthor{\bsnm{Baja}, \binits{H.}},
+\bauthor{\bsnm{Bree}, \binits{R.}},
+\bauthor{\bsnm{Kallenberg}, \binits{M.}},
+\bauthor{\bsnm{Ofori-Ampofo}, \binits{S.}},
+\bauthor{\bsnm{Potze}, \binits{A.}}, \betal:
+\bctitle{{CY-Bench}: {A} comprehensive benchmark dataset for sub-national crop
+  yield forecasting}.
+In: \bbtitle{Proceedings of the 38th Conference on Neural Information
+  Processing Systems ({NeurIPS} 2024), Track on Datasets and Benchmarks}
+(\byear{2025})
+\end{bchapter}
+\endbibitem
+
+%%% 6
+\bibitem[\protect\citeauthoryear{Theofilou et~al.}{2025}]{bib21}
+\begin{barticle}
+\bauthor{\bsnm{Theofilou}, \binits{A.}},
+\bauthor{\bsnm{Nastis}, \binits{S.A.}},
+\bauthor{\bsnm{Michailidis}, \binits{A.}},
+\bauthor{\bsnm{Bournaris}, \binits{T.}},
+\bauthor{\bsnm{Mattas}, \binits{K.}}:
+\batitle{Predicting prices of staple crops using machine learning: {A}
+  systematic review of studies on wheat, corn, and rice}.
+\bjtitle{Sustainability}
+\bvolume{17}(\bissue{12}),
+\bfpage{5456}
+(\byear{2025})
+\doiurl{10.3390/su17125456}
+\end{barticle}
+\endbibitem
+
+%%% 7
+\bibitem[\protect\citeauthoryear{Li}{2024}]{bib18}
+\begin{barticle}
+\bauthor{\bsnm{Li}, \binits{H.}}:
+\batitle{A study of {European} wheat price series forecasting based on multiple
+  variants of {Holt-Winters} and {LSTM} models}.
+\bjtitle{Appl. Comput. Eng.}
+\bvolume{68}(\bissue{1}),
+\bfpage{224}--\blpage{233}
+(\byear{2024})
+\doiurl{10.54254/2755-2721/68/20241466}
+\end{barticle}
+\endbibitem
+
+%%% 8
+\bibitem[\protect\citeauthoryear{Zhang and Tang}{2024}]{bib22}
+\begin{barticle}
+\bauthor{\bsnm{Zhang}, \binits{T.}},
+\bauthor{\bsnm{Tang}, \binits{Z.}}:
+\batitle{Agricultural commodity futures prices prediction based on a new hybrid
+  forecasting model combining quadratic decomposition technology and {LSTM}
+  model}.
+\bjtitle{Front. Sustain. Food Syst.}
+\bvolume{8},
+\bfpage{1334098}
+(\byear{2024})
+\doiurl{10.3389/fsufs.2024.1334098}
+\end{barticle}
+\endbibitem
+
+%%% 9
+\bibitem[\protect\citeauthoryear{Brignoli et~al.}{2024}]{bib23}
+\begin{barticle}
+\bauthor{\bsnm{Brignoli}, \binits{P.L.}},
+\bauthor{\bsnm{Varacca}, \binits{A.}},
+\bauthor{\bsnm{Gardebroek}, \binits{C.}},
+\bauthor{\bsnm{Sckokai}, \binits{P.}}:
+\batitle{Machine learning to predict grains futures prices}.
+\bjtitle{Agric. Econ.}
+\bvolume{55}(\bissue{3}),
+\bfpage{479}--\blpage{497}
+(\byear{2024})
+\doiurl{10.1111/agec.12828}
+\end{barticle}
+\endbibitem
+
+%%% 10
+\bibitem[\protect\citeauthoryear{Thaker et~al.}{2024}]{bib19}
+\begin{barticle}
+\bauthor{\bsnm{Thaker}, \binits{A.}},
+\bauthor{\bsnm{Chan}, \binits{L.H.}},
+\bauthor{\bsnm{Sonner}, \binits{D.}}:
+\batitle{Forecasting agriculture commodity futures prices with convolutional
+  neural networks with application to wheat futures}.
+\bjtitle{J. Risk Financ. Manag.}
+\bvolume{17}(\bissue{4}),
+\bfpage{143}
+(\byear{2024})
+\doiurl{10.3390/jrfm17040143}
+\end{barticle}
+\endbibitem
+
+%%% 11
+\bibitem[\protect\citeauthoryear{{Eurostat}}{2026}]{bib28}
+\begin{botherref}
+\oauthor{\bsnm{{Eurostat}}}:
+Wheat and spelt by area, production and humidity.
+European Commission
+(2026).
+\doiurl{10.2908/tag00047} .
+\url{https://ec.europa.eu/eurostat/databrowser/view/tag00047/default/table}
+\end{botherref}
+\endbibitem
+
+%%% 12
+\bibitem[\protect\citeauthoryear{Boogaard et~al.}{2022}]{bib_boogaard2022}
+\begin{botherref}
+\oauthor{\bsnm{Boogaard}, \binits{H.}},
+\oauthor{\bsnm{Schubert}, \binits{J.}},
+\oauthor{\bsnm{De~Wit}, \binits{A.}},
+\oauthor{\bsnm{Lazebnik}, \binits{J.}},
+\oauthor{\bsnm{Hutjes}, \binits{R.}},
+\oauthor{\bsnm{Grijn}, \binits{G.}}:
+Agrometeorological indicators from 1979 to present derived from reanalysis.
+Climate Data Store -- Copernicus Climate Change Service
+(2022).
+\doiurl{10.24381/cds.6c68c9bb}
+\end{botherref}
+\endbibitem
+
+%%% 13
+\bibitem[\protect\citeauthoryear{Rodell et~al.}{2004}]{bib_rodell2004}
+\begin{barticle}
+\bauthor{\bsnm{Rodell}, \binits{M.}},
+\bauthor{\bsnm{Houser}, \binits{P.R.}},
+\bauthor{\bsnm{Jambor}, \binits{U.}},
+\bauthor{\bsnm{Gottschalck}, \binits{J.}},
+\bauthor{\bsnm{Mitchell}, \binits{K.}},
+\bauthor{\bsnm{Meng}, \binits{C.-J.}},
+\bauthor{\bsnm{Arsenault}, \binits{K.}},
+\bauthor{\bsnm{Cosgrove}, \binits{B.}},
+\bauthor{\bsnm{Radakovich}, \binits{J.}},
+\bauthor{\bsnm{Bosilovich}, \binits{M.}},
+\bauthor{\bsnm{Entin}, \binits{J.K.}},
+\bauthor{\bsnm{Walker}, \binits{J.P.}},
+\bauthor{\bsnm{Lohmann}, \binits{D.}},
+\bauthor{\bsnm{Toll}, \binits{D.}}:
+\batitle{The global land data assimilation system}.
+\bjtitle{Bulletin of the American Meteorological Society}
+\bvolume{85}(\bissue{3}),
+\bfpage{381}--\blpage{394}
+(\byear{2004})
+\doiurl{10.1175/BAMS-85-3-381}
+\end{barticle}
+\endbibitem
+
+%%% 14
+\bibitem[\protect\citeauthoryear{Vermote}{2015}]{bib_vermote2015}
+\begin{botherref}
+\oauthor{\bsnm{Vermote}, \binits{E.}}:
+{MOD09CMG MODIS/Terra Surface Reflectance Daily L3 Global 0.05Deg CMG V006}.
+NASA EOSDIS Land Processes DAAC
+(2015).
+\doiurl{10.5067/MODIS/MOD09CMG.006}
+\end{botherref}
+\endbibitem
+
+%%% 15
+\bibitem[\protect\citeauthoryear{Seguini et~al.}{In preparation}]{bib_seguini}
+\begin{botherref}
+\oauthor{\bsnm{Seguini}, \binits{L.}}, et al.:
+{JRC} dekadal fraction of absorbed photosynthetically active radiation ({fPAR})
+  dataset.
+Joint Research Centre, European Commission. Cited via Paudel et~al.~(2025)
+(In preparation)
+\end{botherref}
+\endbibitem
+
+%%% 16
+\bibitem[\protect\citeauthoryear{Ripple and Moosa}{2007}]{bib84}
+\begin{barticle}
+\bauthor{\bsnm{Ripple}, \binits{R.D.}},
+\bauthor{\bsnm{Moosa}, \binits{I.A.}}:
+\batitle{Hedging effectiveness and futures contract maturity: the case of nymex
+  crude oil futures}.
+\bjtitle{Appl. Financ. Econ.}
+\bvolume{17}(\bissue{9}),
+\bfpage{683}--\blpage{689}
+(\byear{2007})
+\doiurl{10.1080/09603100600722177}
+\end{barticle}
+\endbibitem
+
+%%% 17
+\bibitem[\protect\citeauthoryear{Ding and Lim}{2024}]{bib26}
+\begin{barticle}
+\bauthor{\bsnm{Ding}, \binits{D.K.}},
+\bauthor{\bsnm{Lim}, \binits{W.B.}}:
+\batitle{Lessons from the demise of the brent crude oil futures contract on the
+  singapore exchange}.
+\bjtitle{J. Risk Financial Manag.}
+\bvolume{17}(\bissue{6}),
+\bfpage{252}
+(\byear{2024})
+\doiurl{10.3390/jrfm17060252}
+\end{barticle}
+\endbibitem
+
+%%% 18
+\bibitem[\protect\citeauthoryear{Carchano and Pardo}{2009}]{bib25}
+\begin{barticle}
+\bauthor{\bsnm{Carchano}, \binits{{\'O}.}},
+\bauthor{\bsnm{Pardo}, \binits{{\'A}.}}:
+\batitle{Rolling over stock index futures contracts}.
+\bjtitle{J. Futures Mark.}
+\bvolume{29}(\bissue{7}),
+\bfpage{684}--\blpage{694}
+(\byear{2009})
+\doiurl{10.1002/fut.20373}
+\end{barticle}
+\endbibitem
+
+%%% 19
+\bibitem[\protect\citeauthoryear{L{\'o}pez~de Prado}{2018}]{bib24}
+\begin{bbook}
+\bauthor{\bsnm{Prado}, \binits{M.}}:
+\bbtitle{Advances in {F}inancial {M}achine {L}earning}.
+\bpublisher{Wiley},
+\blocation{New York}
+(\byear{2018})
+\end{bbook}
+\endbibitem
+
+%%% 20
+\bibitem[\protect\citeauthoryear{Ronchetti et~al.}{2024}]{bib_ronchetti2024}
+\begin{barticle}
+\bauthor{\bsnm{Ronchetti}, \binits{G.}},
+\bauthor{\bsnm{Nisini~Scacchiafichi}, \binits{L.}},
+\bauthor{\bsnm{Seguini}, \binits{L.}},
+\bauthor{\bsnm{Cerrani}, \binits{I.}},
+\bauthor{\bsnm{Velde}, \binits{M.}}:
+\batitle{Harmonized {European Union} subnational crop statistics can reveal
+  climate impacts and crop cultivation shifts}.
+\bjtitle{Earth System Science Data}
+\bvolume{16},
+\bfpage{1623}--\blpage{1649}
+(\byear{2024})
+\doiurl{10.5194/essd-16-1623-2024}
+\end{barticle}
+\endbibitem
+
+%%% 21
+\bibitem[\protect\citeauthoryear{Mandelbrot}{1963}]{bib_mandelbrot1963}
+\begin{barticle}
+\bauthor{\bsnm{Mandelbrot}, \binits{B.}}:
+\batitle{The variation of certain speculative prices}.
+\bjtitle{The Journal of Business}
+\bvolume{36}(\bissue{4}),
+\bfpage{394}--\blpage{419}
+(\byear{1963})
+\doiurl{10.1086/294632}
+\end{barticle}
+\endbibitem
+
+%%% 22
+\bibitem[\protect\citeauthoryear{Deuskar and Johnson}{2011}]{bib85}
+\begin{barticle}
+\bauthor{\bsnm{Deuskar}, \binits{P.}},
+\bauthor{\bsnm{Johnson}, \binits{T.C.}}:
+\batitle{Market liquidity and flow-driven risk}.
+\bjtitle{Rev. Financ. Stud.}
+\bvolume{24}(\bissue{3}),
+\bfpage{721}--\blpage{753}
+(\byear{2011})
+\doiurl{10.1093/rfs/hhq132}
+\end{barticle}
+\endbibitem
+
+%%% 23
+\bibitem[\protect\citeauthoryear{Tack et~al.}{2015}]{bib_tack2015}
+\begin{barticle}
+\bauthor{\bsnm{Tack}, \binits{J.}},
+\bauthor{\bsnm{Barkley}, \binits{A.}},
+\bauthor{\bsnm{Nalley}, \binits{L.L.}}:
+\batitle{Effect of warming temperatures on {US} wheat yields}.
+\bjtitle{Proc. Natl. Acad. Sci. U.S.A.}
+\bvolume{112}(\bissue{22}),
+\bfpage{6931}--\blpage{6936}
+(\byear{2015})
+\doiurl{10.1073/pnas.1415181112}
+\end{barticle}
+\endbibitem
+
+%%% 24
+\bibitem[\protect\citeauthoryear{Schlenker and
+  Roberts}{2009}]{bib_schlenker2009}
+\begin{barticle}
+\bauthor{\bsnm{Schlenker}, \binits{W.}},
+\bauthor{\bsnm{Roberts}, \binits{M.J.}}:
+\batitle{Nonlinear temperature effects indicate severe damages to {U.S.} crop
+  yields under climate change}.
+\bjtitle{Proceedings of the National Academy of Sciences}
+\bvolume{106}(\bissue{37}),
+\bfpage{15594}--\blpage{15598}
+(\byear{2009})
+\doiurl{10.1073/pnas.0906865106}
+\end{barticle}
+\endbibitem
+
+%%% 25
+\bibitem[\protect\citeauthoryear{Porter and Gawith}{1999}]{bib_porter1999}
+\begin{barticle}
+\bauthor{\bsnm{Porter}, \binits{J.R.}},
+\bauthor{\bsnm{Gawith}, \binits{M.}}:
+\batitle{Temperatures and the growth and development of wheat: a review}.
+\bjtitle{European Journal of Agronomy}
+\bvolume{10}(\bissue{1}),
+\bfpage{23}--\blpage{36}
+(\byear{1999})
+\doiurl{10.1016/S1161-0301(98)00047-1}
+\end{barticle}
+\endbibitem
+
+%%% 26
+\bibitem[\protect\citeauthoryear{Meroni et~al.}{2019}]{bib_meroni2019}
+\begin{barticle}
+\bauthor{\bsnm{Meroni}, \binits{M.}},
+\bauthor{\bsnm{Fasbender}, \binits{D.}},
+\bauthor{\bsnm{Rembold}, \binits{F.}},
+\bauthor{\bsnm{Atzberger}, \binits{C.}},
+\bauthor{\bsnm{Klisch}, \binits{A.}}:
+\batitle{Near real-time vegetation anomaly detection with {MODIS NDVI}:
+  Timeliness vs.\ accuracy and effect of anomaly computation options}.
+\bjtitle{Remote Sensing of Environment}
+\bvolume{221},
+\bfpage{508}--\blpage{521}
+(\byear{2019})
+\doiurl{10.1016/j.rse.2018.11.041}
+\end{barticle}
+\endbibitem
+
+%%% 27
+\bibitem[\protect\citeauthoryear{McKee et~al.}{1993}]{bib_mckee1993}
+\begin{botherref}
+\oauthor{\bsnm{McKee}, \binits{T.B.}},
+\oauthor{\bsnm{Doesken}, \binits{N.J.}},
+\oauthor{\bsnm{Kleist}, \binits{J.}}:
+The relationship of drought frequency and duration to time scales.
+Proceedings of the 8th Conference on Applied Climatology,
+179--184
+(1993)
+\end{botherref}
+\endbibitem
+
+%%% 28
+\bibitem[\protect\citeauthoryear{Cerrani and
+  L{\'o}pez~Lozano}{2017}]{bib_cerrani2017}
+\begin{botherref}
+\oauthor{\bsnm{Cerrani}, \binits{I.}},
+\oauthor{\bsnm{L{\'o}pez~Lozano}, \binits{R.}}:
+{MARS} crop yield forecasting system ({MCYFS}): Data collection, processing and
+  analysis.
+Technical Report JRC106129,
+European Commission, Joint Research Centre
+(2017).
+\doiurl{10.2788/88304}
+\end{botherref}
+\endbibitem
+
+%%% 29
+\bibitem[\protect\citeauthoryear{Samuelson}{1965}]{bib54}
+\begin{barticle}
+\bauthor{\bsnm{Samuelson}, \binits{P.A.}}:
+\batitle{Proof that properly anticipated prices fluctuate randomly}.
+\bjtitle{Ind. Manag. Rev.}
+\bvolume{6}(\bissue{2}),
+\bfpage{41}--\blpage{49}
+(\byear{1965})
+\end{barticle}
+\endbibitem
+
+%%% 30
+\bibitem[\protect\citeauthoryear{Duong and Kalev}{2008}]{bib55}
+\begin{barticle}
+\bauthor{\bsnm{Duong}, \binits{H.N.}},
+\bauthor{\bsnm{Kalev}, \binits{P.S.}}:
+\batitle{The {Samuelson} hypothesis in futures markets: an analysis using
+  intraday data}.
+\bjtitle{J. Bank. Finance}
+\bvolume{32}(\bissue{4}),
+\bfpage{489}--\blpage{500}
+(\byear{2008})
+\doiurl{10.1016/j.jbankfin.2007.06.011}
+\end{barticle}
+\endbibitem
+
+%%% 31
+\bibitem[\protect\citeauthoryear{Daal et~al.}{2006}]{bib56}
+\begin{barticle}
+\bauthor{\bsnm{Daal}, \binits{E.}},
+\bauthor{\bsnm{Farhat}, \binits{J.}},
+\bauthor{\bsnm{Wei}, \binits{P.P.}}:
+\batitle{Does futures exhibit maturity effect? new evidence from an extensive
+  set of us and foreign futures contracts}.
+\bjtitle{Rev. Financ. Econ.}
+\bvolume{15}(\bissue{2}),
+\bfpage{113}--\blpage{128}
+(\byear{2006})
+\doiurl{10.1016/j.rfe.2005.03.001}
+\end{barticle}
+\endbibitem
+
+%%% 32
+\bibitem[\protect\citeauthoryear{{INSEE}}{2024}]{insee_stats}
+\begin{botherref}
+\oauthor{\bsnm{{INSEE}}}:
+Statistiques locales: Base de données
+(2024).
+\url{https://www.insee.fr/}
+\end{botherref}
+\endbibitem
+
+%%% 33
+\bibitem[\protect\citeauthoryear{{Destatis}}{2024}]{destatis_stats}
+\begin{botherref}
+\oauthor{\bsnm{{Destatis}}}:
+Regionaldatenbank Deutschland
+(2024).
+\url{https://www.destatis.de/}
+\end{botherref}
+\endbibitem
+
+%%% 34
+\bibitem[\protect\citeauthoryear{{Port of Hamburg}}{2024}]{hamburg_port}
+\begin{botherref}
+\oauthor{\bsnm{{Port of Hamburg}}}:
+Facts and Figures: Port Statistics
+(2024).
+\url{https://www.hafen-hamburg.de/en/statistics/}
+\end{botherref}
+\endbibitem
+
+%%% 35
+\bibitem[\protect\citeauthoryear{{Bremenports}}{2024}]{bremenports_stats}
+\begin{botherref}
+\oauthor{\bsnm{{Bremenports}}}:
+Ports of Bremen and Bremerhaven: Facts and Figures
+(2024).
+\url{https://bremenports.de/}
+\end{botherref}
+\endbibitem
+
+%%% 36
+\bibitem[\protect\citeauthoryear{{JadeWeserPort}}{2024}]{jadeweserport_stats}
+\begin{botherref}
+\oauthor{\bsnm{{JadeWeserPort}}}:
+JadeWeserPort becomes a strategic hub for the world’s largest port in China
+(2024).
+\url{https://www.jadeweserport.de/en/presse-media/news/jadeweserport-becomes-a-strategic-hub-for-the-worlds-largest-port-in-china/}
+\end{botherref}
+\endbibitem
+
+%%% 37
+\bibitem[\protect\citeauthoryear{{Agreste}}{2024}]{agreste_stats}
+\begin{botherref}
+\oauthor{\bsnm{{Agreste}}}:
+La statistique, l'évaluation et la prospective agricole
+(2024).
+\url{https://agreste.agriculture.gouv.fr/}
+\end{botherref}
+\endbibitem
+
+\end{thebibliography}

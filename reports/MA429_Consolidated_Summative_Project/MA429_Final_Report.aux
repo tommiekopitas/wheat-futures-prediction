@@ -1,0 +1,246 @@
+\relax 
+\bibstyle{sn-mathphys-num}
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Executive Summary}{2}{section.1}\protected@file@percent }
+\newlabel{execsum}{{1}{2}{Executive Summary}{section.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Table of Contents}{3}{section.2}\protected@file@percent }
+\newlabel{contents}{{2}{3}{Table of Contents}{section.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Introduction (1 page)}{4}{section.3}\protected@file@percent }
+\newlabel{intro}{{3}{4}{Introduction (1 page)}{section.3}{}}
+\citation{bib14}
+\citation{bib15}
+\citation{bib14}
+\citation{bib20}
+\citation{bib16}
+\citation{bib17}
+\citation{bib21}
+\citation{bib18}
+\citation{bib22}
+\citation{bib23}
+\citation{bib19}
+\@writefile{toc}{\contentsline {section}{\numberline {4}(Optional) Literature Review (1 page)}{5}{section.4}\protected@file@percent }
+\newlabel{lit_review}{{4}{5}{(Optional) Literature Review (1 page)}{section.4}{}}
+\citation{bib19}
+\citation{bib17}
+\citation{bib28}
+\citation{bib16}
+\citation{bib_boogaard2022}
+\citation{bib_rodell2004}
+\citation{bib_vermote2015}
+\citation{bib_seguini}
+\citation{bib17}
+\citation{bib84}
+\citation{bib26}
+\citation{bib25}
+\citation{bib24}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Data Preparation}{6}{section.5}\protected@file@percent }
+\newlabel{sec:dataprep}{{5}{6}{Data Preparation}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Agricultural Data and Daily Harmonisation}{6}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Futures Price Data from Bloomberg}{6}{subsection.5.2}\protected@file@percent }
+\citation{bib_ronchetti2024}
+\citation{bib_mandelbrot1963}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Region filtering and excluded areas}{7}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Exploratory Data Analysis}{7}{section.6}\protected@file@percent }
+\newlabel{sec:EDA}{{6}{7}{Exploratory Data Analysis}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Futures Returns Distribution and Volatility}{7}{subsection.6.1}\protected@file@percent }
+\citation{bib85}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces (a) Distribution of 5-day forward returns for the Euronext Milling Wheat futures contract (2003-2023). The distribution is approximately symmetric with heavy tails (kurtosis = 6.17). (b) Rolling 60-day standard deviation of 5-day returns, with train/validation/test periods shaded. Volatility spikes correspond to the 2007-08 food crisis, COVID-19, and the 2022 Russia-Ukraine war.}}{8}{figure.1}\protected@file@percent }
+\newlabel{fig:return_dist}{{1}{8}{(a) Distribution of 5-day forward returns for the Euronext Milling Wheat futures contract (2003-2023). The distribution is approximately symmetric with heavy tails (kurtosis = 6.17). (b) Rolling 60-day standard deviation of 5-day returns, with train/validation/test periods shaded. Volatility spikes correspond to the 2007-08 food crisis, COVID-19, and the 2022 Russia-Ukraine war}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Agricultural Feature Behaviour}{8}{subsection.6.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces (a) 5-day forward returns of the Euronext Milling Wheat futures, returns are noisy and display no seasonal pattern. (b) France-average NDVI with 30-day smoothing. NDVI exhibits strong annual seasonality, peaking each June-July. The timescale mismatch between the two series motivates the choice of a weekly rather than daily forecast horizon.}}{8}{figure.2}\protected@file@percent }
+\newlabel{fig:ag_vs_price}{{2}{8}{(a) 5-day forward returns of the Euronext Milling Wheat futures, returns are noisy and display no seasonal pattern. (b) France-average NDVI with 30-day smoothing. NDVI exhibits strong annual seasonality, peaking each June-July. The timescale mismatch between the two series motivates the choice of a weekly rather than daily forecast horizon}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Feature Correlations}{8}{subsection.6.3}\protected@file@percent }
+\citation{bib17}
+\citation{bib_tack2015}
+\citation{bib_schlenker2009}
+\citation{bib_porter1999}
+\citation{bib_meroni2019}
+\citation{bib_mckee1993}
+\citation{bib85}
+\citation{bib19}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Yield Distribution Across Countries}{9}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Feature Engineering and Prediction Design}{9}{section.7}\protected@file@percent }
+\newlabel{sec:feature_eng}{{7}{9}{Feature Engineering and Prediction Design}{section.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Engineered Features for the Futures Task}{9}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Target Construction and Temporal Alignment}{9}{subsection.7.2}\protected@file@percent }
+\citation{bib16}
+\citation{bib_cerrani2017}
+\citation{bib17}
+\citation{bib16}
+\citation{bib17}
+\citation{bib84}
+\citation{bib25}
+\citation{bib24}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Crop Yield Forecasting Pipeline}{10}{subsection.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Data Preparation}{10}{section.8}\protected@file@percent }
+\newlabel{sec:preprocessing}{{8}{10}{Data Preparation}{section.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Data Preparation for Wheat Futures Return Prediction}{10}{subsection.8.1}\protected@file@percent }
+\newlabel{subsec:futures_prep}{{8.1}{10}{Data Preparation for Wheat Futures Return Prediction}{subsection.8.1}{}}
+\citation{bib85}
+\citation{bib54}
+\citation{bib55}
+\citation{bib56}
+\citation{bib19}
+\citation{bib17}
+\citation{bib17}
+\citation{bib_meroni2019}
+\citation{bib_cerrani2017}
+\citation{bib_kapoor2023}
+\citation{bib16}
+\citation{bib_cerrani2017}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.1}Target variable: 5-day forward returns.}{11}{subsubsection.8.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.2}Features - Argricultural data.}{11}{subsubsection.8.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.3}Temporal alignment between agricultural and price data.}{11}{subsubsection.8.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.4}Production weights and look-ahead avoidance.}{11}{subsubsection.8.1.4}\protected@file@percent }
+\citation{bib16}
+\citation{bib17}
+\citation{bib_schlenker2009}
+\citation{bib_meroni2019}
+\citation{bib_mckee1993}
+\citation{bib_fisher1921}
+\citation{bib_hastie2009}
+\citation{bib_fisher1921}
+\citation{bib_goodfellow2016}
+\citation{bib17}
+\citation{bib_ronchetti2024}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.5}Feature engineering.}{12}{subsubsection.8.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Rolling aggregates.}{12}{section*.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Threshold-based stress indicators.}{12}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Vegetation anomalies.}{12}{section*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Drought index.}{12}{section*.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Weekend weather accumulator.}{12}{section*.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.6}Correlation-based feature filtering.}{12}{subsubsection.8.1.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.1.7}Minimal price features.}{12}{subsubsection.8.1.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Data Preparation for Crop Yield Forecasting}{12}{subsection.8.2}\protected@file@percent }
+\newlabel{subsec:yield_prep}{{8.2}{12}{Data Preparation for Crop Yield Forecasting}{subsection.8.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.1}Temporal scope and region filtering.}{12}{subsubsection.8.2.1}\protected@file@percent }
+\citation{bib17}
+\citation{bib16}
+\citation{bib17}
+\citation{bib19}
+\citation{bib_fama1970}
+\citation{bib_goodfellow2016}
+\citation{bib16}
+\citation{bib_chipanshi2015}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {8.2.2}Monthly feature aggregation with lead-time truncation.}{13}{subsubsection.8.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Prediction Tasks}{13}{section.9}\protected@file@percent }
+\newlabel{sec:prediction_task}{{9}{13}{Prediction Tasks}{section.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}Primary Task: Wheat Futures Return Prediction}{13}{subsection.9.1}\protected@file@percent }
+\newlabel{subsec:futures_task}{{9.1}{13}{Primary Task: Wheat Futures Return Prediction}{subsection.9.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.1}Target variable: 5-day forward returns.}{13}{subsubsection.9.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.2}Per-region models with production-weighted aggregation.}{13}{subsubsection.9.1.2}\protected@file@percent }
+\citation{bib_kapoor2023}
+\citation{bib16}
+\citation{bib_goodfellow2016}
+\citation{bib_bergstra2012}
+\citation{bib_hastie2009}
+\citation{bib_hastie2009}
+\citation{bib16}
+\citation{bib17}
+\citation{bib17}
+\citation{bib16}
+\citation{bib16}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.3}Walk-forward evaluation with temporal partitioning.}{14}{subsubsection.9.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.4}Hyperparameter tuning.}{14}{subsubsection.9.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.5}Models evaluated.}{14}{subsubsection.9.1.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}Secondary Task: Crop Yield Forecasting}{14}{subsection.9.2}\protected@file@percent }
+\newlabel{subsec:yield_task}{{9.2}{14}{Secondary Task: Crop Yield Forecasting}{subsection.9.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.2.1}Motivation for a dual-task design.}{14}{subsubsection.9.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.2.2}Target and lead times.}{14}{subsubsection.9.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.2.3}Walk-forward evaluation.}{14}{subsubsection.9.2.3}\protected@file@percent }
+\citation{bib17}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.2.4}Per-country tuning.}{15}{subsubsection.9.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.2.5}Metrics.}{15}{subsubsection.9.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Method 1 (2 pages)}{16}{section.10}\protected@file@percent }
+\newlabel{ridge_lasso}{{10}{16}{Method 1 (2 pages)}{section.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {11}Method 2 (2 pages)}{17}{section.11}\protected@file@percent }
+\newlabel{rf_et}{{11}{17}{Method 2 (2 pages)}{section.11}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {12}Method 3 (2 pages)}{18}{section.12}\protected@file@percent }
+\newlabel{neuralnets}{{12}{18}{Method 3 (2 pages)}{section.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {13}Model Result Comparison (1 page)}{19}{section.13}\protected@file@percent }
+\newlabel{result_comparison}{{13}{19}{Model Result Comparison (1 page)}{section.13}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {14}Conclusion (1 page)}{20}{section.14}\protected@file@percent }
+\newlabel{conclusion}{{14}{20}{Conclusion (1 page)}{section.14}{}}
+\bibdata{sn-bibliography}
+\bibcite{bib14}{{1}{2020}{{van Klompenburg et~al.}}{{}}}
+\bibcite{bib15}{{2}{2023}{{Oikonomidis et~al.}}{{}}}
+\bibcite{bib20}{{3}{2022}{{Muruganantham et~al.}}{{}}}
+\bibcite{bib16}{{4}{2021}{{Paudel et~al.}}{{}}}
+\bibcite{bib17}{{5}{2025}{{Paudel et~al.}}{{}}}
+\bibcite{bib21}{{6}{2025}{{Theofilou et~al.}}{{}}}
+\bibcite{bib18}{{7}{2024}{{Li}}{{}}}
+\bibcite{bib22}{{8}{2024}{{Zhang and Tang}}{{}}}
+\bibcite{bib23}{{9}{2024}{{Brignoli et~al.}}{{}}}
+\bibcite{bib19}{{10}{2024}{{Thaker et~al.}}{{}}}
+\bibcite{bib28}{{11}{2026}{{{Eurostat}}}{{}}}
+\bibcite{bib_boogaard2022}{{12}{2022}{{Boogaard et~al.}}{{}}}
+\bibcite{bib_rodell2004}{{13}{2004}{{Rodell et~al.}}{{}}}
+\bibcite{bib_vermote2015}{{14}{2015}{{Vermote}}{{}}}
+\bibcite{bib_seguini}{{15}{In preparation}{{Seguini et~al.}}{{}}}
+\bibcite{bib84}{{16}{2007}{{Ripple and Moosa}}{{}}}
+\bibcite{bib26}{{17}{2024}{{Ding and Lim}}{{}}}
+\bibcite{bib25}{{18}{2009}{{Carchano and Pardo}}{{}}}
+\bibcite{bib24}{{19}{2018}{{L{\'o}pez~de Prado}}{{}}}
+\bibcite{bib_ronchetti2024}{{20}{2024}{{Ronchetti et~al.}}{{}}}
+\bibcite{bib_mandelbrot1963}{{21}{1963}{{Mandelbrot}}{{}}}
+\bibcite{bib85}{{22}{2011}{{Deuskar and Johnson}}{{}}}
+\bibcite{bib_tack2015}{{23}{2015}{{Tack et~al.}}{{}}}
+\bibcite{bib_schlenker2009}{{24}{2009}{{Schlenker and Roberts}}{{}}}
+\bibcite{bib_porter1999}{{25}{1999}{{Porter and Gawith}}{{}}}
+\bibcite{bib_meroni2019}{{26}{2019}{{Meroni et~al.}}{{}}}
+\bibcite{bib_mckee1993}{{27}{1993}{{McKee et~al.}}{{}}}
+\bibcite{bib_cerrani2017}{{28}{2017}{{Cerrani and L{\'o}pez~Lozano}}{{}}}
+\bibcite{bib54}{{29}{1965}{{Samuelson}}{{}}}
+\bibcite{bib55}{{30}{2008}{{Duong and Kalev}}{{}}}
+\bibcite{bib56}{{31}{2006}{{Daal et~al.}}{{}}}
+\bibcite{insee_stats}{{32}{2024}{{{INSEE}}}{{}}}
+\bibcite{destatis_stats}{{33}{2024}{{{Destatis}}}{{}}}
+\bibcite{hamburg_port}{{34}{2024}{{{Port of Hamburg}}}{{}}}
+\bibcite{bremenports_stats}{{35}{2024}{{{Bremenports}}}{{}}}
+\bibcite{jadeweserport_stats}{{36}{2024}{{{JadeWeserPort}}}{{}}}
+\bibcite{agreste_stats}{{37}{2024}{{{Agreste}}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {15}Generative AI Statement}{23}{section.15}\protected@file@percent }
+\citation{insee_stats}
+\citation{insee_stats}
+\citation{destatis_stats}
+\citation{hamburg_port}
+\citation{destatis_stats}
+\citation{bremenports_stats}
+\citation{jadeweserport_stats}
+\citation{agreste_stats}
+\citation{agreste_stats}
+\citation{agreste_stats}
+\citation{agreste_stats}
+\citation{agreste_stats}
+\citation{bib54}
+\citation{bib55}
+\citation{bib56}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Excluded Regions for the Wheat Futures Prediction Task}{24}{appendix.a.A}\protected@file@percent }
+\newlabel{A1}{{A}{24}{Excluded Regions for the Wheat Futures Prediction Task}{appendix.a.A}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {A1}{\ignorespaces Classification of Select NUTS Regions by Primary Geographic and Economic Function}}{24}{table.1}\protected@file@percent }
+\newlabel{tab:region_classification}{{A1}{24}{Classification of Select NUTS Regions by Primary Geographic and Economic Function}{table.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Supplementary EDA Figures}{24}{appendix.a.B}\protected@file@percent }
+\newlabel{app:eda}{{B}{24}{Supplementary EDA Figures}{appendix.a.B}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B1}{\ignorespaces France-average 30-day cumulative precipitation (2003-2023). Precipitation fluctuates on a seasonal cycle with substantial inter-annual variability but, unlike NDVI, lacks a consistent repeating pattern, reflecting the stochastic nature of rainfall events.}}{24}{figure.1}\protected@file@percent }
+\newlabel{fig:precipitation}{{B1}{24}{France-average 30-day cumulative precipitation (2003-2023). Precipitation fluctuates on a seasonal cycle with substantial inter-annual variability but, unlike NDVI, lacks a consistent repeating pattern, reflecting the stochastic nature of rainfall events}{figure.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Target Construction}{24}{appendix.a.C}\protected@file@percent }
+\newlabel{app:target_construction}{{C}{24}{Target Construction}{appendix.a.C}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B2}{\ignorespaces Empirical 5-day return distribution compared with fitted Normal and Student-t densities. The fitted Student-t has 3.6 degrees of freedom, confirming substantially heavier tails than the Gaussian benchmark.}}{25}{figure.2}\protected@file@percent }
+\newlabel{fig:return_vs_t}{{B2}{25}{Empirical 5-day return distribution compared with fitted Normal and Student-t densities. The fitted Student-t has 3.6 degrees of freedom, confirming substantially heavier tails than the Gaussian benchmark}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B3}{\ignorespaces France-average NDVI (top) and fPAR (bottom), 2003-2023. Both indicators track each other closely ($r = 0.93$ on 30-day smoothed series) but diverge during cloud-contaminated periods due to different gap-filling methods, justifying retaining both in the feature set.}}{25}{figure.3}\protected@file@percent }
+\newlabel{fig:ndvi_fpar}{{B3}{25}{France-average NDVI (top) and fPAR (bottom), 2003-2023. Both indicators track each other closely ($r = 0.93$ on 30-day smoothed series) but diverge during cloud-contaminated periods due to different gap-filling methods, justifying retaining both in the feature set}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B4}{\ignorespaces France-average surface soil moisture (blue, left axis) and root-zone soil moisture (red, right axis), 2003-2023. Surface moisture responds rapidly to individual precipitation events while root-zone moisture evolves more slowly, capturing different timescales of water availability despite near-perfect correlation ($r = 0.99$) in smoothed trends.}}{26}{figure.4}\protected@file@percent }
+\newlabel{fig:soil_moisture}{{B4}{26}{France-average surface soil moisture (blue, left axis) and root-zone soil moisture (red, right axis), 2003-2023. Surface moisture responds rapidly to individual precipitation events while root-zone moisture evolves more slowly, capturing different timescales of water availability despite near-perfect correlation ($r = 0.99$) in smoothed trends}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B5}{\ignorespaces Germany-average daily temperature range with stress thresholds (top) and annual growing-season (Mar-Aug) stress day counts (bottom). The 2018 European drought produced 2.5$\times $ the average number of hot stress days (Tmax $> 30$\textdegree C), motivating the threshold-based stress indicators in Section~\ref {sec:feature_eng}.}}{26}{figure.5}\protected@file@percent }
+\newlabel{fig:temp_stress_de}{{B5}{26}{Germany-average daily temperature range with stress thresholds (top) and annual growing-season (Mar-Aug) stress day counts (bottom). The 2018 European drought produced 2.5$\times $ the average number of hot stress days (Tmax $> 30$\textdegree C), motivating the threshold-based stress indicators in Section~\ref {sec:feature_eng}}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B6}{\ignorespaces France-average daily temperature range with stress thresholds (top) and annual growing-season stress day counts (bottom). France shows higher baseline hot-day frequency than Germany, with 2003 and 2022 as the most extreme heat years.}}{27}{figure.6}\protected@file@percent }
+\newlabel{fig:temp_stress_fr}{{B6}{27}{France-average daily temperature range with stress thresholds (top) and annual growing-season stress day counts (bottom). France shows higher baseline hot-day frequency than Germany, with 2003 and 2022 as the most extreme heat years}{figure.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B7}{\ignorespaces Poland-average daily temperature range with stress thresholds (top) and annual growing-season stress day counts (bottom). Poland exhibits substantially more cold stress days than France or Germany, reflecting its continental climate, while hot stress events are comparatively rare.}}{27}{figure.7}\protected@file@percent }
+\newlabel{fig:temp_stress_pl}{{B7}{27}{Poland-average daily temperature range with stress thresholds (top) and annual growing-season stress day counts (bottom). Poland exhibits substantially more cold stress days than France or Germany, reflecting its continental climate, while hot stress events are comparatively rare}{figure.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B8}{\ignorespaces Fisher z-averaged correlation matrix of the 12 raw CY-Bench variables across 507 regions. Nine feature pairs exceed $|\rho | = 0.85$, concentrated among temperature-derived variables. This motivates the correlation-based filtering applied before modelling.}}{28}{figure.8}\protected@file@percent }
+\newlabel{fig:corr_heatmap}{{B8}{28}{Fisher z-averaged correlation matrix of the 12 raw CY-Bench variables across 507 regions. Nine feature pairs exceed $|\rho | = 0.85$, concentrated among temperature-derived variables. This motivates the correlation-based filtering applied before modelling}{figure.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B9}{\ignorespaces (a) Wheat yield distributions by country (2003-2020). Germany has the highest average yield (7.35 t/ha) and the widest spread across its 251 NUTS3 regions. (b) Average wheat yield over time by country. The 2018 European drought is visible as a synchronised dip, with Germany experiencing the largest decline ($-7.3\%$ relative to other years).}}{28}{figure.9}\protected@file@percent }
+\newlabel{fig:yield_dist}{{B9}{28}{(a) Wheat yield distributions by country (2003-2020). Germany has the highest average yield (7.35 t/ha) and the widest spread across its 251 NUTS3 regions. (b) Average wheat yield over time by country. The 2018 European drought is visible as a synchronised dip, with Germany experiencing the largest decline ($-7.3\%$ relative to other years)}{figure.9}{}}
+\gdef \@abspage@last{28}

@@ -1,0 +1,79 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: MA429_Final_Report.aux
+Reallocating 'name_of_file' (item size: 1) to 16 items.
+The style file: sn-mathphys-num.bst
+Reallocating 'name_of_file' (item size: 1) to 16 items.
+Reallocating 'glb_str_end' (item size: 4) to 20 items.
+Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
+Reallocating 'global_strs' (item size: 1) to 4000000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Database file #1: sn-bibliography.bib
+Warning--I didn't find a database entry for "bib_kapoor2023"
+Warning--I didn't find a database entry for "bib_fisher1921"
+Warning--I didn't find a database entry for "bib_hastie2009"
+Warning--I didn't find a database entry for "bib_goodfellow2016"
+Warning--I didn't find a database entry for "bib_fama1970"
+Warning--I didn't find a database entry for "bib_chipanshi2015"
+Warning--I didn't find a database entry for "bib_bergstra2012"
+sn-mathphys-num.bst [2024/07/19 v1.1  bibliography style]
+Reallocating 'wiz_functions' (item size: 4) to 9000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+You've used 37 entries,
+            7485 wiz_defined-function locations,
+            1437 strings with 16909 characters,
+and the built_in function-call counts, 242972 in all, are:
+= -- 40359
+> -- 1168
+< -- 515
++ -- 20703
+- -- 364
+* -- 9060
+:= -- 44238
+add.period$ -- 42
+call.type$ -- 37
+change.case$ -- 223
+chr.to.int$ -- 1336
+cite$ -- 37
+duplicate$ -- 1561
+empty$ -- 7057
+format.name$ -- 856
+if$ -- 60830
+int.to.chr$ -- 1
+int.to.str$ -- 60
+missing$ -- 0
+newline$ -- 561
+num.names$ -- 185
+pop$ -- 768
+preamble$ -- 1
+purify$ -- 169
+quote$ -- 0
+skip$ -- 23608
+stack$ -- 0
+substring$ -- 24659
+swap$ -- 840
+text.length$ -- 457
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 1456
+warning$ -- 0
+while$ -- 1037
+width$ -- 0
+write$ -- 783
+(There were 7 warnings)
