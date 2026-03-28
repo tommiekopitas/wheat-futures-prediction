@@ -1,0 +1,244 @@
+%Version 3.1 December 2024
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%=========================================================================================%%
+%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
+%%=========================================================================================%%
+
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-chicago.bst%  
+ 
+%%\documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+\documentclass[pdflatex,sn-mathphys-num, oneside]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+%%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+\usepackage{geometry}
+\geometry{
+  reset,          
+  a4paper,
+  textwidth=190mm,% Forces the text width (A4 is 210mm wide - 10L - 10R = 190mm)
+  textheight=267mm, % Forces the text height (A4 is 297mm tall - 15T - 15B = 267mm)
+  left=10mm,
+  right=10mm,
+  top=15mm,
+  bottom=15mm
+}
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+% --- NEW SPACE-SAVING COMMANDS ---
+\usepackage{microtype}      % 1. Optimizes horizontal text packing (Saves ~5% space)
+\linespread{0.96}           % 2. Reduces vertical space between lines (Saves ~5% space)
+\usepackage{newtxtext}      % 3. Ensures you are using the most modern, compact Times font
+\usepackage{newtxmath}
+% ---------------------------------
+
+\begin{document}
+
+\title[Article Title]{Are meteorological, agricultural, and satellite features from the CY-Bench Dataset good predictors of European Wheat Futures Price Changes?}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author{\fnm{68729}}
+\author{\fnm{candidate number}}
+\author{\fnm{candidate number}}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
+\clearpage
+
+\section{Executive Summary}\label{sec1}
+
+\clearpage
+
+\section{Table of Contents}\label{sec2}
+
+\clearpage
+
+\section{Introduction (1 page)}\label{sec3}
+
+\clearpage
+
+\section{(Optional) Literature Review (1 page)}\label{sec3}
+
+\clearpage
+
+\section{Data Pre-processing (2 pages)}\label{sec3}
+
+\clearpage
+
+\section{Redefining the Prediction Task (1 page)}\label{sec3}
+
+\clearpage
+
+\section{Feature Engineering and Selection (2 pages)}\label{sec3}
+
+\clearpage
+
+\section{Method 1 (2 pages)}\label{sec3}
+Ridge regression is the first method used to forecast our Futures Price prediction task. Given our dataset has 76 agricultural features across 515 regions, Ridge Regression is well-suited for a task like this where there is a high-dimensional tabular feature space where many predictors may carry weak, correlated signals. The L2 penalty shrinks correlated coefficients toward each other rather than zeroing them out, preserving the contribution of related agricultural indicators such as normalized difference vegetation index (NDVI), a satellite-based remote sensing method, and soil moisture that can jointly capture crop stress conditions. From a methodological perspective, Ridge is computationally trivial relative to ensemble methods, making it practical to fit independently for all 515 regions across every walk-forward training window without approximation or subsampling. It also serves an important role as a baseline since it is the simplest model in the pipeline. A strong Ridge result would suggest that the return signal is largely linear and that model complexity is unnecessary, while a poor result confirms the need for more computationally expensive architectures. Lastly, in our literature review we found regression models to be among some of the most used and tested models, so we kept with this trend to compare performance between our study and the many documented papers we looked at. 
+
+The sole hyperparameter is the regularisation strength $\alpha$, which controls the trade-off between fit and coefficient shrinkage. We sample $\alpha$ from a log-uniform distribution over a range of [0.01,100]. The log-uniform distribution is appropriate here because the effect of regularisation on model performance is multiplicative rather than additive, meaning that doubling $\alpha$ from 0.1 to 0.2 has a similar effect to doubling it from 10 to 20, ensuring that we spend equal time looking at different orders of magnitude and not focusing too much on higher $\alpha$ while neglecting the lower bound. The lower bound of 0.01 corresponds to Ordinary Least Squares behaviour, where regularisation is minimal, and the upper bound of 100 enforces strong shrinkage appropriate for a noisy financial target. Twenty random draws are evaluated over the validation period from 2017 to 2019, with directional accuracy used as the selection criterion rather than R\textsuperscript{2}, since the practical objective is to correctly predict the sign of the 5-day return rather than its magnitude. This is an important distinction since by using the directional accuracy we can more accurately predict if the model is predicting trends and patterns rather than trying to predict precise market movements that could result in poor R\textsuperscript{2} results, regardless if the direction was correct.
+
+The optimal configuration is $\alpha$=63.51, a strongly regularised setting in the upper quarter of the search range. This is consistent with what is reasonable when doing a financial return prediction. With a noisy target and many weakly informative features, the model benefits from aggressive shrinkage to avoid fitting inconsequential in-sample correlations. The validation directional accuracy at this configuration is 49.93\% with a validation R\textsuperscript{2} of −0.047 and a RMSE of 0.020.
+
+The model is fit using a walk-forward expanding window scheme. In each test year from of 2020 to 2023, Ridge is trained independently for each of the 515 regions using all available daily observations prior to that year. Features are standardised using a Standard Scaler fitted on the training data only. Region-level predictions are then aggregated to a single daily signal via production-weighted averaging, where each region's weight reflects its lagged wheat production share.
+
+On the test set from 2020 to 2023, Ridge achieves an R\textsuperscript{2} of −0.0212, directional accuracy of 46.97\%, and RMSE of 0.0409. The directional accuracy falls below the validation period result of 49.93\%, and the RMSE nearly doubles from 0.020 to 0.041. The RMSE increase is not indicative of model degradation but rather it reflects the substantially larger absolute returns during the test period, which encompasses both the COVID-19 supply chain disruptions and the 2022 Russia-Ukraine conflict during which wheat prices surged to their highest levels since 2008. The negative R\textsuperscript{2} confirms that Ridge does not outperform the unconditional mean, showing that Ridge Regression is no better than just predicting the mean return on every day for the wheat futures price prediction task, consistent with what would be expected under semi-strong market efficiency.
+
+Yield Prediction Task
+For the yield task, Ridge is tuned separately per country using the validation period of years from 2013 to2015, with $\alpha$ again sampled log-uniformly over [0.01,100] and region NRMSE used as the scoring criteria. The optimal alpha values differ substantially across countries where $\alpha$=75.79 for both Germany and Poland, and $\alpha$ =21.37 for France. The higher regularisation requirement for Germany is consistent with it having the largest number of regions at 251, where the feature matrix becomes widest relative to training observations, requiring stronger shrinkage to prevent overfitting. France's lower optimal $\alpha$ suggests its 90 regions provide a better estimation problem where the model can usefully retain more feature variation.
+
+The model is fit annually in a walk-forward scheme over test years 2016 to 2020, training on all prior region-years and predicting regional yield, with predictions aggregated to national level using production weights.
+
+At end-of-season, performance varies considerably by country. For Germany, Ridge achieves a region R\textsuperscript{2} of −0.50 and region NRMSE of 18.76\%, with EU NRMSE of 13.39\%. These results show Ridge is the worst performing model for Germany, suggesting that even with tuning, the L2 penalty is insufficient to handle the high dimensionality of the end-of-season feature set with 351 features relative to available training observations per region. France shows significantly better regional fit with R\textsuperscript{2} = +0.31, NRMSE = 21.77\% though national NRMSE remains relatively high at 17.62\% compared to Paudel et al.\cite{bib16} of ~6-8\%. We can speculate that this is attributable to their use of WOFOST crop simulation outputs encoding agronomic knowledge that our raw climate and remote sensing features cannot replicate. Poland is a notable outlier, with Ridge achieving the best end-of-season performance of any model in any country. Ridge achieved an  R\textsuperscript{2} of +0.57 with the region NRMSE of 12.61\% and EU NRMSE of just 4.08\%. It should be noted however that Poland has only 16 regions and there is no comparable results from Paudel et al.\cite{bib16}, making the estimates sensitive to individual region behaviour and carrying higher variance than the German and French results. 
+
+At mid-season, Ridge's performance degrades for Germany with the region NRMSE rising to 17.13\% and France to 25.46\%, while Poland degrades even more substantially to 18.90\%. At quarter-season, performance is broadly similar to mid-season, with Germany at 17.24\%, France at 21.78\%, and Poland at 18.06\%. The pattern of relatively modest degradation from end-of-season to earlier lead times for Germany and France is consistent with the finding of Paudel et al.\cite{bib16} that early season predictions are only moderately worse than end-of-season, suggesting that structural yield drivers such as soil characteristics and long-term climate patterns dominate over late-season weather signals consistent with Paudel et al.\cite{bib16}.
+
+Overall, Ridge establishes the linear baseline for our primary task of wheat futures price prediction and the secondary task of wheat yield prediction. It performs adequately for simple geographies with few regions and strong structural features, but insufficient for Germany's high-dimensional regional structure where non-linear interactions between features are likely important. This motivates the examination of Lasso regression next, which replaces L2 shrinkage with L1 sparsity to assess whether a small subset of features dominates the predictive signal and whether automatic feature selection improves on Ridge's dense coefficient solution.
+\clearpage
+
+\section{Method 2 (2 pages)}\label{sec3}
+
+\clearpage
+
+\section{Method 3 (2 pages)}\label{sec3}
+
+\clearpage
+
+\section{Method 4 (2 pages)}\label{sec3}
+
+\clearpage
+
+\section{Model Result Comparison (1 page)}\label{sec3}
+
+\clearpage
+
+\section{Conclusion (1 page)}\label{sec3}
+
+\clearpage
+
+\bibliography{sn-bibliography}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+\clearpage
+
+\section{Generative AI Statement}
+
+\clearpage
+
+\begin{appendices}
+
+\section{Section title of first appendix}\label{secA1}
+
+An appendix contains supplementary information that is not an essential part of the text itself but which may be helpful in providing a more comprehensive understanding of the research problem or it is information that is too cumbersome to be included in the body of the paper.
+
+%%=============================================%%
+%% For submissions to Nature Portfolio Journals %%
+%% please use the heading ``Extended Data''.   %%
+%%=============================================%%
+
+%%=============================================================%%
+%% Sample for another appendix section			       %%
+%%=============================================================%%
+
+%% \section{Example of another appendix section}\label{secA2}%
+%% Appendices may be used for helpful, supporting or essential material that would otherwise 
+%% clutter, break up or be distracting to the text. Appendices can consist of sections, figures, 
+%% tables and equations etc.
+
+\end{appendices}
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+
+\end{document}
