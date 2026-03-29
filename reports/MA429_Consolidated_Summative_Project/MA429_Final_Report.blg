@@ -22,58 +22,50 @@ Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: sn-bibliography.bib
-Warning--I didn't find a database entry for "bib_kapoor2023"
-Warning--I didn't find a database entry for "bib_fisher1921"
-Warning--I didn't find a database entry for "bib_hastie2009"
-Warning--I didn't find a database entry for "bib_goodfellow2016"
-Warning--I didn't find a database entry for "bib_fama1970"
-Warning--I didn't find a database entry for "bib_chipanshi2015"
-Warning--I didn't find a database entry for "bib_bergstra2012"
 sn-mathphys-num.bst [2024/07/19 v1.1  bibliography style]
 Reallocating 'wiz_functions' (item size: 4) to 9000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
-You've used 37 entries,
+You've used 42 entries,
             7485 wiz_defined-function locations,
-            1437 strings with 16909 characters,
-and the built_in function-call counts, 242972 in all, are:
-= -- 40359
-> -- 1168
-< -- 515
-+ -- 20703
-- -- 364
-* -- 9060
-:= -- 44238
-add.period$ -- 42
-call.type$ -- 37
-change.case$ -- 223
-chr.to.int$ -- 1336
-cite$ -- 37
-duplicate$ -- 1561
-empty$ -- 7057
-format.name$ -- 856
-if$ -- 60830
+            1467 strings with 17466 characters,
+and the built_in function-call counts, 294129 in all, are:
+= -- 49600
+> -- 1339
+< -- 608
++ -- 26191
+- -- 414
+* -- 10349
+:= -- 53243
+add.period$ -- 47
+call.type$ -- 42
+change.case$ -- 259
+chr.to.int$ -- 1581
+cite$ -- 42
+duplicate$ -- 1791
+empty$ -- 7872
+format.name$ -- 948
+if$ -- 74078
 int.to.chr$ -- 1
-int.to.str$ -- 60
+int.to.str$ -- 71
 missing$ -- 0
-newline$ -- 561
-num.names$ -- 185
-pop$ -- 768
+newline$ -- 631
+num.names$ -- 210
+pop$ -- 863
 preamble$ -- 1
-purify$ -- 169
+purify$ -- 195
 quote$ -- 0
-skip$ -- 23608
+skip$ -- 29305
 stack$ -- 0
-substring$ -- 24659
-swap$ -- 840
-text.length$ -- 457
+substring$ -- 29179
+swap$ -- 980
+text.length$ -- 533
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 1456
+type$ -- 1681
 warning$ -- 0
-while$ -- 1037
+while$ -- 1191
 width$ -- 0
-write$ -- 783
-(There were 7 warnings)
+write$ -- 883

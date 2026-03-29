@@ -106,7 +106,7 @@
 \linespread{0.96}           % 2. Reduces vertical space between lines (Saves ~5% space)
 \usepackage{newtxtext}      % 3. Ensures you are using the most modern, compact Times font
 \usepackage{newtxmath}
-% ---------
+% -----
 
 \begin{document}
 
@@ -249,7 +249,7 @@ As briefly mentioned in Section~\ref{sec:dataprep}, our target is not the raw da
 \end{equation}
 where $P_t$ is the roll-adjusted closing price on day $t$. Since the ratio roll-adjustment preserves percentage returns across contract rolls, $y_t$ equals the compounded return a roll-following investor would experience over that window regardless of whether a roll occurred. We choose a 5-day horizon rather than a daily one because the EDA in Section~\ref{sec:EDA} showed that agricultural features evolve on weekly-to-monthly timescales while daily returns may be dominated by order-flow dynamics and other noise. Indeed, Deuskar and Johnson~\cite{bib85} found that flow-driven returns account for 40 to 70\% of market variance. This choice is also similar to Thaker et~al.~\cite{bib19}, who use a 20-trading-day horizon for their CNN-based wheat futures model. We include additional details on target construction in \autoref{app:target_construction}.\\
 
-As a next step, to merge the regional agricultural features with the futures price data, we use a backward temporal join: for each trading day, each region is matched to its most recent agricultural observation on or before that date. Since both datasets are fully available for the February 2003 to December 2023 period defined in Section~\ref{sec:dataprep}, this merge introduces no missing values. All features are standardised to zero mean and unit variance before model fitting.\\
+A central challenge is that the agricultural data are available at regional (sub-national) level on a daily or sub-daily calendar, while futures prices exist only on trading days and represent a single EU-wide market. Thus, as a next step, we merge the regional agricultural features with the futures price data, by using a backward temporal join i.e. for each trading day, each region is matched to its most recent agricultural observation on or before that date. Since both datasets are fully available for the February 2003 to December 2023 period defined in Section~\ref{sec:dataprep}, this merge introduces no missing values. All features are standardised to zero mean and unit variance before model fitting.\\
 
 Since we have data for 507 regions, we choose to fit one model per region and then aggregate the predictions to EU-level. This aggregation follows Paudel et~al.~\cite{bib16}, who showed that regional models outperform nationally aggregated ones (in their yield task). This entails that once a separate model is fitted to each region, we aggregate the 507 per-region predictions into a single EU-level forecast by using production-weighted averaging:
 \begin{equation}
@@ -259,165 +259,72 @@ where $w_{r,t} = \text{yield}_{r,t-1} \times \text{area}_{r,t-1}$ uses the previ
 
 \subsection{Crop Yield Forecasting Pipeline}
 
-While the primary contribution of this study is to test whether CY-Bench features predict futures returns, we also implement the task these features were designed for: sub-national wheat yield forecasting. This dual-task design serves as a positive control. If the agricultural features fail to predict both returns and yields, the negative futures result could reflect poor feature quality. If they predict yields well but not returns, the more interesting interpretation is that futures markets have already incorporated the agricultural information.\\
+While the primary aim of this study is to test whether CY-Bench features predict futures returns, we also implement the task these features were designed for: sub-national wheat yield forecasting. We conduct this dual-task in view of evaluating how informative the features are in a purely agricultural task. This enables us to verify that the data contains useful information for yield prediction while testing if it also contains useful information for futures price prediction.\\
 
-The yield pipeline aggregates daily CY-Bench time series into monthly summary features within each region's growing season, defined by the crop calendar start-of-season (SOS) and end-of-season (EOS) dates from CY-Bench. For each region-year pair, we compute monthly means for all meteorological, soil moisture, and vegetation variables over the available months, so that each observation is a single row with columns such as \texttt{ndvi\_mean\_oct}, \texttt{tmax\_mean\_mar}, etc. This preserves the temporal structure of the growing season while reducing dimensionality. Following CY-Bench's lead-time framework~\cite{bib17}, we build three separate datasets by truncating the available data at different points before harvest: end-of-season (all growing-season data available), mid-season (data truncated at $(SOS + EOS)/2$), and quarter-season (data truncated at $SOS + (EOS - SOS)/4$). These represent real-world forecasting scenarios where earlier predictions are more valuable but less accurate. We note that our monthly calendar-based aggregation differs from Paudel et~al.~\cite{bib16}, who aggregate by crop development phases using the WOFOST crop simulation model. Our approach is simpler and does not require crop model outputs, which CY-Bench does not provide.\\
+Our yield pipeline aggregates daily CY-Bench time series into monthly summary features within each region's growing season, the are taken from the CY-Bench static crop calendars which have start-of-season (SOS) and end-of-season (EOS) dates for each region. For each region-year pair, we compute monthly means for all meteorological, soil moisture, and vegetation variables over the available months, so that each observation is a single row with columns such as the mean ndvi in october and mean fpar in december. This preserves the temporal structure of the growing season while reducing dimensionality. Following CY-Bench's lead-time framework~\cite{bib17}, we build three separate datasets by truncating the available data at different points before harvest: end-of-season (all growing-season data available), mid-season (data truncated at $(SOS + EOS)/2$), and quarter-season (data truncated at $SOS + (EOS - SOS)/4$). These represent real-world forecasting scenarios where earlier predictions are more valuable but less accurate. We note that our monthly calendar-based aggregation differs from Paudel et~al.~\cite{bib16} who aggregate by crop development phases using the a crop simulation model. Our approach is simpler but we believe it may provide additional granularity compared to the CY-Bench methodology given that we data for each month.\\
 
-The target variable is the official reported wheat yield in tonnes per hectare. We adopt a temporal split appropriate for the 2003--2020 data window: training on 2003--2014, validation on 2015--2017 (hyperparameter tuning only), and test on 2018--2020. The test period includes the 2018 European drought, providing a challenging evaluation. Following the cross-country differences in yield level and variability observed in Section~\ref{sec:EDA}, we tune hyperparameters separately for each country rather than using a single EU-wide configuration. We report normalised RMSE and $R^2$ at both per-region and production-weighted national levels, following CY-Bench~\cite{bib17}.
-
-\section{Data Preparation}\label{sec:preprocessing}
-
-This next section describes how we prepared two distinct datasets from the same underlying CY-Bench source: a daily-frequency panel for the wheat futures return prediction task (Section~\ref{subsec:futures_prep}), and an annual cross-section for the crop yield forecasting task (Section~\ref{subsec:yield_prep}). Although the data pre-processing of both tasks share the same raw CY-Bench sub-national dataset for France, Germany and Poland, they differ substantially in temporal granularity, target construction, and feature aggregation. We start by describing the futures prediction task pipeline first, as it constitutes the primary contribution of this study, and we also present the yield pipeline as our secondary task.
-
-\subsection{Data Preparation for Wheat Futures Return Prediction}\label{subsec:futures_prep}
-
-Firstly, our target variable data for the futures price prediction task is the Euronext Milling Wheat roll-adjusted daily closing prices obtained from Bloomberg for the period 01-01-2003 to 31-12-2023, yielding 5,389 trading days. More precisely, we define the raw target data as the closing price of the earliest maturing Euronext Milling Wheat Futures Contract given that near-term futures contracts are usually most liquid as per Ripple and Moosa ~\cite{bib84}. We use Bloomberg's ratio roll-adjustment to the time series 10 days before each contract expiry, this means that historical prices are multiplied by $P_{new \ contract} / P_{old \ contract}$ so as to preserve the percentage returns across all rolls. Our choice of $10$ days before expiry is arbitrary as, according to Carchano and Pardo's~\cite{bib25} study of stock index futures, choice of rollover timing does not induce statistically significant differences between the resulting return series. We note, however, that their study focuses on stock index futures rather than agricultural commodities which may exhibit stronger maturity effects due to seasonal supply factors. Further, as per L{\'o}pez de Prado Chapter~2 ~\cite{bib24}, our roll-adjustment eliminates the artificial jumps that occur at expiration to preserve the return dynamics experienced by a roll-following investor. This property is directly relevant to our study because the prediction target is a percentage return, not an absolute price level. A limitation of ratio adjustment is that it distorts historical price \emph{levels} (early-period prices may become very small or very large), making the series unsuitable for level-based analysis; however, since we use only returns and return-derived features, this limitation does not affect our study.
-
-We retain two key fields from the raw data, closing price as well as volume. We note that Volume is forward-filled on dates where the field is reported as missing, a standard treatment for missing time series data to avoid data-leakage, in this case, this represents only 290 trading days or 5.4\% of trading days.
-
-\subsubsection{Target variable: 5-day forward returns.}
-
-After having extracted the raw target data from Bloomberg with the characteristics described above, we construct the prediction target as the 5 trading-day (one week) forward return:
-\begin{equation}
-    y_{t} = \frac{P_{t+5}}{P_t} - 1
-\end{equation}
-where  $P_{t}$ is the ratio-adjusted closing price on day $t$. Since the ratio adjustment maintains the percentage returns across rolls, $y_{t}$ equals the compounded return a roll-following investor would have experienced between days $t$ and $t+5$, regardless of whether a roll happened during that window. This is then framed as a regression problem so as to train the model to predict the continuous return rather than a binary (positive/negative) prediction task.
-
-The reason for choosing 5-day horizon rather than 1-day stems from two key arguments. Firstly, on the predictor side, the agricultural features we use such as temperature, precipitation, NDVI and fPAR tend to evolve on weekly-to-monthly timescales. Thus, these slower moving variables may, by nature, be poor predictors of daily price movements. 
-
-Secondly, in our dataset the NDVI and fPAR data is recorded weekly and three times a month respectively, meaning that we may not have data that is granular enough to be able to predict daily changes in futures price.  
-
-A third key consideration is that, at a daily frequency, the price data may be dominated by market microstructure noise, order-flow dynamics, and intraday liquidity effects, for instance, Deuskar and Johnson ~\cite{bib85} found that flow-driven returns account for 40 to 70\% of market variance.
-
-Finally, on the market side, the Samuelson hypothesis~\cite{bib54} predicts that futures price volatility increases as contracts approach expiration. Since we are looking at the closest maturing futures contract as our predictor, this implies that near-term price movements may display high variance which further justifies our 5-day time window choice. Indeed, Duong and Kalev~\cite{bib55} tested this hypothesis in 20 futures markets and found strong support specifically for agricultural commodities. On the other hand, while Daal et~al.~\cite{bib56} confirm that the Samuelson effect is more pronounced for commodities rather than financial futures, they find the effect to be absent from most contracts they test. Nevertheless, a weekly horizon enables us to reduce this higher-frequency noise while remaining a short enough time frame to be operationally relevant. This choice also mirrors Thaker et~al.~\cite{bib19}, who use a 20-trading-day forecast horizon for their CNN-based wheat futures prediction model, arguing that fundamentals-driven signals materialise over multi-day windows rather than at the daily frequency. We adopt the shorter 5-day window to retain more observations per test year while still filtering the majority of daily microstructure noise.
-
-\subsubsection{Features - Argricultural data.}
-Once we create our predictor vector, we look at CY-Bench to create our features. This dataset provides sub-national time series of meteorological variables (AgERA5: minimum and maximum temperature, precipitation, solar radiation, vapour pressure), soil moisture indicators (GLDAS), and satellite-derived vegetation indices (MODIS NDVI at 8-day resolution; JRC fPAR at dekadal resolution)~\cite{bib17}. We load data for 515 regions across France (97 NUTS3), Germany (397 NUTS3), and Poland (17 NUTS2), which collectively account for the three largest wheat-producing countries in the European Union.
-
-Each data type arrives at its native temporal resolution: daily for weather and soil moisture, 8-day for NDVI, and dekadal (approximately 10-day) for fPAR. Following CY-Bench's own pre-processing protocol (\cite{bib17}, Section~2.2.2), we retain these heterogeneous frequencies and expand them to daily granularity per region using last-observation-carried-forward (LOCF) interpolation, which fills each day with the most recently observed value. LOCF is a standard approach for remote sensing time series that avoids introducing information from future observations~\cite{bib_meroni2019} and is the default method used in operational agricultural monitoring systems such as the JRC MARS Crop Yield Forecasting System~\cite{bib_cerrani2017}. After expansion, each region's daily DataFrame contains a consistent set of raw variables aligned to a common daily calendar.
-
-\subsubsection{Temporal alignment between agricultural and price data.}
-A central challenge is that the agricultural data are available at regional (sub-national) level on a daily or sub-daily calendar, while futures prices exist only on trading days and represent a single EU-wide market. We merge these two frequencies using an \emph{asof} (backward) temporal join: for each trading day, each region is matched to its most recent available agricultural observation on or before that date. This ensures strict temporal causality-no future agricultural information is used to predict current returns. This backward-join approach is standard in event-study and cross-asset prediction literature, where low-frequency fundamental data must be aligned with higher-frequency price data without lookahead bias~\cite{bib_kapoor2023}. After the merge, any remaining missing values in agricultural columns are forward-filled and then zero-filled as a final fallback, ensuring that the feature matrix contains no NaN entries.
-
-\subsubsection{Production weights and look-ahead avoidance.}
-To aggregate per-region predictions to the EU level (see Section~\ref{sec:prediction_task}), we compute production weights as $w_{r,t} = \text{yield}_{r,t-1} \times \text{area}_{r,t-1}$, using the \emph{previous} year's production to avoid look-ahead bias. This follows the approach of Paudel et~al.~\cite{bib16}, who aggregate regional predictions to national level using crop area weights and demonstrate that this bottom-up aggregation produces forecasts competitive with nationally-calibrated systems.
-
-A practical complication arises for Germany, where CY-Bench provides harvest area data only at census intervals (approximately every four years), with the \texttt{production} column entirely missing. We address this by forward-filling harvest area within each region across years and computing production as yield $\times$ forward-filled area. This is standard practice in European agricultural statistics: Eurostat publishes area data at lower frequency than yield, and Cerrani and L\'opez Lozano~\cite{bib_cerrani2017} document that carry-forward interpolation of area data is the norm in operational crop monitoring systems such as MCYFS. French and Polish data have complete annual area and production columns and require no imputation.
-
-\subsubsection{Feature engineering.}
-Starting from the raw daily variables, we engineer 76 features per region organised into five categories, each motivated by agronomic or climate science literature:
-
-\paragraph{Rolling aggregates.} We compute 30-day and 60-day rolling means and cumulative sums for core weather variables. These windows capture medium-term climate trends that are known to drive crop development outcomes~\cite{bib16}.
-
-\paragraph{Threshold-based stress indicators.} Following CY-Bench's feature design (\cite{bib17}, Section~2.2.3), we count cold days (minimum temperature $< 0 \degree$C), hot days (maximum temperature $> 35\degree$C), and dry days (precipitation $< 1$\,mm) over 30-day windows. We further introduce grain-fill heat stress indicators (days with maximum temperature $> 30\degree$C during May-July), motivated by Schlenker and Roberts~\cite{bib_schlenker2009}, who demonstrate a sharply nonlinear relationship between temperature above crop-specific thresholds and US crop yields, with damages accelerating beyond approximately 29-32\degree C.
-
-\paragraph{Vegetation anomalies.} For fPAR, we compute anomalies relative to an expanding day-of-year climatology: $\text{anomaly}_{d,y} = \text{fPAR}_{d,y} - \bar{\text{fPAR}}_{d,<y}$, where $\bar{\text{fPAR}}_{d,<y}$ is the historical mean for that calendar day using only data from prior years. The expanding (rather than fixed) climatology avoids information leakage from future years. This anomaly approach is standard in operational vegetation monitoring; Meroni et~al.~\cite{bib_meroni2019} adopt a similar methodology for near-real-time NDVI anomaly detection within the JRC's food security monitoring framework.
-
-\paragraph{Drought index.} We compute a Standardised Precipitation Index (SPI)-like measure by z-scoring rolling 30-day and 60-day cumulative precipitation against its expanding historical distribution. This follows the methodology of McKee et~al.~\cite{bib_mckee1993}, who introduced the SPI as a standardised drought severity metric, now widely used in agricultural drought monitoring worldwide.
-
-\paragraph{Weekend weather accumulator.} Since futures markets do not trade on weekends but weather events still occur, we accumulate 3-day precipitation, maximum temperature, and minimum temperature on Mondays to capture the weekend weather surprise that the market prices on the first trading day of the week.
-%% FLAG: This feature lacks a direct academic citation. While the logic is sound from a market microstructure perspective (markets react to accumulated news upon reopening), we could not find a published paper that specifically validates this weekend-weather-accumulator feature for commodity futures. You may wish to either (a) provide an empirical justification from your EDA, (b) cite a general market microstructure reference on information incorporation after market closures, or (c) remove this feature if reviewers challenge it.
-
-\subsubsection{Correlation-based feature filtering.}
-Before modelling, we compute an average cross-regional correlation matrix using Fisher's z-transformation~\cite{bib_fisher1921}: each region's pairwise feature correlation matrix is transformed via $z = \text{arctanh}(r)$, averaged across all 515 regions in the z-domain, and back-transformed via $r = \text{tanh}(\bar{z})$. Feature pairs with average absolute correlation exceeding 0.85 are flagged, and one feature from each highly correlated pair is dropped. This avoids multicollinearity, which inflates the variance of coefficient estimates in regularised linear models~\cite{bib_hastie2009}. The Fisher z-averaging is necessary because raw correlations are bounded and skewed, making arithmetic averaging of correlations across regions statistically inappropriate~\cite{bib_fisher1921}.
-
-\subsubsection{Minimal price features.}
-A critical design choice is to restrict price-derived features to only three variables: 5-day return, 20-day return, and a volume-to-moving-average ratio. This minimal set provides the model with basic information about recent price momentum and market attention, but deliberately excludes technical indicators (RSI, Bollinger bands, moving average crossovers) commonly used in price forecasting. The rationale is that our research question asks whether \emph{agricultural} features from CY-Bench add predictive power for futures returns. Including a rich set of price-based features would confound the agricultural signal with price feature interactions, making it impossible to attribute any predictive lift to the CY-Bench data. This controlled ablation design is consistent with the ICML best practices recommendation that experiments should be designed to answer specific research questions~\cite{bib_goodfellow2016}.
-
-
-\subsection{Data Preparation for Crop Yield Forecasting}\label{subsec:yield_prep}
-
-The yield forecasting task uses the same CY-Bench source data but requires a fundamentally different preparation pipeline, as the target is annual end-of-season yield (tonnes per hectare) rather than daily futures returns.
-
-\subsubsection{Temporal scope and region filtering.}
-We restrict the yield analysis to harvest years 2003-2020 and retain only the 357 regions (90 French, 251 German, 16 Polish) that report yield statistics for every year in this 18-year window. The start year is determined by the availability of GLDAS soil moisture data, which begins in February 2003~\cite{bib17}. The end year is constrained by the latest available sub-national yield statistics: the JRC harmonised European dataset~\cite{bib_ronchetti2024} provides French NUTS3 yields through 2020, German NUTS3 yields through 2021, and Polish NUTS2 yields through 2020. We adopt the binding constraint of 2020 to maintain a balanced panel.
-
-This filtering is conservative in information loss: the 357 retained regions account for 97.5\% of total wheat production across the three countries (99.9\% for France, 93.3\% for Germany, 99.4\% for Poland), confirming that the dropped regions are predominantly small districts with discontinued reporting rather than major wheat-producing areas. Ensuring complete temporal coverage for every retained region is a prerequisite for fair cross-regional comparison under the walk-forward evaluation scheme.
-
-\subsubsection{Monthly feature aggregation with lead-time truncation.}
-Unlike the futures pipeline, which uses daily features, the yield pipeline aggregates daily CY-Bench time series into monthly summaries within each region's growing season. For each region-year pair, we extract the growing season window (defined by the crop calendar's start-of-season and end-of-season dates from CY-Bench) and compute monthly means, sums, and extremes for all meteorological, soil moisture, and vegetation variables. This monthly aggregation reduces the dimensionality from thousands of daily observations to tens of features while preserving the temporal structure of the growing season.
-
-Following CY-Bench's lead-time framework (\cite{bib17}, Section~3.2), we build three separate datasets by truncating the available data at different points before harvest: \emph{end-of-season} (all growing-season data available), \emph{mid-season} (data truncated at $(SOS + EOS)/2$), and \emph{quarter-season} (data truncated at $SOS + (EOS - SOS)/4$). These correspond to real-world forecasting scenarios with decreasing information but increasing decision-making value. Each region-year pair becomes a single observation, with the target being the official reported yield in tonnes per hectare.
-
-We note that our monthly aggregation differs from the methodology of Paudel et~al.~\cite{bib16}, who aggregate daily data by crop development phases identified through the WOFOST crop simulation model (e.g., emergence, flowering, grain-fill). Our approach is simpler and does not require crop model outputs, which CY-Bench does not provide~(\cite{bib17}, Section~4.2, Limitation~3). This trade-off means we sacrifice some agronomic precision for broader applicability and reproducibility.
-
-\section{Prediction Tasks}\label{sec:prediction_task}
-
-This section defines the two prediction tasks addressed in this study. We first describe the primary task-predicting wheat futures returns from agricultural features-and then present the secondary task of crop yield forecasting, which serves both as a validation of the agricultural features' information content and as a benchmark against established results.
-
-\subsection{Primary Task: Wheat Futures Return Prediction}\label{subsec:futures_task}
-
-\subsubsection{Target variable: 5-day forward returns.}
-We define the prediction target as the 5-trading-day (one week) forward log return of the Euronext Milling Wheat N2 futures contract:
-\begin{equation}
-    r_{t+5} = \frac{P_{t+5}}{P_t} - 1
-\end{equation}
-where $P_t$ is the roll-adjusted closing price on day $t$. We frame this as a regression problem, predicting the continuous return rather than the binary direction.
-
-The choice of a 5-day horizon, rather than 1-day, is motivated by both the structure of our data and the nature of the prediction problem. Agricultural features such as growing-season temperature and NDVI evolve on weekly-to-monthly timescales, making it implausible that they would predict \emph{daily} price variation, which is dominated by microstructure noise, order-flow dynamics, and intraday liquidity effects. A weekly horizon filters out much of this high-frequency noise while remaining short enough to be operationally relevant. This choice mirrors Thaker et~al.~\cite{bib19}, who use a 20-trading-day forecast horizon for their CNN-based wheat futures prediction model, arguing that fundamentals-driven signals materialise over multi-day windows rather than at the daily frequency. More broadly, the efficient market hypothesis~\cite{bib_fama1970} implies that publicly available information is rapidly incorporated into prices; any residual agricultural signal is more likely to manifest at lower frequencies where markets have not yet fully digested supply-side information.
-
-\subsubsection{Per-region models with production-weighted aggregation.}
-With 515 regions and 76 agricultural features per region, directly concatenating all features into a single vector would produce 39,140 input dimensions-far exceeding the approximately 5,000 available observations. Goodfellow et~al.~\cite{bib_goodfellow2016} warn that this regime requires strong regularisation. We address this by fitting one model per region using only that region's features plus the three price features (79 features total), and then aggregating the 515 per-region predictions into a single EU-level forecast using production weights.
-
-This per-region approach is motivated by Paudel et~al.~\cite{bib16}, who demonstrated that building models at the regional level and aggregating to larger spatial units produces lower normalised RMSE than building a single model on nationally aggregated predictors. They attribute this to reduced aggregation error: predictors at regional level correlate better with local outcomes because spatial averaging masks regional heterogeneity. Chipanshi et~al.~\cite{bib_chipanshi2015} corroborate this finding using Canadian data, showing that predicting yields at smaller spatial units and aggregating upward produces better results than aggregating predictors first.
-
-For the aggregation step, we use the production-weighted average:
-\begin{equation}
-    \hat{r}_{t+5}^{\text{EU}} = \frac{\sum_{r=1}^{R} w_{r,t}\, \hat{r}_{t+5}^{(r)}}{\sum_{r=1}^{R} w_{r,t}}
-\end{equation}
-where $\hat{r}_{t+5}^{(r)}$ is region $r$'s predicted return and $w_{r,t}$ is the prior-year production weight. Regions with larger wheat output thus contribute more to the aggregate prediction, reflecting the intuition that supply shocks in major producing regions have greater price impact than those in minor ones.
-
-\subsubsection{Walk-forward evaluation with temporal partitioning.}
-We adopt a strictly chronological train/validation/test split:
-\begin{itemize}
-    \item \textbf{Training}: 2003-2016 (14 years, $\sim$3,600 trading days);
-    \item \textbf{Validation}: 2017-2019 (3 years, used exclusively for hyperparameter tuning);
-    \item \textbf{Test}: 2020-2023 (4 years, never seen during model selection).
-\end{itemize}
-Random train-test splits are inappropriate for time series data because they create temporal leakage-the model trains on data that chronologically follows the test set, inflating performance estimates. Kapoor and Narayanan~\cite{bib_kapoor2023} document that such leakage is a leading cause of irreproducibility in ML-based science, affecting a substantial fraction of published results. Paudel et~al.~\cite{bib16} adopt an analogous time-based look-forward cross-validation for crop yield prediction, training only on years preceding each test year. Our three-way split further isolates hyperparameter tuning from final evaluation, following the standard ML workflow described in Goodfellow et~al.~\cite{bib_goodfellow2016}.
-
-The training set is designed to include both the 2007-2008 global food price crisis (wheat prices rose by 136\%) and the 2010-2011 secondary spike, ensuring the model sees volatile periods. The test period (2020-2023) provides a challenging out-of-sample evaluation encompassing COVID-19 supply chain disruptions and the 2022 Russia-Ukraine war, during which wheat prices surged to their highest levels since 2008. This design follows the ICML best practice of selecting test conditions that stress the model's generalization.
-
-\subsubsection{Hyperparameter tuning.}
-We use randomised search over 20 parameter combinations per model, following Bergstra and Bengio~\cite{bib_bergstra2012}, who prove that random search is more efficient than grid search for hyperparameter optimization when some hyperparameters are more important than others-a condition that holds for most ML models. Tuning is performed on the validation set only; the test set is never used for model selection.
-
-\subsubsection{Models evaluated.}
-We test four model families: Ridge Regression, Lasso Regression, Random Forest, and Extremely Randomised Trees (ExtraTrees). These represent increasing levels of nonlinearity while remaining interpretable. Ridge and Lasso are regularised linear models that differ in their penalty structure ($L_2$ versus $L_1$), with Lasso additionally performing implicit feature selection through coefficient shrinkage to zero~\cite{bib_hastie2009}. Random Forest and ExtraTrees are ensemble methods based on decision trees that can capture nonlinear interactions between features without manual feature crossing. All features are standardised (zero mean, unit variance) before fitting, which is necessary for the regularisation penalties in Ridge and Lasso to weight all features equally~\cite{bib_hastie2009}. A deep neural network component is planned but not yet implemented.
-%% FLAG: The neural network section is currently empty in the notebook (Cell 35 contains only a comment). This should either be implemented before submission or explicitly removed from the methods description.
-
-
-\subsection{Secondary Task: Crop Yield Forecasting}\label{subsec:yield_task}
-
-\subsubsection{Motivation for a dual-task design.}
-While the primary contribution of this study is to test whether CY-Bench features predict futures returns, the yield forecasting task serves two complementary purposes. First, it provides a \textbf{positive control}: if the same agricultural features that fail to predict futures returns also fail to predict crop yields, the negative futures result could be attributed to poor feature quality rather than market efficiency. If, however, the features predict yields well but not returns, the result supports the interpretation that futures markets efficiently incorporate agricultural information. Second, the yield task allows \textbf{direct comparison with established benchmarks}. Paudel et~al.~\cite{bib16} and the CY-Bench benchmark~\cite{bib17} provide published results for exactly this task, enabling us to verify that our data preparation pipeline is correct and that our model implementations are competitive.
-
-\subsubsection{Target and lead times.}
-The target variable is end-of-season wheat yield in tonnes per hectare, as reported in official sub-national statistics. Following the CY-Bench protocol~\cite{bib17}, we evaluate at three lead times-end-of-season, mid-season, and quarter-season-to assess how forecast accuracy degrades when less growing-season information is available. This lead-time structure mirrors real-world operational forecasting, where earlier predictions are more valuable but less accurate~\cite{bib16}.
-
-\subsubsection{Walk-forward evaluation.}
-We adopt a temporal split appropriate for the 2003-2020 data window:
-\begin{itemize}
-    \item \textbf{Training}: 2003-2014 (12 years $\times$ 357 regions $\approx$ 4,300 observations);
-    \item \textbf{Validation}: 2015-2017 (hyperparameter tuning only);
-    \item \textbf{Test}: 2018-2020.
-\end{itemize}
-This is the same walk-forward design described above, but with boundaries shifted to fit the shorter available time span. The test period includes the 2018 European drought-one of the most severe on record for wheat, with German yields dropping sharply-making this a challenging evaluation. As Paudel et~al.~\cite{bib16} note, the practical value of yield forecasting models depends critically on their performance during extreme years, which is when stakeholders most need accurate predictions.
-
-\subsubsection{Per-country tuning.}
-For the yield task, we tune hyperparameters separately for each country rather than using a single EU-wide configuration. This reflects the fact that the relationship between growing-season climate and yield varies across agro-climatic zones; French Atlantic maritime wheat systems respond differently to the same temperature anomaly than German continental systems. Per-country tuning allows the model to adapt its regularisation strength and tree depth to the local signal-to-noise ratio.
-
-\subsubsection{Metrics.}
-Following CY-Bench~\cite{bib17}, we report normalised root mean squared error (NRMSE = RMSE divided by mean observed yield) and $R^2$ at both the per-region and production-weighted national levels. NRMSE facilitates cross-country comparison because it is scale-invariant, while $R^2$ quantifies the proportion of yield variance explained.
+The target variable is the official reported wheat yield in tonnes per hectare. We adopt a temporal split appropriate for the 2003-2020 data window: training on 2003-2012, validation on 2013-2015, (hyperparameter tuning only), and test on 2016-2020. The test period includes the 2018 European drought, providing a challenging evaluation. Following the cross-country differences in yield level and variability observed in Section~\ref{sec:EDA}, we tune hyperparameters separately for each country rather than using a single EU-wide configuration. We report normalised RMSE and $R^2$ at both per-region and production-weighted national levels, following CY-Bench~\cite{bib17}.
 
 \clearpage
 
-\section{Method 1 (2 pages)}\label{ridge_lasso}
+\section{Modelling Methodology (1 page)}\label{modelling_methodology}
 
 \clearpage
 
-\section{Method 2 (2 pages)}\label{rf_et}
+\section{Ridge and Lasso Regression}\label{ridge_lasso}
 
-\clearpage
+Ridge and Lasso regression are evaluated together as the linear baseline methods for both our primary prediction task of wheat futures price, as well as the secondary task of wheat yield prediction. Both are appropriate first choices for this high-dimensional tabular setting for similar but distinct reasons. Comparing them directly tests whether dense coefficient shrinkage or sparse feature selection better characterises the underlying signal in our agricultural feature set.\\
+
+For the Futures Price Prediction Task, Ridge is chosen because its L2 penalty shrinks correlated coefficients toward each other rather than eliminating them, preserving the joint contribution of related agricultural indicators such as normalized difference vegetation index (NDVI), a satellite-based remote sensing method, and soil moisture that together capture crop stress conditions. Lasso complements this with an L1 penalty that drives irrelevant coefficients to exactly zero, functioning as a feature selector completely eliminating these features. If the return signal across 76 agricultural features is concentrated in a small subset, we would expect Lasso to identify and retain only those features, which should outperform Ridge by removing noise from uninformative predictors. Both models are computationally trivial to fit across all 515 regions, making them practical to run independently for every region across every walk-forward window. Both also serve as a baseline method to compare against, where a strong result from either model would imply the futures return signal is largely linear and that escalating to ensemble methods potentially adds no value, while a poor result from both motivates the tree-based architectures that follow. Finally, regularised regression methods feature prominently in the literature we reviewed~\cite{bib14,bib16}, making this a natural point of methodological comparison between our study and established benchmarks.\\
+
+The sole hyperparameter for Ridge Regression is the regularisation strength $\alpha$, which controls the trade-off between fit and coefficient shrinkage. We sample $\alpha$ from a log-uniform distribution over a range of [0.01,100]. The log-uniform distribution is appropriate here because the effect of regularisation on model performance is multiplicative rather than additive, meaning that doubling $\alpha$ from 0.1 to 0.2 has a similar effect to doubling it from 10 to 20, ensuring that we spend equal time looking at different orders of magnitude and not focusing too much on higher $\alpha$ while neglecting the lower bound. The lower bound of 0.01 corresponds to Ordinary Least Squares behaviour, where regularisation is minimal, and the upper bound of 100 enforces strong shrinkage appropriate for a noisy financial target. Twenty random draws are evaluated over the validation period from 2017 to 2019, with directional accuracy used as the selection criterion rather than R\textsuperscript{2}, since the practical objective is to correctly predict the sign of the 5-day return rather than its magnitude. This is an important distinction since by using the directional accuracy we can more accurately predict if the model is predicting trends and patterns rather than trying to predict precise market movements that could result in poor R\textsuperscript{2} results, regardless if the direction was correct.\\
+
+Lasso uses a narrower log-uniform range of [1e-5, 0.1], reflecting that L1 regularisation operates at a fundamentally different scale compared to Ridge. Lasso coefficients reach zero at much smaller $\alpha$ values compared to Ridge coefficients, so applying the same upper bound of 100 would produce a degenerate all-zero model. Lasso, like Ridge, uses 20 random draws over the validation period from 2017 to 2019 with directional accuracy as the selection criterion for the same reasons as Ridge as stated above.\\
+
+The optimal Ridge configuration is $\alpha$ = 63.51, situated in the upper quarter of its log-uniform search range. This reflects that strong regularisation is beneficial when the target is noisy and many features carry weak signal. Lasso's optimal $\alpha$ value is 0.000146, very close to the lower bound of its range, resulting in a strikingly different result. This indicates that even very mild L1 shrinkage causes the model to deteriorate due to Lasso eliminating certain features that are helpful and hold predictive importance. We can interpret from this that signal features are not concentrated in a sparse feature subset. Therefore, a more dense solution is preferred, which is consistent with Ridge's strong regularisation requirement. Ridge achieves a validation directional accuracy of 49.93\% and R\textsuperscript{2} of -0.047. Lasso achieves a marginally better validation directional accuracy of 50.72\% and R\textsuperscript{2} of -0.042. Neither model shows meaningful predictive promise for wheat futures price movement based on these validation results.\\
+
+Both models are fit using a walk-forward expanding window scheme, trained independently on each of the 515 regions using all daily observations prior to each test year, with a Standard Scaler fitted on training data only and predictions aggregated via production-weighted averaging.\\
+
+On the test set from 2020 through 2023, Ridge achieves R\textsuperscript{2} = -0.0212, directional accuracy of 46.97\%, and RMSE of 0.0409. Lasso performs marginally better across all metrics with R\textsuperscript{2} = -0.0183, directional accuracy of 47.55\%, and RMSE of 0.0409. Both models see directional accuracy fall below their validation results and RMSE approximately double from 0.020 to 0.041, signs that the performance on the test set is reduced compared to the validation results. The RMSE increase reflects the substantially larger absolute return magnitudes during the test period, which encompasses COVID-19 supply chain disruptions and the 2022 Russia-Ukraine conflict during which wheat prices surged to their highest levels since 2008, rather than purely model degradation. The negative R\textsuperscript{2} for both models confirms that neither outperforms the unconditional mean, showing that both Ridge and Lasso Regression are no better than just predicting the mean return every day for the wheat futures price prediction task, consistent with what would be expected under semi-strong market efficiency. The marginal Lasso advantage over Ridge on the futures task suggests at most a very weak degree of feature sparsity in the predictive signal, but the difference is too small to be practically meaningful given the overall poor results from both models.\\
+
+For the secondary task of Yield Prediction, both models are tuned separately per country over the validation period from 2013 to 2015 with region NRMSE as the scoring criterion. Ridge optimal $\alpha$ is 75.79 for Germany, 21.37 for France, and 75.79 for Poland. Germany's high value reflects its 251 different regions being widest relative to training observations, requiring stronger shrinkage to prevent overfitting. France's lower value reflects its 90 regions providing a better estimation problem where more feature variation can be retained usefully. For Lasso, optimal alphas are 0.0126 for Germany, 0.00315 for France, and 0.0847 for Poland. All $\alpha$ values are small relative to the Ridge values, again consistent with Lasso needing much less regularisation than Ridge to achieve its best performance. On the validation set, Lasso slightly outperforms Ridge for Germany, 12.11\% vs 13.03\% NRMSE scores, Ridge narrowly wins for France with 10.67\% vs 10.88\%, and Ridge wins more clearly for Poland at 16.65\% vs 17.44\%.\\
+
+Both models are then evaluated on the test period from 2016 through 2020 in a walk-forward scheme, training on all prior region-years and predicting regional yield with predictions aggregated to national level using production weights.\\
+
+These final test set yield results show that for the end-of-season, we can see performance varies considerably by country. For Germany, Ridge is the worst-performing linear model with region NRMSE at 18.76\% and EU NRMSE at 13.39\% while Lasso improves substantially getting a region NRMSE of 16.32\% and EU NRMSE score of 9.14\%, confirming that L1 sparsity is beneficial when the end-of-season feature set spans 351 columns and many are redundant. For France, both models perform similarly at regional level, with Ridge 21.77\% and Lasso 22.25\%, with both falling well short of Paudel et al.~\cite{bib16}'s best results of approximately 6\% for national NRMSE, which we can attribute to their use of WOFOST (water-limited yield biomass, leaf area index, development stage), compared to ours where we use only raw CY-Bench climate and remote sensing variables aggregated by calendar month. Poland, which was not included in Paudel et al.\cite{bib16}, shows that Ridge achieves the best end-of-season result of any model in any country with region NRMSE at 12.61\% and EU NRMSE at 4.08\%, while Lasso degrades to 17.30\% regionally and 13.47\% at EU level. This reversal from the validation ranking suggests that for Poland's small 16-region sample, Ridge's dense shrinkage is more stable out-of-sample than Lasso's variable selection, which is sensitive to which features are retained across different training windows. The Polish Ridge result should be treated cautiously given the small sample size and inability to compare against the Paudel et al.\cite{bib16} results. The year-by-year national aggregate predictions for the best model per country are shown in Figure~\ref{fig:yield_forecast_accuracy_graph}.\\
+
+Across lead times, the pattern for Germany is consistent for both models. Ridge achieves its best German performance at mid-season (17.13\%) rather than end-of-season (18.76\%), with quarter-season only marginally worse at 17.24\%. Lasso follows the same pattern, peaking at mid-season (15.65\%) relative to end-of-season (16.32\%) and quarter-season (16.40\%). This suggests that for Germany, the mid-season feature set strikes the best balance between containing enough growing-season information and avoiding the noise introduced by late-season variables. France degrades differently, with Ridge moving from 21.77\% at end-of-season to 25.46\% at mid-season and then back to 21.78\% at quarter-season. This suggests that mid-season features for France are particularly noisy, a sharp contrast to that of Germany's results. Poland shows sharp decline at mid-season for both models with Ridge going from 12.61\% at end-of-season to 18.90\% at mid-season. Lasso goes from 17.30\% at end-of-season to 18.40\% at mid-season, reinforcing the instability of estimates with only 16 regions. Across all lead times and countries, the degradation from end-of-season toward earlier lead times is at most modest for Germany and France, as seen in Figure~\ref{fig:NRMSE_results}. These results are consistent with the finding of Paudel et al.~\cite{bib16} that structural yield drivers such as soil characteristics and long-term climate patterns carry predictive power throughout the season rather than only at harvest.\\
+
+Overall, Lasso and Ridge serve as modest and acceptable baselines to compare against. Lasso outperforms Ridge for Germany across all lead times while Ridge is more stable for Poland, and the two are comparable for France. This pattern, the results we achieved as discussed in this section, and the inability of both linear models to capture non-linear interactions between weather, soil, and vegetation features, motivates the examination of tree-based ensemble methods next, which can represent relationships that neither Ridge nor Lasso are capable of modelling.\\
+
+
+\section{Random Forest and Extra Trees Regressors}\label{rf_et}
+
+Random Forest and ExtraTrees are evaluated together as the tree-based ensemble methods in our pipeline, following directly from the linear baseline established by Ridge and Lasso. Both methods are motivated by the same core limitation identified in the previous sections finding that the linear models cannot represent interactions between features that together signal crop stress in ways that no single feature captures alone. Tree-based ensembles address this by partitioning the feature space through successive splits, naturally capturing these non-linear interactions without requiring them to be specified manually, and have been shown to remain competitive with more complex deep learning architectures on tabular datasets~\cite{bib27}.\\
+
+For the Futures Price Prediction Task, Random Forest (RF) is chosen for three reasons. With its bagging approach for training each tree on a bootstrapped sample of observations and averaging predictions across trees, we can aim to reduce variance relative to a single tree~\cite{bib31}, which is particularly valuable in a noisy financial return prediction task where individual trees would overfit heavily to the training window. The random feature subsampling at each split de-correlates the trees~\cite{bib31}, preventing any single dominant agricultural feature from driving all predictions and encouraging the ensemble to exploit the full breadth of the 76 available features. From a practical perspective, RF's robustness to hyperparameter choice makes it a reliable step up from linear models without requiring extensive tuning to obtain useful results~\cite{bib34}. Aditionally, RF appears prominently in the yield prediction literature we reviewed~\cite{bib14,bib16,bib17}, making it a natural methodological bridge between the crop yield benchmarks and our futures application.\\
+
+ExtraTrees is evaluated alongside RF as a direct comparison. The key distinction is that ExtraTrees uses random rather than optimal split thresholds at each node, introducing additional randomisation that further reduces variance at the cost of some increase in bias~\cite{bib32}. In a setting with many weakly informative features and a noisy target, this extra randomisation may be beneficial by preventing the ensemble from overcommitting to any particular feature split that happens to perform well in training but does not generalise during testing.\\
+
+The hyperparameter search for both models covers n\_estimators from [200,500] for RF and fixed at 500 for ExtraTrees. max\_depth is set to set of 3,5, or 8, min\_samples\_leaf at 10, 20, or 40, with max\_features set to square root, log base 2, 0.3, or 0.5. All values are discrete rather than continuous because ensemble behaviour is not sensitive to small perturbations in these parameters~\cite{bib34}. The meaningful distinctions are between shallow and deep trees, few and many estimators, and narrow versus wide feature subsets. The max\_depth upper bound of 8 prevents deep trees that would memorise individual training windows, which is critical in a walk-forward scheme where the training set grows by only one year at each step. The min\_samples\_leaf lower bound of 10 enforces a minimum leaf size that prevents extremely specific splits on small subsets of the 76 agricultural features. Both models use 20 random draws over the validation period from 2017 through 2019 with directional accuracy as the selection criterion for the same reasons we used directional accuracy as stated in the Ridge and Lasso Regression section.\\
+
+The optimal RF configuration is n\_estimators=500, max\_depth=5, min\_samples\_leaf=40, max\_features=0.5, achieving a validation directional accuracy of 49.28\%. The large min\_samples\_leaf of 40 and shallow max\_depth of 5 together indicate that strong regularisation is needed even for tree ensembles on this task~\cite{bib34,bib24}. This shows the model benefits from broad, large splits rather than finer grained partitions, consistent with the weak nature of the agricultural signal. For ExtraTrees, the optimal configuration is n\_estimators=500, max\_depth=5, min\_samples\_leaf=20, max\_features=sqrt, achieving a validation directional accuracy of 46.80\%. The lower min\_samples\_leaf relative to RF is consistent with ExtraTrees additional randomisation at split points providing implicit regularisation~\cite{bib32}, reducing the need to enforce large leaf sizes explicitly.\\
+
+Both models are fit using the same walk-forward expanding window scheme as the linear models, trained independently across all 515 regions with a Standard Scaler on training data only and predictions aggregated via production-weighted averaging.\\
+
+On the test set from 2020 through 2023, RF achieves R\textsuperscript{2} = -0.0099, directional accuracy of 48.43\%, and RMSE of 0.0407. ExtraTrees achieves R\textsuperscript{2} = -0.0074, directional accuracy of 50.98\%, and RMSE of 0.0407. Both models improve over Ridge and Lasso on every metric. Notably, ExtraTrees is the only model in our entire pipeline to exceed 50\% directional accuracy on the test set, suggesting that the additional randomisation in ExtraTrees split selection provides a marginal but real advantage in this noisy prediction environment. However, both R\textsuperscript{2} values remain negative, confirming that neither ensemble model outperforms the unconditional mean on the futures task, similarly to Ridge and Lasso. The RMSE values are the same when rounded to two decimal places, and nearly the same to those of the linear models, again reflecting the dominant effect of the high-volatility 2022 period rather than model-specific behaviour.\\
+
+For the Yield Task, RF and ExtraTrees are tuned separately, per country, over the validation period from 2013 to 2015 with region NRMSE as the scoring criterion, using the same hyperparameter grid as for the futures task but with max\_depth extended to include 12 and None (unlimited) to allow the trees to grow deeper on the tabular annual yield dataset, which has more structured signal than daily futures returns.\\
+
+The optimal configurations differs meaningfully across countries. For Germany, RF selects n\_estimators=500, max\_depth=8, min\_samples\_leaf=20, max\_features=0.5, achieving a validation NRMSE of 11.36\%. ExtraTrees selects n\_estimators=500, max\_depth=12, min\_samples\_leaf=5, max\_features=0.5 with validation NRMSE of 11.76\%. Both models choose deeper trees and smaller leaf sizes compared to the futures task, reflecting the more structured annual yield signal where more precise feature interactions improve prediction. For France and Poland, both models independently select max\_depth=None and min\_samples\_leaf=2, allowing unrestricted tree growth. This may reflect that France's 90 regions and Poland's 16 regions provide smaller training sets where deeper trees do not overfit as severely, or that the yield signal in these countries is concentrated in strong feature interactions that require deeper splits to capture. RF acheives a regional NRMSE of 12.25\% and ExtraTrees is at 12.66\% on France. For Poland, RF is 17.43\% and ExtraTrees is 17.40\%. The higher validation NRMSE for France and Poland compared to Germany, combined with the need for unrestricted tree depth, suggests that the ensemble models are less effective in settings with fewer regions and less structured training data.\\
+
+Both models are evaluated on the test period of 2016 through 2020 in a walk-forward scheme, training on all prior region-years with predictions aggregated to national level using production weights.\\
+
+At end-of-season, both tree ensembles substantially outperform the linear models for Germany. RF achieves a region NRMSE of 13.57\% and EU NRMSE of 4.57\%, while ExtraTrees achieves 13.00\% and 4.24\% respectively, making ExtraTrees the best-performing model for Germany across all methods. These results are broadly comparable to Paudel et al.~\cite{bib16}'s German baseline of approximately 15\% regional NRMSE and confirm that non-linear interactions between weather, soil, and vegetation features are important for German yield prediction. For France, RF achieves region NRMSE of 17.97\% and EU NRMSE of 14.34\%, while ExtraTrees achieves 17.77\% and 13.90\%, again with ExtraTrees narrowly ahead. Both remain below the Paudel et al.~\cite{bib16} benchmark of approximately 6\% national NRMSE for the same WOFOST feature quality reasons discussed in the previous section. For Poland, RF achieves region NRMSE of 16.90\% and EU NRMSE of 12.34\%, while ExtraTrees achieves 16.24\% and 12.12\%. Both are substantially worse than Ridge's 12.61\% regional and 4.08\% EU result, confirming that Ridge's Poland performance was driven by the small sample size rather than a genuine linear signal advantage.\\
+
+Across lead times, both tree models show the same gradual degradation from end-of-season toward earlier lead times that we observed for the linear models, consistent with Paudel et al.~\cite{bib16}'s finding that structural yield drivers dominate throughout the season. For Germany, ExtraTrees moves from 13.00\% at end-of-season to 14.60\% at mid-season and 15.53\% at quarter-season, a degradation of only 2.5 percentage points across all three lead times. RF follows an almost identical pattern at 13.57\%, 14.56\%, and 15.66\%. For France, ExtraTrees moves from 17.77\% to 19.12\% to 20.23\%, and RF from 17.97\% to 20.29\% to 21.26\%. Again, a gradual and consistent increase. Poland shows sharper degradation for both tree models, similar to the pattern seen with linear models and reinforcing the small-sample instability issue. Across all countries and lead times, ExtraTrees outperforms or matches RF, confirming that additional split randomisation is consistently beneficial for this yield prediction task, as illustrated in Figure~\ref{fig:NRMSE_results}. The year-by-year national aggregate predictions are shown in Figure~\ref{fig:yield_forecast_accuracy_graph}.\\
+
+Overall, the tree-based ensembles establish a substantially improved baseline over the linear models for yield prediction, while delivering only marginal improvements on the futures task. The gap between the two tasks reinforces the core finding that agricultural features carry predictive information about crop yields but that information does not translate into exploitable futures price signal, consistent with semi-strong market efficiency~\cite{bib30}. The neural network is examined next to assess whether greater model expressiveness can close this gap further.\\
 
 \section{Method 3 (2 pages)}\label{neuralnets}
 
@@ -478,65 +385,65 @@ Following CY-Bench~\cite{bib17}, we report normalised root mean squared error (N
 \end{tabular}
 \end{table}
 
-\section{Supplementary EDA Figures}\label{app:eda}
+\section{Additional EDA Figures}\label{app:eda}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Figures/eda_precipitation.png}
     \caption{France-average 30-day cumulative precipitation (2003-2023). Precipitation fluctuates on a seasonal cycle with substantial inter-annual variability but, unlike NDVI, lacks a consistent repeating pattern, reflecting the stochastic nature of rainfall events.}
     \label{fig:precipitation}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{Figures/eda_return_vs_theoretical.png}
     \caption{Empirical 5-day return distribution compared with fitted Normal and Student-t densities. The fitted Student-t has 3.6 degrees of freedom, confirming substantially heavier tails than the Gaussian benchmark.}
     \label{fig:return_vs_t}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Figures/eda_ndvi_vs_fpar.png}
     \caption{France-average NDVI (top) and fPAR (bottom), 2003-2023. Both indicators track each other closely ($r = 0.93$ on 30-day smoothed series) but diverge during cloud-contaminated periods due to different gap-filling methods, justifying retaining both in the feature set.}
     \label{fig:ndvi_fpar}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Figures/eda_soil_moisture.png}
     \caption{France-average surface soil moisture (blue, left axis) and root-zone soil moisture (red, right axis), 2003-2023. Surface moisture responds rapidly to individual precipitation events while root-zone moisture evolves more slowly, capturing different timescales of water availability despite near-perfect correlation ($r = 0.99$) in smoothed trends.}
     \label{fig:soil_moisture}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Figures/eda_temperature_stress_DE.png}
     \caption{Germany-average daily temperature range with stress thresholds (top) and annual growing-season (Mar-Aug) stress day counts (bottom). The 2018 European drought produced 2.5$\times$ the average number of hot stress days (Tmax $> 30$\textdegree C), motivating the threshold-based stress indicators in Section~\ref{sec:feature_eng}.}
     \label{fig:temp_stress_de}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Figures/eda_temperature_stress_FR.png}
     \caption{France-average daily temperature range with stress thresholds (top) and annual growing-season stress day counts (bottom). France shows higher baseline hot-day frequency than Germany, with 2003 and 2022 as the most extreme heat years.}
     \label{fig:temp_stress_fr}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Figures/eda_temperature_stress_PL.png}
     \caption{Poland-average daily temperature range with stress thresholds (top) and annual growing-season stress day counts (bottom). Poland exhibits substantially more cold stress days than France or Germany, reflecting its continental climate, while hot stress events are comparatively rare.}
     \label{fig:temp_stress_pl}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{Figures/eda_correlation_heatmap.png}
     \caption{Fisher z-averaged correlation matrix of the 12 raw CY-Bench variables across 507 regions. Nine feature pairs exceed $|\rho| = 0.85$, concentrated among temperature-derived variables. This motivates the correlation-based filtering applied before modelling.}
     \label{fig:corr_heatmap}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Figures/eda_yield_distributions.png}
     \caption{(a) Wheat yield distributions by country (2003-2020). Germany has the highest average yield (7.35 t/ha) and the widest spread across its 251 NUTS3 regions. (b) Average wheat yield over time by country. The 2018 European drought is visible as a synchronised dip, with Germany experiencing the largest decline ($-7.3\%$ relative to other years).}
@@ -545,7 +452,7 @@ Following CY-Bench~\cite{bib17}, we report normalised root mean squared error (N
 
 \section{Target Construction}\label{app:target_construction}
 
-Apart from the timescale mismatch of daily returns and agricultural variables as well as the noise potentially present in returns at a daily scale, we also account for the fact that futures potentially have higher volatility once they approach expiration.
+Apart from the timescale mismatch of daily returns and agricultural variables as well as the noise potentially present in returns at a daily scale, we also account for the fact that futures potentially have higher volatility once they approach expiration.\\
 
 Indeed, the Samuelson hypothesis~\cite{bib54} predicts that futures price volatility increases as contracts approach expiration. Since we are looking at the closest maturing futures contract as our predictor, this implies that near-term price movements may display high variance. This further justifies our 5-day time window choice. Indeed, Duong and Kalev~\cite{bib55} tested this hypothesis in 20 futures markets and found strong support specifically for agricultural commodities. Daal et~al.~\cite{bib56} also confirm that the Samuelson effect is more pronounced for commodities rather than financial futures, however, they find the effect to be absent from most contracts they test. Overall, a weekly horizon enables us to reduce this higher-variance while remaining a short enough timeframe to be operationally relevant.
 
