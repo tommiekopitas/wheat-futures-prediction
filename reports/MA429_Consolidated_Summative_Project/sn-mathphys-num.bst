@@ -2406,8 +2406,8 @@ FUNCTION {initialize.et.al.char.used}
 
 %%%%% setting default options
 FUNCTION {set.default.opt}
-{"unsort" 'list.string :=}
-%%{"alpha" 'list.string :=}
+%%{"unsort" 'list.string :=}
+{"alpha" 'list.string :=}
 
 EXECUTE {set.default.opt}
 
@@ -2738,12 +2738,12 @@ FUNCTION {presort}
   if$
   "    "
   *
-  year field.or.null sortify
+  title field.or.null
+  sort.format.title
   *
   "    "
   *
-  title field.or.null
-  sort.format.title
+  year field.or.null sortify
   *
   #1 entry.max$ substring$ 'sort.label :=
   sort.label *

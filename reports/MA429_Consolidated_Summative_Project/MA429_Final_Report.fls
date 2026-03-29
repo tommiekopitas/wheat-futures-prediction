@@ -1,6 +1,6 @@
-PWD c:\Users\thoma\OneDrive\Bureau\LSE Y1 (2025-2026)\Autumn Term\MA429 Algorithmic Techniques in Machine Learning\MA429_Summative_Project_Thomas_Fouilloux_v7
+PWD c:\Users\thoma\OneDrive\Bureau\LSE Y1 (2025-2026)\Autumn Term\MA429 Algorithmic Techniques in Machine Learning\MA429_Summative_Project_Thomas_Fouilloux_v8
 INPUT C:\Users\thoma\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\thoma\OneDrive\Bureau\LSE Y1 (2025-2026)\Autumn Term\MA429 Algorithmic Techniques in Machine Learning\MA429_Summative_Project_Thomas_Fouilloux_v7\MA429_Final_Report.tex
+INPUT c:\Users\thoma\OneDrive\Bureau\LSE Y1 (2025-2026)\Autumn Term\MA429 Algorithmic Techniques in Machine Learning\MA429_Summative_Project_Thomas_Fouilloux_v8\MA429_Final_Report.tex
 OUTPUT MA429_Final_Report.log
 INPUT .\sn-jnl.cls
 INPUT sn-jnl.cls
@@ -331,12 +331,15 @@ INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bo
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Bold-tlf-ot1.vf
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txbmiaX.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1r.tfm
+INPUT .\MA429_Final_Report.toc
+INPUT .\MA429_Final_Report.toc
+INPUT MA429_Final_Report.toc
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
-INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
-INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Italic-tlf-ot1.tfm
+OUTPUT MA429_Final_Report.toc
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Bold-tlf-ot1.vf
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txbmiaX.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1r.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Bold-tlf-ot1.vf
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txbmiaX.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1r.tfm
@@ -351,12 +354,15 @@ INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxsy.v
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txsys.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txex-bar.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Regular-tlf-ot1.vf
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Italic-tlf-ot1.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxmi.vf
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\NewTXMI.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\stxscr.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxmi7.vf
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\NewTXMI7.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\stxscr.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Italic-tlf-ot1.vf
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Italic-tlf-ot1r.tfm
 INPUT .\Figures\eda_return_distribution.png
 INPUT .\Figures\eda_return_distribution.png
 INPUT .\Figures\eda_return_distribution.png
@@ -366,17 +372,15 @@ INPUT .\Figures\eda_return_distribution.png
 INPUT .\Figures\eda_return_distribution.png
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-ot1.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
-INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Italic-tlf-ot1.vf
-INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Italic-tlf-ot1r.tfm
+INPUT .\Figures\eda_ag_features_vs_price.png
+INPUT .\Figures\eda_ag_features_vs_price.png
+INPUT .\Figures\eda_ag_features_vs_price.png
+INPUT .\Figures\eda_ag_features_vs_price.png
+INPUT .\Figures\eda_ag_features_vs_price.png
+INPUT .\Figures\eda_ag_features_vs_price.png
+INPUT .\Figures\eda_ag_features_vs_price.png
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxmia.vf
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txmiaSTbb.tfm
-INPUT .\Figures\eda_ag_features_vs_price.png
-INPUT .\Figures\eda_ag_features_vs_price.png
-INPUT .\Figures\eda_ag_features_vs_price.png
-INPUT .\Figures\eda_ag_features_vs_price.png
-INPUT .\Figures\eda_ag_features_vs_price.png
-INPUT .\Figures\eda_ag_features_vs_price.png
-INPUT .\Figures\eda_ag_features_vs_price.png
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Bold-tlf-ot1.vf
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txbmiaX.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1r.tfm
@@ -387,9 +391,6 @@ INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxexx.
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txexs.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxmia.vf
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txmiaSTbb.tfm
-INPUT .\MA429_Final_Report.bbl
-INPUT .\MA429_Final_Report.bbl
-INPUT MA429_Final_Report.bbl
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-ot1.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-ot1.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-ot1.tfm
@@ -426,6 +427,43 @@ INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ts1
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ts1-qtmr.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ts1-qtmr.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Bold-tlf-ot1.vf
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txbmiaX.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1r.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Regular-tlf-ot1.vf
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txmiaX.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-ot1r.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Bold-tlf-ot1.vf
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txbmiaX.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1r.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxsy7.vf
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txsys.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txex-bar.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Regular-tlf-ot1.vf
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntxmi7.vf
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\NewTXMI7.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\stxscr.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Bold-tlf-ot1.vf
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr8.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-cmr.cfg
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-cmr.cfg
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-cmr.cfg
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm0800.tfm
+INPUT .\MA429_Final_Report.bbl
+INPUT .\MA429_Final_Report.bbl
+INPUT MA429_Final_Report.bbl
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex\latex\tex-gyre\ot1qhv.fd
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex\latex\tex-gyre\ot1qhv.fd
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex\latex\tex-gyre\ot1qhv.fd
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\rm-qhvr.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\tex-gyre\q-rm.enc
 INPUT .\Figures\eda_precipitation.png
 INPUT .\Figures\eda_precipitation.png
 INPUT .\Figures\eda_precipitation.png
@@ -459,6 +497,9 @@ INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxsy5
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxexx.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxexx.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxexx.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam7.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam5.tfm
@@ -480,12 +521,6 @@ INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntxexa
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ts1-qtmr.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ts1-qtmr.tfm
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\tex-gyre\ts1-qtmr.tfm
-INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Bold-tlf-ot1.vf
-INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txbmiaX.tfm
-INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Bold-tlf-ot1r.tfm
-INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\vf\public\newtx\ntx-Regular-tlf-ot1.vf
-INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\txmiaX.tfm
-INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\tfm\public\newtx\ntx-Regular-tlf-ot1r.tfm
 INPUT .\Figures\eda_soil_moisture.png
 INPUT .\Figures\eda_soil_moisture.png
 INPUT .\Figures\eda_soil_moisture.png
@@ -537,13 +572,31 @@ INPUT .\Figures\eda_yield_distributions.png
 INPUT .\Figures\eda_yield_distributions.png
 INPUT .\Figures\eda_yield_distributions.png
 INPUT .\Figures\eda_yield_distributions.png
+INPUT .\Figures\NRMSE results.png
+INPUT .\Figures\NRMSE results.png
+INPUT .\Figures\NRMSE results.png
+INPUT .\Figures\NRMSE results.png
+INPUT .\Figures\NRMSE results.png
+INPUT .\Figures\NRMSE results.png
+INPUT .\Figures\NRMSE results.png
+INPUT .\Figures\yield_forecast_accuracy graph.png
+INPUT .\Figures\yield_forecast_accuracy graph.png
+INPUT .\Figures\yield_forecast_accuracy graph.png
+INPUT .\Figures\yield_forecast_accuracy graph.png
+INPUT .\Figures\yield_forecast_accuracy graph.png
+INPUT .\Figures\yield_forecast_accuracy graph.png
+INPUT .\Figures\yield_forecast_accuracy graph.png
 INPUT MA429_Final_Report.aux
 INPUT .\MA429_Final_Report.out
 INPUT .\MA429_Final_Report.out
+INPUT C:\Users\thoma\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi602\tcrm0800.pk
+INPUT C:\Users\thoma\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi602\tcrm0800.pk
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\NewTXMI.pfb
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\NewTXMI.pfb
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\NewTXMI7.pfb
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\NewTXMI7.pfb
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qhvr.pfb
+INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qhvr.pfb
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmr.pfb
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\type1\public\tex-gyre\qtmr.pfb
 INPUT C:\Users\thoma\AppData\Local\Programs\MiKTeX\fonts\type1\public\newtx\txexs.pfb

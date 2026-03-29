@@ -1,6 +1,6 @@
 %% BioMed_Central_Bib_Style_v1.01
 
-\begin{thebibliography}{42}
+\begin{thebibliography}{54}
 % BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
 \ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
 \ifx \binits  \undefined \def \binits#1{#1}\fi
@@ -44,38 +44,444 @@
 \csname PreBibitemsHook\endcsname
 
 %%% 1
-\bibitem[\protect\citeauthoryear{van Klompenburg et~al.}{2020}]{bib14}
-\begin{barticle}
-\bauthor{\bsnm{Klompenburg}, \binits{T.}},
-\bauthor{\bsnm{Kassahun}, \binits{A.}},
-\bauthor{\bsnm{Catal}, \binits{C.}}:
-\batitle{Crop yield prediction using machine learning: {A} systematic
-  literature review}.
-\bjtitle{Comput. Electron. Agric.}
-\bvolume{177},
-\bfpage{105709}
-(\byear{2020})
-\doiurl{10.1016/j.compag.2020.105709}
-\end{barticle}
+\bibitem[\protect\citeauthoryear{{Agreste}}{2024}]{agreste_stats}
+\begin{botherref}
+\oauthor{\bsnm{{Agreste}}}:
+La statistique, l'évaluation et la prospective agricole
+(2024).
+\url{https://agreste.agriculture.gouv.fr/}
+\end{botherref}
 \endbibitem
 
 %%% 2
-\bibitem[\protect\citeauthoryear{Oikonomidis et~al.}{2023}]{bib15}
+\bibitem[\protect\citeauthoryear{Bergstra and Bengio}{2012}]{bib33}
 \begin{barticle}
-\bauthor{\bsnm{Oikonomidis}, \binits{A.}},
-\bauthor{\bsnm{Catal}, \binits{C.}},
-\bauthor{\bsnm{Kassahun}, \binits{A.}}:
-\batitle{Deep learning for crop yield prediction: a systematic literature
-  review}.
-\bjtitle{N. Z. J. Crop Hortic. Sci.}
-\bvolume{51}(\bissue{1}),
-\bfpage{1}--\blpage{26}
-(\byear{2023})
-\doiurl{10.1080/01140671.2022.2032213}
+\bauthor{\bsnm{Bergstra}, \binits{J.}},
+\bauthor{\bsnm{Bengio}, \binits{Y.}}:
+\batitle{Random search for hyper-parameter optimization}.
+\bjtitle{J. Mach. Learn. Res.}
+\bvolume{13}(\bissue{10}),
+\bfpage{281}--\blpage{305}
+(\byear{2012})
 \end{barticle}
 \endbibitem
 
 %%% 3
+\bibitem[\protect\citeauthoryear{Breiman}{2001}]{bib31}
+\begin{barticle}
+\bauthor{\bsnm{Breiman}, \binits{L.}}:
+\batitle{Random forests}.
+\bjtitle{Mach. Learn.}
+\bvolume{45}(\bissue{1}),
+\bfpage{5}--\blpage{32}
+(\byear{2001})
+\doiurl{10.1023/A:1010933404324}
+\end{barticle}
+\endbibitem
+
+%%% 4
+\bibitem[\protect\citeauthoryear{{Bremenports}}{2024}]{bremenports_stats}
+\begin{botherref}
+\oauthor{\bsnm{{Bremenports}}}:
+Ports of Bremen and Bremerhaven: Facts and Figures
+(2024).
+\url{https://bremenports.de/}
+\end{botherref}
+\endbibitem
+
+%%% 5
+\bibitem[\protect\citeauthoryear{Boogaard et~al.}{2022}]{bib_boogaard2022}
+\begin{botherref}
+\oauthor{\bsnm{Boogaard}, \binits{H.}},
+\oauthor{\bsnm{Schubert}, \binits{J.}},
+\oauthor{\bsnm{De~Wit}, \binits{A.}},
+\oauthor{\bsnm{Lazebnik}, \binits{J.}},
+\oauthor{\bsnm{Hutjes}, \binits{R.}},
+\oauthor{\bsnm{Grijn}, \binits{G.}}:
+Agrometeorological indicators from 1979 to present derived from reanalysis.
+Climate Data Store -- Copernicus Climate Change Service
+(2022).
+\doiurl{10.24381/cds.6c68c9bb}
+\end{botherref}
+\endbibitem
+
+%%% 6
+\bibitem[\protect\citeauthoryear{Brignoli et~al.}{2024}]{bib23}
+\begin{barticle}
+\bauthor{\bsnm{Brignoli}, \binits{P.L.}},
+\bauthor{\bsnm{Varacca}, \binits{A.}},
+\bauthor{\bsnm{Gardebroek}, \binits{C.}},
+\bauthor{\bsnm{Sckokai}, \binits{P.}}:
+\batitle{Machine learning to predict grains futures prices}.
+\bjtitle{Agric. Econ.}
+\bvolume{55}(\bissue{3}),
+\bfpage{479}--\blpage{497}
+(\byear{2024})
+\doiurl{10.1111/agec.12828}
+\end{barticle}
+\endbibitem
+
+%%% 7
+\bibitem[\protect\citeauthoryear{Cerrani and
+  L{\'o}pez~Lozano}{2017}]{bib_cerrani2017}
+\begin{botherref}
+\oauthor{\bsnm{Cerrani}, \binits{I.}},
+\oauthor{\bsnm{L{\'o}pez~Lozano}, \binits{R.}}:
+{MARS} crop yield forecasting system ({MCYFS}): Data collection, processing and
+  analysis.
+Technical Report JRC106129,
+European Commission, Joint Research Centre
+(2017).
+\doiurl{10.2788/88304}
+\end{botherref}
+\endbibitem
+
+%%% 8
+\bibitem[\protect\citeauthoryear{Carchano and Pardo}{2009}]{bib25}
+\begin{barticle}
+\bauthor{\bsnm{Carchano}, \binits{{\'O}.}},
+\bauthor{\bsnm{Pardo}, \binits{{\'A}.}}:
+\batitle{Rolling over stock index futures contracts}.
+\bjtitle{J. Futures Mark.}
+\bvolume{29}(\bissue{7}),
+\bfpage{684}--\blpage{694}
+(\byear{2009})
+\doiurl{10.1002/fut.20373}
+\end{barticle}
+\endbibitem
+
+%%% 9
+\bibitem[\protect\citeauthoryear{{Destatis}}{2024}]{destatis_stats}
+\begin{botherref}
+\oauthor{\bsnm{{Destatis}}}:
+Regionaldatenbank Deutschland
+(2024).
+\url{https://www.destatis.de/}
+\end{botherref}
+\endbibitem
+
+%%% 10
+\bibitem[\protect\citeauthoryear{Daal et~al.}{2006}]{bib56}
+\begin{barticle}
+\bauthor{\bsnm{Daal}, \binits{E.}},
+\bauthor{\bsnm{Farhat}, \binits{J.}},
+\bauthor{\bsnm{Wei}, \binits{P.P.}}:
+\batitle{Does futures exhibit maturity effect? new evidence from an extensive
+  set of us and foreign futures contracts}.
+\bjtitle{Rev. Financ. Econ.}
+\bvolume{15}(\bissue{2}),
+\bfpage{113}--\blpage{128}
+(\byear{2006})
+\doiurl{10.1016/j.rfe.2005.03.001}
+\end{barticle}
+\endbibitem
+
+%%% 11
+\bibitem[\protect\citeauthoryear{Deuskar and Johnson}{2011}]{bib85}
+\begin{barticle}
+\bauthor{\bsnm{Deuskar}, \binits{P.}},
+\bauthor{\bsnm{Johnson}, \binits{T.C.}}:
+\batitle{Market liquidity and flow-driven risk}.
+\bjtitle{Rev. Financ. Stud.}
+\bvolume{24}(\bissue{3}),
+\bfpage{721}--\blpage{753}
+(\byear{2011})
+\doiurl{10.1093/rfs/hhq132}
+\end{barticle}
+\endbibitem
+
+%%% 12
+\bibitem[\protect\citeauthoryear{Duong and Kalev}{2008}]{bib55}
+\begin{barticle}
+\bauthor{\bsnm{Duong}, \binits{H.N.}},
+\bauthor{\bsnm{Kalev}, \binits{P.S.}}:
+\batitle{The {Samuelson} hypothesis in futures markets: an analysis using
+  intraday data}.
+\bjtitle{J. Bank. Finance}
+\bvolume{32}(\bissue{4}),
+\bfpage{489}--\blpage{500}
+(\byear{2008})
+\doiurl{10.1016/j.jbankfin.2007.06.011}
+\end{barticle}
+\endbibitem
+
+%%% 13
+\bibitem[\protect\citeauthoryear{Ding and Lim}{2024}]{bib26}
+\begin{barticle}
+\bauthor{\bsnm{Ding}, \binits{D.K.}},
+\bauthor{\bsnm{Lim}, \binits{W.B.}}:
+\batitle{Lessons from the demise of the brent crude oil futures contract on the
+  singapore exchange}.
+\bjtitle{J. Risk Financial Manag.}
+\bvolume{17}(\bissue{6}),
+\bfpage{252}
+(\byear{2024})
+\doiurl{10.3390/jrfm17060252}
+\end{barticle}
+\endbibitem
+
+%%% 14
+\bibitem[\protect\citeauthoryear{{Eurostat}}{2026}]{bib28}
+\begin{botherref}
+\oauthor{\bsnm{{Eurostat}}}:
+Wheat and spelt by area, production and humidity.
+European Commission
+(2026).
+\doiurl{10.2908/tag00047} .
+\url{https://ec.europa.eu/eurostat/databrowser/view/tag00047/default/table}
+\end{botherref}
+\endbibitem
+
+%%% 15
+\bibitem[\protect\citeauthoryear{Fama}{1970}]{bib30}
+\begin{barticle}
+\bauthor{\bsnm{Fama}, \binits{E.F.}}:
+\batitle{Efficient capital markets: A review of empirical work}.
+\bjtitle{J. Finance}
+\bvolume{25}(\bissue{2}),
+\bfpage{383}--\blpage{417}
+(\byear{1970})
+\doiurl{10.2307/2325486}
+\end{barticle}
+\endbibitem
+
+%%% 16
+\bibitem[\protect\citeauthoryear{Guo and Berkhahn}{2016}]{bib_guo}
+\begin{botherref}
+\oauthor{\bsnm{Guo}, \binits{C.}},
+\oauthor{\bsnm{Berkhahn}, \binits{F.}}:
+Entity embeddings of categorical variables.
+arXiv preprint arXiv:1604.06737
+(2016)
+\end{botherref}
+\endbibitem
+
+%%% 17
+\bibitem[\protect\citeauthoryear{Goodfellow et~al.}{2016}]{bib_goodfellow}
+\begin{bbook}
+\bauthor{\bsnm{Goodfellow}, \binits{I.}},
+\bauthor{\bsnm{Bengio}, \binits{Y.}},
+\bauthor{\bsnm{Courville}, \binits{A.}}:
+\bbtitle{Deep Learning}.
+\bpublisher{MIT Press}, \blocation{???}
+(\byear{2016}).
+\burl{http://www.deeplearningbook.org}
+\end{bbook}
+\endbibitem
+
+%%% 18
+\bibitem[\protect\citeauthoryear{Geurts et~al.}{2006}]{bib32}
+\begin{barticle}
+\bauthor{\bsnm{Geurts}, \binits{P.}},
+\bauthor{\bsnm{Ernst}, \binits{D.}},
+\bauthor{\bsnm{Wehenkel}, \binits{L.}}:
+\batitle{Extremely randomized trees}.
+\bjtitle{Mach. Learn.}
+\bvolume{63}(\bissue{1}),
+\bfpage{3}--\blpage{42}
+(\byear{2006})
+\doiurl{10.1007/s10994-006-6226-1}
+\end{barticle}
+\endbibitem
+
+%%% 19
+\bibitem[\protect\citeauthoryear{Gal and Ghahramani}{2016}]{bib_gal}
+\begin{bchapter}
+\bauthor{\bsnm{Gal}, \binits{Y.}},
+\bauthor{\bsnm{Ghahramani}, \binits{Z.}}:
+\bctitle{Dropout as a {Bayesian} approximation: representing model uncertainty
+  in deep learning}.
+In: \bbtitle{Proceedings of the 33rd International Conference on Machine
+  Learning},
+pp. \bfpage{1050}--\blpage{1059}
+(\byear{2016})
+\end{bchapter}
+\endbibitem
+
+%%% 20
+\bibitem[\protect\citeauthoryear{Grinsztajn et~al.}{2022}]{bib27}
+\begin{bchapter}
+\bauthor{\bsnm{Grinsztajn}, \binits{L.}},
+\bauthor{\bsnm{Oyallon}, \binits{E.}},
+\bauthor{\bsnm{Varoquaux}, \binits{G.}}:
+\bctitle{Why do tree-based models still outperform deep learning on typical
+  tabular data?}
+In: \bbtitle{Advances in Neural Information Processing Systems},
+vol. \bseriesno{35},
+pp. \bfpage{507}--\blpage{520}
+(\byear{2022})
+\end{bchapter}
+\endbibitem
+
+%%% 21
+\bibitem[\protect\citeauthoryear{Gorishniy et~al.}{2021}]{bib_gorishniy}
+\begin{bchapter}
+\bauthor{\bsnm{Gorishniy}, \binits{Y.}},
+\bauthor{\bsnm{Rubachev}, \binits{I.}},
+\bauthor{\bsnm{Khrulkov}, \binits{V.}},
+\bauthor{\bsnm{Babenko}, \binits{A.}}:
+\bctitle{Revisiting deep learning models for tabular data}.
+In: \bbtitle{Advances in Neural Information Processing Systems},
+vol. \bseriesno{34}
+(\byear{2021})
+\end{bchapter}
+\endbibitem
+
+%%% 22
+\bibitem[\protect\citeauthoryear{Hastie et~al.}{2009}]{bib36}
+\begin{bbook}
+\bauthor{\bsnm{Hastie}, \binits{T.}},
+\bauthor{\bsnm{Tibshirani}, \binits{R.}},
+\bauthor{\bsnm{Friedman}, \binits{J.}}:
+\bbtitle{The Elements of Statistical Learning},
+\bedition{2nd} edn.
+\bpublisher{Springer},
+\blocation{New York}
+(\byear{2009}).
+\burl{https://hastie.su.domains/ElemStatLearn/}
+\end{bbook}
+\endbibitem
+
+%%% 23
+\bibitem[\protect\citeauthoryear{{INSEE}}{2024}]{insee_stats}
+\begin{botherref}
+\oauthor{\bsnm{{INSEE}}}:
+Statistiques locales: Base de données
+(2024).
+\url{https://www.insee.fr/}
+\end{botherref}
+\endbibitem
+
+%%% 24
+\bibitem[\protect\citeauthoryear{{JadeWeserPort}}{2024}]{jadeweserport_stats}
+\begin{botherref}
+\oauthor{\bsnm{{JadeWeserPort}}}:
+JadeWeserPort becomes a strategic hub for the world’s largest port in China
+(2024).
+\url{https://www.jadeweserport.de/en/presse-media/news/jadeweserport-becomes-a-strategic-hub-for-the-worlds-largest-port-in-china/}
+\end{botherref}
+\endbibitem
+
+%%% 25
+\bibitem[\protect\citeauthoryear{Kingma and Ba}{2015}]{bib_kingma}
+\begin{botherref}
+\oauthor{\bsnm{Kingma}, \binits{D.P.}},
+\oauthor{\bsnm{Ba}, \binits{J.}}:
+Adam: a method for stochastic optimization.
+arXiv preprint arXiv:1412.6980
+(2015)
+\end{botherref}
+\endbibitem
+
+%%% 26
+\bibitem[\protect\citeauthoryear{Khaki et~al.}{2020}]{bib_khaki}
+\begin{barticle}
+\bauthor{\bsnm{Khaki}, \binits{S.}},
+\bauthor{\bsnm{Wang}, \binits{L.}},
+\bauthor{\bsnm{Archontoulis}, \binits{S.V.}}:
+\batitle{A {CNN-RNN} framework for crop yield prediction}.
+\bjtitle{Frontiers in Plant Science}
+\bvolume{10},
+\bfpage{1750}
+(\byear{2020})
+\end{barticle}
+\endbibitem
+
+%%% 27
+\bibitem[\protect\citeauthoryear{L{\'o}pez~de Prado}{2018}]{bib24}
+\begin{bbook}
+\bauthor{\bsnm{Prado}, \binits{M.}}:
+\bbtitle{Advances in {F}inancial {M}achine {L}earning}.
+\bpublisher{Wiley},
+\blocation{New York}
+(\byear{2018})
+\end{bbook}
+\endbibitem
+
+%%% 28
+\bibitem[\protect\citeauthoryear{Loshchilov and Hutter}{2017}]{bib_loshchilov}
+\begin{botherref}
+\oauthor{\bsnm{Loshchilov}, \binits{I.}},
+\oauthor{\bsnm{Hutter}, \binits{F.}}:
+Decoupled weight decay regularization.
+arXiv preprint arXiv:1711.05101
+(2017)
+\end{botherref}
+\endbibitem
+
+%%% 29
+\bibitem[\protect\citeauthoryear{Li}{2024}]{bib18}
+\begin{barticle}
+\bauthor{\bsnm{Li}, \binits{H.}}:
+\batitle{A study of {European} wheat price series forecasting based on multiple
+  variants of {Holt-Winters} and {LSTM} models}.
+\bjtitle{Appl. Comput. Eng.}
+\bvolume{68}(\bissue{1}),
+\bfpage{224}--\blpage{233}
+(\byear{2024})
+\doiurl{10.54254/2755-2721/68/20241466}
+\end{barticle}
+\endbibitem
+
+%%% 30
+\bibitem[\protect\citeauthoryear{Leitch and Tanner}{1991}]{bib35}
+\begin{barticle}
+\bauthor{\bsnm{Leitch}, \binits{G.}},
+\bauthor{\bsnm{Tanner}, \binits{J.E.}}:
+\batitle{Economic forecast evaluation: Profits versus the conventional error
+  measures}.
+\bjtitle{Am. Econ. Rev.}
+\bvolume{81}(\bissue{3}),
+\bfpage{580}--\blpage{590}
+(\byear{1991})
+\end{barticle}
+\endbibitem
+
+%%% 31
+\bibitem[\protect\citeauthoryear{Mandelbrot}{1963}]{bib_mandelbrot1963}
+\begin{barticle}
+\bauthor{\bsnm{Mandelbrot}, \binits{B.}}:
+\batitle{The variation of certain speculative prices}.
+\bjtitle{The Journal of Business}
+\bvolume{36}(\bissue{4}),
+\bfpage{394}--\blpage{419}
+(\byear{1963})
+\doiurl{10.1086/294632}
+\end{barticle}
+\endbibitem
+
+%%% 32
+\bibitem[\protect\citeauthoryear{McKee et~al.}{1993}]{bib_mckee1993}
+\begin{botherref}
+\oauthor{\bsnm{McKee}, \binits{T.B.}},
+\oauthor{\bsnm{Doesken}, \binits{N.J.}},
+\oauthor{\bsnm{Kleist}, \binits{J.}}:
+The relationship of drought frequency and duration to time scales.
+Proceedings of the 8th Conference on Applied Climatology,
+179--184
+(1993)
+\end{botherref}
+\endbibitem
+
+%%% 33
+\bibitem[\protect\citeauthoryear{Meroni et~al.}{2019}]{bib_meroni2019}
+\begin{barticle}
+\bauthor{\bsnm{Meroni}, \binits{M.}},
+\bauthor{\bsnm{Fasbender}, \binits{D.}},
+\bauthor{\bsnm{Rembold}, \binits{F.}},
+\bauthor{\bsnm{Atzberger}, \binits{C.}},
+\bauthor{\bsnm{Klisch}, \binits{A.}}:
+\batitle{Near real-time vegetation anomaly detection with {MODIS NDVI}:
+  Timeliness vs.\ accuracy and effect of anomaly computation options}.
+\bjtitle{Remote Sensing of Environment}
+\bvolume{221},
+\bfpage{508}--\blpage{521}
+(\byear{2019})
+\doiurl{10.1016/j.rse.2018.11.041}
+\end{barticle}
+\endbibitem
+
+%%% 34
 \bibitem[\protect\citeauthoryear{Muruganantham et~al.}{2022}]{bib20}
 \begin{barticle}
 \bauthor{\bsnm{Muruganantham}, \binits{P.}},
@@ -93,7 +499,23 @@
 \end{barticle}
 \endbibitem
 
-%%% 4
+%%% 35
+\bibitem[\protect\citeauthoryear{Oikonomidis et~al.}{2023}]{bib15}
+\begin{barticle}
+\bauthor{\bsnm{Oikonomidis}, \binits{A.}},
+\bauthor{\bsnm{Catal}, \binits{C.}},
+\bauthor{\bsnm{Kassahun}, \binits{A.}}:
+\batitle{Deep learning for crop yield prediction: a systematic literature
+  review}.
+\bjtitle{N. Z. J. Crop Hortic. Sci.}
+\bvolume{51}(\bissue{1}),
+\bfpage{1}--\blpage{26}
+(\byear{2023})
+\doiurl{10.1080/01140671.2022.2032213}
+\end{barticle}
+\endbibitem
+
+%%% 36
 \bibitem[\protect\citeauthoryear{Paudel et~al.}{2021}]{bib16}
 \begin{barticle}
 \bauthor{\bsnm{Paudel}, \binits{D.}},
@@ -112,7 +534,7 @@
 \end{barticle}
 \endbibitem
 
-%%% 5
+%%% 37
 \bibitem[\protect\citeauthoryear{Paudel et~al.}{2025}]{bib17}
 \begin{bchapter}
 \bauthor{\bsnm{Paudel}, \binits{D.}},
@@ -129,115 +551,46 @@ In: \bbtitle{Proceedings of the 38th Conference on Neural Information
 \end{bchapter}
 \endbibitem
 
-%%% 6
-\bibitem[\protect\citeauthoryear{Theofilou et~al.}{2025}]{bib21}
+%%% 38
+\bibitem[\protect\citeauthoryear{Porter and Gawith}{1999}]{bib_porter1999}
 \begin{barticle}
-\bauthor{\bsnm{Theofilou}, \binits{A.}},
-\bauthor{\bsnm{Nastis}, \binits{S.A.}},
-\bauthor{\bsnm{Michailidis}, \binits{A.}},
-\bauthor{\bsnm{Bournaris}, \binits{T.}},
-\bauthor{\bsnm{Mattas}, \binits{K.}}:
-\batitle{Predicting prices of staple crops using machine learning: {A}
-  systematic review of studies on wheat, corn, and rice}.
-\bjtitle{Sustainability}
-\bvolume{17}(\bissue{12}),
-\bfpage{5456}
-(\byear{2025})
-\doiurl{10.3390/su17125456}
+\bauthor{\bsnm{Porter}, \binits{J.R.}},
+\bauthor{\bsnm{Gawith}, \binits{M.}}:
+\batitle{Temperatures and the growth and development of wheat: a review}.
+\bjtitle{European Journal of Agronomy}
+\bvolume{10}(\bissue{1}),
+\bfpage{23}--\blpage{36}
+(\byear{1999})
+\doiurl{10.1016/S1161-0301(98)00047-1}
 \end{barticle}
 \endbibitem
 
-%%% 7
-\bibitem[\protect\citeauthoryear{Li}{2024}]{bib18}
-\begin{barticle}
-\bauthor{\bsnm{Li}, \binits{H.}}:
-\batitle{A study of {European} wheat price series forecasting based on multiple
-  variants of {Holt-Winters} and {LSTM} models}.
-\bjtitle{Appl. Comput. Eng.}
-\bvolume{68}(\bissue{1}),
-\bfpage{224}--\blpage{233}
-(\byear{2024})
-\doiurl{10.54254/2755-2721/68/20241466}
-\end{barticle}
-\endbibitem
-
-%%% 8
-\bibitem[\protect\citeauthoryear{Zhang and Tang}{2024}]{bib22}
-\begin{barticle}
-\bauthor{\bsnm{Zhang}, \binits{T.}},
-\bauthor{\bsnm{Tang}, \binits{Z.}}:
-\batitle{Agricultural commodity futures prices prediction based on a new hybrid
-  forecasting model combining quadratic decomposition technology and {LSTM}
-  model}.
-\bjtitle{Front. Sustain. Food Syst.}
-\bvolume{8},
-\bfpage{1334098}
-(\byear{2024})
-\doiurl{10.3389/fsufs.2024.1334098}
-\end{barticle}
-\endbibitem
-
-%%% 9
-\bibitem[\protect\citeauthoryear{Brignoli et~al.}{2024}]{bib23}
-\begin{barticle}
-\bauthor{\bsnm{Brignoli}, \binits{P.L.}},
-\bauthor{\bsnm{Varacca}, \binits{A.}},
-\bauthor{\bsnm{Gardebroek}, \binits{C.}},
-\bauthor{\bsnm{Sckokai}, \binits{P.}}:
-\batitle{Machine learning to predict grains futures prices}.
-\bjtitle{Agric. Econ.}
-\bvolume{55}(\bissue{3}),
-\bfpage{479}--\blpage{497}
-(\byear{2024})
-\doiurl{10.1111/agec.12828}
-\end{barticle}
-\endbibitem
-
-%%% 10
-\bibitem[\protect\citeauthoryear{Thaker et~al.}{2024}]{bib19}
-\begin{barticle}
-\bauthor{\bsnm{Thaker}, \binits{A.}},
-\bauthor{\bsnm{Chan}, \binits{L.H.}},
-\bauthor{\bsnm{Sonner}, \binits{D.}}:
-\batitle{Forecasting agriculture commodity futures prices with convolutional
-  neural networks with application to wheat futures}.
-\bjtitle{J. Risk Financ. Manag.}
-\bvolume{17}(\bissue{4}),
-\bfpage{143}
-(\byear{2024})
-\doiurl{10.3390/jrfm17040143}
-\end{barticle}
-\endbibitem
-
-%%% 11
-\bibitem[\protect\citeauthoryear{{Eurostat}}{2026}]{bib28}
+%%% 39
+\bibitem[\protect\citeauthoryear{{Port of Hamburg}}{2024}]{hamburg_port}
 \begin{botherref}
-\oauthor{\bsnm{{Eurostat}}}:
-Wheat and spelt by area, production and humidity.
-European Commission
-(2026).
-\doiurl{10.2908/tag00047} .
-\url{https://ec.europa.eu/eurostat/databrowser/view/tag00047/default/table}
+\oauthor{\bsnm{{Port of Hamburg}}}:
+Facts and Figures: Port Statistics
+(2024).
+\url{https://www.hafen-hamburg.de/en/statistics/}
 \end{botherref}
 \endbibitem
 
-%%% 12
-\bibitem[\protect\citeauthoryear{Boogaard et~al.}{2022}]{bib_boogaard2022}
-\begin{botherref}
-\oauthor{\bsnm{Boogaard}, \binits{H.}},
-\oauthor{\bsnm{Schubert}, \binits{J.}},
-\oauthor{\bsnm{De~Wit}, \binits{A.}},
-\oauthor{\bsnm{Lazebnik}, \binits{J.}},
-\oauthor{\bsnm{Hutjes}, \binits{R.}},
-\oauthor{\bsnm{Grijn}, \binits{G.}}:
-Agrometeorological indicators from 1979 to present derived from reanalysis.
-Climate Data Store -- Copernicus Climate Change Service
-(2022).
-\doiurl{10.24381/cds.6c68c9bb}
-\end{botherref}
+%%% 40
+\bibitem[\protect\citeauthoryear{Probst et~al.}{2019}]{bib34}
+\begin{barticle}
+\bauthor{\bsnm{Probst}, \binits{P.}},
+\bauthor{\bsnm{Wright}, \binits{M.N.}},
+\bauthor{\bsnm{Boulesteix}, \binits{A.-L.}}:
+\batitle{Hyperparameters and tuning strategies for random forest}.
+\bjtitle{WIREs Data Min. Knowl. Discov.}
+\bvolume{9}(\bissue{3}),
+\bfpage{1301}
+(\byear{2019})
+\doiurl{10.1002/widm.1301}
+\end{barticle}
 \endbibitem
 
-%%% 13
+%%% 41
 \bibitem[\protect\citeauthoryear{Rodell et~al.}{2004}]{bib_rodell2004}
 \begin{barticle}
 \bauthor{\bsnm{Rodell}, \binits{M.}},
@@ -263,29 +616,7 @@ Climate Data Store -- Copernicus Climate Change Service
 \end{barticle}
 \endbibitem
 
-%%% 14
-\bibitem[\protect\citeauthoryear{Vermote}{2015}]{bib_vermote2015}
-\begin{botherref}
-\oauthor{\bsnm{Vermote}, \binits{E.}}:
-{MOD09CMG MODIS/Terra Surface Reflectance Daily L3 Global 0.05Deg CMG V006}.
-NASA EOSDIS Land Processes DAAC
-(2015).
-\doiurl{10.5067/MODIS/MOD09CMG.006}
-\end{botherref}
-\endbibitem
-
-%%% 15
-\bibitem[\protect\citeauthoryear{Seguini et~al.}{In preparation}]{bib_seguini}
-\begin{botherref}
-\oauthor{\bsnm{Seguini}, \binits{L.}}, et al.:
-{JRC} dekadal fraction of absorbed photosynthetically active radiation ({fPAR})
-  dataset.
-Joint Research Centre, European Commission. Cited via Paudel et~al.~(2025)
-(In preparation)
-\end{botherref}
-\endbibitem
-
-%%% 16
+%%% 42
 \bibitem[\protect\citeauthoryear{Ripple and Moosa}{2007}]{bib84}
 \begin{barticle}
 \bauthor{\bsnm{Ripple}, \binits{R.D.}},
@@ -300,47 +631,7 @@ Joint Research Centre, European Commission. Cited via Paudel et~al.~(2025)
 \end{barticle}
 \endbibitem
 
-%%% 17
-\bibitem[\protect\citeauthoryear{Ding and Lim}{2024}]{bib26}
-\begin{barticle}
-\bauthor{\bsnm{Ding}, \binits{D.K.}},
-\bauthor{\bsnm{Lim}, \binits{W.B.}}:
-\batitle{Lessons from the demise of the brent crude oil futures contract on the
-  singapore exchange}.
-\bjtitle{J. Risk Financial Manag.}
-\bvolume{17}(\bissue{6}),
-\bfpage{252}
-(\byear{2024})
-\doiurl{10.3390/jrfm17060252}
-\end{barticle}
-\endbibitem
-
-%%% 18
-\bibitem[\protect\citeauthoryear{Carchano and Pardo}{2009}]{bib25}
-\begin{barticle}
-\bauthor{\bsnm{Carchano}, \binits{{\'O}.}},
-\bauthor{\bsnm{Pardo}, \binits{{\'A}.}}:
-\batitle{Rolling over stock index futures contracts}.
-\bjtitle{J. Futures Mark.}
-\bvolume{29}(\bissue{7}),
-\bfpage{684}--\blpage{694}
-(\byear{2009})
-\doiurl{10.1002/fut.20373}
-\end{barticle}
-\endbibitem
-
-%%% 19
-\bibitem[\protect\citeauthoryear{L{\'o}pez~de Prado}{2018}]{bib24}
-\begin{bbook}
-\bauthor{\bsnm{Prado}, \binits{M.}}:
-\bbtitle{Advances in {F}inancial {M}achine {L}earning}.
-\bpublisher{Wiley},
-\blocation{New York}
-(\byear{2018})
-\end{bbook}
-\endbibitem
-
-%%% 20
+%%% 43
 \bibitem[\protect\citeauthoryear{Ronchetti et~al.}{2024}]{bib_ronchetti2024}
 \begin{barticle}
 \bauthor{\bsnm{Ronchetti}, \binits{G.}},
@@ -358,49 +649,35 @@ Joint Research Centre, European Commission. Cited via Paudel et~al.~(2025)
 \end{barticle}
 \endbibitem
 
-%%% 21
-\bibitem[\protect\citeauthoryear{Mandelbrot}{1963}]{bib_mandelbrot1963}
+%%% 44
+\bibitem[\protect\citeauthoryear{Samuelson}{1965}]{bib54}
 \begin{barticle}
-\bauthor{\bsnm{Mandelbrot}, \binits{B.}}:
-\batitle{The variation of certain speculative prices}.
-\bjtitle{The Journal of Business}
-\bvolume{36}(\bissue{4}),
-\bfpage{394}--\blpage{419}
-(\byear{1963})
-\doiurl{10.1086/294632}
+\bauthor{\bsnm{Samuelson}, \binits{P.A.}}:
+\batitle{Proof that properly anticipated prices fluctuate randomly}.
+\bjtitle{Ind. Manag. Rev.}
+\bvolume{6}(\bissue{2}),
+\bfpage{41}--\blpage{49}
+(\byear{1965})
 \end{barticle}
 \endbibitem
 
-%%% 22
-\bibitem[\protect\citeauthoryear{Deuskar and Johnson}{2011}]{bib85}
+%%% 45
+\bibitem[\protect\citeauthoryear{Srivastava et~al.}{2014}]{bib_srivastava}
 \begin{barticle}
-\bauthor{\bsnm{Deuskar}, \binits{P.}},
-\bauthor{\bsnm{Johnson}, \binits{T.C.}}:
-\batitle{Market liquidity and flow-driven risk}.
-\bjtitle{Rev. Financ. Stud.}
-\bvolume{24}(\bissue{3}),
-\bfpage{721}--\blpage{753}
-(\byear{2011})
-\doiurl{10.1093/rfs/hhq132}
+\bauthor{\bsnm{Srivastava}, \binits{N.}},
+\bauthor{\bsnm{Hinton}, \binits{G.}},
+\bauthor{\bsnm{Krizhevsky}, \binits{A.}},
+\bauthor{\bsnm{Sutskever}, \binits{I.}},
+\bauthor{\bsnm{Salakhutdinov}, \binits{R.}}:
+\batitle{Dropout: a simple way to prevent neural networks from overfitting}.
+\bjtitle{Journal of Machine Learning Research}
+\bvolume{15}(\bissue{1}),
+\bfpage{1929}--\blpage{1958}
+(\byear{2014})
 \end{barticle}
 \endbibitem
 
-%%% 23
-\bibitem[\protect\citeauthoryear{Tack et~al.}{2015}]{bib_tack2015}
-\begin{barticle}
-\bauthor{\bsnm{Tack}, \binits{J.}},
-\bauthor{\bsnm{Barkley}, \binits{A.}},
-\bauthor{\bsnm{Nalley}, \binits{L.L.}}:
-\batitle{Effect of warming temperatures on {US} wheat yields}.
-\bjtitle{Proc. Natl. Acad. Sci. U.S.A.}
-\bvolume{112}(\bissue{22}),
-\bfpage{6931}--\blpage{6936}
-(\byear{2015})
-\doiurl{10.1073/pnas.1415181112}
-\end{barticle}
-\endbibitem
-
-%%% 24
+%%% 46
 \bibitem[\protect\citeauthoryear{Schlenker and
   Roberts}{2009}]{bib_schlenker2009}
 \begin{barticle}
@@ -416,237 +693,121 @@ Joint Research Centre, European Commission. Cited via Paudel et~al.~(2025)
 \end{barticle}
 \endbibitem
 
-%%% 25
-\bibitem[\protect\citeauthoryear{Porter and Gawith}{1999}]{bib_porter1999}
-\begin{barticle}
-\bauthor{\bsnm{Porter}, \binits{J.R.}},
-\bauthor{\bsnm{Gawith}, \binits{M.}}:
-\batitle{Temperatures and the growth and development of wheat: a review}.
-\bjtitle{European Journal of Agronomy}
-\bvolume{10}(\bissue{1}),
-\bfpage{23}--\blpage{36}
-(\byear{1999})
-\doiurl{10.1016/S1161-0301(98)00047-1}
-\end{barticle}
-\endbibitem
-
-%%% 26
-\bibitem[\protect\citeauthoryear{Meroni et~al.}{2019}]{bib_meroni2019}
-\begin{barticle}
-\bauthor{\bsnm{Meroni}, \binits{M.}},
-\bauthor{\bsnm{Fasbender}, \binits{D.}},
-\bauthor{\bsnm{Rembold}, \binits{F.}},
-\bauthor{\bsnm{Atzberger}, \binits{C.}},
-\bauthor{\bsnm{Klisch}, \binits{A.}}:
-\batitle{Near real-time vegetation anomaly detection with {MODIS NDVI}:
-  Timeliness vs.\ accuracy and effect of anomaly computation options}.
-\bjtitle{Remote Sensing of Environment}
-\bvolume{221},
-\bfpage{508}--\blpage{521}
-(\byear{2019})
-\doiurl{10.1016/j.rse.2018.11.041}
-\end{barticle}
-\endbibitem
-
-%%% 27
-\bibitem[\protect\citeauthoryear{McKee et~al.}{1993}]{bib_mckee1993}
+%%% 47
+\bibitem[\protect\citeauthoryear{Seguini et~al.}{In preparation}]{bib_seguini}
 \begin{botherref}
-\oauthor{\bsnm{McKee}, \binits{T.B.}},
-\oauthor{\bsnm{Doesken}, \binits{N.J.}},
-\oauthor{\bsnm{Kleist}, \binits{J.}}:
-The relationship of drought frequency and duration to time scales.
-Proceedings of the 8th Conference on Applied Climatology,
-179--184
-(1993)
+\oauthor{\bsnm{Seguini}, \binits{L.}}, et al.:
+{JRC} dekadal fraction of absorbed photosynthetically active radiation ({fPAR})
+  dataset.
+Joint Research Centre, European Commission. Cited via Paudel et~al.~(2025)
+(In preparation)
 \end{botherref}
 \endbibitem
 
-%%% 28
-\bibitem[\protect\citeauthoryear{Cerrani and
-  L{\'o}pez~Lozano}{2017}]{bib_cerrani2017}
-\begin{botherref}
-\oauthor{\bsnm{Cerrani}, \binits{I.}},
-\oauthor{\bsnm{L{\'o}pez~Lozano}, \binits{R.}}:
-{MARS} crop yield forecasting system ({MCYFS}): Data collection, processing and
-  analysis.
-Technical Report JRC106129,
-European Commission, Joint Research Centre
-(2017).
-\doiurl{10.2788/88304}
-\end{botherref}
-\endbibitem
-
-%%% 29
-\bibitem[\protect\citeauthoryear{Grinsztajn et~al.}{2022}]{bib27}
-\begin{bchapter}
-\bauthor{\bsnm{Grinsztajn}, \binits{L.}},
-\bauthor{\bsnm{Oyallon}, \binits{E.}},
-\bauthor{\bsnm{Varoquaux}, \binits{G.}}:
-\bctitle{Why do tree-based models still outperform deep learning on typical
-  tabular data?}
-In: \bbtitle{Advances in Neural Information Processing Systems},
-vol. \bseriesno{35},
-pp. \bfpage{507}--\blpage{520}
-(\byear{2022})
-\end{bchapter}
-\endbibitem
-
-%%% 30
-\bibitem[\protect\citeauthoryear{Breiman}{2001}]{bib31}
+%%% 48
+\bibitem[\protect\citeauthoryear{Tack et~al.}{2015}]{bib_tack2015}
 \begin{barticle}
-\bauthor{\bsnm{Breiman}, \binits{L.}}:
-\batitle{Random forests}.
-\bjtitle{Mach. Learn.}
-\bvolume{45}(\bissue{1}),
-\bfpage{5}--\blpage{32}
-(\byear{2001})
-\doiurl{10.1023/A:1010933404324}
+\bauthor{\bsnm{Tack}, \binits{J.}},
+\bauthor{\bsnm{Barkley}, \binits{A.}},
+\bauthor{\bsnm{Nalley}, \binits{L.L.}}:
+\batitle{Effect of warming temperatures on {US} wheat yields}.
+\bjtitle{Proc. Natl. Acad. Sci. U.S.A.}
+\bvolume{112}(\bissue{22}),
+\bfpage{6931}--\blpage{6936}
+(\byear{2015})
+\doiurl{10.1073/pnas.1415181112}
 \end{barticle}
 \endbibitem
 
-%%% 31
-\bibitem[\protect\citeauthoryear{Probst et~al.}{2019}]{bib34}
+%%% 49
+\bibitem[\protect\citeauthoryear{Thaker et~al.}{2024}]{bib19}
 \begin{barticle}
-\bauthor{\bsnm{Probst}, \binits{P.}},
-\bauthor{\bsnm{Wright}, \binits{M.N.}},
-\bauthor{\bsnm{Boulesteix}, \binits{A.-L.}}:
-\batitle{Hyperparameters and tuning strategies for random forest}.
-\bjtitle{WIREs Data Min. Knowl. Discov.}
-\bvolume{9}(\bissue{3}),
-\bfpage{1301}
-(\byear{2019})
-\doiurl{10.1002/widm.1301}
+\bauthor{\bsnm{Thaker}, \binits{A.}},
+\bauthor{\bsnm{Chan}, \binits{L.H.}},
+\bauthor{\bsnm{Sonner}, \binits{D.}}:
+\batitle{Forecasting agriculture commodity futures prices with convolutional
+  neural networks with application to wheat futures}.
+\bjtitle{J. Risk Financ. Manag.}
+\bvolume{17}(\bissue{4}),
+\bfpage{143}
+(\byear{2024})
+\doiurl{10.3390/jrfm17040143}
 \end{barticle}
 \endbibitem
 
-%%% 32
-\bibitem[\protect\citeauthoryear{Geurts et~al.}{2006}]{bib32}
+%%% 50
+\bibitem[\protect\citeauthoryear{Theofilou et~al.}{2025}]{bib21}
 \begin{barticle}
-\bauthor{\bsnm{Geurts}, \binits{P.}},
-\bauthor{\bsnm{Ernst}, \binits{D.}},
-\bauthor{\bsnm{Wehenkel}, \binits{L.}}:
-\batitle{Extremely randomized trees}.
-\bjtitle{Mach. Learn.}
-\bvolume{63}(\bissue{1}),
-\bfpage{3}--\blpage{42}
-(\byear{2006})
-\doiurl{10.1007/s10994-006-6226-1}
+\bauthor{\bsnm{Theofilou}, \binits{A.}},
+\bauthor{\bsnm{Nastis}, \binits{S.A.}},
+\bauthor{\bsnm{Michailidis}, \binits{A.}},
+\bauthor{\bsnm{Bournaris}, \binits{T.}},
+\bauthor{\bsnm{Mattas}, \binits{K.}}:
+\batitle{Predicting prices of staple crops using machine learning: {A}
+  systematic review of studies on wheat, corn, and rice}.
+\bjtitle{Sustainability}
+\bvolume{17}(\bissue{12}),
+\bfpage{5456}
+(\byear{2025})
+\doiurl{10.3390/su17125456}
 \end{barticle}
 \endbibitem
 
-%%% 33
-\bibitem[\protect\citeauthoryear{Fama}{1970}]{bib30}
+%%% 51
+\bibitem[\protect\citeauthoryear{Vermote}{2015}]{bib_vermote2015}
+\begin{botherref}
+\oauthor{\bsnm{Vermote}, \binits{E.}}:
+{MOD09CMG MODIS/Terra Surface Reflectance Daily L3 Global 0.05Deg CMG V006}.
+NASA EOSDIS Land Processes DAAC
+(2015).
+\doiurl{10.5067/MODIS/MOD09CMG.006}
+\end{botherref}
+\endbibitem
+
+%%% 52
+\bibitem[\protect\citeauthoryear{van Klompenburg et~al.}{2020}]{bib14}
 \begin{barticle}
-\bauthor{\bsnm{Fama}, \binits{E.F.}}:
-\batitle{Efficient capital markets: A review of empirical work}.
-\bjtitle{J. Finance}
-\bvolume{25}(\bissue{2}),
-\bfpage{383}--\blpage{417}
-(\byear{1970})
-\doiurl{10.2307/2325486}
+\bauthor{\bsnm{Klompenburg}, \binits{T.}},
+\bauthor{\bsnm{Kassahun}, \binits{A.}},
+\bauthor{\bsnm{Catal}, \binits{C.}}:
+\batitle{Crop yield prediction using machine learning: {A} systematic
+  literature review}.
+\bjtitle{Comput. Electron. Agric.}
+\bvolume{177},
+\bfpage{105709}
+(\byear{2020})
+\doiurl{10.1016/j.compag.2020.105709}
 \end{barticle}
 \endbibitem
 
-%%% 34
-\bibitem[\protect\citeauthoryear{{INSEE}}{2024}]{insee_stats}
+%%% 53
+\bibitem[\protect\citeauthoryear{Wilson et~al.}{2017}]{bib_wilson}
 \begin{botherref}
-\oauthor{\bsnm{{INSEE}}}:
-Statistiques locales: Base de données
-(2024).
-\url{https://www.insee.fr/}
+\oauthor{\bsnm{Wilson}, \binits{A.C.}},
+\oauthor{\bsnm{Roelofs}, \binits{R.}},
+\oauthor{\bsnm{Stern}, \binits{M.}},
+\oauthor{\bsnm{Srebro}, \binits{N.}},
+\oauthor{\bsnm{Recht}, \binits{B.}}:
+The marginal value of adaptive gradient methods in machine learning.
+Advances in Neural Information Processing Systems
+\textbf{30}
+(2017)
 \end{botherref}
 \endbibitem
 
-%%% 35
-\bibitem[\protect\citeauthoryear{{Destatis}}{2024}]{destatis_stats}
-\begin{botherref}
-\oauthor{\bsnm{{Destatis}}}:
-Regionaldatenbank Deutschland
-(2024).
-\url{https://www.destatis.de/}
-\end{botherref}
-\endbibitem
-
-%%% 36
-\bibitem[\protect\citeauthoryear{{Port of Hamburg}}{2024}]{hamburg_port}
-\begin{botherref}
-\oauthor{\bsnm{{Port of Hamburg}}}:
-Facts and Figures: Port Statistics
-(2024).
-\url{https://www.hafen-hamburg.de/en/statistics/}
-\end{botherref}
-\endbibitem
-
-%%% 37
-\bibitem[\protect\citeauthoryear{{Bremenports}}{2024}]{bremenports_stats}
-\begin{botherref}
-\oauthor{\bsnm{{Bremenports}}}:
-Ports of Bremen and Bremerhaven: Facts and Figures
-(2024).
-\url{https://bremenports.de/}
-\end{botherref}
-\endbibitem
-
-%%% 38
-\bibitem[\protect\citeauthoryear{{JadeWeserPort}}{2024}]{jadeweserport_stats}
-\begin{botherref}
-\oauthor{\bsnm{{JadeWeserPort}}}:
-JadeWeserPort becomes a strategic hub for the world’s largest port in China
-(2024).
-\url{https://www.jadeweserport.de/en/presse-media/news/jadeweserport-becomes-a-strategic-hub-for-the-worlds-largest-port-in-china/}
-\end{botherref}
-\endbibitem
-
-%%% 39
-\bibitem[\protect\citeauthoryear{{Agreste}}{2024}]{agreste_stats}
-\begin{botherref}
-\oauthor{\bsnm{{Agreste}}}:
-La statistique, l'évaluation et la prospective agricole
-(2024).
-\url{https://agreste.agriculture.gouv.fr/}
-\end{botherref}
-\endbibitem
-
-%%% 40
-\bibitem[\protect\citeauthoryear{Samuelson}{1965}]{bib54}
+%%% 54
+\bibitem[\protect\citeauthoryear{Zhang and Tang}{2024}]{bib22}
 \begin{barticle}
-\bauthor{\bsnm{Samuelson}, \binits{P.A.}}:
-\batitle{Proof that properly anticipated prices fluctuate randomly}.
-\bjtitle{Ind. Manag. Rev.}
-\bvolume{6}(\bissue{2}),
-\bfpage{41}--\blpage{49}
-(\byear{1965})
-\end{barticle}
-\endbibitem
-
-%%% 41
-\bibitem[\protect\citeauthoryear{Duong and Kalev}{2008}]{bib55}
-\begin{barticle}
-\bauthor{\bsnm{Duong}, \binits{H.N.}},
-\bauthor{\bsnm{Kalev}, \binits{P.S.}}:
-\batitle{The {Samuelson} hypothesis in futures markets: an analysis using
-  intraday data}.
-\bjtitle{J. Bank. Finance}
-\bvolume{32}(\bissue{4}),
-\bfpage{489}--\blpage{500}
-(\byear{2008})
-\doiurl{10.1016/j.jbankfin.2007.06.011}
-\end{barticle}
-\endbibitem
-
-%%% 42
-\bibitem[\protect\citeauthoryear{Daal et~al.}{2006}]{bib56}
-\begin{barticle}
-\bauthor{\bsnm{Daal}, \binits{E.}},
-\bauthor{\bsnm{Farhat}, \binits{J.}},
-\bauthor{\bsnm{Wei}, \binits{P.P.}}:
-\batitle{Does futures exhibit maturity effect? new evidence from an extensive
-  set of us and foreign futures contracts}.
-\bjtitle{Rev. Financ. Econ.}
-\bvolume{15}(\bissue{2}),
-\bfpage{113}--\blpage{128}
-(\byear{2006})
-\doiurl{10.1016/j.rfe.2005.03.001}
+\bauthor{\bsnm{Zhang}, \binits{T.}},
+\bauthor{\bsnm{Tang}, \binits{Z.}}:
+\batitle{Agricultural commodity futures prices prediction based on a new hybrid
+  forecasting model combining quadratic decomposition technology and {LSTM}
+  model}.
+\bjtitle{Front. Sustain. Food Syst.}
+\bvolume{8},
+\bfpage{1334098}
+(\byear{2024})
+\doiurl{10.3389/fsufs.2024.1334098}
 \end{barticle}
 \endbibitem
 
