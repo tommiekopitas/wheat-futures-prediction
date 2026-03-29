@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex MA429_Final_Report"] 1774799915.52732 "MA429_Final_Report.aux" "MA429_Final_Report.bbl" "MA429_Final_Report" 1774799924.21263 0
-  "./sn-bibliography.bib" 1774799786 19323 e38bbd6ce9071e9efe71a45c697a13a3 ""
+["bibtex MA429_Final_Report"] 1774810790.05759 "MA429_Final_Report.aux" "MA429_Final_Report.bbl" "MA429_Final_Report" 1774821957.74324 0
+  "./sn-bibliography.bib" 1774806851 19354 1d0be1efebc913e3f28ae59d36b816bb ""
   "./sn-mathphys-num.bst" 1774796608 64166 15b3f706374daa751d94d2740ecb633b ""
-  "MA429_Final_Report.aux" 1774799923 19784 5897db1ce1610defc9e93a0543924f63 "pdflatex"
+  "MA429_Final_Report.aux" 1774821956 19860 ad129895fb32710af4c155488215d41f "pdflatex"
   (generated)
   "MA429_Final_Report.bbl"
   "MA429_Final_Report.blg"
   (rewritten before read)
-["pdflatex"] 1774799915.94342 "c:/Users/thoma/OneDrive/Bureau/LSE Y1 (2025-2026)/Autumn Term/MA429 Algorithmic Techniques in Machine Learning/MA429_Summative_Project_Thomas_Fouilloux_v8/MA429_Final_Report.tex" "MA429_Final_Report.pdf" "MA429_Final_Report" 1774799924.2137 0
+["pdflatex"] 1774821949.09579 "c:/Users/thoma/OneDrive/Bureau/LSE Y1 (2025-2026)/Autumn Term/MA429 Algorithmic Techniques in Machine Learning/MA429_Summative_Project_Thomas_Fouilloux_v9/MA429_Final_Report.tex" "MA429_Final_Report.pdf" "MA429_Final_Report" 1774821957.74417 0
   "C:/Users/thoma/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1774796041 165037 dee37e3ed091afbbd8ed9b1df06e8579 ""
   "C:/Users/thoma/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi602/tcrm0800.pk" 1774799453 9356 af16e39e5ffc6aab0b37772a31dcd09a ""
   "C:/Users/thoma/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1774608331 688 37338d6ab346c2f1466b29e195316aa4 ""
@@ -202,12 +202,12 @@
   "Figures/eda_temperature_stress_PL.png" 1774723415 597768 2163a26fc87c8898efeca8f570b778f9 ""
   "Figures/eda_yield_distributions.png" 1774723416 180999 2e29f12e530dca0691cb3162eb0b9bef ""
   "Figures/yield_forecast_accuracy graph.png" 1774795097 274161 5cbd0b4056adacbaa979c2c46e782557 ""
-  "MA429_Final_Report.aux" 1774799923 19784 5897db1ce1610defc9e93a0543924f63 "pdflatex"
-  "MA429_Final_Report.bbl" 1774799915 25223 7e5dc4d4372fbebc539430fe39bab0d0 "bibtex MA429_Final_Report"
-  "MA429_Final_Report.out" 1774799923 5533 302eb6c322237c384634bd6a67381498 "pdflatex"
-  "MA429_Final_Report.tex" 1774799906 93430 4d05e914362a1ea208a49b5120de068e ""
-  "MA429_Final_Report.toc" 1774799923 2497 cc65efdd713eacc925504fbf81d364aa "pdflatex"
-  "c:/Users/thoma/OneDrive/Bureau/LSE Y1 (2025-2026)/Autumn Term/MA429 Algorithmic Techniques in Machine Learning/MA429_Summative_Project_Thomas_Fouilloux_v8/MA429_Final_Report.tex" 1774799906 93430 4d05e914362a1ea208a49b5120de068e ""
+  "MA429_Final_Report.aux" 1774821956 19860 ad129895fb32710af4c155488215d41f "pdflatex"
+  "MA429_Final_Report.bbl" 1774810790 25234 2a14e545076c7f92d821e6ab62339759 "bibtex MA429_Final_Report"
+  "MA429_Final_Report.out" 1774821956 5617 033b103ab89c99514b0faef6482f12bf "pdflatex"
+  "MA429_Final_Report.tex" 1774821948 98851 c2ce1f5ff2896eb325669c9b968872e4 ""
+  "MA429_Final_Report.toc" 1774821956 2514 a155a724818d377929060e6593659b69 "pdflatex"
+  "c:/Users/thoma/OneDrive/Bureau/LSE Y1 (2025-2026)/Autumn Term/MA429 Algorithmic Techniques in Machine Learning/MA429_Summative_Project_Thomas_Fouilloux_v9/MA429_Final_Report.tex" 1774821948 98851 c2ce1f5ff2896eb325669c9b968872e4 ""
   "sn-jnl.cls" 1774723415 55857 7d4515312123fd1744517a7415d792ff ""
   (generated)
   "MA429_Final_Report.aux"

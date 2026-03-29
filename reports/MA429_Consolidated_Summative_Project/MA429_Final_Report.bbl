@@ -263,7 +263,8 @@ arXiv preprint arXiv:1604.06737
 \bauthor{\bsnm{Bengio}, \binits{Y.}},
 \bauthor{\bsnm{Courville}, \binits{A.}}:
 \bbtitle{Deep Learning}.
-\bpublisher{MIT Press}, \blocation{???}
+\bpublisher{MIT Press},
+\blocation{Cambridge, MA}
 (\byear{2016}).
 \burl{http://www.deeplearningbook.org}
 \end{bbook}

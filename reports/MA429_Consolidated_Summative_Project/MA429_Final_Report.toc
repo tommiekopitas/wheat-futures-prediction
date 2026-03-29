@@ -10,19 +10,19 @@
 \contentsline {subsection}{\numberline {5.2}Agricultural Feature Behaviour}{8}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Feature Correlations}{9}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Yield Distribution Across Countries}{9}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Feature Engineering and Prediction Design}{9}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Engineered Features for the Futures Task}{9}{subsection.6.1}%
+\contentsline {section}{\numberline {6}Feature Engineering and Prediction Design}{10}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Engineered Features for the Futures Task}{10}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Target Construction and Temporal Alignment}{10}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Crop Yield Forecasting Pipeline}{10}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Modelling Methodology}{12}{section.7}%
-\contentsline {section}{\numberline {8}Ridge and Lasso Regression}{13}{section.8}%
+\contentsline {subsection}{\numberline {6.3}Crop Yield Forecasting Pipeline}{11}{subsection.6.3}%
+\contentsline {section}{\numberline {7}Model Fitting and Tuning Methodology}{11}{section.7}%
+\contentsline {section}{\numberline {8}Ridge and Lasso Regression}{12}{section.8}%
 \contentsline {section}{\numberline {9}Random Forest and Extra Trees Regressors}{14}{section.9}%
 \contentsline {section}{\numberline {10}Neural Networks}{16}{section.10}%
-\contentsline {section}{\numberline {11}Model Result Comparison}{18}{section.11}%
+\contentsline {section}{\numberline {11}Model Result Comparison}{17}{section.11}%
 \contentsline {section}{\numberline {12}Conclusion}{19}{section.12}%
 \contentsline {section}{\numberline {13}Generative AI Statement}{23}{section.13}%
 \contentsline {section}{\numberline {A}Excluded Regions for the Wheat Futures Prediction Task}{24}{appendix.a.A}%
 \contentsline {section}{\numberline {B}Additional EDA Figures}{24}{appendix.a.B}%
 \contentsline {section}{\numberline {C}Target Construction}{28}{appendix.a.C}%
-\contentsline {section}{\numberline {D}NRMSE Results for yield forecasting}{29}{appendix.a.D}%
-\contentsline {section}{\numberline {E}Yield Forecasting Accurcay}{30}{appendix.a.E}%
+\contentsline {section}{\numberline {D}NRMSE Results for yield forecasting}{28}{appendix.a.D}%
+\contentsline {section}{\numberline {E}Yield Forecasting Accuracy}{29}{appendix.a.E}%

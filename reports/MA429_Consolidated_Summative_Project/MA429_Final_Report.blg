@@ -30,37 +30,37 @@ Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 You've used 54 entries,
             7485 wiz_defined-function locations,
-            1529 strings with 19151 characters,
-and the built_in function-call counts, 457451 in all, are:
-= -- 79424
+            1530 strings with 19164 characters,
+and the built_in function-call counts, 457478 in all, are:
+= -- 79429
 > -- 2029
 < -- 778
 + -- 44072
 - -- 701
-* -- 14099
-:= -- 83727
+* -- 14103
+:= -- 83731
 add.period$ -- 61
 call.type$ -- 54
 change.case$ -- 463
 chr.to.int$ -- 1881
 cite$ -- 54
-duplicate$ -- 2273
-empty$ -- 10076
+duplicate$ -- 2275
+empty$ -- 10078
 format.name$ -- 1379
-if$ -- 115812
+if$ -- 115819
 int.to.chr$ -- 1
 int.to.str$ -- 55
 missing$ -- 0
-newline$ -- 789
+newline$ -- 790
 num.names$ -- 270
-pop$ -- 1284
+pop$ -- 1283
 preamble$ -- 1
 purify$ -- 476
 quote$ -- 0
-skip$ -- 46950
+skip$ -- 46951
 stack$ -- 0
 substring$ -- 43658
-swap$ -- 1201
+swap$ -- 1202
 text.length$ -- 878
 text.prefix$ -- 13
 top$ -- 1
@@ -68,4 +68,4 @@ type$ -- 2142
 warning$ -- 0
 while$ -- 1736
 width$ -- 0
-write$ -- 1113
+write$ -- 1114

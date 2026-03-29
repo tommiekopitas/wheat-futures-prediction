@@ -106,7 +106,7 @@
 \linespread{1}           % 2. Reduces vertical space between lines (Saves ~5% space)
 \usepackage{newtxtext}      % 3. Ensures you are using the most modern, compact Times font
 \usepackage{newtxmath}
-% -----
+% ---
 
 \begin{document}
 
@@ -161,7 +161,7 @@ Together, the reviewed literature establishes a clear gap. Indeed, the yield pre
 
 \section{Data Preparation}\label{sec:dataprep}
 
-This next section describes how we prepare the CY-Bench dataset for two distinct prediction tasks, namely, European Wheat Futures Prediction and Yield Prediction prior to harvest. We start by describing the preparation steps shared by both prediction tasks, namely the agricultural data and the daily harmonisation via last-observation-carried-forward interpolation. Secondly, we describe the wheat futures roll-adjusted data preparation justifying our key choices. Thirdly, we cover the two distinct region filtering choices we applied to the futures price prediction dataset as well as the yield prediction dataset. Finally, we obtain two datasets from the same underlying CY-Bench source: a daily-frequency panel for the wheat futures return prediction task (Section~\ref{subsec:futures_prep}), and an annual cross-section for the crop yield forecasting task (Section~\ref{subsec:yield_prep}).
+This next section describes how we prepare the CY-Bench dataset for two distinct prediction tasks, namely, European Wheat Futures Prediction and Yield Prediction prior to harvest. We start by describing the preparation steps shared by both prediction tasks, namely the agricultural data and the daily harmonisation via last-observation-carried-forward interpolation. Secondly, we describe the wheat futures roll-adjusted data preparation justifying our key choices. Thirdly, we cover the two distinct region filtering choices we applied to the futures price prediction dataset as well as the yield prediction dataset. Finally, we obtain two datasets from the same underlying CY-Bench source: a daily-frequency panel for the wheat futures return prediction task, and an annual cross-section for the crop yield forecasting task.
 
 \subsection{Agricultural Data and Daily Harmonisation}
 
@@ -169,11 +169,11 @@ Firstly, our agricultural data is taken from the CY-Bench dataset~\cite{bib17}, 
 
 We then create our features from these climate variables which all have different temporal resolutions we must harmonise the data so as to avoid data leakage. Here we choose to simply retain these frequencies and expand them to daily increments per region using last-observation-carried-forward (LOCF) interpolation, i.e. we fill each day with the most recently past observed value. LOCF is a standard approach in time series data imputation, however, by assuming the data is constant, it evidently introduces bias. Here, we specifically choose this method to simulate a real operational context in which we may not have access to the variables' true value. After this procedure, each region has a consistent set of variables aligned to a common daily calendar.\\
 
-Finally, we note that the agricultural data's availability starts at different periods for different features, for instance, meteorological data starts in 01-01-2001 while soil data start 01-02-2003. Thus, we decide to start our dataset when GLDAS soil moisture data becomes available in February 2003~\cite{bib17} to ensure full data availability. Further, we ensure that our dataset finishes at the last observation for which all data agricultural variables are available, fPAR's last data point is on the 21-12-2023 which is the earliest of all variables, thus, our dataset ends on that day. Further details are later discussed in Section ~\ref{sec:feature_eng} for the scope of the yield prediction dataset.
+Finally, we note that the agricultural data's availability starts at different periods for different features, for instance, meteorological data starts in 01-01-2001 while soil data start 01-02-2003. Thus, we decide to start our dataset around when GLDAS soil moisture data becomes available~\cite{bib17} in 01-01-2003 to ensure full data availability. Further, we ensure that our dataset finishes at the last observation for which all data agricultural variables are available, fPAR's last data point is on the 21-12-2023 which is the earliest of all variables, thus, our dataset ends in 2023. Further details are later discussed in Section~\ref{sec:feature_eng} for the scope of the yield prediction dataset.
 
 \subsection{Futures Price Data from Bloomberg}
 
-Secondly, our target variable data for the futures price prediction task is the Euronext Milling Wheat roll-adjusted daily closing prices obtained from Bloomberg for the period 01-02-2003 to 21-12-2023 (to align with our agricultural data), yielding 5,362 trading days. More precisely, we define the raw target data as the closing price of the earliest maturing Euronext Milling Wheat Futures Contract. This is because near-term futures contracts are usually most liquid as per Ripple and Moosa ~\cite{bib84}. We use Bloomberg's ratio roll-adjustment to the time series $10$ days before each contract expiry, this means that historical prices are multiplied by $P_{new \ contract} / P_{old \ contract}$ so as to preserve the percentage returns across all rolls. Our choice of $10$ days before expiry is due to liquidity factors, indeed, futures contract generally decrease in liquidity as they get closer to maturity as per Ding and Lim~\cite{bib26}. Further, Carchano and Pardo's~\cite{bib25} study of stock index futures shows that choice of rollover timing does not induce statistically significant differences between the resulting return series. However, their study focuses on stock index futures rather than agricultural commodities which may exhibit stronger maturity effects due to seasonal supply factors. As per L{\'o}pez de Prado Chapter~2 ~\cite{bib24}, roll-adjustment is a key step as it eliminates the artificial jumps that occur at expiration to preserve the return dynamics experienced by a roll-following investor. This property is directly relevant to our study because the prediction target is a percentage return, not an absolute price level. A limitation of ratio adjustment is that it distorts historical price \emph{levels} (early-period prices may become very small or very large), making the series unsuitable for level-based analysis; however, since we use only returns and return-derived features, this limitation does not affect our study.
+Secondly, our target variable data for the futures price prediction task is the Euronext Milling Wheat roll-adjusted daily closing prices obtained from Bloomberg for the period 01-01-2003 to 31-12-2023 (to align with our agricultural data), yielding 5,389 trading days. More precisely, we define the raw target data as the closing price of the earliest maturing Euronext Milling Wheat Futures Contract. This is because near-term futures contracts are usually most liquid as per Ripple and Moosa ~\cite{bib84}. We use Bloomberg's ratio roll-adjustment to the time series $10$ days before each contract expiry, this means that historical prices are multiplied by $P_{new \ contract} / P_{old \ contract}$ so as to preserve the percentage returns across all rolls. Our choice of $10$ days before expiry is due to liquidity factors, indeed, futures contract generally decrease in liquidity as they get closer to maturity as per Ding and Lim~\cite{bib26}. Further, Carchano and Pardo's~\cite{bib25} study of stock index futures shows that choice of rollover timing does not induce statistically significant differences between the resulting return series. However, their study focuses on stock index futures rather than agricultural commodities which may exhibit stronger maturity effects due to seasonal supply factors. As per L{\'o}pez de Prado Chapter~2 ~\cite{bib24}, roll-adjustment is a key step as it eliminates the artificial jumps that occur at expiration to preserve the return dynamics experienced by a roll-following investor. This property is directly relevant to our study because the prediction target is a percentage return, not an absolute price level. A limitation of ratio adjustment is that it distorts historical price \emph{levels} (early-period prices may become very small or very large), making the series unsuitable for level-based analysis; however, since we use only returns and return-derived features, this limitation does not affect our study.
 
 We retain two key fields from the raw data, closing price as well as volume. We note that while price has no missing data, missing volume data is forward-filled using LOCF. In this case, the missing volume data represents only 290 trading days or c.5.4\% of trading days.
 
@@ -183,7 +183,7 @@ Lastly, we detail our region filtering steps for the futures price prediction ta
 
 Looking at the futures prediction task, When creating our agricultural features we exclude some highly urban and non-wheat producing regions as they should not directly be influencing the supply of wheat. We implement this simply filtering regions that are not included within CY-bench's raw yield data. Indeed, as per our \autoref{tab:region_classification} in the Appendix, we see that these regions are either urban, logistic hubs or non-wheat producing. This means that we retain 507 regions across France (94 regions), Germany (396 regions), and Poland (17 regions) (out of 518). \\
 
-For the yield forecasting task, we apply a different region filter. Indeed, we retain only the 357 regions (90 French, 251 German, 16 Polish) that report wheat yield statistics for every year in the 2003 to 2020 window. The start year is the same as the futures prediction task dataset i.e. the start of the GLDAS soil moisture data. However, the end year is constrained by the latest available sub-national yield statistics from the JRC harmonised European dataset~\cite{bib_ronchetti2024}, which provides French and Polish NUTS-level yields through 2020. Although these filters lead to some information loss, it is not material. The 357 retained regions account for 97.5\% of total wheat production across the three countries (99.9\% for France, 93.3\% for Germany, 99.4\% for Poland). Indeed, the dropped regions are predominantly small districts with discontinued reporting rather than major wheat-producing areas. This ensures that we have complete temporal coverage for every retained region for fair cross-regional comparison under the walk-forward evaluation scheme described in Section~\ref{sec:prediction_task}.
+For the yield forecasting task, we apply a different region filter. Indeed, we retain only the 357 regions (90 French, 251 German, 16 Polish) that report wheat yield statistics for every year in the 2003 to 2020 window. The start year is the same as the futures prediction task dataset i.e. the start of the GLDAS soil moisture data. However, the end year is constrained by the latest available sub-national yield statistics from the JRC harmonised European dataset~\cite{bib_ronchetti2024}, which provides French and Polish NUTS-level yields through 2020. Although these filters lead to some information loss, it is not material. The 357 retained regions account for 97.5\% of total wheat production across the three countries (99.9\% for France, 93.3\% for Germany, 99.4\% for Poland). Indeed, the dropped regions are predominantly small districts with discontinued reporting rather than major wheat-producing areas. This ensures that we have complete temporal coverage for every retained region for fair cross-regional comparison under the walk-forward evaluation scheme described in Section~\ref{sec:modelling_methodology}.
 
 \section{Exploratory Data Analysis}\label{sec:EDA}
 
@@ -221,7 +221,14 @@ We now look at \autoref{fig:ag_vs_price} which plots the Euronext wheat futures 
 
 \subsection{Yield Distribution Across Countries}
 
-Finally, we briefly examine the yield data for our secondary prediction task. \autoref{fig:yield_dist}(a) in \autoref{app:eda} shows that average wheat yields differ substantially across the three countries: Germany at 7.35 t/ha, France at 6.17 t/ha and Poland at 4.12 t/ha, reflecting differences in climate, soil quality, and farming intensity. Germany also exhibits the widest absolute spread across its 251 NUTS3 regions, with yields ranging from 2.57 to 11.04 t/ha. \autoref{fig:yield_dist}(b) plots the average yield trajectory over time. All three countries display a slight upward trend which could be driven by long-term improvements in crop varieties and management practices. Additionally, we see that, in 2018, all three countries experience a dip which corresponds to the European drought: Germany experienced a 7.3\% decline relative to other years, Poland 5.6\%, and France 2.9\%. These cross-country differences in yield level, variability, and drought sensitivity motivate our decision to tune model hyperparameters separately per country for the yield prediction task rather than using a single EU-wide configuration, as discussed in Section~\ref{sec:prediction_task}.
+Finally, we briefly examine the yield data for our secondary prediction task. \autoref{fig:yield_dist}(a) in \autoref{app:eda} shows that average wheat yields differ substantially across the three countries: Germany at 7.35 t/ha, France at 6.17 t/ha and Poland at 4.12 t/ha, reflecting differences in climate, soil quality, and farming intensity. Germany also exhibits the widest absolute spread across its 251 NUTS3 regions, with yields ranging from 2.57 to 11.04 t/ha. \autoref{fig:yield_dist}(b) plots the average yield trajectory over time. All three countries display a slight upward trend which could be driven by long-term improvements in crop varieties and management practices. Additionally, we see that, in 2018, all three countries experience a dip which corresponds to the European drought: Germany experienced a 7.3\% decline relative to other years, Poland 5.6\%, and France 2.9\%. These cross-country differences in yield level, variability, and drought sensitivity motivate our decision to tune model hyperparameters separately per country for the yield prediction task rather than using a single EU-wide configuration, as discussed in Section~\ref{sec:modelling_methodology}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/eda_yield_distributions.png}
+    \caption{(a) Wheat yield distributions by country (2003-2020). Germany has the highest average yield (7.35 t/ha) and the widest spread across its 251 NUTS3 regions. (b) Average wheat yield over time by country. The 2018 European drought is visible as a synchronised dip, with Germany experiencing the largest decline ($-7.3\%$ relative to other years).}
+    \label{fig:yield_dist}
+\end{figure}
 
 \section{Feature Engineering and Prediction Design}\label{sec:feature_eng}
 
@@ -231,7 +238,7 @@ Now that we have pre-processed and visualised our data, we add features and tran
 
 Starting from the 12 raw daily CY-Bench variables per region, we create 14 additional features organised into five categories. These are driven by both patterns observed in the previous section as well as the agronomic literature.\\
 
-Firstly, we follow CY-Bench's own feature design~\cite{bib17} by creating \textbf{threshold-based stress indicators}. We count cold days (tmin $< 0$\textdegree C), hot days (tmax $> 34$\textdegree C), and dry days (precipitation $< 1$\,mm) over rolling 30-day windows. We define hot days as $> 34$\textdegree C rather than $> 35$\textdegree C given that Tack et al.~\cite{bib_tack2015} show that above 34\textdegree C (in spring) wheat experiences the largest yield reduction. We further introduce ''grain-fill'' (which is when plants fill their grains from the nutrients they absorb) heat stress features for the May-July window using a 30\textdegree C threshold, counting both the number of exceedance days and the cumulative excess degrees above 30\textdegree C over 30-day windows. This lower threshold is motivated by Schlenker and Roberts~\cite{bib_schlenker2009}, who found that corn and soybean yield is negatively impacted beyond temperatures of 29 and 30\textdegree C, respectively. Although their study focuses on different crops, we lower the threshold to 30\textdegree C because, as per Porter and Gawith~\cite{bib_porter1999}, wheat is more sensitive to temperature during its  reproductive phase which includes grain-fill. Finally, we also compute spring heat shock indicators (tmax $> 25$\textdegree C during March-May) over 30-day and 60-day windows to capture early-season stress.\\
+Firstly, we follow CY-Bench's own feature design~\cite{bib17} by creating \textbf{threshold-based stress indicators}. We count cold days (tmin $< 0$\textdegree C), hot days (tmax $> 35$\textdegree C), and dry days (precipitation $< 1$\,mm) over rolling 30-day windows. Indeed, hot days can be defined as $> 35$\textdegree C given that Tack et al.~\cite{bib_tack2015} show that above 34\textdegree C (in spring) wheat experiences the largest yield reduction. We further introduce ''grain-fill'' heat stress features (this is the stage at which the plants fill their grains from the nutrients they absorb) for the May-July window using a 30\textdegree C threshold, counting both the number of exceedance days and the cumulative excess degrees above 30\textdegree C over 30-day windows. This lower threshold is motivated by Schlenker and Roberts~\cite{bib_schlenker2009}, who found that corn and soybean yield is negatively impacted beyond temperatures of 29 and 30\textdegree C, respectively. Although their study focuses on different crops, we lower the threshold to 30\textdegree C because Porter and Gawith~\cite{bib_porter1999} find that wheat is more sensitive to high temperatures during its reproductive phase which includes grain-fill. Finally, we also compute spring heat shock indicators (tmax $> 25$\textdegree C during March-May) over 30-day and 60-day windows to capture early-season stress.\\
 
 Secondly, fPAR enables us to compute \textbf{vegetation anomalies} relative to an expanding day-of-year climatology: $\text{anomaly}_{d,y} = \text{fPAR}_{d,y} - \bar{\text{fPAR}}_{d,<y}$, where $\bar{\text{fPAR}}_{d,<y}$ is the historical mean for that calendar day using only prior years. The expanding window avoids information leakage from future years. We retain both a raw daily anomaly and a 30-day rolling mean. This approach follows the near-real-time anomaly detection methodology of Meroni et~al.~\cite{bib_meroni2019}.\\
 
@@ -253,7 +260,7 @@ A central challenge is that the agricultural data are available at regional (sub
 
 Since we have data for 507 regions, we choose to fit one model per region and then aggregate the predictions to EU-level. This aggregation follows Paudel et~al.~\cite{bib16}, who showed that regional models outperform nationally aggregated ones (in their yield task). This entails that once a separate model is fitted to each region, we aggregate the 507 per-region predictions into a single EU-level forecast by using production-weighted averaging:
 \begin{equation}
-    \hat{r}_{t+5}^{\text{EU}} = \frac{\sum_{r=1}^{R} w_{r,t}\, \hat{r}_{t+5}^{(r)}}{\sum_{r=1}^{R} w_{r,t}}
+    \hat{y}_{t+5}^{\text{EU}} = \frac{\sum_{r=1}^{R} w_{r,t}\, \hat{y}_{t+5}^{(r)}}{\sum_{r=1}^{R} w_{r,t}}
 \end{equation}
 where $w_{r,t} = \text{yield}_{r,t-1} \times \text{area}_{r,t-1}$ uses the previous year's production to avoid look-ahead bias. We note that for Germany, where CY-Bench provides harvest area only at census intervals, we forward-fill area within each region, which is the norm in operational European crop monitoring systems~\cite{bib_cerrani2017}. Finally, we note that by employing a one model per region scheme, we expose ourselves to the quality of the production data, which may introduce bias to our predictions given its annual frequency.
 
@@ -263,13 +270,93 @@ While the primary aim of this study is to test whether CY-Bench features predict
 
 Our yield pipeline aggregates daily CY-Bench time series into monthly summary features within each region's growing season, the are taken from the CY-Bench static crop calendars which have start-of-season (SOS) and end-of-season (EOS) dates for each region. For each region-year pair, we compute monthly means for all meteorological, soil moisture, and vegetation variables over the available months, so that each observation is a single row with columns such as the mean ndvi in october and mean fpar in december. This preserves the temporal structure of the growing season while reducing dimensionality. Following CY-Bench's lead-time framework~\cite{bib17}, we build three separate datasets by truncating the available data at different points before harvest: end-of-season (all growing-season data available), mid-season (data truncated at $(SOS + EOS)/2$), and quarter-season (data truncated at $SOS + (EOS - SOS)/4$). These represent real-world forecasting scenarios where earlier predictions are more valuable but less accurate. We note that our monthly calendar-based aggregation differs from Paudel et~al.~\cite{bib16} who aggregate by crop development phases using the a crop simulation model. Our approach is simpler but we believe it may provide additional granularity compared to the CY-Bench methodology given that we data for each month.\\
 
-The target variable is the official reported wheat yield in tonnes per hectare. We adopt a temporal split appropriate for the 2003-2020 data window: training on 2003-2012, validation on 2013-2015, (hyperparameter tuning only), and test on 2016-2020. The test period includes the 2018 European drought, providing a challenging evaluation. Following the cross-country differences in yield level and variability observed in Section~\ref{sec:EDA}, we tune hyperparameters separately for each country rather than using a single EU-wide configuration. We report normalised RMSE and $R^2$ at both per-region and production-weighted national levels, following CY-Bench~\cite{bib17}.
+The target variable is the official reported wheat yield in tonnes per hectare. We adopt a temporal split appropriate for the 2003-2020 data window: training on 2003-2012, validation on 2013-2015 (for hyperparameter tuning only), and test on 2016-2020. The test period includes the 2018 European drought, providing a challenging evaluation. Following the cross-country differences in yield level and variability observed in Section~\ref{sec:EDA}, we tune hyperparameters separately for each country rather than using a single EU-wide configuration. We report normalised RMSE and $R^2$ at both per-region and production-weighted national levels, following CY-Bench~\cite{bib17}.
 
-\clearpage
+\section{Model Fitting and Tuning Methodology}\label{sec:modelling_methodology}
 
-\section{Modelling Methodology}\label{modelling_methodology}
+% ============================================================
+% This is the tex file for walkforward validation and random search, 
+% which wse use in all models.
+% ============================================================
 
-\clearpage
+In this section, we cover the methodology used to fit and tune all models for 
+our two prediction tasks. Firstly, all models in this study are evaluated using
+walk-forward validation with an expanding training window. Secondly, all hyperparameters are tuned via random grid search given the high dimensionality.
+We cover these methodological choices prior to the individual model results as 
+these choices underpin every model we implemented.\\
+
+Walk-forward validation is a temporal technique analogous to cross-validation designed 
+for timeseries. Rather than randomly partitioning observations into 
+training and test folds, which would allow the model to train on future 
+data and predict past data. This walk-forward scheme respects the chronological 
+ordering of the timeseries dataset. 
+For the futures price prediction task, we divide the data into three 
+chronological partitions: training from 2003 to 2016, validation from 
+2017 to 2019, and test from 2020 to 2023, giving an approximate 67/14/19 
+split. The training cutoff is placed after 2016 so the model learns from 
+both the 2007-2008 global food price crisis, 
+during which wheat prices rose by 136\%, and the secondary price spike in 
+2010-2011, giving it exposure to the most volatile periods in recent 
+agricultural commodity history. The validation window from 2017 to 2019 
+covers a relatively stable period that is suitable for hyperparameter 
+tuning without contaminating the test evaluation. 
+The test period from 2020 to 2023 then provides a genuinely challenging 
+out-of-sample assessment, encompassing both COVID-19 supply chain 
+disruptions and the 2022 Russia-Ukraine conflict during which wheat 
+prices surged to their highest levels since 2008. This split is broadly 
+consistent with the 60/20/20 ratio used in the SustainBench crop yield 
+benchmark and with Paudel et al.~\cite{bib16}, 
+who trained their ML baseline on data up to 2011-2012 and tested on 
+subsequent years. At evaluation time, the expanding window means that 
+for each test year $T \in \{2020, \ldots, 2023\}$, the model is retrained 
+using all available daily observations prior to $T$. This ensures that 
+the training set grows with each subsequent test year, 
+incorporating an increasing history of market and climate conditions 
+while never exposing the model to future information. Each of the 507 
+regions is fitted independently with features standardised using a 
+Standard Scaler fitted on the training data only, and region-level 
+predictions are aggregated to a single daily signal via production-weighted 
+averaging, where each region's weight reflects its lagged wheat production share.\\
+
+% ============================================================
+% Section missing here on what specific metrics we report in 
+% the futures prediction task and why
+% ============================================================
+
+For the yield prediction task, the temporal split is shifted earlier 
+because subnational yield statistics end in 2020 for France and Poland. 
+The partitions are training from 2003 to 2012, validation from 2013 to 
+2015, and test from 2016 to 2020, giving an approximate 56/17/28 split. 
+The same walk-forward expanding window logic applies: for each test year 
+$T \in \{2016, \ldots, 2020\}$, all prior region-years are used for 
+training and the model predicts regional yield for year $T$. The test 
+window includes the 2018 European drought, one of the worst on record for 
+wheat with German yields dropping sharply, and the 2020 season which was 
+affected by unusual spring weather patterns across Western Europe. The 
+yield models are tuned separately per country rather than across the 
+entire dataset, because the three countries differ substantially in the 
+number of regions, with Germany at 251, France at 90, and Poland at 16. 
+Predictions are aggregated to national level using production weights as
+described in Section~\ref{sec:feature_eng} which follows the methodology 
+of Paudel et al.~\cite{bib16}.\\
+
+For hyperparameter tuning, we use random search rather than grid search 
+following Bergstra and Bengio~\cite{bib33}, who showed that random search 
+is more efficient than grid search in high-dimensional hyperparameter 
+spaces because it avoids wasting evaluations on unimportant parameter 
+combinations. Each model draws 20 random configurations from the specified 
+parameter distributions and evaluates them over the validation period. 
+For the futures task, the scoring criterion is directional accuracy 
+rather than R\textsuperscript{2}, since the practical objective is to 
+correctly predict the sign of the 5-day return rather than its magnitude. 
+An R\textsuperscript{2}-based selection criterion would favour models that 
+minimise squared error in absolute terms, but a model that consistently 
+predicts the correct direction of price movement with imprecise magnitude 
+is more useful than one that occasionally produces a precise forecast but 
+frequently misses the direction. For the yield task, the scoring criterion 
+is region-level Normalised Root Mean Squared Error (NRMSE), which measures 
+the percentage prediction error relative to the mean observed yield and 
+enables comparison across countries with different absolute yield levels.\\
 
 \section{Ridge and Lasso Regression}\label{ridge_lasso}
 
@@ -353,7 +440,7 @@ Table~\ref{tab:futures_comparison} presents the full test set results across all
 
 \begin{table}[h]
 \centering
-\caption{Futures price prediction test set results (2020--2023), all models.}
+\caption{Futures price prediction test set results (2020-2023), all models.}
 \label{tab:futures_comparison}
 \begin{tabular}{lccc}
 \toprule
@@ -378,7 +465,7 @@ Table~\ref{tab:yield_comparison} presents end-of-season yield prediction results
 
 \begin{table}[h]
 \centering
-\caption{Yield prediction test set results (2020--2023), all models.}
+\caption{Yield prediction test set results (2020-2023), all models.}
 \label{tab:yield_comparison}
 \begin{tabular}{llcccc}
 \toprule
@@ -521,13 +608,6 @@ Among the deep learning models, the 1D-CNN achieves the best regional R\textsupe
     \label{fig:corr_heatmap}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{Figures/eda_yield_distributions.png}
-    \caption{(a) Wheat yield distributions by country (2003-2020). Germany has the highest average yield (7.35 t/ha) and the widest spread across its 251 NUTS3 regions. (b) Average wheat yield over time by country. The 2018 European drought is visible as a synchronised dip, with Germany experiencing the largest decline ($-7.3\%$ relative to other years).}
-    \label{fig:yield_dist}
-\end{figure}
-
 \section{Target Construction}\label{app:target_construction}
 
 Apart from the timescale mismatch of daily returns and agricultural variables as well as the noise potentially present in returns at a daily scale, we also account for the fact that futures potentially have higher volatility once they approach expiration.\\
@@ -543,7 +623,7 @@ Indeed, the Samuelson hypothesis~\cite{bib54} predicts that futures price volati
     \label{fig:NRMSE_results}
 \end{figure}
 
-\section{Yield Forecasting Accurcay}\label{app:yield_forecast_accuracy_graph}
+\section{Yield Forecasting Accuracy}\label{app:yield_forecast_accuracy_graph}
 
 \begin{figure}[H]
     \centering
