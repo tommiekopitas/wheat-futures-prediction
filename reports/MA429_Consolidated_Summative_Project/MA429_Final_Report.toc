@@ -1,28 +1,30 @@
 \contentsline {section}{\numberline {1}Executive Summary}{2}{section.1}%
 \contentsline {section}{\numberline {2}Introduction}{4}{section.2}%
-\contentsline {section}{\numberline {3}Literature Review}{5}{section.3}%
+\contentsline {section}{\numberline {3}Literature Review}{4}{section.3}%
 \contentsline {section}{\numberline {4}Data Preparation}{6}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Agricultural Data and Daily Harmonisation}{6}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Futures Price Data from Bloomberg}{7}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Region filtering and excluded areas}{7}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Exploratory Data Analysis}{7}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Futures Returns Distribution and Volatility}{8}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.1}Futures Returns Distribution and Volatility}{7}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Agricultural Feature Behaviour}{8}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Feature Correlations}{9}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Yield Distribution Across Countries}{9}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Feature Engineering and Prediction Design}{10}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Engineered Features for the Futures Task}{10}{subsection.6.1}%
+\contentsline {section}{\numberline {6}Feature Engineering and Prediction Design}{9}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Engineered Features for the Futures Task}{9}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Target Construction and Temporal Alignment}{10}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Crop Yield Forecasting Pipeline}{11}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Model Fitting and Tuning Methodology}{11}{section.7}%
-\contentsline {section}{\numberline {8}Ridge and Lasso Regression}{12}{section.8}%
-\contentsline {section}{\numberline {9}Random Forest and Extra Trees Regressors}{14}{section.9}%
-\contentsline {section}{\numberline {10}Neural Networks}{16}{section.10}%
-\contentsline {section}{\numberline {11}Model Result Comparison}{17}{section.11}%
-\contentsline {section}{\numberline {12}Conclusion}{19}{section.12}%
-\contentsline {section}{\numberline {13}Generative AI Statement}{23}{section.13}%
+\contentsline {section}{\numberline {7}Model Fitting, Evaluation and Tuning Methodology}{11}{section.7}%
+\contentsline {section}{\numberline {8}Models}{12}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Ridge and Lasso Regression}{12}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Random Forest and Extra Trees Regressors}{14}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Neural Networks}{16}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Model Result Comparison}{18}{section.9}%
+\contentsline {section}{\numberline {10}Conclusion}{19}{section.10}%
+\contentsline {section}{\numberline {11}Generative AI Statement}{23}{section.11}%
 \contentsline {section}{\numberline {A}Excluded Regions for the Wheat Futures Prediction Task}{24}{appendix.a.A}%
 \contentsline {section}{\numberline {B}Additional EDA Figures}{24}{appendix.a.B}%
 \contentsline {section}{\numberline {C}Target Construction}{28}{appendix.a.C}%
-\contentsline {section}{\numberline {D}NRMSE Results for yield forecasting}{28}{appendix.a.D}%
-\contentsline {section}{\numberline {E}Yield Forecasting Accuracy}{29}{appendix.a.E}%
+\contentsline {section}{\numberline {D}NRMSE Results for Yield Forecasting}{28}{appendix.a.D}%
+\contentsline {section}{\numberline {E}Yield Forecasting Accuracy}{30}{appendix.a.E}%
+\contentsline {section}{\numberline {F}Full Yield Prediction Results}{31}{appendix.a.F}%

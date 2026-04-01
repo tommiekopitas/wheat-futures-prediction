@@ -3,23 +3,31 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{bib17}
+\citation{bib16}
+\citation{bib30}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Executive Summary}{2}{section.1}\protected@file@percent }
 \newlabel{execsum}{{1}{2}{Executive Summary}{section.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2}Introduction}{4}{section.2}\protected@file@percent }
-\newlabel{intro}{{2}{4}{Introduction}{section.2}{}}
+\citation{bib17}
+\citation{bib16,bib17}
+\citation{bib16}
+\citation{bib30}
 \citation{bib14}
 \citation{bib15}
 \citation{bib14}
 \citation{bib20}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Introduction}{4}{section.2}\protected@file@percent }
+\newlabel{intro}{{2}{4}{Introduction}{section.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Literature Review}{4}{section.3}\protected@file@percent }
+\newlabel{lit_review}{{3}{4}{Literature Review}{section.3}{}}
 \citation{bib16}
 \citation{bib17}
 \citation{bib21}
 \citation{bib18}
 \citation{bib22}
 \citation{bib23}
+\citation{bib22}
 \citation{bib19}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Literature Review}{5}{section.3}\protected@file@percent }
-\newlabel{lit_review}{{3}{5}{Literature Review}{section.3}{}}
 \citation{bib19}
 \citation{bib17}
 \citation{bib28}
@@ -28,80 +36,85 @@
 \citation{bib_rodell2004}
 \citation{bib_vermote2015}
 \citation{bib_seguini}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Data Preparation}{6}{section.4}\protected@file@percent }
-\newlabel{sec:dataprep}{{4}{6}{Data Preparation}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Agricultural Data and Daily Harmonisation}{6}{subsection.4.1}\protected@file@percent }
 \citation{bib17}
 \citation{bib84}
 \citation{bib26}
 \citation{bib25}
 \citation{bib24}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Data Preparation}{6}{section.4}\protected@file@percent }
+\newlabel{sec:dataprep}{{4}{6}{Data Preparation}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Agricultural Data and Daily Harmonisation}{6}{subsection.4.1}\protected@file@percent }
 \citation{bib_ronchetti2024}
 \citation{bib_mandelbrot1963}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Futures Price Data from Bloomberg}{7}{subsection.4.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Region filtering and excluded areas}{7}{subsection.4.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {5}Exploratory Data Analysis}{7}{section.5}\protected@file@percent }
 \newlabel{sec:EDA}{{5}{7}{Exploratory Data Analysis}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Futures Returns Distribution and Volatility}{7}{subsection.5.1}\protected@file@percent }
 \citation{bib85}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Futures Returns Distribution and Volatility}{8}{subsection.5.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces (a) Distribution of 5-day forward returns for the Euronext Milling Wheat futures contract (2003-2023). The distribution is approximately symmetric with heavy tails (kurtosis = 6.17). (b) Rolling 60-day standard deviation of 5-day returns, with train/validation/test periods shaded. Volatility spikes correspond to the 2007-08 food crisis, COVID-19, and the 2022 Russia-Ukraine war.}}{8}{figure.1}\protected@file@percent }
 \newlabel{fig:return_dist}{{1}{8}{(a) Distribution of 5-day forward returns for the Euronext Milling Wheat futures contract (2003-2023). The distribution is approximately symmetric with heavy tails (kurtosis = 6.17). (b) Rolling 60-day standard deviation of 5-day returns, with train/validation/test periods shaded. Volatility spikes correspond to the 2007-08 food crisis, COVID-19, and the 2022 Russia-Ukraine war}{figure.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Agricultural Feature Behaviour}{8}{subsection.5.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces (a) 5-day forward returns of the Euronext Milling Wheat futures, returns are noisy and display no seasonal pattern. (b) France-average NDVI with 30-day smoothing. NDVI exhibits strong annual seasonality, peaking each June-July. The timescale mismatch between the two series motivates the choice of a weekly rather than daily forecast horizon.}}{9}{figure.2}\protected@file@percent }
-\newlabel{fig:ag_vs_price}{{2}{9}{(a) 5-day forward returns of the Euronext Milling Wheat futures, returns are noisy and display no seasonal pattern. (b) France-average NDVI with 30-day smoothing. NDVI exhibits strong annual seasonality, peaking each June-July. The timescale mismatch between the two series motivates the choice of a weekly rather than daily forecast horizon}{figure.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Feature Correlations}{9}{subsection.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Yield Distribution Across Countries}{9}{subsection.5.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces (a) Wheat yield distributions by country (2003-2020). Germany has the highest average yield (7.35 t/ha) and the widest spread across its 251 NUTS3 regions. (b) Average wheat yield over time by country. The 2018 European drought is visible as a synchronised dip, with Germany experiencing the largest decline ($-7.3\%$ relative to other years).}}{9}{figure.3}\protected@file@percent }
-\newlabel{fig:yield_dist}{{3}{9}{(a) Wheat yield distributions by country (2003-2020). Germany has the highest average yield (7.35 t/ha) and the widest spread across its 251 NUTS3 regions. (b) Average wheat yield over time by country. The 2018 European drought is visible as a synchronised dip, with Germany experiencing the largest decline ($-7.3\%$ relative to other years)}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces (a) 5-day forward returns of the Euronext Milling Wheat futures, returns are noisy and display no seasonal pattern. (b) France-average NDVI with 30-day smoothing. NDVI exhibits strong annual seasonality, peaking each June-July. The timescale mismatch between the two series motivates the choice of a weekly rather than daily forecast horizon.}}{8}{figure.2}\protected@file@percent }
+\newlabel{fig:ag_vs_price}{{2}{8}{(a) 5-day forward returns of the Euronext Milling Wheat futures, returns are noisy and display no seasonal pattern. (b) France-average NDVI with 30-day smoothing. NDVI exhibits strong annual seasonality, peaking each June-July. The timescale mismatch between the two series motivates the choice of a weekly rather than daily forecast horizon}{figure.2}{}}
 \citation{bib17}
 \citation{bib_tack2015}
 \citation{bib_schlenker2009}
 \citation{bib_porter1999}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Feature Correlations}{9}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Yield Distribution Across Countries}{9}{subsection.5.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces (a) Wheat yield distributions by country (2003-2020). Germany has the highest average yield (7.35 t/ha) and the widest spread across its 251 NUTS3 regions. (b) Average wheat yield over time by country. The 2018 European drought is visible as a synchronised dip, with Germany experiencing the largest decline ($-7.3\%$ relative to other years).}}{9}{figure.3}\protected@file@percent }
+\newlabel{fig:yield_dist}{{3}{9}{(a) Wheat yield distributions by country (2003-2020). Germany has the highest average yield (7.35 t/ha) and the widest spread across its 251 NUTS3 regions. (b) Average wheat yield over time by country. The 2018 European drought is visible as a synchronised dip, with Germany experiencing the largest decline ($-7.3\%$ relative to other years)}{figure.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Feature Engineering and Prediction Design}{9}{section.6}\protected@file@percent }
+\newlabel{sec:feature_eng}{{6}{9}{Feature Engineering and Prediction Design}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Engineered Features for the Futures Task}{9}{subsection.6.1}\protected@file@percent }
 \citation{bib_meroni2019}
 \citation{bib_mckee1993}
 \citation{bib85}
 \citation{bib19}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Feature Engineering and Prediction Design}{10}{section.6}\protected@file@percent }
-\newlabel{sec:feature_eng}{{6}{10}{Feature Engineering and Prediction Design}{section.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Engineered Features for the Futures Task}{10}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Target Construction and Temporal Alignment}{10}{subsection.6.2}\protected@file@percent }
 \citation{bib16}
 \citation{bib_cerrani2017}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Target Construction and Temporal Alignment}{10}{subsection.6.2}\protected@file@percent }
 \citation{bib17}
 \citation{bib16}
 \citation{bib17}
+\citation{bib16}
 \citation{bib16}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Crop Yield Forecasting Pipeline}{11}{subsection.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Model Fitting and Tuning Methodology}{11}{section.7}\protected@file@percent }
-\newlabel{sec:modelling_methodology}{{7}{11}{Model Fitting and Tuning Methodology}{section.7}{}}
-\citation{bib16}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Model Fitting, Evaluation and Tuning Methodology}{11}{section.7}\protected@file@percent }
+\newlabel{sec:modelling_methodology}{{7}{11}{Model Fitting, Evaluation and Tuning Methodology}{section.7}{}}
+\citation{bib21}
 \citation{bib33}
 \citation{bib14,bib16}
 \citation{bib33}
 \citation{bib33}
 \citation{bib35}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Ridge and Lasso Regression}{12}{section.8}\protected@file@percent }
-\newlabel{ridge_lasso}{{8}{12}{Ridge and Lasso Regression}{section.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Models}{12}{section.8}\protected@file@percent }
+\newlabel{sec:models}{{8}{12}{Models}{section.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Ridge and Lasso Regression}{12}{subsection.8.1}\protected@file@percent }
+\newlabel{sec:ridge_lasso}{{8.1}{12}{Ridge and Lasso Regression}{subsection.8.1}{}}
 \citation{bib16}
 \citation{bib30}
 \citation{bib16}
 \citation{bib16}
-\citation{bib16}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Ridge and Lasso test set results for the futures prediction task (2020--2023), evaluated across 507 regions with production-weighted aggregation.}}{13}{table.1}\protected@file@percent }
+\newlabel{tab:linear_futures}{{1}{13}{Ridge and Lasso test set results for the futures prediction task (2020--2023), evaluated across 507 regions with production-weighted aggregation}{table.1}{}}
 \citation{bib16}
 \citation{bib27}
 \citation{bib31}
 \citation{bib31}
-\citation{bib34}
 \citation{bib14,bib16,bib17}
 \citation{bib32}
 \citation{bib34}
 \citation{bib34,bib24}
 \citation{bib32}
-\@writefile{toc}{\contentsline {section}{\numberline {9}Random Forest and Extra Trees Regressors}{14}{section.9}\protected@file@percent }
-\newlabel{rf_et}{{9}{14}{Random Forest and Extra Trees Regressors}{section.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Random Forest and Extra Trees Regressors}{14}{subsection.8.2}\protected@file@percent }
+\newlabel{sec:rf_et}{{8.2}{14}{Random Forest and Extra Trees Regressors}{subsection.8.2}{}}
 \citation{bib16}
 \citation{bib16}
 \citation{bib16}
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Random Forest and ExtraTrees test set results for the futures prediction task (2020--2023), evaluated across 507 regions with production-weighted aggregation.}}{15}{table.2}\protected@file@percent }
+\newlabel{tab:tree_futures}{{2}{15}{Random Forest and ExtraTrees test set results for the futures prediction task (2020--2023), evaluated across 507 regions with production-weighted aggregation}{table.2}{}}
 \citation{bib30}
 \citation{bib_goodfellow}
 \citation{bib27}
@@ -109,31 +122,40 @@
 \citation{bib_gal}
 \citation{bib_wilson}
 \citation{bib_kingma}
+\citation{bib_guo}
 \citation{bib30}
 \citation{bib_goodfellow}
-\citation{bib_guo}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Neural Networks}{16}{subsection.8.3}\protected@file@percent }
+\newlabel{sec:neuralnets}{{8.3}{16}{Neural Networks}{subsection.8.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Neural network test set results for the futures prediction task (2020--2023), evaluated across 507 regions with production-weighted aggregation.}}{16}{table.3}\protected@file@percent }
+\newlabel{tab:nn_futures}{{3}{16}{Neural network test set results for the futures prediction task (2020--2023), evaluated across 507 regions with production-weighted aggregation}{table.3}{}}
 \citation{bib_gorishniy}
 \citation{bib_khaki}
 \citation{bib_loshchilov}
-\@writefile{toc}{\contentsline {section}{\numberline {10}Neural Networks}{16}{section.10}\protected@file@percent }
-\newlabel{neuralnets}{{10}{16}{Neural Networks}{section.10}{}}
+\citation{bib33}
 \citation{bib_gorishniy}
 \citation{bib27}
 \citation{bib30}
-\@writefile{toc}{\contentsline {section}{\numberline {11}Model Result Comparison}{17}{section.11}\protected@file@percent }
-\newlabel{result_comparison}{{11}{17}{Model Result Comparison}{section.11}{}}
 \citation{bib36}
 \citation{bib27}
-\citation{bib36}
-\citation{bib27}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Futures price prediction test set results (2020-2023), all models.}}{18}{table.1}\protected@file@percent }
-\newlabel{tab:futures_comparison}{{1}{18}{Futures price prediction test set results (2020-2023), all models}{table.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Yield prediction test set results (2020-2023), all models.}}{18}{table.2}\protected@file@percent }
-\newlabel{tab:yield_comparison}{{2}{18}{Yield prediction test set results (2020-2023), all models}{table.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {12}Conclusion}{19}{section.12}\protected@file@percent }
-\newlabel{conclusion}{{12}{19}{Conclusion}{section.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Model Result Comparison}{18}{section.9}\protected@file@percent }
+\newlabel{result_comparison}{{9}{18}{Model Result Comparison}{section.9}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Futures price prediction test set results (2020--2023), all models.}}{18}{table.4}\protected@file@percent }
+\newlabel{tab:futures_comparison}{{4}{18}{Futures price prediction test set results (2020--2023), all models}{table.4}{}}
+\citation{bib_gorishniy}
+\citation{bib16}
+\citation{bib17}
+\citation{bib_goodfellow}
+\citation{bib16}
+\citation{bib30}
+\citation{bib19}
+\citation{bib16}
 \bibdata{sn-bibliography}
 \bibcite{agreste_stats}{{1}{2024}{{{Agreste}}}{{}}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces End-of-season yield prediction test set results (2016--2020), all models. Bold indicates best per country. Neural network models are pooled across all countries.}}{19}{table.5}\protected@file@percent }
+\newlabel{tab:yield_comparison}{{5}{19}{End-of-season yield prediction test set results (2016--2020), all models. Bold indicates best per country. Neural network models are pooled across all countries}{table.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {10}Conclusion}{19}{section.10}\protected@file@percent }
+\newlabel{conclusion}{{10}{19}{Conclusion}{section.10}{}}
 \bibcite{bib33}{{2}{2012}{{Bergstra and Bengio}}{{}}}
 \bibcite{bib31}{{3}{2001}{{Breiman}}{{}}}
 \bibcite{bremenports_stats}{{4}{2024}{{{Bremenports}}}{{}}}
@@ -187,7 +209,7 @@
 \bibcite{bib14}{{52}{2020}{{van Klompenburg et~al.}}{{}}}
 \bibcite{bib_wilson}{{53}{2017}{{Wilson et~al.}}{{}}}
 \bibcite{bib22}{{54}{2024}{{Zhang and Tang}}{{}}}
-\@writefile{toc}{\contentsline {section}{\numberline {13}Generative AI Statement}{23}{section.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {11}Generative AI Statement}{23}{section.11}\protected@file@percent }
 \citation{insee_stats}
 \citation{insee_stats}
 \citation{destatis_stats}
@@ -220,19 +242,27 @@
 \newlabel{fig:temp_stress_fr}{{B6}{26}{France-average daily temperature range with stress thresholds (top) and annual growing-season stress day counts (bottom). France shows higher baseline hot-day frequency than Germany, with 2003 and 2022 as the most extreme heat years}{figure.6}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {B7}{\ignorespaces Poland-average daily temperature range with stress thresholds (top) and annual growing-season stress day counts (bottom). Poland exhibits substantially more cold stress days than France or Germany, reflecting its continental climate, while hot stress events are comparatively rare.}}{27}{figure.7}\protected@file@percent }
 \newlabel{fig:temp_stress_pl}{{B7}{27}{Poland-average daily temperature range with stress thresholds (top) and annual growing-season stress day counts (bottom). Poland exhibits substantially more cold stress days than France or Germany, reflecting its continental climate, while hot stress events are comparatively rare}{figure.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B8}{\ignorespaces Fisher z-averaged correlation matrix of the 12 raw CY-Bench variables across 507 regions. Nine feature pairs exceed $|\rho | = 0.85$, concentrated among temperature-derived variables. This motivates the correlation-based filtering applied before modelling.}}{27}{figure.8}\protected@file@percent }
-\newlabel{fig:corr_heatmap}{{B8}{27}{Fisher z-averaged correlation matrix of the 12 raw CY-Bench variables across 507 regions. Nine feature pairs exceed $|\rho | = 0.85$, concentrated among temperature-derived variables. This motivates the correlation-based filtering applied before modelling}{figure.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B8}{\ignorespaces Fisher z-averaged correlation matrix of the 12 raw CY-Bench variables across 507 regions. Nine feature pairs exceed $|\rho | = 0.85$, concentrated among temperature-derived variables.}}{27}{figure.8}\protected@file@percent }
+\newlabel{fig:corr_heatmap}{{B8}{27}{Fisher z-averaged correlation matrix of the 12 raw CY-Bench variables across 507 regions. Nine feature pairs exceed $|\rho | = 0.85$, concentrated among temperature-derived variables}{figure.8}{}}
 \citation{bib54}
 \citation{bib55}
 \citation{bib56}
 \@writefile{toc}{\contentsline {section}{\numberline {C}Target Construction}{28}{appendix.a.C}\protected@file@percent }
 \newlabel{app:target_construction}{{C}{28}{Target Construction}{appendix.a.C}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {D}NRMSE Results for yield forecasting}{28}{appendix.a.D}\protected@file@percent }
-\newlabel{app:NRMSE_results}{{D}{28}{NRMSE Results for yield forecasting}{appendix.a.D}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {D9}{\ignorespaces NRMSE Results on the test set for France, Germany and Poland}}{28}{figure.9}\protected@file@percent }
-\newlabel{fig:NRMSE_results}{{D9}{28}{NRMSE Results on the test set for France, Germany and Poland}{figure.9}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {E}Yield Forecasting Accuracy}{29}{appendix.a.E}\protected@file@percent }
-\newlabel{app:yield_forecast_accuracy_graph}{{E}{29}{Yield Forecasting Accuracy}{appendix.a.E}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {E10}{\ignorespaces Yield Forecasting Accuracy for each Model and Country}}{29}{figure.10}\protected@file@percent }
-\newlabel{fig:yield_forecast_accuracy_graph}{{E10}{29}{Yield Forecasting Accuracy for each Model and Country}{figure.10}{}}
-\gdef \@abspage@last{29}
+\@writefile{toc}{\contentsline {section}{\numberline {D}NRMSE Results for Yield Forecasting}{28}{appendix.a.D}\protected@file@percent }
+\newlabel{app:NRMSE_results}{{D}{28}{NRMSE Results for Yield Forecasting}{appendix.a.D}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {D9}{\ignorespaces NRMSE Results on the test set for France, Germany and Poland (best model per country)}}{28}{figure.9}\protected@file@percent }
+\newlabel{fig:NRMSE_results}{{D9}{28}{NRMSE Results on the test set for France, Germany and Poland (best model per country)}{figure.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {D10}{\ignorespaces Deep learning national-aggregate yield predictions vs. actual yields (test set, 2016--2020) for the best neural network per country (Pooled MLP). Results are shown at quarter-season, mid-season, and end-of-season lead times for Germany, France, and Poland. Poland's large overprediction reflects the pooled model's collapse toward the European mean with only 16 regions.}}{29}{figure.10}\protected@file@percent }
+\newlabel{fig:nn_yield_actual_vs_predicted}{{D10}{29}{Deep learning national-aggregate yield predictions vs. actual yields (test set, 2016--2020) for the best neural network per country (Pooled MLP). Results are shown at quarter-season, mid-season, and end-of-season lead times for Germany, France, and Poland. Poland's large overprediction reflects the pooled model's collapse toward the European mean with only 16 regions}{figure.10}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {E}Yield Forecasting Accuracy}{30}{appendix.a.E}\protected@file@percent }
+\newlabel{app:yield_forecast_accuracy_graph}{{E}{30}{Yield Forecasting Accuracy}{appendix.a.E}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {E11}{\ignorespaces Yield Forecasting Accuracy for each Model and Country}}{30}{figure.11}\protected@file@percent }
+\newlabel{fig:yield_forecast_accuracy_graph}{{E11}{30}{Yield Forecasting Accuracy for each Model and Country}{figure.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {E12}{\ignorespaces Deep learning lead-time comparison across all three neural network architectures (test set, 2016--2020). (a) Per-region NRMSE, (b) national-aggregate NRMSE, and (c) per-region R\textsuperscript  {2} at quarter-season, mid-season, and end-of-season for Germany, France, and Poland. The 1D-CNN exhibits the most stable degradation across lead times for Germany and France, while all architectures perform poorly for Poland.}}{31}{figure.12}\protected@file@percent }
+\newlabel{fig:nn_lead_time_comparison}{{E12}{31}{Deep learning lead-time comparison across all three neural network architectures (test set, 2016--2020). (a) Per-region NRMSE, (b) national-aggregate NRMSE, and (c) per-region R\textsuperscript {2} at quarter-season, mid-season, and end-of-season for Germany, France, and Poland. The 1D-CNN exhibits the most stable degradation across lead times for Germany and France, while all architectures perform poorly for Poland}{figure.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {F}Full Yield Prediction Results}{31}{appendix.a.F}\protected@file@percent }
+\newlabel{app:yield_full}{{F}{31}{Full Yield Prediction Results}{appendix.a.F}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {F2}{\ignorespaces Yield prediction test set results (2016--2020) across all countries, models, and lead times. Bold indicates best result per country per lead time.}}{32}{table.2}\protected@file@percent }
+\newlabel{tab:yield_full}{{F2}{32}{Yield prediction test set results (2016--2020) across all countries, models, and lead times. Bold indicates best result per country per lead time}{table.2}{}}
+\gdef \@abspage@last{32}

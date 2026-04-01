@@ -110,7 +110,7 @@
 
 \begin{document}
 
-\title[Article Title]{Are meteorological, agricultural, and satellite features from the CY-Bench Dataset good predictors of European Wheat Futures Price Changes?}
+\title[Article Title]{Forecasting European Wheat Futures Returns Using Agricultural and Satellite Features from the CY-Bench Dataset}
 
 %%=============================================================%%
 %% GivenName	-> \fnm{Joergen W.}
@@ -122,8 +122,8 @@
 %%=============================================================%%
 
 \author{\fnm{68729}}
-\author{\fnm{candidate number}}
-\author{\fnm{candidate number}}
+\author{\fnm{72553}}
+\author{\fnm{70320}}
 
 %%\pacs[JEL Classification]{D8, H51}
 
@@ -135,6 +135,24 @@
 
 \section{Executive Summary}\label{execsum}
 
+Forecasting short-term wheat futures price movements has significant
+practical value for producers, traders, farmers, and policymakers across
+the European agricultural supply chain. This study asks whether the
+publicly available meteorological, agricultural, and satellite features
+compiled in the CY-Bench dataset~\cite{bib17}, one of the most
+comprehensive benchmarks for sub-national crop yield forecasting, can
+serve this purpose. We combine sub-national agricultural indicators for
+507 regions across France, Germany, and Poland with Euronext Milling
+Wheat roll-adjusted daily futures prices from 2003 to 2023, and evaluate
+two prediction tasks in a strictly out-of-sample walk-forward
+framework.\\
+
+The primary task is the prediction of 5-day forward returns on the Euronext Milling Wheat futures contract. We evaluate eight models spanning three model classes: Ridge and Lasso regression as linear baselines, Random Forest and ExtraTrees as tree-based ensembles, and four neural network architectures of varying depth and regularisation. All models across every level of complexity fail to extract a meaningful predictive signal from the agricultural data. No model produces a positive out-of-sample R\textsuperscript{2}, with values ranging from $-0.0210$ (Ridge) to $-0.0032$ (Lasso), and directional accuracy spans 46.97\% to 51.37\%. Increasing model capacity from linear to deep neural networks does not improve performance, indicating that the bottleneck is signal content rather than model expressiveness.\\
+
+The secondary task is sub-national wheat yield forecasting at three lead times (end-of-season, mid-season, and quarter-season), designed to verify that the CY-Bench features contain real agricultural signal before interpreting the futures results. Here, the same data proves informative. ExtraTrees achieves a regional Normalised Root Mean Squared Error (NRMSE) of 13.00\% for Germany and 17.77\% for France at end-of-season, where a lower NRMSE indicates predictions closer to actual yields. These results are broadly competitive with established benchmarks~\cite{bib16}. Tree ensembles consistently outperform linear models, and the Pooled MLP achieves the best German result at 12.20\% regional NRMSE, while the 1D-CNN exhibits the most stable performance across lead times.\\
+
+The divergence between the two tasks is the central finding. Features that predict crop yields with positive R\textsuperscript{2} produce uniformly negative R\textsuperscript{2} for futures returns. This is consistent with semi-strong market efficiency~\cite{bib30}: the agricultural information contained in publicly available satellite and climate records appears to be already reflected in Euronext wheat futures prices by the time it enters structured datasets. The practical implication is that signal timeliness and data exclusivity, rather than feature engineering or model complexity, are likely the binding constraints for any agricultural approach to wheat futures prediction. Future work should investigate whether proprietary or higher-frequency satellite data, obtained before public release, can recover the predictive signal that publicly available data cannot.
+
 \clearpage
 
 \tableofcontents
@@ -143,7 +161,17 @@
 
 \section{Introduction}\label{intro}
 
-\clearpage
+Wheat is one of the most strategically important agricultural commodities in the world. European milling wheat futures, traded on Euronext under the Milling Wheat N2 contract, are the primary price discovery mechanism for wheat in the European Union and are closely watched by producers, food processors, traders, farmers, and policymakers as a forward-looking signal of supply and demand conditions. The ability to forecast short-term price movements in this market has significant practical value across the agricultural supply chain, from farm-level hedging decisions to commodity fund management.\\
+
+At the same time, the past decade has seen substantial progress in data-driven crop yield forecasting, driven in part by the increasing availability of satellite remote sensing data and sub-national agricultural statistics. The CY-Bench dataset, introduced by Paudel et al.~\cite{bib17}, represents one of the most comprehensive publicly available benchmark for sub-national crop yield forecasting, combining meteorological variables, soil data, and satellite vegetation indices across hundreds of sub-national regions in major wheat-producing countries. Its release raises a natural but largely unexplored question. If these agricultural features are good predictors of wheat yields, are they also good predictors of wheat futures price changes?\\
+
+We investigate this question in this study. We use CY-Bench sub-national agricultural indicators for over 500 regions across France, Germany, and Poland, three of the largest wheat producers in the European Union, combined with Euronext Milling Wheat futures price data spanning 2003 to 2023, to test whether publicly available satellite-derived and meteorological features carry exploitable information for futures return prediction.\\
+
+We define two prediction tasks. The primary task is the prediction of 5-day forward returns on the Euronext Milling Wheat futures contract, framed as a regression problem with RMSE as the primary evaluation metric and directional accuracy as a supplementary measure. The choice of a weekly rather than daily forecast horizon is motivated by the timescale mismatch between slow-moving agricultural variables and daily price noise, which is dominated by order-flow dynamics. The secondary task is the prediction of annual regional wheat yields for each of the three countries at three lead times, end-of-season, mid-season, and quarter-season, which serves both as a validation of the CY-Bench features and as a comparison benchmark against the established results of Paudel et al.~\cite{bib16,bib17}. The yield task allows us to confirm that our features carry real and meaningful signals before interpreting the futures results by themselves.\\
+
+We evaluate eight models spanning three model classes in a walk-forward expanding window framework to prevent data leakage. First is Ridge and Lasso regression as linear baselines, followed by Random Forest and ExtraTrees as tree-based ensemble methods, and lastly neural networks of varying architecture and depth as non-linear upper bound tests. Hyperparameters are tuned on a held-out validation period and all reported results are on a strictly out-of-sample test set.\\
+
+Our results show a clear gap between the two tasks. For futures price prediction, our primary prediction task, all models produce negative out-of-sample R², and directional accuracy ranges only from 46.97\% to 51.37\% across the entire model pipeline. For yield prediction, the CY-Bench features are more informative. ExtraTrees achieves a regional NRMSE of 13.00\% for Germany and 17.77\% for France at end-of-season, broadly comparable to the Paudel et al.~\cite{bib16} benchmark, with tree ensembles consistently outperforming linear models in a pattern consistent with the presence of non-linear feature interactions. This gap supports the interpretation that the CY-Bench agricultural features contain real and useful crop production information, but these signals are already reflected in futures market prices by the time they appear in publicly available satellite data. This is consistent with semi-strong market efficiency~\cite{bib30}. The practical implication is that signal timeliness and data exclusivity, rather than feature engineering or model complexity, are likely the binding constraints for any agricultural approach to wheat futures trading.
 
 \section{Literature Review}\label{lit_review}
 
@@ -173,7 +201,7 @@ Finally, we note that the agricultural data's availability starts at different p
 
 \subsection{Futures Price Data from Bloomberg}
 
-Secondly, our target variable data for the futures price prediction task is the Euronext Milling Wheat roll-adjusted daily closing prices obtained from Bloomberg for the period 01-01-2003 to 31-12-2023 (to align with our agricultural data), yielding 5,389 trading days. More precisely, we define the raw target data as the closing price of the earliest maturing Euronext Milling Wheat Futures Contract. This is because near-term futures contracts are usually most liquid as per Ripple and Moosa ~\cite{bib84}. We use Bloomberg's ratio roll-adjustment to the time series $10$ days before each contract expiry, this means that historical prices are multiplied by $P_{new \ contract} / P_{old \ contract}$ so as to preserve the percentage returns across all rolls. Our choice of $10$ days before expiry is due to liquidity factors, indeed, futures contract generally decrease in liquidity as they get closer to maturity as per Ding and Lim~\cite{bib26}. Further, Carchano and Pardo's~\cite{bib25} study of stock index futures shows that choice of rollover timing does not induce statistically significant differences between the resulting return series. However, their study focuses on stock index futures rather than agricultural commodities which may exhibit stronger maturity effects due to seasonal supply factors. As per L{\'o}pez de Prado Chapter~2 ~\cite{bib24}, roll-adjustment is a key step as it eliminates the artificial jumps that occur at expiration to preserve the return dynamics experienced by a roll-following investor. This property is directly relevant to our study because the prediction target is a percentage return, not an absolute price level. A limitation of ratio adjustment is that it distorts historical price \emph{levels} (early-period prices may become very small or very large), making the series unsuitable for level-based analysis; however, since we use only returns and return-derived features, this limitation does not affect our study.
+Secondly, our target variable data for the futures price prediction task is the Euronext Milling Wheat roll-adjusted daily closing prices obtained from Bloomberg for the period 01-01-2003 to 31-12-2023 (to align with our agricultural data), yielding 5,389 trading days. More precisely, we define the raw target data as the closing price of the earliest maturing Euronext Milling Wheat Futures Contract. This is because near-term futures contracts are usually most liquid as per Ripple and Moosa ~\cite{bib84}. We use Bloomberg's ratio roll-adjustment to the time series $10$ days before each contract expiry, this means that historical prices are multiplied by $P_{new \ contract} / P_{old \ contract}$ so as to preserve the percentage returns across all rolls. Our choice of $10$ days before expiry is due to liquidity factors, indeed, futures contract generally decrease in liquidity as they get closer to maturity as per Ding and Lim~\cite{bib26}. Further, Carchano and Pardo's~\cite{bib25} study of stock index futures shows that choice of rollover timing does not induce statistically significant differences between the resulting return series. However, their study focuses on stock index futures rather than agricultural commodities which may exhibit stronger maturity effects due to seasonal supply factors. As per L{\'o}pez de Prado Chapter~2 ~\cite{bib24}, roll-adjustment is a key step as it eliminates the artificial jumps that occur at expiration to preserve the return dynamics experienced by a roll-following investor. This property is directly relevant to our study because the prediction target is a percentage return, not an absolute price level. A limitation of ratio adjustment is that it distorts historical price \emph{levels} (early-period prices may become very small or very large), making the series unsuitable for level-based analysis; however, since we use only returns and return-derived features, this limitation does not affect our study.\\
 
 We retain two key fields from the raw data, closing price as well as volume. We note that while price has no missing data, missing volume data is forward-filled using LOCF. In this case, the missing volume data represents only 290 trading days or c.5.4\% of trading days.
 
@@ -181,7 +209,7 @@ We retain two key fields from the raw data, closing price as well as volume. We 
 
 Lastly, we detail our region filtering steps for the futures price prediction task where we exclude urban/non-wheat producing regions and then for the yield prediction task where we exclude regions with significant missing yield data due to lack of reporting.\\
 
-Looking at the futures prediction task, When creating our agricultural features we exclude some highly urban and non-wheat producing regions as they should not directly be influencing the supply of wheat. We implement this simply filtering regions that are not included within CY-bench's raw yield data. Indeed, as per our \autoref{tab:region_classification} in the Appendix, we see that these regions are either urban, logistic hubs or non-wheat producing. This means that we retain 507 regions across France (94 regions), Germany (396 regions), and Poland (17 regions) (out of 518). \\
+Looking at the futures prediction task, When creating our agricultural features we exclude some highly urban and non-wheat producing regions as they should not directly be influencing the supply of wheat. We implement this simply filtering regions that are not included within CY-bench's raw yield data. Indeed, as per our \autoref{tab:region_classification} in the Appendix, we see that these regions are either urban, logistic hubs or non-wheat producing. This means that we retain 507 regions across France (94 regions), Germany (395 regions), and Poland (17 regions) (out of 518). \\
 
 For the yield forecasting task, we apply a different region filter. Indeed, we retain only the 357 regions (90 French, 251 German, 16 Polish) that report wheat yield statistics for every year in the 2003 to 2020 window. The start year is the same as the futures prediction task dataset i.e. the start of the GLDAS soil moisture data. However, the end year is constrained by the latest available sub-national yield statistics from the JRC harmonised European dataset~\cite{bib_ronchetti2024}, which provides French and Polish NUTS-level yields through 2020. Although these filters lead to some information loss, it is not material. The 357 retained regions account for 97.5\% of total wheat production across the three countries (99.9\% for France, 93.3\% for Germany, 99.4\% for Poland). Indeed, the dropped regions are predominantly small districts with discontinued reporting rather than major wheat-producing areas. This ensures that we have complete temporal coverage for every retained region for fair cross-regional comparison under the walk-forward evaluation scheme described in Section~\ref{sec:modelling_methodology}.
 
@@ -193,18 +221,14 @@ In this next section, we cover our Exploratory Data Analysis (EDA) which drives 
 
 First, we show the distribution and volatility of our prediction target for the futures task which is the 5-trading-day forward return $y_t = P_{t+5}/P_t - 1$, where $P_t$ is the roll-adjusted closing 
 price (more details in Section~\ref{sec:feature_eng}). As shown in \autoref{fig:return_dist}(a), the distribution of the target is approximately symmetric with skewness of 0.90 and centred near zero mean = 0.18\%, but exhibits heavy tails with an excess kurtosis of 6.17. This is consistent with the well-documented leptokurtosis of commodity futures returns~\cite{bib_mandelbrot1963}. To quantify the tail behaviour, we fit a Student-t distribution to the returns and obtain 3.6 degrees of freedom (see \autoref{fig:return_vs_t} in the Appendix), confirming that the tails are substantially fatter than Gaussian meaning that extreme weekly moves are more frequent than a normal model would predict. In practice, 1.1\% of observations exceed $\pm$10\% in absolute value. \autoref{fig:return_dist}(b) shows that return volatility is not constant over time: the 2007-08 food crisis and the 2022 Russia-Ukraine war both produced sustained volatility roughly two to three times higher than the 2012-2016 baseline. Our observations lead us to define the futures prediction task as a regression problem, i.e. predicting continuous returns rather than a binary classification of direction, since the return magnitudes vary significantly and are economically meaningful. Further, for the futures prediction task, we place the chronological train/test boundary so that the training set includes both the 2007-08 and 2010-11 volatile episodes, ensuring the model has seen extreme market conditions before encountering the COVID-19 and Ukraine shocks in the test period (the yield prediction task has a different split given the nature of the task).
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Figures/eda_return_distribution.png}
     \caption{(a) Distribution of 5-day forward returns for the Euronext Milling Wheat futures contract (2003-2023). The distribution is approximately symmetric with heavy tails (kurtosis = 6.17). (b) Rolling 60-day standard deviation of 5-day returns, with train/validation/test periods shaded. Volatility spikes correspond to the 2007-08 food crisis, COVID-19, and the 2022 Russia-Ukraine war.}
     \label{fig:return_dist}
 \end{figure}
-
 \subsection{Agricultural Feature Behaviour}
-
 We now look at \autoref{fig:ag_vs_price} which plots the Euronext wheat futures 5-trading day returns alongside France-average NDVI and 30-day cumulative precipitation over the full sample period. We immediately see that returns are noisy and do not exhibit a trend while agricultural data is smooth and seasonal. Indeed, the agricultural variables exhibit strong annual seasonality: NDVI peaks each June-July when the wheat harvest areas reach maximum greenness, then declines after harvest, this repeats with high regularity across all twenty years. \autoref{fig:precipitation} in Appendix shows that cumulative precipitation fluctuates on a similar seasonal cycle but with much greater variability. In contrast, the futures return series shows no consistent seasonal pattern and can often be driven by geopolitical and macroeconomic events. Further, as mentioned in \autoref{sec:dataprep}, agricultural data is smooth on a daily timescale with NDVI updating every 8 days and fPAR every 10 days. This timescale mismatch is a key motivation for our choice of a 5-day (one-week) forecast horizon rather than a daily one: the slow-moving agricultural signals are unlikely to predict daily price variation, which is dominated by microstructure noise and order-flow dynamics~\cite{bib85} (See Section~\ref{sec:feature_eng} for more details). Additional EDA figures in  \autoref{app:eda} show that NDVI and fPAR are highly correlated ($\rho = 0.93$), however, they potentially diverge during cloudy periods (as NDVI is derived from satellite imagery), thus, we retain both in our feature set. Further, surface and root-zone soil moisture capture different timescales of water availability, thus, we keep both despite their near-perfect correlation of $\rho = 0.99$. Further, we see that the 2018 European drought produced 2.5 times the average number of hot stress days in Germany during the growing season, this drives our threshold-based stress features in Section~\ref{sec:feature_eng}.
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Figures/eda_ag_features_vs_price.png}
@@ -214,7 +238,6 @@ We now look at \autoref{fig:ag_vs_price} which plots the Euronext wheat futures 
     weekly rather than daily forecast horizon.}
     \label{fig:ag_vs_price}
 \end{figure}
-
 \subsection{Feature Correlations}
 
 \autoref{fig:corr_heatmap} in \autoref{app:eda} presents the Fisher z-averaged correlation matrix across all 507 regions for the 12 raw CY-Bench variables. Of the 66 unique feature pairs, 9 (13.6\%) exceed an absolute correlation of 0.85, with the highest being $|\rho| = 0.98$ between tmin and tavg. The most correlated group of features involves the temperature-related variables: tmin, tmax, tavg, et0, and vpd, which are all correlated above 0.80. This is expected since evapotranspiration and vapour pressure deficit are both derived from temperature inputs. As previously mentioned, surface and root-zone soil moisture are also highly correlated ($\rho = 0.97$). Precipitation stands out as largely uncorrelated with most other variables ($|\rho| < 0.33$), however, its correlation with the climatic water balance (cwb) is very high ($\rho = 0.94$) since cwb is computed as precipitation minus evapotranspiration. Although these patterns would introduce multicollinearity, we decide to keep all of these variables given that they represent distinct physical processes which may bring additional information to our models. We still verify the correlation of features during our feature engineering step in Section~\ref{sec:feature_eng}.
@@ -222,14 +245,12 @@ We now look at \autoref{fig:ag_vs_price} which plots the Euronext wheat futures 
 \subsection{Yield Distribution Across Countries}
 
 Finally, we briefly examine the yield data for our secondary prediction task. \autoref{fig:yield_dist}(a) in \autoref{app:eda} shows that average wheat yields differ substantially across the three countries: Germany at 7.35 t/ha, France at 6.17 t/ha and Poland at 4.12 t/ha, reflecting differences in climate, soil quality, and farming intensity. Germany also exhibits the widest absolute spread across its 251 NUTS3 regions, with yields ranging from 2.57 to 11.04 t/ha. \autoref{fig:yield_dist}(b) plots the average yield trajectory over time. All three countries display a slight upward trend which could be driven by long-term improvements in crop varieties and management practices. Additionally, we see that, in 2018, all three countries experience a dip which corresponds to the European drought: Germany experienced a 7.3\% decline relative to other years, Poland 5.6\%, and France 2.9\%. These cross-country differences in yield level, variability, and drought sensitivity motivate our decision to tune model hyperparameters separately per country for the yield prediction task rather than using a single EU-wide configuration, as discussed in Section~\ref{sec:modelling_methodology}.
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Figures/eda_yield_distributions.png}
     \caption{(a) Wheat yield distributions by country (2003-2020). Germany has the highest average yield (7.35 t/ha) and the widest spread across its 251 NUTS3 regions. (b) Average wheat yield over time by country. The 2018 European drought is visible as a synchronised dip, with Germany experiencing the largest decline ($-7.3\%$ relative to other years).}
     \label{fig:yield_dist}
 \end{figure}
-
 \section{Feature Engineering and Prediction Design}\label{sec:feature_eng}
 
 Now that we have pre-processed and visualised our data, we add features and transform the data for model fitting for both prediction tasks. We start by describing the 14 engineered features for the futures prediction task, then we detail futures prediction target construction and temporal alignment, and finally we cover the yield forecasting pipeline.
@@ -260,7 +281,7 @@ A central challenge is that the agricultural data are available at regional (sub
 
 Since we have data for 507 regions, we choose to fit one model per region and then aggregate the predictions to EU-level. This aggregation follows Paudel et~al.~\cite{bib16}, who showed that regional models outperform nationally aggregated ones (in their yield task). This entails that once a separate model is fitted to each region, we aggregate the 507 per-region predictions into a single EU-level forecast by using production-weighted averaging:
 \begin{equation}
-    \hat{y}_{t+5}^{\text{EU}} = \frac{\sum_{r=1}^{R} w_{r,t}\, \hat{y}_{t+5}^{(r)}}{\sum_{r=1}^{R} w_{r,t}}
+    \hat{y}_{t}^{\text{EU}} = \frac{\sum_{r=1}^{R} w_{r,t}\, \hat{y}_{t}^{(r)}}{\sum_{r=1}^{R} w_{r,t}}
 \end{equation}
 where $w_{r,t} = \text{yield}_{r,t-1} \times \text{area}_{r,t-1}$ uses the previous year's production to avoid look-ahead bias. We note that for Germany, where CY-Bench provides harvest area only at census intervals, we forward-fill area within each region, which is the norm in operational European crop monitoring systems~\cite{bib_cerrani2017}. Finally, we note that by employing a one model per region scheme, we expose ourselves to the quality of the production data, which may introduce bias to our predictions given its annual frequency.
 
@@ -268,28 +289,31 @@ where $w_{r,t} = \text{yield}_{r,t-1} \times \text{area}_{r,t-1}$ uses the previ
 
 While the primary aim of this study is to test whether CY-Bench features predict futures returns, we also implement the task these features were designed for: sub-national wheat yield forecasting. We conduct this dual-task in view of evaluating how informative the features are in a purely agricultural task. This enables us to verify that the data contains useful information for yield prediction while testing if it also contains useful information for futures price prediction.\\
 
-Our yield pipeline aggregates daily CY-Bench time series into monthly summary features within each region's growing season, the are taken from the CY-Bench static crop calendars which have start-of-season (SOS) and end-of-season (EOS) dates for each region. For each region-year pair, we compute monthly means for all meteorological, soil moisture, and vegetation variables over the available months, so that each observation is a single row with columns such as the mean ndvi in october and mean fpar in december. This preserves the temporal structure of the growing season while reducing dimensionality. Following CY-Bench's lead-time framework~\cite{bib17}, we build three separate datasets by truncating the available data at different points before harvest: end-of-season (all growing-season data available), mid-season (data truncated at $(SOS + EOS)/2$), and quarter-season (data truncated at $SOS + (EOS - SOS)/4$). These represent real-world forecasting scenarios where earlier predictions are more valuable but less accurate. We note that our monthly calendar-based aggregation differs from Paudel et~al.~\cite{bib16} who aggregate by crop development phases using the a crop simulation model. Our approach is simpler but we believe it may provide additional granularity compared to the CY-Bench methodology given that we data for each month.\\
+Our yield pipeline aggregates daily CY-Bench time series into monthly summary features within each region's growing season, the are taken from the CY-Bench static crop calendars which have start-of-season (SOS) and end-of-season (EOS) dates for each region. For each region-year pair, we compute monthly means for all meteorological, soil moisture, and vegetation variables over the available months, so that each observation is a single row with columns such as the mean ndvi in october and mean fpar in december. This preserves the temporal structure of the growing season while reducing dimensionality. Following CY-Bench's lead-time framework~\cite{bib17}, we build three separate datasets by truncating the available data at different points before harvest: end-of-season (all growing-season data available), mid-season (data truncated at $(SOS + EOS)/2$), and quarter-season (data truncated at $SOS + (EOS - SOS)/4$). These represent real-world forecasting scenarios where earlier predictions are more valuable but less accurate. We note that our monthly calendar-based aggregation differs from Paudel et~al.~\cite{bib16} who aggregate by crop development phases using the a crop simulation model. Our approach is simpler but we believe it may provide additional granularity compared to the CY-Bench methodology given that we have data for each month.\\
 
 The target variable is the official reported wheat yield in tonnes per hectare. We adopt a temporal split appropriate for the 2003-2020 data window: training on 2003-2012, validation on 2013-2015 (for hyperparameter tuning only), and test on 2016-2020. The test period includes the 2018 European drought, providing a challenging evaluation. Following the cross-country differences in yield level and variability observed in Section~\ref{sec:EDA}, we tune hyperparameters separately for each country rather than using a single EU-wide configuration. We report normalised RMSE and $R^2$ at both per-region and production-weighted national levels, following CY-Bench~\cite{bib17}.
 
-\section{Model Fitting and Tuning Methodology}\label{sec:modelling_methodology}
+\section{Model Fitting, Evaluation and Tuning Methodology}\label{sec:modelling_methodology}
 
 % ============================================================
 % This is the tex file for walkforward validation and random search, 
 % which wse use in all models.
 % ============================================================
 
-In this section, we cover the methodology used to fit and tune all models for 
-our two prediction tasks. Firstly, all models in this study are evaluated using
-walk-forward validation with an expanding training window. Secondly, all hyperparameters are tuned via random grid search given the high dimensionality.
-We cover these methodological choices prior to the individual model results as 
-these choices underpin every model we implemented.\\
+In this section, we cover the methodology used to fit, evaluate and tune all 
+models for our two prediction tasks. Firstly, all models in this study are 
+evaluated using walk-forward validation with an expanding training window. 
+Secondly, we detail the key metrics used in the futures prediction task (metrics 
+for the yield prediction task were already mentiond in 
+Section~\ref{sec:feature_eng}).
+Thirdly, we cover our hyperparameter tuning, this is done via random grid search given the high dimensionality. We cover these methodological choices prior to the individual model results as these choices underpin every model we implemented.\\
 
 Walk-forward validation is a temporal technique analogous to cross-validation designed 
 for timeseries. Rather than randomly partitioning observations into 
 training and test folds, which would allow the model to train on future 
 data and predict past data. This walk-forward scheme respects the chronological 
-ordering of the timeseries dataset. 
+ordering of the timeseries dataset.\\
+
 For the futures price prediction task, we divide the data into three 
 chronological partitions: training from 2003 to 2016, validation from 
 2017 to 2019, and test from 2020 to 2023, giving an approximate 67/14/19 
@@ -318,11 +342,6 @@ Standard Scaler fitted on the training data only, and region-level
 predictions are aggregated to a single daily signal via production-weighted 
 averaging, where each region's weight reflects its lagged wheat production share.\\
 
-% ============================================================
-% Section missing here on what specific metrics we report in 
-% the futures prediction task and why
-% ============================================================
-
 For the yield prediction task, the temporal split is shifted earlier 
 because subnational yield statistics end in 2020 for France and Poland. 
 The partitions are training from 2003 to 2012, validation from 2013 to 
@@ -338,7 +357,34 @@ entire dataset, because the three countries differ substantially in the
 number of regions, with Germany at 251, France at 90, and Poland at 16. 
 Predictions are aggregated to national level using production weights as
 described in Section~\ref{sec:feature_eng} which follows the methodology 
-of Paudel et al.~\cite{bib16}.\\
+of Paudel et al.~\cite{bib16}. We note that the methodology is different
+for neural networks, they are trained on all regions simultaneously given
+that there would be too little data otherwise (more details in 
+Section~\ref{sec:neuralnets}).\\
+
+Further, looking at evaluation metrics, we note that for the futures prediction 
+task, our primary metric is the Root Mean Squared Error (RMSE). 
+RMSE is appropriate here because it 
+penalises large prediction errors disproportionately thanks to the 
+squaring operation. Indeed, in our setting the largest errors occur during 
+precisely volatile peridos (e.g. 2007-08 food crisis, 2022 Russia-Ukraine war, etc.) where accurate forecasts would be most economically valuable.
+A metric like Mean Absolute Error would weight a 
+1\% error during a calm period equally to a 1\% error during a crisis, 
+whereas RMSE naturally places more emphasis on periods of high-volatility 
+where prediction quality matters most. Additionally, RMSE is also expressed in 
+the same units as our target (weekly returns), making it directly 
+interpretable as the typical magnitude of our prediction errors. We also 
+supplement RMSE with two domain-specific metrics. 
+Firstly, R\textsuperscript{2} expresses the test MSE as a proportion of the 
+target variance, thus, providing a normalised view of the same underlying 
+quantity. While R\textsuperscript{2} adds no information beyond what RMSE already conveys, we include it because it is a standard metric which is 
+sometimes reported in the commodity price forecasting literature we benchmark 
+against~\cite{bib21}. Secondly, Directional accuracy measures the fraction of days on which the predicted return has the correct sign. We report this 
+because it captures an aspect of prediction quality that RMSE does not: 
+a model with moderate RMSE could still be practically useful if it 
+consistently predicts the correct direction of price movement, even 
+with imprecise magnitude estimates. Here, directional accuracy is a
+classification metric applied to a regression output, this is why it is only used as a supplementary metric for practical considerations.\\
 
 For hyperparameter tuning, we use random search rather than grid search 
 following Bergstra and Bengio~\cite{bib33}, who showed that random search 
@@ -346,162 +392,214 @@ is more efficient than grid search in high-dimensional hyperparameter
 spaces because it avoids wasting evaluations on unimportant parameter 
 combinations. Each model draws 20 random configurations from the specified 
 parameter distributions and evaluates them over the validation period. 
-For the futures task, the scoring criterion is directional accuracy 
-rather than R\textsuperscript{2}, since the practical objective is to 
-correctly predict the sign of the 5-day return rather than its magnitude. 
-An R\textsuperscript{2}-based selection criterion would favour models that 
-minimise squared error in absolute terms, but a model that consistently 
-predicts the correct direction of price movement with imprecise magnitude 
-is more useful than one that occasionally produces a precise forecast but 
-frequently misses the direction. For the yield task, the scoring criterion 
-is region-level Normalised Root Mean Squared Error (NRMSE), which measures 
-the percentage prediction error relative to the mean observed yield and 
-enables comparison across countries with different absolute yield levels.\\
+For the futures task, the scoring criterion is RMSE rather than directional accuracy 
+or R\textsuperscript{2}, since its is our main metric and the objective 
+is to correctly predict the sign and magnitude of the 5-day return. We also note that
+the hyperparameter tuning procedure is different for neural networks as explained
+in Section~\ref{sec:neuralnets}, indeed, we pre-select different architectures and then
+perform a random grid search on specific hyperparameters. This is done to ensure 
+computational feasibility.\\
 
-\section{Ridge and Lasso Regression}\label{ridge_lasso}
+\section{Models}\label{sec:models}
 
-Ridge and Lasso regression are evaluated together as the linear baseline methods for both our primary prediction task of wheat futures price, as well as the secondary task of wheat yield prediction. Both are appropriate first choices for this high-dimensional tabular setting for similar but distinct reasons. Comparing them directly tests whether dense coefficient shrinkage or sparse feature selection better characterises the underlying signal in our agricultural feature set.\\
+In this next section we cover the different models we used in both prediction 
+tasks justifying why we used these methods, the hyperparameters chosen and model 
+results. We start by covering Ridge and Lasso Regression, then followed by 
+Random Forest and Extra Trees Ensemble Methods, and finally Neural Networks.  
 
-For the Futures Price Prediction Task, Ridge is chosen because its L2 penalty shrinks correlated coefficients toward each other rather than eliminating them, preserving the joint contribution of related agricultural indicators such as normalized difference vegetation index (NDVI), a satellite-based remote sensing method, and soil moisture that together capture crop stress conditions. Lasso complements this with an L1 penalty that drives irrelevant coefficients to exactly zero, functioning as a feature selector completely eliminating these features. If the return signal across 76 agricultural features is concentrated in a small subset, we would expect Lasso to identify and retain only those features, which should outperform Ridge by removing noise from uninformative predictors. Both models are computationally trivial to fit across all 515 regions, making them practical to run independently for every region across every walk-forward window. Both also serve as a baseline method to compare against, where a strong result from either model would imply the futures return signal is largely linear and that escalating to ensemble methods potentially adds no value, while a poor result from both motivates the tree-based architectures that follow. Finally, regularised regression methods feature prominently in the literature we reviewed~\cite{bib14,bib16}, making this a natural point of methodological comparison between our study and established benchmarks.\\
+\subsection{Ridge and Lasso Regression}\label{sec:ridge_lasso}
 
-The sole hyperparameter for Ridge Regression is the regularisation strength $\alpha$, which controls the trade-off between fit and coefficient shrinkage. We sample $\alpha$ from a log-uniform distribution~\cite{bib33} over a range of [0.01,100]. The log-uniform distribution is appropriate here because the effect of regularisation on model performance is multiplicative rather than additive, meaning that doubling $\alpha$ from 0.1 to 0.2 has a similar effect to doubling it from 10 to 20, ensuring that we spend equal time looking at different orders of magnitude and not focusing too much on higher $\alpha$ while neglecting the lower bound. The lower bound of 0.01 corresponds to Ordinary Least Squares behaviour, where regularisation is minimal, and the upper bound of 100 enforces strong shrinkage appropriate for a noisy financial target. Twenty random draws are evaluated over the validation period from 2017 to 2019~\cite{bib33}, with directional accuracy used as the selection criterion~\cite{bib35} rather than R\textsuperscript{2}, since the practical objective is to correctly predict the sign of the 5-day return rather than its magnitude. This is an important distinction since by using the directional accuracy we can more accurately predict if the model is predicting trends and patterns rather than trying to predict precise market movements that could result in poor R\textsuperscript{2} results, regardless if the direction was correct.\\
+Ridge and Lasso regression are evaluated together as the linear baseline methods for both our primary prediction task of wheat futures price, as well as the secondary task of wheat yield prediction. Both are appropriate first choices for this high-dimensional tabular setting for similar but distinct reasons. Comparing them enables us to test whether it is better to keep all features with reduced coefficients or eliminate uninformative features in our agricultural feature set.\\
 
-Lasso uses a narrower log-uniform range of [1e-5, 0.1], reflecting that L1 regularisation operates at a fundamentally different scale compared to Ridge. Lasso coefficients reach zero at much smaller $\alpha$ values compared to Ridge coefficients, so applying the same upper bound of 100 would produce a degenerate all-zero model. Lasso, like Ridge, uses 20 random draws over the validation period from 2017 to 2019 with directional accuracy as the selection criterion for the same reasons as Ridge as stated above.\\ 
+For the Futures Price Prediction Task, Ridge is chosen because its L2 penalty shrinks correlated coefficients toward each other rather than eliminating them, preserving the joint contribution of related agricultural indicators such as normalized difference vegetation index (NDVI), a satellite-based remote sensing method, and soil moisture that together capture crop stress conditions. Lasso complements this with an L1 penalty that drives irrelevant coefficients to exactly zero, functioning as a feature selector completely eliminating these features. If the return signal across 26 agricultural features is concentrated in a small subset, we would expect Lasso to identify and retain only those features, which could outperform Ridge by removing noise from uninformative predictors. Both models are computationally trivial to fit across all 507 regions, making them practical to run independently for every region across every walk-forward window. Both also serve as a baseline method to compare against for our other methods. Finally, we note that these regression methods feature prominently in the literature we reviewed~\cite{bib14,bib16}, making this a natural point of methodological comparison between our study and more established benchmarks.\\
 
-The optimal Ridge configuration is $\alpha$ = 63.51, situated in the upper quarter of its log-uniform search range. This reflects that strong regularisation is beneficial when the target is noisy and many features carry weak signal. Lasso's optimal $\alpha$ value is 0.000146, very close to the lower bound of its range, resulting in a strikingly different result. This indicates that even very mild L1 shrinkage causes the model to deteriorate due to Lasso eliminating certain features that are helpful and hold predictive importance. We can interpret from this that signal features are not concentrated in a sparse feature subset. Therefore, a more dense solution is preferred, which is consistent with Ridge's strong regularisation requirement. Ridge achieves a validation directional accuracy of 49.93\% and R\textsuperscript{2} of -0.047. Lasso achieves a marginally better validation directional accuracy of 50.72\% and R\textsuperscript{2} of -0.042. Neither model shows meaningful predictive promise for wheat futures price movement based on these validation results.\\
+The sole hyperparameter for Ridge Regression is the regularisation strength $\alpha$, which controls the trade-off between fit and coefficient shrinkage. We sample $\alpha$ from a log-uniform distribution~\cite{bib33} over a range of [0.01,100]. The log-uniform distribution is appropriate here because the effect of regularisation on model performance is multiplicative rather than additive, meaning that doubling $\alpha$ from 0.1 to 0.2 has a similar effect to doubling it from 10 to 20. Thus, this distirbution ensures we spend equal time looking at different orders of magnitude and not focusing too much on higher $\alpha$ while neglecting the lower bound. The lower bound of 0.01 corresponds to Ordinary Least Squares behaviour, where regularisation is minimal, and the upper bound of 100 enforces strong shrinkage appropriate for a noisy financial target. Twenty random draws are evaluated over the validation period from 2017 to 2019~\cite{bib33}, with RMSE used as the selection criterion~\cite{bib35} rather than the other metrics since the objective is to correctly predict returns as a continuous value (sign and magnitude).\\
 
-Both models are fit using a walk-forward expanding window scheme, trained independently on each of the 515 regions using all daily observations prior to each test year, with a Standard Scaler fitted on training data only and predictions aggregated via production-weighted averaging~\cite{bib16}.\\
+Lasso uses a narrower log-uniform range of [1e-5, 0.1], because L1 regularisation operates at a different scale compared to Ridge. Lasso coefficients reach zero at much smaller $\alpha$ values compared to Ridge coefficients, so applying the same upper bound of 100 may produce an all-zero model. As mentioned above, Lasso hyperparameter tuning uses 20 random draws over the validation period from 2017 to 2019 with RMSE as the selection criterion.\\ 
 
-On the test set from 2020 through 2023, Ridge achieves R\textsuperscript{2} = -0.0212, directional accuracy of 46.97\%, and RMSE of 0.0409. Lasso performs marginally better across all metrics with R\textsuperscript{2} = -0.0183, directional accuracy of 47.55\%, and RMSE of 0.0409. Both models see directional accuracy fall below their validation results and RMSE approximately double from 0.020 to 0.041, signs that the performance on the test set is reduced compared to the validation results. The RMSE increase reflects the substantially larger absolute return magnitudes during the test period, which encompasses COVID-19 supply chain disruptions and the 2022 Russia-Ukraine conflict during which wheat prices surged to their highest levels since 2008, rather than purely model degradation. The negative R\textsuperscript{2} for both models confirms that neither outperforms the unconditional mean, showing that both Ridge and Lasso Regression are no better than just predicting the mean return every day for the wheat futures price prediction task, consistent with what would be expected under semi-strong market efficiency~\cite{bib30}. The marginal Lasso advantage over Ridge on the futures task suggests at most a very weak degree of feature sparsity in the predictive signal, but the difference is too small to be practically meaningful given the overall poor results from both models.\\
+The optimal Ridge configuration is $\alpha$ = 75.79 with an RMSE of 0.020296, which is in the upper quarter of its log-uniform search range. This reflects that strong regularisation is beneficial when the target is noisy and many features carry weak signal. Lasso's optimal $\alpha$ value is 0.063512 with an RMSE of 0.019879, also very close to the upper bound of its range. This indicates that stronger L1 shrinkage (i.e. less features) leads the model to perform well, potentially meaning that removing some of the features reduces noise. Overall, both models favour strong regularisation, but Lasso's feature elimination suggests that the useful signal is concentrated in a smaller subset of features rather than spread evenly across all 26. Finally, while Ridge achieves a validation directional accuracy of 49.93\% and R\textsuperscript{2} of -0.0462, Lasso achieves a worse directional accuracy of 46.80\% and an improved R\textsuperscript{2} of -0.0036. At this stage, neither model shows meaningful predictive power for wheat futures returns.\\
 
-For the secondary task of Yield Prediction, both models are tuned separately per country over the validation period from 2013 to 2015 with region NRMSE as the scoring criterion. Ridge optimal $\alpha$ is 75.79 for Germany, 21.37 for France, and 75.79 for Poland. Germany's high value reflects its 251 different regions being widest relative to training observations, requiring stronger shrinkage to prevent overfitting. France's lower value reflects its 90 regions providing a better estimation problem where more feature variation can be retained usefully. For Lasso, optimal alphas are 0.0126 for Germany, 0.00315 for France, and 0.0847 for Poland. All $\alpha$ values are small relative to the Ridge values, again consistent with Lasso needing much less regularisation than Ridge to achieve its best performance. On the validation set, Lasso slightly outperforms Ridge for Germany, 12.11\% vs 13.03\% NRMSE scores, Ridge narrowly wins for France with 10.67\% vs 10.88\%, and Ridge wins more clearly for Poland at 16.65\% vs 17.44\%.\\
+As mentioned, we fit both models to the 507 regions using the walk-forward expanding window scheme and aggregating predictions via production-weights~\cite{bib16}. This leads to the following results:
 
-Both models are then evaluated on the test period from 2016 through 2020 in a walk-forward scheme, training on all prior region-years and predicting regional yield with predictions aggregated to national level using production weights.\\
-
-These final test set yield results show that for the end-of-season, we can see performance varies considerably by country. For Germany, Ridge is the worst-performing linear model with region NRMSE at 18.76\% and EU NRMSE at 13.39\% while Lasso improves substantially getting a region NRMSE of 16.32\% and EU NRMSE score of 9.14\%, confirming that L1 sparsity is beneficial when the end-of-season feature set spans 351 columns and many are redundant. For France, both models perform similarly at regional level, with Ridge 21.77\% and Lasso 22.25\%, with both falling well short of Paudel et al.~\cite{bib16}'s best results of approximately 6\% for national NRMSE, which we can attribute to their use of WOFOST (water-limited yield biomass, leaf area index, development stage), compared to ours where we use only raw CY-Bench climate and remote sensing variables aggregated by calendar month. Poland, which was not included in Paudel et al.\cite{bib16}, shows that Ridge achieves the best end-of-season result of any model in any country with region NRMSE at 12.61\% and EU NRMSE at 4.08\%, while Lasso degrades to 17.30\% regionally and 13.47\% at EU level. This reversal from the validation ranking suggests that for Poland's small 16-region sample, Ridge's dense shrinkage is more stable out-of-sample than Lasso's variable selection, which is sensitive to which features are retained across different training windows. The Polish Ridge result should be treated cautiously given the small sample size and inability to compare against the Paudel et al.\cite{bib16} results. The year-by-year national aggregate predictions for the best model per country are shown in Figure~\ref{fig:yield_forecast_accuracy_graph}.\\
-
-Across lead times, the pattern for Germany is consistent for both models. Ridge achieves its best German performance at mid-season (17.13\%) rather than end-of-season (18.76\%), with quarter-season only marginally worse at 17.24\%. Lasso follows the same pattern, peaking at mid-season (15.65\%) relative to end-of-season (16.32\%) and quarter-season (16.40\%). This suggests that for Germany, the mid-season feature set strikes the best balance between containing enough growing-season information and avoiding the noise introduced by late-season variables. France degrades differently, with Ridge moving from 21.77\% at end-of-season to 25.46\% at mid-season and then back to 21.78\% at quarter-season. This suggests that mid-season features for France are particularly noisy, a sharp contrast to that of Germany's results. Poland shows sharp decline at mid-season for both models with Ridge going from 12.61\% at end-of-season to 18.90\% at mid-season. Lasso goes from 17.30\% at end-of-season to 18.40\% at mid-season, reinforcing the instability of estimates with only 16 regions. Across all lead times and countries, the degradation from end-of-season toward earlier lead times is at most modest for Germany and France, as seen in Figure~\ref{fig:NRMSE_results}. These results are consistent with the finding of Paudel et al.~\cite{bib16} that structural yield drivers such as soil characteristics and long-term climate patterns carry predictive power throughout the season rather than only at harvest.\\
-
-Overall, Lasso and Ridge serve as modest and acceptable baselines to compare against. Lasso outperforms Ridge for Germany across all lead times while Ridge is more stable for Poland, and the two are comparable for France. This pattern, the results we achieved as discussed in this section, and the inability of both linear models to capture non-linear interactions between weather, soil, and vegetation features, motivates the examination of tree-based ensemble methods next, which can represent relationships that neither Ridge nor Lasso are capable of modelling.\\
-
-\section{Random Forest and Extra Trees Regressors}\label{rf_et}
-
-Random Forest and ExtraTrees are evaluated together as the tree-based ensemble methods in our pipeline, following directly from the linear baseline established by Ridge and Lasso. Both methods are motivated by the same core limitation identified in the previous sections finding that the linear models cannot represent interactions between features that together signal crop stress in ways that no single feature captures alone. Tree-based ensembles address this by partitioning the feature space through successive splits, naturally capturing these non-linear interactions without requiring them to be specified manually, and have been shown to remain competitive with more complex deep learning architectures on tabular datasets~\cite{bib27}.\\
-
-For the Futures Price Prediction Task, Random Forest (RF) is chosen for three reasons. With its bagging approach for training each tree on a bootstrapped sample of observations and averaging predictions across trees, we can aim to reduce variance relative to a single tree~\cite{bib31}, which is particularly valuable in a noisy financial return prediction task where individual trees would overfit heavily to the training window. The random feature subsampling at each split de-correlates the trees~\cite{bib31}, preventing any single dominant agricultural feature from driving all predictions and encouraging the ensemble to exploit the full breadth of the 76 available features. From a practical perspective, RF's robustness to hyperparameter choice makes it a reliable step up from linear models without requiring extensive tuning to obtain useful results~\cite{bib34}. Aditionally, RF appears prominently in the yield prediction literature we reviewed~\cite{bib14,bib16,bib17}, making it a natural methodological bridge between the crop yield benchmarks and our futures application.\\
-
-ExtraTrees is evaluated alongside RF as a direct comparison. The key distinction is that ExtraTrees uses random rather than optimal split thresholds at each node, introducing additional randomisation that further reduces variance at the cost of some increase in bias~\cite{bib32}. In a setting with many weakly informative features and a noisy target, this extra randomisation may be beneficial by preventing the ensemble from overcommitting to any particular feature split that happens to perform well in training but does not generalise during testing.\\
-
-The hyperparameter search for both models covers n\_estimators from [200,500] for RF and fixed at 500 for ExtraTrees. max\_depth is set to set of 3,5, or 8, min\_samples\_leaf at 10, 20, or 40, with max\_features set to square root, log base 2, 0.3, or 0.5. All values are discrete rather than continuous because ensemble behaviour is not sensitive to small perturbations in these parameters~\cite{bib34}. The meaningful distinctions are between shallow and deep trees, few and many estimators, and narrow versus wide feature subsets. The max\_depth upper bound of 8 prevents deep trees that would memorise individual training windows, which is critical in a walk-forward scheme where the training set grows by only one year at each step. The min\_samples\_leaf lower bound of 10 enforces a minimum leaf size that prevents extremely specific splits on small subsets of the 76 agricultural features. Both models use 20 random draws over the validation period from 2017 through 2019 with directional accuracy as the selection criterion for the same reasons we used directional accuracy as stated in the Ridge and Lasso Regression section.\\
-
-The optimal RF configuration is n\_estimators=500, max\_depth=5, min\_samples\_leaf=40, max\_features=0.5, achieving a validation directional accuracy of 49.28\%. The large min\_samples\_leaf of 40 and shallow max\_depth of 5 together indicate that strong regularisation is needed even for tree ensembles on this task~\cite{bib34,bib24}. This shows the model benefits from broad, large splits rather than finer grained partitions, consistent with the weak nature of the agricultural signal. For ExtraTrees, the optimal configuration is n\_estimators=500, max\_depth=5, min\_samples\_leaf=20, max\_features=sqrt, achieving a validation directional accuracy of 46.80\%. The lower min\_samples\_leaf relative to RF is consistent with ExtraTrees additional randomisation at split points providing implicit regularisation~\cite{bib32}, reducing the need to enforce large leaf sizes explicitly.\\
-
-Both models are fit using the same walk-forward expanding window scheme as the linear models, trained independently across all 515 regions with a Standard Scaler on training data only and predictions aggregated via production-weighted averaging.\\
-
-On the test set from 2020 through 2023, RF achieves R\textsuperscript{2} = -0.0099, directional accuracy of 48.43\%, and RMSE of 0.0407. ExtraTrees achieves R\textsuperscript{2} = -0.0074, directional accuracy of 50.98\%, and RMSE of 0.0407. Both models improve over Ridge and Lasso on every metric. Notably, ExtraTrees is the only model in our entire pipeline to exceed 50\% directional accuracy on the test set, suggesting that the additional randomisation in ExtraTrees split selection provides a marginal but real advantage in this noisy prediction environment. However, both R\textsuperscript{2} values remain negative, confirming that neither ensemble model outperforms the unconditional mean on the futures task, similarly to Ridge and Lasso. The RMSE values are the same when rounded to two decimal places, and nearly the same to those of the linear models, again reflecting the dominant effect of the high-volatility 2022 period rather than model-specific behaviour.\\
-
-For the Yield Task, RF and ExtraTrees are tuned separately, per country, over the validation period from 2013 to 2015 with region NRMSE as the scoring criterion, using the same hyperparameter grid as for the futures task but with max\_depth extended to include 12 and None (unlimited) to allow the trees to grow deeper on the tabular annual yield dataset, which has more structured signal than daily futures returns.\\
-
-The optimal configurations differs meaningfully across countries. For Germany, RF selects n\_estimators=500, max\_depth=8, min\_samples\_leaf=20, max\_features=0.5, achieving a validation NRMSE of 11.36\%. ExtraTrees selects n\_estimators=500, max\_depth=12, min\_samples\_leaf=5, max\_features=0.5 with validation NRMSE of 11.76\%. Both models choose deeper trees and smaller leaf sizes compared to the futures task, reflecting the more structured annual yield signal where more precise feature interactions improve prediction. For France and Poland, both models independently select max\_depth=None and min\_samples\_leaf=2, allowing unrestricted tree growth. This may reflect that France's 90 regions and Poland's 16 regions provide smaller training sets where deeper trees do not overfit as severely, or that the yield signal in these countries is concentrated in strong feature interactions that require deeper splits to capture. RF acheives a regional NRMSE of 12.25\% and ExtraTrees is at 12.66\% on France. For Poland, RF is 17.43\% and ExtraTrees is 17.40\%. The higher validation NRMSE for France and Poland compared to Germany, combined with the need for unrestricted tree depth, suggests that the ensemble models are less effective in settings with fewer regions and less structured training data.\\
-
-Both models are evaluated on the test period of 2016 through 2020 in a walk-forward scheme, training on all prior region-years with predictions aggregated to national level using production weights.\\
-
-At end-of-season, both tree ensembles substantially outperform the linear models for Germany. RF achieves a region NRMSE of 13.57\% and EU NRMSE of 4.57\%, while ExtraTrees achieves 13.00\% and 4.24\% respectively, making ExtraTrees the best-performing model for Germany across all methods. These results are broadly comparable to Paudel et al.~\cite{bib16}'s German baseline of approximately 15\% regional NRMSE and confirm that non-linear interactions between weather, soil, and vegetation features are important for German yield prediction. For France, RF achieves region NRMSE of 17.97\% and EU NRMSE of 14.34\%, while ExtraTrees achieves 17.77\% and 13.90\%, again with ExtraTrees narrowly ahead. Both remain below the Paudel et al.~\cite{bib16} benchmark of approximately 6\% national NRMSE for the same WOFOST feature quality reasons discussed in the previous section. For Poland, RF achieves region NRMSE of 16.90\% and EU NRMSE of 12.34\%, while ExtraTrees achieves 16.24\% and 12.12\%. Both are substantially worse than Ridge's 12.61\% regional and 4.08\% EU result, confirming that Ridge's Poland performance was driven by the small sample size rather than a genuine linear signal advantage.\\
-
-Across lead times, both tree models show the same gradual degradation from end-of-season toward earlier lead times that we observed for the linear models, consistent with Paudel et al.~\cite{bib16}'s finding that structural yield drivers dominate throughout the season. For Germany, ExtraTrees moves from 13.00\% at end-of-season to 14.60\% at mid-season and 15.53\% at quarter-season, a degradation of only 2.5 percentage points across all three lead times. RF follows an almost identical pattern at 13.57\%, 14.56\%, and 15.66\%. For France, ExtraTrees moves from 17.77\% to 19.12\% to 20.23\%, and RF from 17.97\% to 20.29\% to 21.26\%. Again, a gradual and consistent increase. Poland shows sharper degradation for both tree models, similar to the pattern seen with linear models and reinforcing the small-sample instability issue. Across all countries and lead times, ExtraTrees outperforms or matches RF, confirming that additional split randomisation is consistently beneficial for this yield prediction task, as illustrated in Figure~\ref{fig:NRMSE_results}. The year-by-year national aggregate predictions are shown in Figure~\ref{fig:yield_forecast_accuracy_graph}.\\
-
-Overall, the tree-based ensembles establish a substantially improved baseline over the linear models for yield prediction, while delivering only marginal improvements on the futures task. The gap between the two tasks reinforces the core finding that agricultural features carry predictive information about crop yields but that information does not translate into exploitable futures price signal, consistent with semi-strong market efficiency~\cite{bib30}. The neural network is examined next to assess whether greater model expressiveness can close this gap further.\\
-
-\section{Neural Networks}\label{neuralnets}
-
-The neural network is the final model in our pipeline and serves a specific diagnostic role: it acts as a capacity upper bound on the class of learnable functions from agricultural features to futures returns. If a sufficiently flexible nonlinear model with universal approximation capability~\cite{bib_goodfellow} cannot extract predictive signal from CY-Bench features, the failure is unlikely to be attributable to insufficient model expressiveness in the preceding tree-based experiments. Three considerations motivate its inclusion. First, deep networks can represent arbitrary compositions of input interactions without the axis-aligned partitioning constraint that limits individual trees. If the relationship between agricultural variables and returns involves smooth, high-order nonlinearities, for instance a drought signal that only manifests when temperature, precipitation, and NDVI jointly cross thresholds, a neural network is better equipped to detect it than an additive ensemble of shallow trees. Second, Grinsztajn, Oyallon, and Varoquaux~\cite{bib27} showed at NeurIPS 2022 that tree-based methods remain competitive with deep learning on medium-scale tabular data, making this an empirical question rather than a settled one for our specific dataset. Third, from a market efficiency perspective, confirming that even a high-capacity learner produces negative out-of-sample R\textsuperscript{2} strengthens the conclusion that the failure to predict returns reflects information already incorporated into prices rather than a limitation of the model class.\\
-
-We evaluate four feedforward configurations spanning the capacity spectrum from heavily constrained to moderately deep, all using ReLU activations and a single linear output neuron for regression. NN-Small uses a single hidden layer of 32 units with dropout 0.3 and weight decay of 0.01. NN-Medium uses two hidden layers of 64 and 32 units with the same dropout and weight decay. NN-Deep uses three hidden layers of 128, 64, and 32 units with dropout raised to 0.4 and learning rate reduced to 5$\times$10\textsuperscript{-4} to stabilise gradient flow through the deeper architecture. NN-Heavy-Reg uses the same 64-32 architecture as NN-Medium but with dropout increased to 0.5 and weight decay raised to 0.05, providing the strongest regularisation. The architectural choices are deliberately conservative, restricting depth to at most three hidden layers with at most 128 units, because each region provides only approximately 3,500 daily training observations and the effective dimensionality of the agricultural signal is low. Dropout rates range from 0.3, the default recommended by Srivastava et al.~\cite{bib_srivastava}, to 0.5, where Gal and Ghahramani~\cite{bib_gal} interpret the thinned ensemble as approximate variational Bayesian inference. Weight decay imposes Ridge-like shrinkage on the parameters. All configurations share early stopping with patience of 15 epochs on a temporal validation set consisting of the last 20\% of each training window, a maximum of 150 training epochs, and a batch size of 64 where small batches inject gradient noise shown to aid generalisation~\cite{bib_wilson}. The optimiser is Adam~\cite{bib_kingma} with weight decay, chosen over SGD because convergence speed matters when training 515 region-specific models per test year.\\
-
-The best-performing configuration is NN-Medium (64-32), which achieves a validation directional accuracy of 51.27\%. The two-layer architecture with moderate dropout strikes the best balance between capacity and regularisation. Adding a third layer in NN-Deep does not improve performance, consistent with the observation that increasing depth beyond the point where training error is already near-zero introduces optimisation difficulty without reducing test error. The heavily regularised variant NN-Heavy-Reg performs marginally worse than the standard NN-Medium, suggesting that dropout of 0.5 combined with weight decay of 0.05 over-constrains the already limited capacity.\\
-
-The model is fit using the same walk-forward expanding window scheme as the linear and tree-based models, trained independently for each of the 515 regions using all daily observations prior to each test year, with a Standard Scaler fitted on training data only and predictions aggregated via production-weighted averaging.\\
-
-On the test set from 2020 through 2023, NN-Small achieves R\textsuperscript{2} = $-$0.0073, directional accuracy of 51.37\%, and RMSE of 0.040648. NN-Medium achieves R\textsuperscript{2} = $-$0.0061, directional accuracy of 51.27\%, and RMSE of 0.040624. NN-Deep achieves R\textsuperscript{2} = $-$0.0074, directional accuracy of 51.27\%, and RMSE of 0.040650. NN-Heavy-Reg achieves R\textsuperscript{2} = $-$0.0064, directional accuracy of 51.27\%, and RMSE of 0.040629. All four configurations marginally outperform the tuned ExtraTrees baseline of R\textsuperscript{2} = $-$0.0074 and RMSE = 0.0407, though the differences are economically negligible, corresponding to a prediction improvement of approximately 0.06\% of the unconditional return standard deviation. Notably, all four neural network configurations and the ExtraTrees model cluster around 51\% directional accuracy, barely above the 50\% naive baseline, indicating no economically meaningful directional signal. Every model in the entire pipeline, linear, tree-based, and neural, produces negative R\textsuperscript{2}, confirming that CY-Bench agricultural features do not contain exploitable signal for daily futures return prediction. This is consistent with semi-strong market efficiency~\cite{bib30}: publicly available satellite and meteorological data are already reflected in wheat futures prices by the time they appear in the CY-Bench dataset. The fact that increasing model capacity from a single 32-unit layer to a 128-64-32 deep network does not improve predictive performance provides strong evidence that the bottleneck is signal quality, not model expressiveness, following the diagnostic framework of Goodfellow et al.~\cite{bib_goodfellow}.\\
-
-Now looking at the yield prediction task, we significantly escalate model capacity by adopting a pooled approach where a single neural network is trained across all 357 regions simultaneously, rather than fitting one model per region as in the previous methods. To prevent the curse of dimensionality associated with one-hot encoding hundreds of regional identifiers, we employ entity embeddings~\cite{bib_guo} that learn continuous dense representations of spatial heterogeneity for both region and country variables, with embedding dimensions of 16 and 4 respectively. We evaluate three architectures. The Pooled MLP uses two hidden layers of 128 and 64 units with LayerNorm, ReLU activations, and dropout of 0.3, where numerical features are concatenated with the regional and country embeddings. The FT-Transformer~\cite{bib_gorishniy} projects each scalar agricultural feature into a 16-dimensional token and applies a single Transformer encoder layer with 4 attention heads to model inter-feature dependencies, aggregating via a CLS token. The 1D-CNN, inspired by the CNN-RNN framework of Khaki, Wang, and Archontoulis~\cite{bib_khaki}, applies two convolutional layers with kernel sizes of 5 and 3 and 64 channels with BatchNorm, treating the feature vector as a 1D sequence before pooling and concatenating with entity embeddings. All three models use AdamW~\cite{bib_loshchilov} with decoupled weight decay rather than standard Adam, because Loshchilov and Hutter showed that L\textsubscript{2} regularisation interacts poorly with adaptive learning rate methods unless the weight decay is applied directly. The learning rate is reduced by a factor of 0.5 when validation loss plateaus for 10 consecutive epochs, with early stopping at patience of 30 epochs.\\
-
-All models are evaluated on the test period from 2016 through 2020 in a walk-forward scheme, training on all prior region-years with the final 20\% reserved as temporal validation for early stopping. Inputs are Standard Scaler normalised and region and country identifiers are integer-encoded for the embedding layers.\\
-
-At end-of-season, the 1D-CNN achieves the strongest per-region performance with region R\textsuperscript{2} = +0.410 and region RMSE of 1.140 t/ha, indicating that the convolutional filters successfully extract localised patterns across the monthly aggregated features. The Pooled MLP performs comparably at region R\textsuperscript{2} = +0.371 and RMSE of 1.177 t/ha, confirming that entity embeddings alone provide substantial cross-regional information sharing. The FT-Transformer underperforms both alternatives with a negative region R\textsuperscript{2} of $-$0.116 and RMSE of 1.568 t/ha. With only approximately 4,600 training observations across 357 regions and 13 years, the attention mechanism is likely over-parameterised: each of the 347 features requires learned query, key, and value projections, resulting in a parameter count disproportionate to the available data. This is consistent with the finding of Gorishniy et al.~\cite{bib_gorishniy} that FT-Transformers require larger datasets to realise their potential. However, all three architectures produce negative EU-level R\textsuperscript{2}, with the MLP at $-$0.820, the 1D-CNN at $-$1.342, and the FT-Transformer at $-$5.789, meaning that the production-weighted national aggregates are worse than predicting the historical mean yield. This contrasts with the tree ensembles where ExtraTrees achieved positive EU-level R\textsuperscript{2}. The discrepancy arises because the pooled models make correlated errors across regions within the same country: when the network misestimates the effect of a country-wide weather anomaly, the error propagates to all regions sharing that country embedding and production-weighted aggregation amplifies rather than diversifies the mistake. The per-region tree models, trained independently, produce less correlated errors that partially cancel under aggregation.\\
-
-At the per-country level, the results are mixed. For Germany, the Pooled MLP achieves a region NRMSE of 12.20\%, marginally outperforming ExtraTrees at 13.00\%, which is the only case where a neural network beats the tree baseline. Germany's 251 NUTS3 regions provide the largest sub-sample, giving the entity embeddings sufficient signal to learn meaningful spatial representations. For France, the best neural network is the 1D-CNN at region NRMSE of 21.68\%, which is weaker than the ExtraTrees baseline of 17.77\%, suggesting that the 90 French regions do not provide enough within-country variation for the convolutional filters to generalise. Poland presents the starkest contrast: the MLP's region NRMSE of 45.86\% is nearly four times the ExtraTrees baseline of 16.24\%. With only 16 NUTS2 regions, the embedding layer has far too few examples to learn distinct regional representations, and the pooled model effectively collapses Polish predictions toward the European mean. These per-country deep learning results are shown in Figure~\ref{fig:NRMSE_results}. The year-by-year national aggregate predictions for the best model per country are shown in Figure~\ref{fig:yield_forecast_accuracy_graph}.\\
-
-Overall, the neural networks deliver the best R\textsuperscript{2} on the futures task across the entire pipeline, but all results remain negative and economically indistinguishable from the tree-based models, confirming that the CY-Bench agricultural features carry no exploitable signal for daily return prediction. For yield prediction, the pooled deep learning approach achieves competitive regional accuracy for Germany, where the large number of NUTS3 regions supports entity embedding learning, but underperforms the independently trained tree ensembles for France and Poland and at the EU aggregate level. These results confirm the finding of Grinsztajn et al.~\cite{bib27} that tree-based methods remain competitive with deep learning on medium-scale tabular data, particularly when the number of training observations per entity is small. The entity embedding strategy partially compensates for limited per-region data by enabling cross-regional learning, but this benefit is realised only when the country sub-sample is large enough to support the additional parameters. The model comparison section that follows consolidates results across all four methods to draw broader conclusions.\\
-
-\section{Model Result Comparison}\label{result_comparison}
-
-Table~\ref{tab:futures_comparison} presents the full test set results across all models for the wheat futures price prediction task. The most immediate observation is that the range of performance across all models is extremely narrow. R\textsuperscript{2} values span only from -0.0212 at the worst end on the Ridge Regression model to -0.0061 as the best result with NN-Medium(64-32). RMSE values differ by less than 0.0004, and directional accuracy ranges from 46.97\% with Ridge to 51.37\% with NN-Small (32). All models produce negative R\textsuperscript{2}, confirming that no method in our pipeline outperforms the unconditional mean predictor, consistent with semi-strong market efficiency~\cite{bib30}. Despite the overall poor predictive performance, there is a meaningful and consistent ordering across model types that warrants interpretation. Linear models perform worst, with Ridge at 46.97\% directional accuracy and Lasso at 47.55\%. The tree ensembles improve on this, with RF at 48.43\% and ExtraTrees reaching 50.98\%, the only non-neural model to exceed 50\% directional accuracy. Neural network variants then cluster just above ExtraTrees, with the best result of 51.37\% directional accuracy from NN-Small.
-
-\begin{table}[h]
+\begin{table}[ht!]
 \centering
-\caption{Futures price prediction test set results (2020-2023), all models.}
-\label{tab:futures_comparison}
+\caption{Ridge and Lasso test set results for the futures prediction task (2020--2023), evaluated across 507 regions with production-weighted aggregation.}
+\label{tab:linear_futures}
 \begin{tabular}{lccc}
 \toprule
 \textbf{Model} & \textbf{R\textsuperscript{2}} & \textbf{Directional Accuracy} & \textbf{RMSE} \\
 \midrule
-Ridge                  & $-0.0212$ & 46.97\% & 0.04093 \\
-Lasso                  & $-0.0183$ & 47.55\% & 0.04087 \\
-RF                     & $-0.0099$ & 48.43\% & 0.04070 \\
-ExtraTrees             & $-0.0074$ & 50.98\% & 0.04065 \\
+Ridge & $-0.0210$ & 46.97\% & 0.04092 \\
+Lasso & $-0.0032$ & 51.27\% & 0.04057 \\
+\bottomrule
+\end{tabular}
+\end{table}
+On the test set from 2020 through to 2023, Lasso achieve the lowest RMSE of 0.04057, best R\textsuperscript{2} = -0.0032, and directional accuracy of 51.27\%. Both models see their RMSE approximately double from c.0.02 to c.0.04, signs that the performance on the test set is reduced compared to the validation results. The RMSE increase reflects the substantially larger absolute return magnitudes during the test period, which encompasses COVID-19 supply chain disruptions and the 2022 Russia-Ukraine conflict during which wheat prices surged to their highest levels since 2008, rather than purely model degradation. Further, directional accuracy falls below validation results for Ridge while becoming significantly better for Lasso. Finally, the negative R\textsuperscript{2} for both models shows that both Ridge and Lasso Regression are no better than just predicting the mean return every day for the wheat futures price prediction task. This is consistent with what would be expected under semi-strong market efficiency~\cite{bib30}. Lasso's slight improvement over Ridge hints that a few features may matter more than others, but the gap between the two models is too small to draw clear conclusions.\\
+
+For the secondary task of Yield Prediction, both models are tuned separately per country over the validation period from 2013 to 2015 with end-of-season data only and regional NRMSE as the scoring criterion. Ridge optimal $\alpha$ is 75.79 for Germany, 21.37 for France, and 75.79 for Poland. Germany and Poland's high values show that the 251 and 16 different regions require stronger regularisation to prevent overfitting. While France's lower value reflects that more feature variation can be retained in its 90 regions. For Lasso, optimal alphas are 0.0126 for Germany, 0.00315 for France, and 0.0847 for Poland. All $\alpha$ values are small relative to the Ridge values, this shows that Lasso needs much less regularisation than Ridge to achieve its best performance. On the validation set, Lasso slightly outperforms Ridge for Germany, 12.11\% vs 13.03\% NRMSE scores, while Ridge performs better for France with 10.67\% vs 10.88\%, and for Poland at 16.65\% vs 17.44\%.\\
+
+Both models are then evaluated on the test period from 2016 through 2020 in a walk-forward scheme, training on all prior region-year pairs and predicting regional yield with predictions aggregated to national level using production weights.\\
+
+These final test set yield results show that for the end-of-season, we can see performance varies considerably by country. For Germany, Ridge is the worst-performing linear model with region NRMSE at 18.76\% and EU NRMSE at 13.39\% while Lasso improves substantially getting a region NRMSE of 16.32\% and EU NRMSE score of 9.14\%, confirming that L1 sparsity is beneficial when the end-of-season feature set spans 351 columns and many are redundant. For France, both models perform similarly at regional level, with Ridge 21.77\% and Lasso 22.25\%, with both falling well short of Paudel et al.~\cite{bib16}'s best results of approximately 6\% for national NRMSE. This could be attributed to a difference in feature quality. Indeed, Paudel et al. use outputs from WOFOST (a crop simulation model), which translates raw weather into meaningful variables such as water-limited yield potential, simulated leaf area index, and crop development stage. By contrast, our features are the raw CY-Bench climate and remote sensing variables aggregated by calendar month. Now looking at  Poland (which was not included in Paudel et al.\cite{bib16}), we see that Ridge achieves the best end-of-season result of any model in any country with region NRMSE at 12.61\% and EU NRMSE at 4.08\%, while Lasso degrades to 17.30\% regionally and 13.47\% at EU level. This suggest that for Poland's small 16-region sample, Ridge's shrinkage is more stable out-of-sample than Lasso's variable selection, which can be sensitive to which features are retained across different training windows.\\
+
+Across lead times, the pattern for Germany is consistent for both models. Ridge achieves its best German performance at mid-season (17.13\%) rather than end-of-season (18.76\%), with quarter-season only marginally worse at 17.24\%. Lasso follows the same pattern, peaking at mid-season (15.65\%) relative to end-of-season (16.32\%) and quarter-season (16.40\%). This suggests that for Germany, the mid-season feature set strikes the best balance between containing enough growing-season information and avoiding the noise introduced by late-season variables. France degrades differently, with Ridge moving from 21.77\% at end-of-season to 25.46\% at mid-season and then back to 21.78\% at quarter-season. This suggests that mid-season features for France are particularly noisy, a sharp contrast to that of Germany's results. Poland shows sharp decline at mid-season for both models with Ridge going from 12.61\% at end-of-season to 18.90\% at mid-season. Lasso goes from 17.30\% at end-of-season to 18.40\% at mid-season, reinforcing the instability of estimates with only 16 regions. Across all lead times and countries, the degradation from end-of-season toward earlier lead times is modest for Germany and France, as seen in Figure~\ref{fig:NRMSE_results}. These results are consistent with the finding of Paudel et al.~\cite{bib16} that structural yield drivers such as soil characteristics and long-term climate patterns may carry predictive power throughout the season rather than only at harvest.\\
+
+Overall, neither Ridge nor Lasso produces meaningful predictive power for wheat futures returns, with both models having a similar RMSE and performing worse than the unconditional mean on the test set. For yield prediction, both models serve as acceptable baselines: Lasso outperforms Ridge for Germany where feature sparsity helps with the large feature set, while Ridge is more stable for Poland's small sample. However, both linear models are fundamentally limited as they cannot capture interactions between features, this motivates the tree-based ensemble methods in the next section.
+
+\subsection{Random Forest and Extra Trees Regressors}\label{sec:rf_et}
+
+In this subsection, Random Forest and ExtraTrees are evaluated together as the tree-based ensemble methods in our pipeline. Tree-based ensembles address the linear model's limitations in representing interactions between features this by partitioning the feature space through successive splits, naturally capturing these non-linear interactions without requiring them to be specified manually. They have been shown to remain competitive than more complex deep learning architectures on tabular datasets~\cite{bib27}.\\
+
+For the Futures Price Prediction Task, Random Forest (RF) is chosen for three reasons. With its bagging approach for training each tree on a bootstrapped sample of observations and averaging predictions across trees, we can aim to reduce variance relative to a single tree~\cite{bib31}, which is particularly valuable in a noisy financial return prediction task where individual trees could overfit heavily to the training window. The random feature subsampling at each split de-correlates the trees~\cite{bib31}, preventing any single dominant agricultural feature from driving all predictions and encouraging the ensemble to exploit the full breadth of the 26 available features. Additionally, RF appears often in the yield prediction literature we reviewed~\cite{bib14,bib16,bib17}, making it a useful benchmark for the crop yield prediction as well as our futures application.\\
+
+ExtraTrees is evaluated alongside RF as a direct comparison. The key distinction is that ExtraTrees uses random rather than optimal split thresholds at each node, introducing additional randomisation that further reduces variance at the cost of some increase in bias~\cite{bib32}. In a setting with many weakly informative features and a noisy target, this extra randomisation may be beneficial by preventing the ensemble from overfocusing on a particular feature split that happens to perform well in training but does not generalise during testing.\\
+
+The hyperparameter search for both models covers n\_estimators from [200,500] for RF and fixed at 500 for ExtraTrees. max\_depth is set to set of 3,5, or 8, min\_samples\_leaf at 10, 20, or 40, with max\_features set to square root, log base 2, 0.3, or 0.5. All values are discrete rather than continuous because ensemble behaviour is not sensitive to small perturbations in these parameters~\cite{bib34}. The meaningful distinctions are between shallow and deep trees, few and many estimators, and narrow vs. wide feature subsets. The max\_depth upper bound of 8 prevents deep trees that would memorise individual training windows, which is important in a walk-forward scheme where the training set grows by only one year at each step. The min\_samples\_leaf lower bound of 10 enforces a minimum leaf size that prevents extremely specific splits on small subsets of the 26 agricultural features. Both models use the same steps described in the Ridge and Lasso section i.e. 20 random draws over the validation period from 2017 through 2019 with RMSE as the selection criterion.\\
+
+The optimal RF configuration is n\_estimators=500, max\_depth=3, min\_samples\_leaf=40, max\_features=sqrt, achieving a validation RMSE of 0.019973. The large min\_samples\_leaf of 40 and shallow max\_depth of 3 together indicate that strong regularisation is needed even for tree ensembles on this task~\cite{bib34,bib24}. This shows the model benefits from broad, large splits rather than finer grained partitions, consistent with the weak nature of the agricultural signal. For ExtraTrees, the optimal configuration is n\_estimators=500, max\_depth=3, min\_samples\_leaf=40, max\_features=log2, achieving a validation RMSE of 0.019929.
+The selection of max\_features=log2 rather than sqrt means that each split considers slightly fewer candidate features, which combined with ExtraTrees' random split thresholds introduces an additional layer of randomisation which may provide implicit regularisation~\cite{bib32} by preventing the method from overfitting to any single dominant agricultural variable.\\
+
+After training the model on the same scheme as described in the previous section, we obtain the following results:
+
+\begin{table}[ht!]
+\centering
+\caption{Random Forest and ExtraTrees test set results for the futures prediction task (2020--2023), evaluated across 507 regions with production-weighted aggregation.}
+\label{tab:tree_futures}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Model} & \textbf{R\textsuperscript{2}} & \textbf{Directional Accuracy} & \textbf{RMSE} \\
+\midrule
+Random Forest & $-0.0086$ & 49.61\% & 0.04067 \\
+ExtraTrees    & $-0.0061$ & 51.27\% & 0.04063 \\
+\bottomrule
+\end{tabular}
+\end{table}
+On the test set from 2020 through 2023, RF achieves a RMSE of 0.04067, R\textsuperscript{2} = -0.0086, directional accuracy of 49.61\%. ExtraTrees a lower RMSE of 0.04063, R\textsuperscript{2} = -0.0061, directional accuracy of 51.27\%. Both models improve over Ridge on every metric, however, they are not able to improve on Lasso's. The RMSE values are very similar to linear models which again may reflect the dominant effect of the high-volatility periods. Notably, ExtraTrees is the only model with Lasso to have exceeded 50\% directional accuracy on the test set, suggesting that compared to RF the additional randomisation in ExtraTrees split selection provides a marginal advantage in this noisy prediction environment. However, both R\textsuperscript{2} values remain negative and lower than Lasso, confirming that neither ensemble model outperforms the unconditional mean on the futures task, similarly to Ridge and Lasso.\\
+
+For the Yield Task, RF and ExtraTrees are tuned in the same way as Ridge and Lasso using a slightly wider hyperparameter grid with max\_depth extended to include 12 and None (unlimited) to allow the trees to grow deeper on the tabular annual yield dataset, which has more structured signal than daily futures returns.\\
+
+The optimal configurations differs meaningfully across countries. For Germany, RF selects n\_estimators=500, max\_depth=8, min\_samples\_leaf=20, max\_features=0.5, achieving a validation NRMSE of 11.36\%. ExtraTrees selects n\_estimators=500, max\_depth=12, min\_samples\_leaf=5, max\_features=0.5 with validation NRMSE of 11.76\%. Both models choose deeper trees and smaller leaf sizes compared to the futures task, reflecting the more structured annual yield signal where more precise feature interactions improve prediction. For France and Poland, both models independently select max\_depth=None and min\_samples\_leaf=2, allowing unrestricted tree growth. This may reflect that France's 90 regions and Poland's 16 regions provide smaller training sets where deeper trees do not overfit as severely, or that the yield signal in these countries is concentrated in strong feature interactions that require deeper splits to capture. RF acheives a regional NRMSE of 12.25\% and ExtraTrees is at 12.66\% on France. For Poland, RF is 17.43\% and ExtraTrees is 17.40\%. The higher validation NRMSE for France and Poland compared to Germany, combined with the need for unrestricted tree depth, suggests that the ensemble models are less effective in settings with fewer regions and less structured training data.\\
+
+Both models are then evaluated on the test period of 2016-2020 like Ridge and Lasso.\\
+
+At end-of-season, both tree ensembles substantially outperform the linear models for Germany. RF achieves a region NRMSE of 13.57\% and EU NRMSE of 4.57\%, while ExtraTrees achieves 13.00\% and 4.24\% respectively, making ExtraTrees the best-performing non-neural model for Germany across all methods. These results are broadly comparable to Paudel et al.~\cite{bib16}'s German baseline of approximately 15\% regional NRMSE and confirm that non-linear interactions between weather, soil, and vegetation features are important for German yield prediction. For France, RF achieves region NRMSE of 17.97\% and EU NRMSE of 14.34\%, while ExtraTrees achieves 17.77\% and 13.90\%, again with ExtraTrees narrowly ahead. Both remain below the Paudel et al.~\cite{bib16} benchmark of approximately 6\% national NRMSE for the same feature quality reasons discussed in the previous section. For Poland, RF achieves region NRMSE of 16.90\% and EU NRMSE of 12.34\%, while ExtraTrees achieves 16.24\% and 12.12\%. Both are substantially worse than Ridge's 12.61\% regional and 4.08\% EU result, confirming that Ridge's Poland performance was driven by the small sample size rather than a genuine linear signal advantage.\\
+
+Across lead times, both tree models show the same gradual degradation from end-of-season toward earlier lead times that we observed for the linear models, consistent with Paudel et al.~\cite{bib16}'s finding that structural yield drivers dominate throughout the season. For Germany, ExtraTrees moves from 13.00\% at end-of-season to 14.60\% at mid-season and 15.53\% at quarter-season, a degradation of only 2.5 percentage points across all three lead times. RF follows an almost identical pattern at 13.57\%, 14.56\%, and 15.66\%. For France, ExtraTrees moves from 17.77\% to 19.12\% to 20.23\%, and RF from 17.97\% to 20.29\% to 21.26\%. Again, a gradual and consistent increase. Poland shows sharper degradation for both tree models, similar to the pattern seen with linear models and reinforcing the small-sample instability issue. Across all countries and lead times, ExtraTrees outperforms or matches RF, confirming that additional split randomisation is consistently beneficial for this yield prediction task, as illustrated in Figure~\ref{fig:NRMSE_results}. The year-by-year national aggregate predictions are shown in Figure~\ref{fig:yield_forecast_accuracy_graph}.\\
+
+Overall, the tree-based ensembles establish a substantially improved baseline over the linear models for yield prediction, while delivering only marginal improvements on the futures task. The gap between the two tasks reinforces the core finding that agricultural features carry predictive information about crop yields but that information does not translate into exploitable futures price signal, consistent with semi-strong market efficiency~\cite{bib30}. The neural network is examined next to assess whether greater model expressiveness can close this gap further.
+
+\subsection{Neural Networks}\label{sec:neuralnets}
+
+The neural network is the final model in our pipeline and serves a specific diagnostic role: it acts as a capacity upper bound on the class of learnable functions from agricultural features to futures returns. If a sufficiently flexible nonlinear model with universal approximation capability~\cite{bib_goodfellow} cannot extract predictive signal from CY-Bench features, the failure is unlikely to be attributable to insufficient model expressiveness in the preceding tree-based experiments. Three considerations motivate its inclusion. First, deep networks can represent arbitrary compositions of input interactions without the axis-aligned partitioning constraint that limits individual trees. If the relationship between agricultural variables and returns involves smooth, high-order nonlinearities, for instance a drought signal that only manifests when temperature, precipitation, and NDVI jointly cross thresholds, a neural network is better equipped to detect it than an additive ensemble of shallow trees. Second, Grinsztajn, Oyallon, and Varoquaux~\cite{bib27} showed at NeurIPS 2022 that tree-based methods remain competitive with deep learning on medium-scale tabular data, making this an empirical question rather than a settled one for our specific dataset. Third, from a market efficiency perspective, confirming that even a high-capacity learner produces negative out-of-sample R\textsuperscript{2} strengthens the conclusion that the failure to predict returns reflects information already incorporated into prices rather than a limitation of the model class.\\
+
+We evaluate seven configurations and select four feedforward configurations that perform best on the validation set. They span the capacity spectrum from heavily constrained to moderately deep, all using ReLU activations and a single linear output neuron for regression. NN-Small uses a single hidden layer of 32 units with dropout 0.3 and weight decay of 0.01. NN-Medium uses two hidden layers of 64 and 32 units with the same dropout and weight decay. NN-Deep uses three hidden layers of 128, 64, and 32 units with dropout raised to 0.4 and learning rate reduced to 5$\times$10\textsuperscript{$-$4} to stabilise gradient flow through the deeper architecture. NN-Heavy-Reg uses the same 64-32 architecture as NN-Medium but with dropout increased to 0.5 and weight decay raised to 0.05, providing the strongest regularisation. The architectural choices are deliberately conservative, restricting depth to at most three hidden layers with at most 128 units, because each region provides only approximately 3,500 daily training observations and the effective dimensionality of the agricultural signal is low. Dropout rates range from 0.3, the default recommended by Srivastava et al.~\cite{bib_srivastava}, to 0.5, where Gal and Ghahramani~\cite{bib_gal} interpret the thinned ensemble as approximate variational Bayesian inference. Weight decay imposes Ridge-like shrinkage on the parameters. All configurations share early stopping with patience of 15 epochs on a temporal validation set consisting of the last 20\% of each training window, a maximum of 150 training epochs, and a batch size of 64 where small batches inject gradient noise shown to aid generalisation~\cite{bib_wilson}. The optimiser is Adam~\cite{bib_kingma} with weight decay, chosen over SGD because convergence speed matters when training 507 region-specific models per test year.\\
+
+The models are then fitted using the same walk-forward expanding window scheme as the linear and tree-based models. However, we note that the neural networks do not use the same weighted regional scheme. Instead, they are trained on data from all regions at once and decide the weights themselves. To prevent the curse of dimensionality associated with one-hot encoding hundreds of regional identifiers, we employ entity embeddings~\cite{bib_guo} that learn continuous dense representations of spatial heterogeneity for both region and country variables, with embedding dimensions of 16 and 4 respectively. This leads to the following results:
+
+\begin{table}[ht!]
+\centering
+\caption{Neural network test set results for the futures prediction task (2020--2023), evaluated across 507 regions with production-weighted aggregation.}
+\label{tab:nn_futures}
+\setlength{\tabcolsep}{12pt}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Model} & \textbf{$R^2$} & \textbf{Dir. Accuracy} & \textbf{RMSE} \\
+\midrule
+NN-Small (32)        & $-0.0073$ & 51.37\% & 0.04065 \\
+NN-Medium (64-32)    & $-0.0061$ & 51.27\% & 0.04062 \\
+NN-Deep (128-64)     & $-0.0074$ & 51.27\% & 0.04065 \\
+NN-Heavy-Reg (64-32) & $-0.0064$ & 51.27\% & 0.04063 \\
+\bottomrule
+\end{tabular}
+\end{table}
+On the test set from 2020 through 2023, NN-Small achieves R\textsuperscript{2} = $-$0.0073, directional accuracy of 51.37\%, and RMSE of 0.040648. NN-Medium achieves R\textsuperscript{2} = $-$0.0061, directional accuracy of 51.27\%, and RMSE of 0.040624. NN-Deep achieves R\textsuperscript{2} = $-$0.0074, directional accuracy of 51.27\%, and RMSE of 0.040650. NN-Heavy-Reg achieves R\textsuperscript{2} = $-$0.0064, directional accuracy of 51.27\%, and RMSE of 0.040629. All four configurations perform very similarly to the tuned ExtraTrees baseline of R\textsuperscript{2} = $-$0.0061 and RMSE = 0.04063, with negligible difference. The RMSE behaves the same as the other models, and does not manage to improve up Lasso Regression. Notably, all four neural network configurations, Lasso Regression and the ExtraTrees model cluster around 51\% directional accuracy, barely above the 50\% naive baseline, indicating no economically meaningful directional signal. Every model in the entire pipeline, linear, tree-based, and neural, produces negative R\textsuperscript{2}, confirming that CY-Bench agricultural features do not contain exploitable signal for 5-day futures return prediction. As mentioned, this is consistent with semi-strong market efficiency~\cite{bib30}. The fact that increasing model capacity from a single 32-unit layer to a 128-64-32 deep network does not improve predictive performance provides strong evidence that the bottleneck is signal quality, not model expressiveness, following the diagnostic framework of Goodfellow et al.~\cite{bib_goodfellow}.\\
+
+Now looking at the yield prediction task, we also escalate model capacity by adopting a pooled approach where a single neural network is trained across all 357 regions simultaneously (the same approach taken as in the futures prediction task). Again, we evaluate the same previous seven architectures and implement the three best performing on the validation set. The Pooled MLP uses two hidden layers of 128 and 64 units with LayerNorm, ReLU activations, and dropout, where numerical features are concatenated with the regional and country embeddings. The FT-Transformer~\cite{bib_gorishniy} projects each scalar agricultural feature into a 16-dimensional token and applies a single Transformer encoder layer with 2 attention heads to model inter-feature dependencies, aggregating via a CLS token. The 1D-CNN, inspired by the CNN-RNN framework of Khaki, Wang, and Archontoulis~\cite{bib_khaki}, applies two convolutional layers with kernel sizes of 5 and 3 and 64 channels with BatchNorm, treating the feature vector as a 1D sequence before pooling and concatenating with entity embeddings. All three models use AdamW~\cite{bib_loshchilov} with decoupled weight decay rather than standard Adam, because Loshchilov and Hutter showed that L\textsubscript{2} regularisation interacts poorly with adaptive learning rate methods unless the weight decay is applied directly. The learning rate is reduced by a factor of 0.5 when validation loss plateaus for 10 consecutive epochs, with early stopping at patience of 20 epochs for the MLP and CNN and 8 epochs for the FT-Transformer.\\
+
+Following the same methodology as for the tree models and consistent with Bergstra and Bengio~\cite{bib33}, we tune the neural network hyperparameters using randomised search over the validation period from 2013 to 2015. For each architecture, we fix the structural hyperparameters (hidden dimensions, number of layers, number of attention heads) and tune the two regularisation-critical hyperparameters: dropout, sampled uniformly from 0.1 to 0.5, and weight decay, sampled log-uniformly from 10\textsuperscript{$-$4} to 10\textsuperscript{$-$1}. Twenty random configurations per architecture are scored by per-region NRMSE on the validation set, matching the scoring criterion used for the tree models. This ensures that the test set from 2016 through 2020 remains completely untouched during model selection.\\
+
+Using the best dropout and weight decay from random search, all three architectures are then trained across all three lead times (quarter-season, mid-season, end-of-season) via the same walk-forward scheme used for the baseline models: for each test year $T \in \{2016, \ldots, 2020\}$, all prior region-years are used for training, with the final 20\% reserved as temporal validation for early stopping. Inputs are Standard Scaler normalised and the yield target is also standardised during training and inverse-transformed for evaluation. Since the pooled model produces predictions for every region simultaneously, per-country performance is obtained by filtering the predictions by country and recomputing region-level and national-level metrics.\\
+
+At end-of-season, the results are mixed across countries. For Germany, the Pooled MLP achieves a region NRMSE of 12.20\% and national NRMSE of 3.75\%, marginally outperforming ExtraTrees at 13.00\% regionally, which is the only case where a neural network beats the tree baseline. Germany's 251 NUTS3 regions provide the largest sub-sample, giving the entity embeddings sufficient signal to learn meaningful spatial representations. The 1D-CNN achieves 13.02\% regionally for Germany, comparable to ExtraTrees. For France, the best neural network is the 1D-CNN at region NRMSE of 21.68\%, which is weaker than the ExtraTrees baseline of 17.77\%, suggesting that the 90 French regions do not provide enough within-country variation for the convolutional filters to generalise. The FT-Transformer underperforms across all countries, with region NRMSE of 18.66\% for Germany, 29.96\% for France, and 57.18\% for Poland. With only approximately 4,600 training observations across 357 regions and 13 years, the attention mechanism is likely over-parameterised, consistent with the finding of Gorishniy et al.~\cite{bib_gorishniy} that FT-Transformers require larger datasets. Poland presents the starkest contrast with the tree baselines: the best neural network (MLP at 45.86\%) is nearly three times the ExtraTrees baseline of 16.24\%, because with only 16 NUTS2 regions the embedding layer has far too few examples to learn distinct regional representations and the pooled model effectively collapses Polish predictions toward the European mean.\\
+
+Across lead times, the 1D-CNN degrades the least. For Germany, the CNN moves from 13.02\% at end-of-season to 12.22\% at mid-season and 12.69\% at quarter-season, a span of less than 1 percentage point, suggesting that the convolutional filters capture structural yield drivers rather than late-season weather. This pattern is notably more stable than the tree models, where ExtraTrees degrades from 13.00\% to 14.60\% to 15.53\% across the same lead times. For France, the CNN follows a similar pattern, moving from 21.68\% to 21.66\% to 22.98\%. The MLP degrades more substantially, particularly at quarter-season where it reaches 16.58\% for Germany and 28.87\% for France, reflecting the difficulty of learning from fewer features with a fully connected architecture. Poland degrades sharply for all three neural networks, with the CNN rising from 49.11\% at end-of-season to 52.25\% at mid-season and 61.26\% at quarter-season, reinforcing the small-sample instability that affects all models for this country. These per-country results are shown in Figure~\ref{fig:NRMSE_results}. The year-by-year national aggregate predictions for the best model per country are shown in Figure~\ref{fig:yield_forecast_accuracy_graph}.\\
+
+Overall, the neural networks deliver the best R\textsuperscript{2} on the futures task across the entire pipeline, but all results remain negative and economically indistinguishable from the tree-based models, confirming that the CY-Bench agricultural features carry no exploitable signal for 5-day return prediction. For yield prediction, the 1D-CNN consistently outperforms the other neural architectures across every lead time, with its convolutional filters appearing well-suited to extracting localised patterns from the temporally structured monthly feature vectors. However, the pooled neural approach uses a single model for all 357 regions, whereas the tree models are tuned separately per country. This pooling penalty explains the weaker national-level aggregation, particularly for Poland. The entity embedding strategy partially compensates for limited per-region data by enabling cross-regional learning, but this benefit is realised only when the country sub-sample is large enough, as in Germany, to support the additional parameters. These results confirm the finding of Grinsztajn et al.~\cite{bib27} that tree-based methods remain competitive with deep learning on medium-scale tabular data, particularly when the number of training observations per entity is small. The model comparison section that follows consolidates results across all four methods to draw broader conclusions.\\
+
+\section{Model Result Comparison}\label{result_comparison}
+
+Table~\ref{tab:futures_comparison} presents the full test set results across all models for the wheat futures price prediction task. The most immediate observation is that the range of performance across all models is extremely narrow. R\textsuperscript{2} values span only from -0.0210 at the worst end on the Ridge Regression model to -0.0032 as the best result with Lasso Regression. RMSE values differ by less than 0.0004, and directional accuracy ranges from 46.97\% with Ridge to 51.37\% with NN-Small (32). All models produce negative R\textsuperscript{2}, confirming that no method in our pipeline outperforms the unconditional mean predictor, consistent with semi-strong market efficiency~\cite{bib30}. Additionally to the overall poor predictive performance, the ordering across model types is not fully consistent. Ridge performs worst overall but the other linear model, Lasso regression, performs the best in terms of RMSE which is on par with much more complex models. The tree ensembles improve upon the Ridge model, however, they do no manage to decrease RMSE beyond Lasso Regression's results. Finally, Neural Networks seem to perform more consistently with RMSEs very close to Lasso and the best directional accuracy of 51.37\% (the worse being 51.27\% amongst these models).
+
+\begin{table}[ht!]
+\centering
+\caption{Futures price prediction test set results (2020--2023), all models.}
+\label{tab:futures_comparison}
+\setlength{\tabcolsep}{12pt}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Model} & \textbf{$R^2$} & \textbf{Dir. Accuracy} & \textbf{RMSE} \\
+\midrule
+Ridge                  & $-0.0210$ & 46.97\% & 0.04092 \\
+Lasso                  & $\mathbf{-0.0032}$ & 51.27\% & \textbf{0.04057} \\
+RF                     & $-0.0086$ & 49.61\% & 0.04067 \\
+ExtraTrees             & $-0.0061$ & 51.27\% & 0.04063 \\
+\midrule
 NN-Small (32)          & $-0.0073$ & \textbf{51.37\%} & 0.04065 \\
-NN-Medium (64-32)      & $\mathbf{-0.0061}$ & 51.27\% & \textbf{0.04062} \\
+NN-Medium (64-32)      & $-0.0061$ & 51.27\% & 0.04062 \\
 NN-Deep (128-64-32)    & $-0.0074$ & 51.27\% & 0.04065 \\
 NN-Heavy-Reg (64-32)   & $-0.0064$ & 51.27\% & 0.04063 \\
 \bottomrule
 \end{tabular}
 \end{table}
+Although the improvement from linear to tree to neural models follows the well-established bias-variance tradeoff~\cite{bib36} where linear models are too constrained to capture even the weak non-linear interactions present in the agricultural features. We see a different pattern where even simple linear models outperform much more complex tree ensembles and neural networks which have capacity to detect much more signal. The fact that the simplest neural network, a NN-Small with a single 32-unit layer, achieves the highest directional accuracy, while the medium network comes close to Lasso rather than improving further, is consistent with the finding of Grinsztajn et al.~\cite{bib27} that on tabular datasets, additional model complexity does not reliably translate into better performance and can introduce unnecessary variance. The near identical RMSE values across all models reflect the dominant influence of the high-volatility 2022 period rather than any model-specific characteristic.\\
 
-The improvement from linear to tree to neural models follows the well-established bias-variance tradeoff~\cite{bib36} where linear models are too constrained to capture even the weak non-linear interactions present in the agricultural features, while tree ensembles and neural networks have sufficient capacity to detect marginal signal. The fact that the simplest neural network, a NN-Small with a single 32-unit layer, achieves the highest directional accuracy, while the deepest network matches ExtraTrees rather than improving further, is consistent with the finding of Grinsztajn et al.~\cite{bib27} that on tabular datasets, additional model complexity does not reliably translate into better performance and can introduce unnecessary variance. The near identical RMSE values across all models reflect the dominant influence of the high-volatility 2022 period rather than any model-specific characteristic.
-The interpretation is that the agricultural features from CY-Bench contain a very weak directional signal in wheat futures returns that is only detectable by ensemble methods and neural networks but too weak for linear models while still being insufficient for any model to generate meaningful predictive accuracy. 
+Our interpretation is that the agricultural features from CY-Bench contain a very weak directional signal in wheat futures returns that is detectable by nearly all models but still being insufficient for any model to generate meaningful predictive accuracy.\\ 
 
-Table~\ref{tab:yield_comparison} presents end-of-season yield prediction results across all models. For Ridge, Lasso, Random Forest, and ExtraTrees, the results show a clear and consistent ordering for Germany and France, with tree ensembles substantially outperforming linear models. ExtraTrees achieves the best regional NRMSE for both Germany (13.00\%) and France (17.77\%), improving on Ridge, the worst model, by 5.76 and 4.00 percentage points respectively. The region R\textsuperscript{2} values reinforce this pattern showing Ridge produces a strongly negative R\textsuperscript{2} of -0.4976 for Germany, reflecting a failure to explain regional variation when faced with 251 regions and a 351-column feature matrix, while ExtraTrees achieves a positive R\textsuperscript{2} of +0.2807 for the same setting~\cite{bib36}. For France, both tree models achieve R\textsuperscript{2} above +0.53, confirming that non-linear feature interactions are informative. The ordering of Ridge being the worst, Lasso intermediate, RF and ExtraTrees being the best mirrors the bias-variance hierarchy observed in the futures task. Poland only has 16 regions so it is hard to derive any substantial claims, but for the smaller region set Ridge does perform the best.
+Table~\ref{tab:yield_comparison} presents the end-of-season yield prediction results across all models and provides a sharper contrast. For Germany and France, a clear and consistent ordering emerges: tree ensembles substantially outperform linear models, with ExtraTrees achieving the best regional NRMSE among the non-neural methods for both Germany (13.00\%) and France (17.77\%), improving on Ridge by 5.76 and 4.00 percentage points respectively. The regional R\textsuperscript{2} values reinforce this pattern. Ridge produces a strongly negative R\textsuperscript{2} of $-0.50$ for Germany, reflecting a failure to explain regional variation when the 251 regions produce a wide feature matrix, while ExtraTrees achieves a positive R\textsuperscript{2} of $+0.28$ for the same setting, confirming that non-linear feature interactions between weather, soil, and vegetation variables carry meaningful predictive information. For France, both tree models achieve R\textsuperscript{2} above $+0.53$, further demonstrating the value of these interactions.
 
-\begin{table}[h]
+\begin{table}[ht!]
 \centering
-\caption{Yield prediction test set results (2020-2023), all models.}
+\caption{End-of-season yield prediction test set results (2016--2020), all models. Bold indicates best per country. Neural network models are pooled across all countries.}
 \label{tab:yield_comparison}
-\begin{tabular}{llcccc}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}ll ccccccc @{}}
 \toprule
 \textbf{Country} & \textbf{Metric} & \textbf{Ridge} & \textbf{Lasso}
-  & \textbf{RF} & \textbf{ExtraTrees} \\
+  & \textbf{RF} & \textbf{ExtraTrees} & \textbf{MLP} & \textbf{FT-Trans.} & \textbf{1D-CNN} \\
 \midrule
-\multirow{3}{*}{Germany}
-  & Region NRMSE  & 18.76\%   & 16.32\%          & 13.57\%          & \textbf{13.00\%} \\
-  & EU NRMSE      & 13.39\%   &  9.14\%          &  4.57\%          & \textbf{4.24\%}  \\
-  & Region R²     & $-0.4976$ & $-0.1339$        & $+0.2169$        & \textbf{$+0.2807$} \\
+\multirow{3}{*}{DE}
+  & Reg. NRMSE  & 18.76\% & 16.32\% & 13.57\% & 13.00\% & \textbf{12.20\%} & 18.66\% & 13.02\% \\
+  & Nat. NRMSE  & 13.39\% &  9.14\% &  4.57\% & 4.24\%  & \textbf{3.75\%}  & 11.06\% &  7.54\% \\
+  & Reg. $R^2$  & $-0.50$ & $-0.13$ & $+0.22$ & $+0.28$ & \textbf{$+0.37$} & $-0.48$ & $+0.28$ \\
 \midrule
-\multirow{3}{*}{France}
-  & Region NRMSE  & 21.77\%   & 22.25\%          & 17.97\%          & \textbf{17.77\%} \\
-  & EU NRMSE      & 17.62\%   & 18.79\%          & 14.34\%          & \textbf{13.90\%} \\
-  & Region R²     & $+0.3130$ & $+0.2821$        & $+0.5314$        & \textbf{$+0.5419$} \\
+\multirow{3}{*}{FR}
+  & Reg. NRMSE  & 21.77\% & 22.25\% & 17.97\% & \textbf{17.77\%} & 26.04\% & 29.96\% & 21.68\% \\
+  & Nat. NRMSE  & 17.62\% & 18.79\% & 14.34\% & 13.90\%          & 15.80\% & 17.70\% & \textbf{12.55\%} \\
+  & Reg. $R^2$  & $+0.31$ & $+0.28$ & $+0.53$ & \textbf{$+0.54$} & $+0.02$ & $-0.30$ & $+0.32$ \\
 \midrule
-\multirow{3}{*}{Poland}
-  & Region NRMSE  & \textbf{12.61\%} & 17.30\%   & 16.90\%          & 16.24\% \\
-  & EU NRMSE      & \textbf{4.08\%}  & 13.47\%   & 12.34\%          & 12.12\% \\
-  & Region R²     & \textbf{$+0.5711$} & $+0.1921$ & $+0.2290$      & $+0.2887$ \\
-
-\midrule
- & & \textbf{MLP-Small} & \textbf{FT-Transformer} & \textbf{1D-CNN} & \\
-\multirow{3}{*}{All}
-  & Region R²          & $+0.3711$ & $-0.1164$ & $+0.4098$ & --- \\
-  & Region RMSE        &    1.1768 &    1.5679 &    1.1401 & --- \\
-  & EU R²              & $-0.8202$ & $-5.7892$ & $-1.3415$ & --- \\
+\multirow{3}{*}{PL}
+  & Reg. NRMSE  & \textbf{12.61\%} & 17.30\% & 16.90\% & 16.24\% & 45.86\% & 57.18\% & 49.11\% \\
+  & Nat. NRMSE  & \textbf{4.08\%}  & 13.47\% & 12.34\% & 12.12\% & 41.90\% & 51.69\% & 45.51\% \\
+  & Reg. $R^2$  & \textbf{$+0.57$} & $+0.19$ & $+0.23$ & $+0.29$ & $-4.67$ & $-7.82$ & $-5.51$ \\
 \bottomrule
 \end{tabular}
 \end{table}
+Among the neural networks, the Pooled MLP achieves the best result for Germany (12.20\% regional, 3.75\% national NRMSE), the only case where a neural network outperforms the tree baseline, enabled by Germany's 251 regions providing sufficient data for entity embeddings. The 1D-CNN delivers comparable German performance at 13.02\% and the best French national result at 12.55\%. The FT-Transformer underperforms across all countries, consistent with Gorishniy et al.~\cite{bib_gorishniy}'s finding that transformers require larger datasets. Poland exposes the pooled approach's weakness: the best neural result (MLP at 45.86\%) is nearly three times worse than ExtraTrees at 16.24\%, as 16 regions are too few for the embeddings to learn meaningful representations. Ridge remains Poland's best model at 12.61\%.\\
 
-Among the deep learning models, the 1D-CNN achieves the best regional R\textsuperscript{2} of +0.4098 and lowest regional RMSE of 1.1401, outperforming MLP-Small and substantially outperforming the FT-Transformer. The strong regional performance of the 1D-CNN and MLP relative to the FT-Transformer is consistent with findings in the tabular deep learning literature that transformers require substantially larger datasets to outperform simpler architectures~\cite{bib27}. 
+The gap between the two tasks constitutes the central finding of this study. The same CY-Bench features that enable ExtraTrees to achieve positive R\textsuperscript{2} and competitive yield NRMSE~\cite{bib16} produce uniformly negative R\textsuperscript{2} and directional accuracy almost equivalent to chance for futures returns. This gap is not explained by model expressiveness, since increasing capacity from Ridge to deep neural networks does not close it. Rather, the agricultural information in publicly available satellite and climate records appears to be already incorporated into Euronext wheat futures prices by the time it enters structured datasets.
 
 \section{Conclusion}\label{conclusion}
 
-\clearpage
+This study investigated whether meteorological, agricultural, and satellite features from the CY-Bench dataset~\cite{bib17} carry predictive information for European wheat futures price changes. We evaluated eight models across three model classes within a strictly out-of-sample walk-forward framework, using 507 sub-national regions across France, Germany, and Poland with production-weighted aggregation.
+
+On the futures task, all models produce very similar RMSE values and no model produces a positive out-of-sample R\textsuperscript{2}. Values range from $-0.0210$ for Ridge to $-0.0032$ for Lasso, directional accuracy spans 46.97\% to 51.37\%. For Neural Networks, increasing capacity from a single hidden layer to a three-layer architecture yields no improvement. The bottleneck is signal content rather than model class~\cite{bib_goodfellow}.
+
+The secondary yield task confirms this is not a data quality problem. ExtraTrees achieves regional NRMSE of 13.00\% for Germany and 17.77\% for France, broadly competitive with Paudel et al.~\cite{bib16}, and tree ensembles consistently outperform linear models. The Pooled MLP further improves Germany's result to 12.20\% regional and 3.75\% national NRMSE, while the 1D-CNN exhibits the most stable degradation across lead times. The divergence between the two tasks is the central finding: features that predict yields with positive R\textsuperscript{2} produce uniformly negative R\textsuperscript{2} for futures returns. This is consistent with semi-strong market efficiency~\cite{bib30} and with Thaker et al.~\cite{bib19}'s finding that satellite-derived alpha decays once data becomes widely available.
+
+Several limitations should be noted. The study covers only three countries; extending to Romania, Spain, and major non-EU exporters would provide a broader test. The pooled neural approach penalises small-sample countries, most notably Poland. In the yield task, our raw CY-Bench features lack the agronomic translation provided by crop simulation models such as WOFOST~\cite{bib16}, and we intentionally exclude price-derived features, leaving untested whether CY-Bench data could complement a price-based baseline.
+
+The most promising future direction on the futures side is testing whether proprietary or higher-frequency satellite data, obtained before entering public benchmarks, can recover the signal that publicly available data cannot. Alternatively, re-framing the target toward large price dislocations driven by unexpected crop shocks, where agricultural signal may be strongest relative to market noise, represents another avenue for exploration.
 
 \bibliography{sn-bibliography}% common bib file
 %% if required, the content of .bbl file can be included here once bbl is generated
@@ -510,6 +608,18 @@ Among the deep learning models, the 1D-CNN achieves the best regional R\textsupe
 \clearpage
 
 \section{Generative AI Statement}
+
+Our group used generative AI tools during this project for code debugging, creating visualisations, understanding concepts, LateX formatting, and improving prose.\\
+
+\textbf{Code debugging:} We used generative AI tools to assist with Python code debugging and efficiency improvements. This includes data preprocessing, feature engineering, model training, and evaluation. In all cases, we reviewed the generated code to ensure we understood the logic, verified that it produced correct outputs, and modified it where necessary.\\
+
+\textbf{Creating Visualisations:} We used generative AI tools to assist with creating visualisations of our results in Python code. As mentioned, we reviewed and amended the generated code to ensure it aligned with our objectives and we agreed with the logic. Further, we verified that the produced outputs were correct.\\
+
+\textbf{Understanding concepts:} We used generative AI tools to deepen our understanding of specific concepts relevant to our specific objective. For instance, we used it to deepen our knowledge of futures market dynamics, specific machine learning methods and statistical concepts. We always verified our learnings against course materials and the literature when relevant.\\
+
+\textbf{LaTeX formatting:} We used generative AI tools to assist us in formatting our LaTeX code including table layout, cross-referencing, bibliography style configuration, and troubleshooting compilation issues. This was to ensure a clean presentation.\\
+
+\textbf{Writing improvement:} We used generative AI tools to improve the clarity and readability of prose that we had already drafted ourselves. This included rephrasing sentences for concision, improving paragraph flow, and correcting grammatical errors. However, we note that the help was generally structural at the sentence level rather, thus, the argumentation in the report is entirely our own.\\
 
 \clearpage
 
@@ -604,7 +714,7 @@ Among the deep learning models, the 1D-CNN achieves the best regional R\textsupe
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{Figures/eda_correlation_heatmap.png}
-    \caption{Fisher z-averaged correlation matrix of the 12 raw CY-Bench variables across 507 regions. Nine feature pairs exceed $|\rho| = 0.85$, concentrated among temperature-derived variables. This motivates the correlation-based filtering applied before modelling.}
+    \caption{Fisher z-averaged correlation matrix of the 12 raw CY-Bench variables across 507 regions. Nine feature pairs exceed $|\rho| = 0.85$, concentrated among temperature-derived variables.}
     \label{fig:corr_heatmap}
 \end{figure}
 
@@ -614,13 +724,20 @@ Apart from the timescale mismatch of daily returns and agricultural variables as
 
 Indeed, the Samuelson hypothesis~\cite{bib54} predicts that futures price volatility increases as contracts approach expiration. Since we are looking at the closest maturing futures contract as our predictor, this implies that near-term price movements may display high variance. This further justifies our 5-day time window choice. Indeed, Duong and Kalev~\cite{bib55} tested this hypothesis in 20 futures markets and found strong support specifically for agricultural commodities. Daal et~al.~\cite{bib56} also confirm that the Samuelson effect is more pronounced for commodities rather than financial futures, however, they find the effect to be absent from most contracts they test. Overall, a weekly horizon enables us to reduce this higher-variance while remaining a short enough timeframe to be operationally relevant.
 
-\section{NRMSE Results for yield forecasting}\label{app:NRMSE_results}
+\section{NRMSE Results for Yield Forecasting}\label{app:NRMSE_results}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{Figures/NRMSE results.png}
-    \caption{NRMSE Results on the test set for France, Germany and Poland}
+    \caption{NRMSE Results on the test set for France, Germany and Poland (best model per country)}
     \label{fig:NRMSE_results}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/nn_yield_actual_vs_predicted.png}
+    \caption{Deep learning national-aggregate yield predictions vs. actual yields (test set, 2016--2020) for the best neural network per country (Pooled MLP). Results are shown at quarter-season, mid-season, and end-of-season lead times for Germany, France, and Poland. Poland's large overprediction reflects the pooled model's collapse toward the European mean with only 16 regions.}
+    \label{fig:nn_yield_actual_vs_predicted}
 \end{figure}
 
 \section{Yield Forecasting Accuracy}\label{app:yield_forecast_accuracy_graph}
@@ -631,6 +748,60 @@ Indeed, the Samuelson hypothesis~\cite{bib54} predicts that futures price volati
     \caption{Yield Forecasting Accuracy for each Model and Country}
     \label{fig:yield_forecast_accuracy_graph}
 \end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Figures/nn_lead_time_comparison.png}
+    \caption{Deep learning lead-time comparison across all three neural network architectures (test set, 2016--2020). (a) Per-region NRMSE, (b) national-aggregate NRMSE, and (c) per-region R\textsuperscript{2} at quarter-season, mid-season, and end-of-season for Germany, France, and Poland. The 1D-CNN exhibits the most stable degradation across lead times for Germany and France, while all architectures perform poorly for Poland.}
+    \label{fig:nn_lead_time_comparison}
+\end{figure}
+
+\section{Full Yield Prediction Results}\label{app:yield_full}
+
+\begin{table}[ht!]
+\centering
+\caption{Yield prediction test set results (2016--2020) across all countries, models, and lead times. Bold indicates best result per country per lead time.}
+\label{tab:yield_full}
+\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{ll rr rr rr}
+\toprule
+& & \multicolumn{2}{c}{\textbf{End-of-Season}} & \multicolumn{2}{c}{\textbf{Mid-Season}} & \multicolumn{2}{c}{\textbf{Quarter-Season}} \\
+\cmidrule(lr){3-4} \cmidrule(lr){5-6} \cmidrule(lr){7-8}
+\textbf{Country} & \textbf{Model} & \textbf{Reg. NRMSE} & \textbf{Nat. NRMSE} & \textbf{Reg. NRMSE} & \textbf{Nat. NRMSE} & \textbf{Reg. NRMSE} & \textbf{Nat. NRMSE} \\
+\midrule
+\multirow{7}{*}{Germany}
+& Ridge        & 18.76\% & 13.39\% & 17.13\% &  5.33\% & 17.24\% &  9.48\% \\
+& Lasso        & 16.32\% &  9.14\% & 15.65\% &  4.80\% & 16.40\% &  8.26\% \\
+& RF           & 13.57\% &  4.57\% & 14.56\% &  5.32\% & 15.66\% &  9.18\% \\
+& ExtraTrees   & 13.00\% &  4.24\% & 14.56\% &  4.80\% & 15.53\% &  8.26\% \\
+\cmidrule(lr){2-8}
+& MLP-Small    & \textbf{12.20\%} & \textbf{3.75\%} & 14.89\% &  7.19\% & 16.58\% & 11.17\% \\
+& FT-Trans.    & 18.66\% & 11.06\% & 17.23\% &  8.52\% & 16.23\% &  8.90\% \\
+& 1D-CNN       & 13.02\% &  7.54\% & \textbf{12.22\%} & \textbf{5.22\%} & \textbf{12.69\%} & \textbf{7.09\%} \\
+\midrule
+\multirow{7}{*}{France}
+& Ridge        & 21.77\% & 17.62\% & 25.46\% & 21.07\% & 21.78\% & 18.12\% \\
+& Lasso        & 22.25\% & 18.79\% & 25.96\% & 21.71\% & 22.02\% & 18.43\% \\
+& RF           & 17.97\% & 14.34\% & 20.29\% & 16.56\% & 21.26\% & 17.09\% \\
+& ExtraTrees   & \textbf{17.77\%} & \textbf{13.90\%} & \textbf{19.12\%} & \textbf{15.14\%} & \textbf{20.23\%} & \textbf{16.15\%} \\
+\cmidrule(lr){2-8}
+& MLP-Small    & 26.04\% & 15.80\% & 25.33\% & 15.37\% & 28.87\% & 19.85\% \\
+& FT-Trans.    & 29.96\% & 17.70\% & 25.08\% & 18.04\% & 28.19\% & 18.36\% \\
+& 1D-CNN       & 21.68\% & 12.55\% & 21.66\% & 12.83\% & 22.98\% & 13.77\% \\
+\midrule
+\multirow{7}{*}{Poland}
+& Ridge        & \textbf{12.61\%} & \textbf{4.08\%} & 18.90\% & 10.83\% & 18.06\% & \textbf{10.99\%} \\
+& Lasso        & 17.30\% & 13.47\% & 18.40\% & 12.65\% & 19.15\% & 13.79\% \\
+& RF           & 16.90\% & 12.34\% & 17.98\% & 11.63\% & 19.09\% & 13.16\% \\
+& ExtraTrees   & 16.24\% & 12.12\% & \textbf{17.76\%} & \textbf{11.38\%} & \textbf{18.96\%} & 13.13\% \\
+\cmidrule(lr){2-8}
+& MLP-Small    & 45.86\% & 41.90\% & 52.91\% & 38.72\% & 61.22\% & 49.47\% \\
+& FT-Trans.    & 57.18\% & 51.69\% & 59.13\% & 48.43\% & 75.56\% & 63.64\% \\
+& 1D-CNN       & 49.11\% & 45.51\% & 52.25\% & 39.62\% & 61.26\% & 48.50\% \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 %%=============================================%%
 %% For submissions to Nature Portfolio Journals %%

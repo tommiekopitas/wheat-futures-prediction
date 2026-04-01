@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex MA429_Final_Report"] 1774810790.05759 "MA429_Final_Report.aux" "MA429_Final_Report.bbl" "MA429_Final_Report" 1774821957.74324 0
+["bibtex MA429_Final_Report"] 1774889635.93541 "MA429_Final_Report.aux" "MA429_Final_Report.bbl" "MA429_Final_Report" 1774889748.70896 0
   "./sn-bibliography.bib" 1774806851 19354 1d0be1efebc913e3f28ae59d36b816bb ""
   "./sn-mathphys-num.bst" 1774796608 64166 15b3f706374daa751d94d2740ecb633b ""
-  "MA429_Final_Report.aux" 1774821956 19860 ad129895fb32710af4c155488215d41f "pdflatex"
+  "MA429_Final_Report.aux" 1774889747 24443 ffe1205940d79ef980f723e9ef0ed3a6 "pdflatex"
   (generated)
   "MA429_Final_Report.bbl"
   "MA429_Final_Report.blg"
   (rewritten before read)
-["pdflatex"] 1774821949.09579 "c:/Users/thoma/OneDrive/Bureau/LSE Y1 (2025-2026)/Autumn Term/MA429 Algorithmic Techniques in Machine Learning/MA429_Summative_Project_Thomas_Fouilloux_v9/MA429_Final_Report.tex" "MA429_Final_Report.pdf" "MA429_Final_Report" 1774821957.74417 0
+["pdflatex"] 1774889738.74295 "c:/Users/thoma/OneDrive/Bureau/LSE Y1 (2025-2026)/Autumn Term/MA429 Algorithmic Techniques in Machine Learning/MA429_Summative_Project_Thomas_Fouilloux_v9/MA429_Final_Report.tex" "MA429_Final_Report.pdf" "MA429_Final_Report" 1774889748.70997 0
   "C:/Users/thoma/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1774796041 165037 dee37e3ed091afbbd8ed9b1df06e8579 ""
-  "C:/Users/thoma/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi602/tcrm0800.pk" 1774799453 9356 af16e39e5ffc6aab0b37772a31dcd09a ""
+  "C:/Users/thoma/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi602/tcrm1000.pk" 1774887883 11548 65f28f503fb4bb67c905644e27f819a4 ""
   "C:/Users/thoma/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs10.tfm" 1774608331 688 37338d6ab346c2f1466b29e195316aa4 ""
   "C:/Users/thoma/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs5.tfm" 1774608333 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "C:/Users/thoma/AppData/Local/MiKTeX/fonts/tfm/public/rsfs/rsfs7.tfm" 1774608332 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
@@ -17,14 +17,13 @@
   "C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc" 1736607166 2083 60e36f8eac802fcaf19eabe2633b406e ""
   "C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-rm.enc" 1525740614 2409 c64dab22331c83731e970f6020b4448b ""
   "C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1525740614 3124 3813fd4c981d99822890a2861b0d274c ""
-  "C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm0800.tfm" 993062506 1444 e35ead393df86aae37b5564284d9aa05 ""
+  "C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1000.tfm" 993062508 1436 c7f957a372ef2fbe93c0982f96625e12 ""
   "C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
   "C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1233951854 924 9904cf1d39e9767e7a3622f2a125a565 ""
   "C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1233951854 928 2dc8d444221b7a635bb58038579b861a ""
   "C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1233951854 908 2921f8a10601f252058503cc6570e581 ""
   "C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1233951854 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1233951854 940 228d6584342e91276bf566bcf9716b83 ""
-  "C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr8.tfm" 1136765053 1292 21c1c5bfeaebccffdb478fd231a0997d ""
   "C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/tfm/public/newtx/NewTXMI.tfm" 1736607165 1408 ef71a9098da4d5a1a85b5920860b6731 ""
   "C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/tfm/public/newtx/NewTXMI7.tfm" 1736607165 1556 4df22ac3e5cc03ff0898d83d8817c6cf ""
   "C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/tfm/public/newtx/ntx-Bold-tlf-ot1.tfm" 1736607165 2976 0e6dc2c6c1f88a98285fe5183da02574 ""
@@ -201,13 +200,15 @@
   "Figures/eda_temperature_stress_FR.png" 1774723415 636616 6645ce032a3dc64c37d5867436c5c47d ""
   "Figures/eda_temperature_stress_PL.png" 1774723415 597768 2163a26fc87c8898efeca8f570b778f9 ""
   "Figures/eda_yield_distributions.png" 1774723416 180999 2e29f12e530dca0691cb3162eb0b9bef ""
+  "Figures/nn_lead_time_comparison.png" 1774887809 226051 decedfc976f3587e500d49ed4a5a9af2 ""
+  "Figures/nn_yield_actual_vs_predicted.png" 1774887810 88416 e3fe0efbd8d3063dd1af39f800839d27 ""
   "Figures/yield_forecast_accuracy graph.png" 1774795097 274161 5cbd0b4056adacbaa979c2c46e782557 ""
-  "MA429_Final_Report.aux" 1774821956 19860 ad129895fb32710af4c155488215d41f "pdflatex"
-  "MA429_Final_Report.bbl" 1774810790 25234 2a14e545076c7f92d821e6ab62339759 "bibtex MA429_Final_Report"
-  "MA429_Final_Report.out" 1774821956 5617 033b103ab89c99514b0faef6482f12bf "pdflatex"
-  "MA429_Final_Report.tex" 1774821948 98851 c2ce1f5ff2896eb325669c9b968872e4 ""
-  "MA429_Final_Report.toc" 1774821956 2514 a155a724818d377929060e6593659b69 "pdflatex"
-  "c:/Users/thoma/OneDrive/Bureau/LSE Y1 (2025-2026)/Autumn Term/MA429 Algorithmic Techniques in Machine Learning/MA429_Summative_Project_Thomas_Fouilloux_v9/MA429_Final_Report.tex" 1774821948 98851 c2ce1f5ff2896eb325669c9b968872e4 ""
+  "MA429_Final_Report.aux" 1774889747 24443 ffe1205940d79ef980f723e9ef0ed3a6 "pdflatex"
+  "MA429_Final_Report.bbl" 1774889636 25234 2a14e545076c7f92d821e6ab62339759 "bibtex MA429_Final_Report"
+  "MA429_Final_Report.out" 1774889747 5993 f98a92d33b1ed622dedb38cddcfaf52b "pdflatex"
+  "MA429_Final_Report.tex" 1774889737 118880 a20d41de6342b6d21c3c0545ea70f244 ""
+  "MA429_Final_Report.toc" 1774889747 2702 693b8dcd8f002f6fc781cb6cb5e1494d "pdflatex"
+  "c:/Users/thoma/OneDrive/Bureau/LSE Y1 (2025-2026)/Autumn Term/MA429 Algorithmic Techniques in Machine Learning/MA429_Summative_Project_Thomas_Fouilloux_v9/MA429_Final_Report.tex" 1774889737 118880 a20d41de6342b6d21c3c0545ea70f244 ""
   "sn-jnl.cls" 1774723415 55857 7d4515312123fd1744517a7415d792ff ""
   (generated)
   "MA429_Final_Report.aux"

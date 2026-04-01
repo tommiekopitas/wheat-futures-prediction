@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.21)  29 MAR 2026 23:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.11.21)  30 MAR 2026 17:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -962,6 +962,23 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
 (Font)              scaled to size 14.05249pt on input line 136.
 
+Underfull \hbox (badness 10000) in paragraph at lines 138--149
+
+ []
+
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.32732pt on input line 150.
+
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
+
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2
@@ -979,47 +996,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [3
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 150--151
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--153
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 154--155
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [5
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
-
- []
-
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.045pt on input line 166.
 
 Underfull \hbox (badness 10000) in paragraph at lines 168--169
 
@@ -1031,12 +1016,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 170--171
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 172--173
+
+ []
+
+Package textcomp Info: Symbol \texttwosuperior not provided by
+(textcomp)             font family ntxtlf in TS1 encoding.
+(textcomp)             Default family used instead on input line 174.
+(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
+)
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
+
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [6{C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.03749pt on input line 176.
+ [4
 
+]
 Underfull \hbox (badness 10000) in paragraph at lines 182--183
 
  []
@@ -1047,22 +1051,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 184--185
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
+
+ []
+
+LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
+(Font)              scaled to size 12.045pt on input line 194.
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--197
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 198--199
+
+ []
+
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/it' will be
+(Font)              scaled to size 10.03749pt on input line 204.
+
+Underfull \hbox (badness 10000) in paragraph at lines 204--205
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6{C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-ts1.enc}]
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 212--213
+
+ []
+
+<Figures/eda_return_distribution.png, id=243, 1003.46895pt x 316.18124pt>
+File: Figures/eda_return_distribution.png Graphic file (type png)
+<use Figures/eda_return_distribution.png>
+Package pdftex.def Info: Figures/eda_return_distribution.png  used on input line 226.
+(pdftex.def)             Requested size: 483.69687pt x 152.40692pt.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 227.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
+(Font)              scaled to size 8.0pt on input line 227.
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7]
-<Figures/eda_return_distribution.png, id=235, 1003.46895pt x 316.18124pt>
-File: Figures/eda_return_distribution.png Graphic file (type png)
-<use Figures/eda_return_distribution.png>
-Package pdftex.def Info: Figures/eda_return_distribution.png  used on input line 199.
-(pdftex.def)             Requested size: 483.69687pt x 152.40692pt.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 200.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 200.
-<Figures/eda_ag_features_vs_price.png, id=244, 1003.8303pt x 223.3143pt>
+<Figures/eda_ag_features_vs_price.png, id=269, 1003.8303pt x 223.3143pt>
 File: Figures/eda_ag_features_vs_price.png Graphic file (type png)
 <use Figures/eda_ag_features_vs_price.png>
-Package pdftex.def Info: Figures/eda_ag_features_vs_price.png  used on input line 210.
+Package pdftex.def Info: Figures/eda_ag_features_vs_price.png  used on input line 234.
 (pdftex.def)             Requested size: 483.69687pt x 107.60535pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1071,121 +1120,125 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.217 
-       <./Figures/eda_return_distribution.png>]
-<Figures/eda_yield_distributions.png, id=262, 1002.3849pt x 353.03896pt>
+l.244 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.244 
+       <./Figures/eda_return_distribution.png> <./Figures/eda_ag_features_vs_price.png>]
+<Figures/eda_yield_distributions.png, id=284, 1002.3849pt x 353.03896pt>
 File: Figures/eda_yield_distributions.png Graphic file (type png)
 <use Figures/eda_yield_distributions.png>
-Package pdftex.def Info: Figures/eda_yield_distributions.png  used on input line 228.
+Package pdftex.def Info: Figures/eda_yield_distributions.png  used on input line 250.
 (pdftex.def)             Requested size: 483.69687pt x 170.35638pt.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 8.0pt on input line 229.
+(Font)              scaled to size 8.0pt on input line 251.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 6.0pt on input line 229.
+(Font)              scaled to size 6.0pt on input line 251.
 LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 5.5pt on input line 229.
+(Font)              scaled to size 5.5pt on input line 251.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 8.0pt on input line 229.
+(Font)              scaled to size 8.0pt on input line 251.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 6.0pt on input line 229.
+(Font)              scaled to size 6.0pt on input line 251.
 LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 5.5pt on input line 229.
+(Font)              scaled to size 5.5pt on input line 251.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 8.0pt on input line 229.
+(Font)              scaled to size 8.0pt on input line 251.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.0pt on input line 229.
+(Font)              scaled to size 6.0pt on input line 251.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 5.5pt on input line 229.
+(Font)              scaled to size 5.5pt on input line 251.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 8.0pt on input line 229.
+(Font)              scaled to size 8.0pt on input line 251.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.0pt on input line 229.
+(Font)              scaled to size 6.0pt on input line 251.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 5.5pt on input line 229.
+(Font)              scaled to size 5.5pt on input line 251.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 229.
+(Font)              size <5> substituted on input line 251.
 
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 8.0pt on input line 229.
+(Font)              scaled to size 8.0pt on input line 251.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.0pt on input line 229.
+(Font)              scaled to size 6.0pt on input line 251.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 5.5pt on input line 229.
+(Font)              scaled to size 5.5pt on input line 251.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 8.0pt on input line 229.
+(Font)              scaled to size 8.0pt on input line 251.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.0pt on input line 229.
+(Font)              scaled to size 6.0pt on input line 251.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 5.5pt on input line 229.
+(Font)              scaled to size 5.5pt on input line 251.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 8.0pt on input line 229.
+(Font)              scaled to size 8.0pt on input line 251.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.0pt on input line 229.
+(Font)              scaled to size 6.0pt on input line 251.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 5.5pt on input line 229.
+(Font)              scaled to size 5.5pt on input line 251.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 8.0pt on input line 229.
+(Font)              scaled to size 8.0pt on input line 251.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.0pt on input line 229.
+(Font)              scaled to size 6.0pt on input line 251.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 5.5pt on input line 229.
+(Font)              scaled to size 5.5pt on input line 251.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 229.
+(Font)              scaled to size 8.0pt on input line 251.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 229.
+(Font)              scaled to size 6.0pt on input line 251.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 229.
+(Font)              scaled to size 5.5pt on input line 251.
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--261
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
+
+ []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [9
-pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.237 \subsection
-                 {Engineered Features for the Futures Task}
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.237 \subsection
-                 {Engineered Features for the Futures Task} <./Figures/eda_ag_features_vs_price.png> <./Figures/eda_yield_distributions.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 239--240
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 241--242
-
- []
-
+l.263 
+       <./Figures/eda_yield_distributions.png>]
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 7.32732pt on input line 243.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.52065pt on input line 243.
+(Font)              scaled to size 5.52065pt on input line 264.
 
-Underfull \hbox (badness 10000) in paragraph at lines 243--244
+Underfull \hbox (badness 10000) in paragraph at lines 264--265
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 245--246
+Underfull \hbox (badness 10000) in paragraph at lines 266--267
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--248
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 256--258
+Underfull \hbox (badness 10000) in paragraph at lines 277--279
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
+Underfull \hbox (badness 10000) in paragraph at lines 280--281
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--291
 
  []
 
@@ -1193,22 +1246,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 259--260
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10]
-Underfull \hbox (badness 10000) in paragraph at lines 269--270
+Underfull \hbox (badness 10000) in paragraph at lines 292--293
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 271--272
+Underfull \hbox (badness 10000) in paragraph at lines 303--310
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 282--287
+Underfull \hbox (badness 10000) in paragraph at lines 311--316
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 288--320
+Underfull \hbox (badness 10000) in paragraph at lines 317--344
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--364
 
  []
 
@@ -1216,32 +1274,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 288--320
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11]
-Underfull \hbox (badness 10000) in paragraph at lines 326--342
+Underfull \hbox (badness 10000) in paragraph at lines 365--388
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 343--360
+Underfull \hbox (badness 10000) in paragraph at lines 389--402
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
+Underfull \hbox (badness 10000) in paragraph at lines 412--413
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 365--366
+Underfull \hbox (badness 10000) in paragraph at lines 414--415
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 367--368
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 369--370
+Underfull \hbox (badness 10000) in paragraph at lines 416--417
 
  []
 
@@ -1249,75 +1302,133 @@ Underfull \hbox (badness 10000) in paragraph at lines 369--370
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [12]
-Underfull \hbox (badness 10000) in paragraph at lines 371--372
+Underfull \hbox (badness 10000) in paragraph at lines 418--419
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 373--374
+Underfull \hbox (badness 10000) in paragraph at lines 420--421
+
+ []
+
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 428.
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 8.03pt on input line 428.
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 5.86186pt on input line 428.
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 4.41652pt on input line 428.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 8.03pt on input line 428.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 5.86186pt on input line 428.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 4.41652pt on input line 428.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 8.03pt on input line 428.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 5.86186pt on input line 428.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 4.41652pt on input line 428.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 8.03pt on input line 428.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 5.86186pt on input line 428.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 4.41652pt on input line 428.
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.41652> not available
+(Font)              size <5> substituted on input line 428.
+
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 8.03pt on input line 428.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 5.86186pt on input line 428.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 4.41652pt on input line 428.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 8.03pt on input line 428.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 5.86186pt on input line 428.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 4.41652pt on input line 428.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 8.03pt on input line 428.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 5.86186pt on input line 428.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 4.41652pt on input line 428.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 8.03pt on input line 428.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 5.86186pt on input line 428.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 4.41652pt on input line 428.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.03pt on input line 428.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.86186pt on input line 428.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 4.41652pt on input line 428.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
+(Font)              scaled to size 8.03pt on input line 430.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
+(Font)              scaled to size 5.86186pt on input line 430.
+
+Underfull \hbox (badness 10000) in paragraph at lines 437--438
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 375--376
+Underfull \hbox (badness 10000) in paragraph at lines 439--440
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 377--378
+Underfull \hbox (badness 10000) in paragraph at lines 441--442
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 379--380
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 381--382
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 383--384
+Underfull \hbox (badness 10000) in paragraph at lines 443--444
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13]
-Underfull \hbox (badness 10000) in paragraph at lines 385--386
+ [13
+pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.444 
+      ]
+Underfull \hbox (badness 10000) in paragraph at lines 445--446
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 389--390
+Underfull \hbox (badness 10000) in paragraph at lines 451--452
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 391--392
+Underfull \hbox (badness 10000) in paragraph at lines 453--454
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 393--394
+Underfull \hbox (badness 10000) in paragraph at lines 455--456
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 395--396
+Underfull \hbox (badness 10000) in paragraph at lines 457--458
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 397--398
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 399--400
+Underfull \hbox (badness 10000) in paragraph at lines 459--461
 
  []
 
@@ -1325,93 +1436,129 @@ Underfull \hbox (badness 10000) in paragraph at lines 399--400
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [14]
-Underfull \hbox (badness 10000) in paragraph at lines 401--402
+Underfull \hbox (badness 10000) in paragraph at lines 477--478
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--404
+Underfull \hbox (badness 10000) in paragraph at lines 479--480
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 405--406
+Underfull \hbox (badness 10000) in paragraph at lines 481--482
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 407--408
+Underfull \hbox (badness 10000) in paragraph at lines 483--484
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 409--410
+Underfull \hbox (badness 10000) in paragraph at lines 485--486
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 411--412
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 413--414
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 417--418
+Underfull \hbox (badness 10000) in paragraph at lines 487--488
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15]
-Underfull \hbox (badness 10000) in paragraph at lines 419--420
+ [15
+pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.489 O
+       verall, the tree-based ensembles establish a substantially improved b...]
+Underfull \hbox (badness 10000) in paragraph at lines 493--494
+
+ []
+
+LaTeX Font Info:    Calculating math sizes for size <7.32732> on input line 495.
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 5.3489pt on input line 495.
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 4.03004pt on input line 495.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 5.3489pt on input line 495.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 4.03004pt on input line 495.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 5.3489pt on input line 495.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 4.03004pt on input line 495.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 5.3489pt on input line 495.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 4.03004pt on input line 495.
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.03004> not available
+(Font)              size <5> substituted on input line 495.
+
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 5.3489pt on input line 495.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 4.03004pt on input line 495.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 5.3489pt on input line 495.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 4.03004pt on input line 495.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 5.3489pt on input line 495.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 4.03004pt on input line 495.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 5.3489pt on input line 495.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 4.03004pt on input line 495.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 5.3489pt on input line 495.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 4.03004pt on input line 495.
+
+Underfull \hbox (badness 10000) in paragraph at lines 495--496
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--422
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 423--424
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 425--426
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 427--428
+Underfull \hbox (badness 10000) in paragraph at lines 515--516
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [16]
-Underfull \hbox (badness 10000) in paragraph at lines 429--430
+ [16
+pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.516 
+      ]
+Underfull \hbox (badness 10000) in paragraph at lines 517--518
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 431--432
+Underfull \hbox (badness 10000) in paragraph at lines 519--520
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 433--434
+Underfull \hbox (badness 10000) in paragraph at lines 521--522
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 435--436
+Underfull \hbox (badness 10000) in paragraph at lines 523--524
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 525--526
 
  []
 
@@ -1419,117 +1566,81 @@ Underfull \hbox (badness 10000) in paragraph at lines 435--436
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [17]
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 445.
-LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 8.03pt on input line 445.
-LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 5.86186pt on input line 445.
-LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 4.41652pt on input line 445.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 8.03pt on input line 445.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 5.86186pt on input line 445.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 4.41652pt on input line 445.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 8.03pt on input line 445.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 5.86186pt on input line 445.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 4.41652pt on input line 445.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 8.03pt on input line 445.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 5.86186pt on input line 445.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 4.41652pt on input line 445.
+Underfull \hbox (badness 10000) in paragraph at lines 527--528
+
+ []
+
+LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
+(Font)              scaled to size 8.03pt on input line 543.
+LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
+(Font)              scaled to size 5.86186pt on input line 543.
+LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
+(Font)              scaled to size 4.41652pt on input line 543.
+
+Underfull \hbox (badness 10000) in paragraph at lines 554--555
+
+ []
 
 
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.41652> not available
-(Font)              size <5> substituted on input line 445.
+Underfull \hbox (badness 10000) in paragraph at lines 556--557
 
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 8.03pt on input line 445.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 5.86186pt on input line 445.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 4.41652pt on input line 445.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 8.03pt on input line 445.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 5.86186pt on input line 445.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 4.41652pt on input line 445.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 8.03pt on input line 445.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 5.86186pt on input line 445.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 4.41652pt on input line 445.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 8.03pt on input line 445.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 5.86186pt on input line 445.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 4.41652pt on input line 445.
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.03pt on input line 445.
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 5.86186pt on input line 445.
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 4.41652pt on input line 445.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.03pt on input line 447.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 5.86186pt on input line 447.
+ []
+
 LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
-(Font)              scaled to size 8.03pt on input line 454.
+(Font)              scaled to size 10.03749pt on input line 558.
 LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
-(Font)              scaled to size 5.86186pt on input line 454.
+(Font)              scaled to size 7.32732pt on input line 558.
 LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
-(Font)              scaled to size 4.41652pt on input line 454.
-LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
-(Font)              scaled to size 10.03749pt on input line 464.
-LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
-(Font)              scaled to size 7.32732pt on input line 464.
-LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
-(Font)              scaled to size 5.52065pt on input line 464.
-Package textcomp Info: Symbol \texttwosuperior not provided by
-(textcomp)             font family ntxtlf in TS1 encoding.
-(textcomp)             Default family used instead on input line 478.
-(C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg
-File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
-)
-Package textcomp Info: Symbol \texttwosuperior not provided by
-(textcomp)             font family ntxtlf in TS1 encoding.
-(textcomp)             Default family used instead on input line 483.
-Package textcomp Info: Symbol \texttwosuperior not provided by
-(textcomp)             font family ntxtlf in TS1 encoding.
-(textcomp)             Default family used instead on input line 488.
-Package textcomp Info: Symbol \texttwosuperior not provided by
-(textcomp)             font family ntxtlf in TS1 encoding.
-(textcomp)             Default family used instead on input line 493.
-Package textcomp Info: Symbol \texttwosuperior not provided by
-(textcomp)             font family ntxtlf in TS1 encoding.
-(textcomp)             Default family used instead on input line 495.
+(Font)              scaled to size 5.52065pt on input line 558.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [18
-pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.504 \clearpage
-                
-pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.504 \clearpage
-                ]
+l.559 
+      ]
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.0pt on input line 564.
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 7.3pt on input line 566.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 7.3pt on input line 566.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 7.3pt on input line 566.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 7.3pt on input line 566.
+LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
+(Font)              scaled to size 7.3pt on input line 566.
+LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
+(Font)              scaled to size 5.5pt on input line 566.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 7.3pt on input line 566.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 7.3pt on input line 566.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 7.3pt on input line 566.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 7.3pt on input line 566.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 7.3pt on input line 566.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
+(Font)              scaled to size 7.0pt on input line 568.
+
+Underfull \hbox (badness 10000) in paragraph at lines 588--589
+
+ []
+
+(MA429_Final_Report.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [19] (MA429_Final_Report.bbl
+ [19
+pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.57 ...horyear{Bergstra and Bengio}{2012}]{bib33}
+                                                  ]
 LaTeX Font Info:    Trying to load font information for OT1+qhv on input line 269.
  (C:\Users\thoma\AppData\Local\Programs\MiKTeX\tex/latex/tex-gyre\ot1qhv.fd
 File: ot1qhv.fd 2009/09/25 v1.2 font definition file for OT1/qhv
@@ -1558,15 +1669,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 359--365
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [20
-
-{C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-rm.enc}]
+ [20{C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/tex-gyre/q-rm.enc}]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [21])
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [22]
+Underfull \hbox (badness 10000) in paragraph at lines 612--613
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 614--615
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 616--617
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 618--619
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 620--621
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 622--623
+
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [23
@@ -1575,82 +1714,80 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.525 \caption
+l.635 \caption
               {Classification of Select NUTS Regions by Primary Geographic a...
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.550 \end{tabular}
+l.660 \end{tabular}
                    
-<Figures/eda_precipitation.png, id=504, 1003.46895pt x 172.7253pt>
+<Figures/eda_precipitation.png, id=534, 1003.46895pt x 172.7253pt>
 File: Figures/eda_precipitation.png Graphic file (type png)
 <use Figures/eda_precipitation.png>
-Package pdftex.def Info: Figures/eda_precipitation.png  used on input line 557.
+Package pdftex.def Info: Figures/eda_precipitation.png  used on input line 667.
 (pdftex.def)             Requested size: 483.69687pt x 83.25772pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.558     \caption
+l.668     \caption
                   {France-average 30-day cumulative precipitation (2003-2023...
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.558 ...he stochastic nature of rainfall events.}
+l.668 ...he stochastic nature of rainfall events.}
                                                   
-<Figures/eda_return_vs_theoretical.png, id=505, 570.2103pt x 353.03896pt>
+<Figures/eda_return_vs_theoretical.png, id=535, 570.2103pt x 353.03896pt>
 File: Figures/eda_return_vs_theoretical.png Graphic file (type png)
 <use Figures/eda_return_vs_theoretical.png>
-Package pdftex.def Info: Figures/eda_return_vs_theoretical.png  used on input line 564.
+Package pdftex.def Info: Figures/eda_return_vs_theoretical.png  used on input line 674.
 (pdftex.def)             Requested size: 362.77264pt x 224.61359pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.565     \caption
+l.675     \caption
                   {Empirical 5-day return distribution compared with fitted ...
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.565 ...avier tails than the Gaussian benchmark.}
+l.675 ...avier tails than the Gaussian benchmark.}
                                                   
-<Figures/eda_ndvi_vs_fpar.png, id=506, 1003.8303pt x 426.03165pt>
+<Figures/eda_ndvi_vs_fpar.png, id=536, 1003.8303pt x 426.03165pt>
 File: Figures/eda_ndvi_vs_fpar.png Graphic file (type png)
 <use Figures/eda_ndvi_vs_fpar.png>
-Package pdftex.def Info: Figures/eda_ndvi_vs_fpar.png  used on input line 571.
+Package pdftex.def Info: Figures/eda_ndvi_vs_fpar.png  used on input line 681.
 (pdftex.def)             Requested size: 483.69687pt x 205.28595pt.
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.572     \caption
+l.682     \caption
                   {France-average NDVI (top) and fPAR (bottom), 2003-2023. B...
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.572 ...fying retaining both in the feature set.}
+l.682 ...fying retaining both in the feature set.}
                                                   
 LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
-(Font)              scaled to size 8.0pt on input line 572.
+(Font)              scaled to size 8.0pt on input line 682.
 LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
-(Font)              scaled to size 6.0pt on input line 572.
-LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
-(Font)              scaled to size 5.5pt on input line 572.
+(Font)              scaled to size 6.0pt on input line 682.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [24
 
  <./Figures/eda_precipitation.png> <./Figures/eda_return_vs_theoretical.png>]
-<Figures/eda_soil_moisture.png, id=513, 1003.8303pt x 317.2653pt>
+<Figures/eda_soil_moisture.png, id=543, 1003.8303pt x 317.2653pt>
 File: Figures/eda_soil_moisture.png Graphic file (type png)
 <use Figures/eda_soil_moisture.png>
-Package pdftex.def Info: Figures/eda_soil_moisture.png  used on input line 578.
+Package pdftex.def Info: Figures/eda_soil_moisture.png  used on input line 688.
 (pdftex.def)             Requested size: 483.69687pt x 152.87622pt.
-<Figures/eda_temperature_stress_DE.png, id=514, 1004.19165pt x 570.933pt>
+<Figures/eda_temperature_stress_DE.png, id=544, 1004.19165pt x 570.933pt>
 File: Figures/eda_temperature_stress_DE.png Graphic file (type png)
 <use Figures/eda_temperature_stress_DE.png>
-Package pdftex.def Info: Figures/eda_temperature_stress_DE.png  used on input line 585.
+Package pdftex.def Info: Figures/eda_temperature_stress_DE.png  used on input line 695.
 (pdftex.def)             Requested size: 483.69687pt x 275.003pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1659,17 +1796,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.589 
+l.699 
        <./Figures/eda_ndvi_vs_fpar.png> <./Figures/eda_soil_moisture.png>]
-<Figures/eda_temperature_stress_FR.png, id=524, 1003.46895pt x 570.933pt>
+<Figures/eda_temperature_stress_FR.png, id=554, 1003.46895pt x 570.933pt>
 File: Figures/eda_temperature_stress_FR.png Graphic file (type png)
 <use Figures/eda_temperature_stress_FR.png>
-Package pdftex.def Info: Figures/eda_temperature_stress_FR.png  used on input line 592.
+Package pdftex.def Info: Figures/eda_temperature_stress_FR.png  used on input line 702.
 (pdftex.def)             Requested size: 483.69687pt x 275.20338pt.
-<Figures/eda_temperature_stress_PL.png, id=525, 1004.19165pt x 570.933pt>
+<Figures/eda_temperature_stress_PL.png, id=555, 1004.19165pt x 570.933pt>
 File: Figures/eda_temperature_stress_PL.png Graphic file (type png)
 <use Figures/eda_temperature_stress_PL.png>
-Package pdftex.def Info: Figures/eda_temperature_stress_PL.png  used on input line 599.
+Package pdftex.def Info: Figures/eda_temperature_stress_PL.png  used on input line 709.
 (pdftex.def)             Requested size: 483.69687pt x 275.003pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1678,20 +1815,20 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.603 
+l.713 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.603 
+l.713 
        <./Figures/eda_temperature_stress_DE.png> <./Figures/eda_temperature_stress_FR.png>]
-<Figures/eda_correlation_heatmap.png, id=534, 637.78275pt x 570.57166pt>
+<Figures/eda_correlation_heatmap.png, id=564, 637.78275pt x 570.57166pt>
 File: Figures/eda_correlation_heatmap.png Graphic file (type png)
 <use Figures/eda_correlation_heatmap.png>
-Package pdftex.def Info: Figures/eda_correlation_heatmap.png  used on input line 606.
+Package pdftex.def Info: Figures/eda_correlation_heatmap.png  used on input line 716.
 (pdftex.def)             Requested size: 362.77264pt x 324.55013pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 613--614
+Underfull \hbox (badness 10000) in paragraph at lines 723--724
 
  []
 
@@ -1702,23 +1839,23 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.614 
+l.724 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.614 
+l.724 
        <./Figures/eda_temperature_stress_PL.png> <./Figures/eda_correlation_heatmap.png>]
-<Figures/NRMSE results.png, id=545, 1149.093pt x 888.1983pt>
+<Figures/NRMSE results.png, id=575, 1149.093pt x 888.1983pt>
 File: Figures/NRMSE results.png Graphic file (type png)
 <use Figures/NRMSE results.png>
-Package pdftex.def Info: Figures/NRMSE results.png  used on input line 621.
+Package pdftex.def Info: Figures/NRMSE results.png  used on input line 731.
 (pdftex.def)             Requested size: 483.69687pt x 373.88101pt.
-<Figures/yield_forecast_accuracy graph.png, id=546, 1146.2022pt x 888.1983pt>
-File: Figures/yield_forecast_accuracy graph.png Graphic file (type png)
-<use Figures/yield_forecast_accuracy graph.png>
-Package pdftex.def Info: Figures/yield_forecast_accuracy graph.png  used on input line 630.
-(pdftex.def)             Requested size: 483.69687pt x 374.81616pt.
+<Figures/nn_yield_actual_vs_predicted.png, id=576, 1149.093pt x 888.1983pt>
+File: Figures/nn_yield_actual_vs_predicted.png Graphic file (type png)
+<use Figures/nn_yield_actual_vs_predicted.png>
+Package pdftex.def Info: Figures/nn_yield_actual_vs_predicted.png  used on input line 738.
+(pdftex.def)             Requested size: 483.69687pt x 373.88101pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1726,16 +1863,104 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.634 
+l.742 
        <./Figures/NRMSE results.png>]
+<Figures/yield_forecast_accuracy graph.png, id=582, 1146.2022pt x 888.1983pt>
+File: Figures/yield_forecast_accuracy graph.png Graphic file (type png)
+<use Figures/yield_forecast_accuracy graph.png>
+Package pdftex.def Info: Figures/yield_forecast_accuracy graph.png  used on input line 747.
+(pdftex.def)             Requested size: 483.69687pt x 374.81616pt.
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [29
 pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.658 \end{document}
-                     <./Figures/yield_forecast_accuracy graph.png>] (MA429_Final_Report.aux)
+l.751 
+       <./Figures/nn_yield_actual_vs_predicted.png>]
+<Figures/nn_lead_time_comparison.png, id=589, 1145.4795pt x 888.1983pt>
+File: Figures/nn_lead_time_comparison.png Graphic file (type png)
+<use Figures/nn_lead_time_comparison.png>
+Package pdftex.def Info: Figures/nn_lead_time_comparison.png  used on input line 754.
+(pdftex.def)             Requested size: 483.69687pt x 375.04655pt.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.0pt on input line 755.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [30
+pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.758 
+       <./Figures/yield_forecast_accuracy graph.png>]
+pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.763 \caption
+              {Yield prediction test set results (2016--2020) across all cou...
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 9.0pt on input line 765.
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 9.0pt on input line 767.
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 6.6pt on input line 767.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 9.0pt on input line 767.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 6.6pt on input line 767.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 9.0pt on input line 767.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 6.6pt on input line 767.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 9.0pt on input line 767.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 6.6pt on input line 767.
+LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
+(Font)              scaled to size 9.0pt on input line 767.
+LaTeX Font Info:    Font shape `OT1/minntx/b/n' will be
+(Font)              scaled to size 6.6pt on input line 767.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 9.0pt on input line 767.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 6.6pt on input line 767.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 9.0pt on input line 767.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 6.6pt on input line 767.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 9.0pt on input line 767.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 6.6pt on input line 767.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 9.0pt on input line 767.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 6.6pt on input line 767.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 9.0pt on input line 767.
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.6pt on input line 767.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
+(Font)              scaled to size 9.0pt on input line 769.
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.803 \end{tabular}
+                   
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [31
+pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.829 \end{document}
+                     <./Figures/nn_lead_time_comparison.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [32] (MA429_Final_Report.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -1743,23 +1968,23 @@ L3 programming layer <2020/03/25>
 
 
 LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 0.58348pt have occurred.
+(Font)              up to 0.96996pt have occurred.
 
 Package rerunfilecheck Info: File `MA429_Final_Report.out' has not changed.
-(rerunfilecheck)             Checksum: 033B103AB89C99514B0FAEF6482F12BF;5617.
+(rerunfilecheck)             Checksum: F98A92D33B1ED622DEDB38CDDCFAF52B;5993.
  ) 
 Here is how much of TeX's memory you used:
- 20984 strings out of 474486
- 331566 string characters out of 5743754
+ 21273 strings out of 474486
+ 337266 string characters out of 5743754
  1947542 words of memory out of 5000000
- 42278 multiletter control sequences out of 15000+600000
- 665187 words of font info for 509 fonts, out of 8000000 for 9000
+ 42438 multiletter control sequences out of 15000+600000
+ 707519 words of font info for 645 fonts, out of 8000000 for 9000
  1151 hyphenation exceptions out of 8191
- 90i,14n,93p,2931b,752s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\tcrm0800.pk><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI7.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
-Output written on MA429_Final_Report.pdf (29 pages, 5104938 bytes).
+ 90i,14n,93p,3456b,752s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\thoma\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi602\tcrm1000.pk><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/NewTXMI7.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qhvr.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/tex-gyre/qtmr.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txexs.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txmiaX.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/txsys.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmb.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmr.pfb><C:/Users/thoma/AppData/Local/Programs/MiKTeX/fonts/type1/public/newtx/ztmri.pfb>
+Output written on MA429_Final_Report.pdf (32 pages, 5398742 bytes).
 PDF statistics:
- 635 PDF objects out of 1000 (max. 8388607)
- 128 named destinations out of 1000 (max. 500000)
- 113954 words of extra memory for PDF output out of 128383 (max. 10000000)
+ 685 PDF objects out of 1000 (max. 8388607)
+ 138 named destinations out of 1000 (max. 500000)
+ 158012 words of extra memory for PDF output out of 184870 (max. 10000000)
 
