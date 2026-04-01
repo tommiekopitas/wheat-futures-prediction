@@ -1,0 +1,318 @@
+%Version 3.1 December 2024
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%=========================================================================================%%
+%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
+%%=========================================================================================%%
+
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-chicago.bst%  
+ 
+%%\documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+%%\documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+\documentclass[pdflatex,sn-mathphys-num, oneside]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+%%\documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+\usepackage{algorithm}%
+\usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+\usepackage{geometry}
+\geometry{
+  reset,          
+  a4paper,
+  textwidth=190mm,% Forces the text width (A4 is 210mm wide - 10L - 10R = 190mm)
+  textheight=267mm, % Forces the text height (A4 is 297mm tall - 15T - 15B = 267mm)
+  left=10mm,
+  right=10mm,
+  top=15mm,
+  bottom=15mm
+}
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+% --- NEW SPACE-SAVING COMMANDS ---
+\usepackage{microtype}      % 1. Optimizes horizontal text packing (Saves ~5% space)
+\linespread{0.96}           % 2. Reduces vertical space between lines (Saves ~5% space)
+\usepackage{newtxtext}      % 3. Ensures you are using the most modern, compact Times font
+\usepackage{newtxmath}
+% ---------------------------------
+
+\begin{document}
+
+\title[Article Title]{Are meteorological, agricultural, and satellite features from the CY-Bench Dataset good predictors of European Wheat Futures Price Changes?}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author{\fnm{68729}}
+\author{\fnm{candidate number}}
+\author{\fnm{candidate number}}
+
+%%\pacs[JEL Classification]{D8, H51}
+
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
+\clearpage
+
+\section{Executive Summary}\label{sec1}
+This study investigates whether publicly available satellite-derived agricultural data can predict short-term European wheat futures price movements. Wheat is one of the most important agricultural commodities, and the Euronext Milling Wheat N2 futures contract serves as the primary price discovery mechanism for wheat in the European Union. Accurately forecasting price movements in this market carries significant practical value for producers, traders, farmers, corporate hedge funds, and policymakers across the agricultural supply chain and financial industry. 
+
+Our study uses the CY-Bench benchmark dataset, the most comprehensive publicly available collection of sub-national crop yield indicators, covering 515 regions across France, Germany, and Poland, three of the largest wheat producers in the European Union. Features include meteorological variables, soil moisture, and satellite vegetation indices. These are combined with Euronext Milling Wheat N2 daily futures price data spanning 2003 to 2023.
+
+Two prediction tasks are defined in this study. The primary task is the prediction of 5-day forward returns on wheat futures, evaluated on a test period covering 2020 to 2023. The secondary task is the prediction of annual regional wheat yields across the three countries at three lead times of end-of-season, mid-season, and quarter-season, then evaluated on a test period covering 2016 to 2020. The yield task serves as a validation of whether the CY-Bench features carry agricultural signals, which is necessary context for interpreting the futures results. We applied a range of modern machine learning methods, from simple statistical models like Ridge and Lasso regression, to ensemble tree-based methods of Random Forest and ExtraTrees, as well as advanced neural network models. The goal was to determine whether any approach could extract a reliable price signal from the agricultural data.
+
+Our results reveal a clear gap between the two tasks. For wheat price prediction, all models across every level of complexity failed to extract a meaningful predictive signal from the agricultural data. This means that the agricultural data, despite containing substantial information about crop conditions, offered no advantage for forecasting short-term price movements in the futures market.
+
+However, we found the same data proved useful for predicting crop yields, the task it was originally designed for, and is the secondary prediction task in our study. Our best models produced yield forecasts competitive with established academic benchmarks. ExtraTrees, our best-performing model, achieved a Normalised Root Mean Squared Error (NRMSE) of 13.00\% for Germany and 17.77\% for France at end-of-season, where a lower NRMSE indicates predictions closer to actual yields. Tree-based ensemble methods consistently outperformed linear models, confirming that the agricultural data contains useful crop production information.
+
+The central conclusion is that CY-Bench agricultural features contain useful information about crop production, but that information is already reflected in futures market prices by the time it appears in publicly available satellite records. This is consistent with semi-strong market efficiency, which predicts that publicly available information cannot be used to generate excess returns. The practical implication is that signal timeliness and data exclusivity rather than feature engineering or model complexity are the binding constraints for any agricultural centered approach to wheat futures trading. Future work should investigate whether proprietary or higher-frequency satellite data obtained before public release can recover the predictive signal that publicly available data cannot, and whether incorporating crop simulation model outputs such as WOFOST would improve yield prediction accuracy.
+
+\clearpage
+
+\section{Table of Contents}\label{sec2}
+
+\clearpage
+
+\section{Introduction (1 page)}\label{sec3}
+Wheat is one of the most strategically important agricultural commodities in the world. European milling wheat futures, traded on Euronext under the Milling Wheat N2 contract, are the primary price discovery mechanism for wheat in the European Union and are closely watched by producers, food processors, traders, farmers, and policymakers as a forward-looking signal of supply and demand conditions. The ability to forecast short-term price movements in this market has significant practical value across the agricultural supply chain, from farm-level hedging decisions to commodity fund management.
+
+At the same time, the past decade has seen substantial progress in data-driven crop yield forecasting, driven in part by the increasing availability of satellite remote sensing data and sub-national agricultural statistics. The CY-Bench dataset, introduced by Paudel et al.~\cite{bib17}, represents the most comprehensive publicly available benchmark for sub-national crop yield forecasting, combining meteorological variables, soil data, and satellite vegetation indices across hundreds of sub-national regions in major wheat-producing countries. Its release raises a natural but largely unexplored question. If these agricultural features are good predictors of wheat yields, are they also good predictors of wheat futures price changes?
+
+This study investigates that question directly. We use the CY-Bench sub-national agricultural indicators for 515 regions across France, Germany, and Poland, three of the largest wheat producers in the European Union, combined with Euronext Milling Wheat N2 futures price data spanning 2003 to 2023, to test whether publicly available satellite-derived and meteorological features carry exploitable information for futures return prediction. 
+
+We define two prediction tasks. The primary task is the prediction of 5-day forward returns on the Euronext Milling Wheat N2 futures contract, framed as a regression problem with directional accuracy as the key evaluation criterion. The secondary task is the prediction of annual regional wheat yields for each of the three countries at three lead times, end-of-season, mid-season, and quarter-season, which serves both as a validation of the CY-Bench features and as a comparison benchmark against the established results of Paudel et al.~\cite{bib16,bib17}. The yield task allows us to confirm that our features carry real and meaningful signals before interpreting the futures results by themselves.
+
+We evaluate five model types in a walk-forward expanding window framework to prevent data leakage. First is Ridge and Lasso regression as linear baselines, followed by Random Forest and ExtraTrees as tree-based ensemble methods, and lastly feedforward neural networks of varying depth and regularisation as non-linear upper bound tests. Hyperparameters are tuned on a held-out validation period and all reported results are on a strictly out-of-sample test set.
+
+Our results show a clear gap between the two tasks. For futures price prediction, our primary prediction task, all models produce negative out-of-sample R², and directional accuracy ranges only from 46.97\% to 51.37\% across the entire model pipeline. For yield prediction, the CY-Bench features are more informative. ExtraTrees achieves a regional NRMSE of 13.00\% for Germany and 17.77\% for France at end-of-season, broadly comparable to the Paudel et al.~\cite{bib16} benchmark, with tree ensembles consistently outperforming linear models in a pattern consistent with the presence of non-linear feature interactions. This gap supports the interpretation that the CY-Bench agricultural features contain real and useful crop production information, but these signals are already reflected in futures market prices by the time it appears in publicly available satellite data. This is consistent with semi-strong market efficiency~\cite{bib30}. The practical implication is that signal timeliness and data exclusivity, rather than feature engineering or model complexity, are likely the binding constraints for any agricultural approach to wheat futures trading.
+
+\clearpage
+
+\section{(Optional) Literature Review (1 page)}\label{sec3}
+
+\clearpage
+
+\section{Data Pre-processing (2 pages)}\label{sec3}
+
+\clearpage
+
+\section{Redefining the Prediction Task (1 page)}\label{sec3}
+
+\clearpage
+
+\section{Feature Engineering and Selection (2 pages)}\label{sec3}
+
+\clearpage
+
+\section{Method 1 (2 pages)}\label{sec3}
+
+\clearpage
+
+\section{Method 2 (2 pages)}\label{sec3}
+
+\clearpage
+
+\section{Method 3 (2 pages)}\label{sec3}
+
+\clearpage
+
+\section{Method 4 (2 pages)}\label{sec3}
+
+\clearpage
+
+\section{Model Result Comparison (1 page)}\label{sec3}
+Table~\ref{tab:futures_comparison} presents the full test set results across all models for the wheat futures price prediction task. The most immediate observation is that the range of performance across all models is extremely narrow. R\textsuperscript{2} values span only from −0.0212 at the worst end on the Ridge Regression model to −0.0061 as the best result with NN-Medium(64-32). RMSE values differ by less than 0.0004, and directional accuracy ranges from 46.97\% with Ridge to 51.37\% with NN-Small (32). All models produce negative R\textsuperscript{2}, confirming that no method in our pipeline outperforms the unconditional mean predictor, consistent with semi-strong market efficiency~\cite{bib30}. Despite the overall poor predictive performance, there is a meaningful and consistent ordering across model types that warrants interpretation. Linear models perform worst, with Ridge at 46.97\% directional accuracy and Lasso at 47.55\%. The tree ensembles improve on this, with RF at 48.43\% and ExtraTrees reaching 50.98\%, the only non-neural model to exceed 50\% directional accuracy. Neural network variants then cluster just above ExtraTrees, with the best result of 51.37\% directional accuracy from NN-Small.
+
+The improvement from linear to tree to neural models follows the well-established bias-variance tradeoff~\cite{bib32} where linear models are too constrained to capture even the weak non-linear interactions present in the agricultural features, while tree ensembles and neural networks have sufficient capacity to detect marginal signal. The fact that the simplest neural network, a NN-Small with a single 32-unit layer, achieves the highest directional accuracy, while the deepest network matches ExtraTrees rather than improving further, is consistent with the finding of Grinsztajn et al.~\cite{bib27} that on tabular datasets, additional model complexity does not reliably translate into better performance and can introduce unnecessary variance. The near identical RMSE values across all models reflect the dominant influence of the high-volatility 2022 period rather than any model-specific characteristic.
+The interpretation is that the agricultural features from CY-Bench contain a very weak directional signal in wheat futures returns that is only detectable by ensemble methods and neural networks but too weak for linear models while still being insufficient for any model to generate meaningful predictive accuracy. 
+
+Table~\ref{tab:yield_comparison} presents end-of-season yield prediction results across all models. For Ridge, Lasso, Random Forest, and ExtraTrees, the results show a clear and consistent ordering for Germany and France, with tree ensembles substantially outperforming linear models. ExtraTrees achieves the best regional NRMSE for both Germany (13.00\%) and France (17.77\%), improving on Ridge, the worst model, by 5.76 and 4.00 percentage points respectively. The region R\textsuperscript{2} values reinforce this pattern showing Ridge produces a strongly negative R\textsuperscript{2} of −0.4976 for Germany, reflecting a failure to explain regional variation when faced with 251 regions and a 351-column feature matrix, while ExtraTrees achieves a positive R\textsuperscript{2} of +0.2807 for the same setting~\cite{bib32}. For France, both tree models achieve R\textsuperscript{2} above +0.53, confirming that non-linear feature interactions are informative. The ordering of Ridge being the worst, Lasso intermediate, RF and ExtraTrees being the best mirrors the bias-variance hierarchy observed in the futures task. Poland only has 16 regions so it is hard to derive any substantial claims, but for the smaller region set Ridge does perform the best.
+
+Among the deep learning models, the 1D-CNN achieves the best regional R\textsuperscript{2} of +0.4098 and lowest regional RMSE of 1.1401, outperforming MLP-Small and substantially outperforming the FT-Transformer. The strong regional performance of the 1D-CNN and MLP relative to the FT-Transformer is consistent with findings in the tabular deep learning literature that transformers require substantially larger datasets to outperform simpler architectures~\cite{bib27}. 
+
+\begin{table}[h]
+\centering
+\caption{Futures price prediction test set results (2020--2023), all models.}
+\label{tab:futures_comparison}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Model} & \textbf{R\textsuperscript{2}} & \textbf{Directional Accuracy} & \textbf{RMSE} \\
+\midrule
+Ridge                  & $-0.0212$ & 46.97\% & 0.04093 \\
+Lasso                  & $-0.0183$ & 47.55\% & 0.04087 \\
+RF                     & $-0.0099$ & 48.43\% & 0.04070 \\
+ExtraTrees             & $-0.0074$ & 50.98\% & 0.04065 \\
+NN-Small (32)          & $-0.0073$ & \textbf{51.37\%} & 0.04065 \\
+NN-Medium (64-32)      & $\mathbf{-0.0061}$ & 51.27\% & \textbf{0.04062} \\
+NN-Deep (128-64-32)    & $-0.0074$ & 51.27\% & 0.04065 \\
+NN-Heavy-Reg (64-32)   & $-0.0064$ & 51.27\% & 0.04063 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Yield prediction test set results (2020--2023), all models.}
+\label{tab:yield_comparison}
+\begin{tabular}{llcccc}
+\toprule
+\textbf{Country} & \textbf{Metric} & \textbf{Ridge} & \textbf{Lasso}
+  & \textbf{RF} & \textbf{ExtraTrees} \\
+\midrule
+\multirow{3}{*}{Germany}
+  & Region NRMSE  & 18.76\%   & 16.32\%          & 13.57\%          & \textbf{13.00\%} \\
+  & EU NRMSE      & 13.39\%   &  9.14\%          &  4.57\%          & \textbf{4.24\%}  \\
+  & Region R²     & $-0.4976$ & $-0.1339$        & $+0.2169$        & \textbf{$+0.2807$} \\
+\midrule
+\multirow{3}{*}{France}
+  & Region NRMSE  & 21.77\%   & 22.25\%          & 17.97\%          & \textbf{17.77\%} \\
+  & EU NRMSE      & 17.62\%   & 18.79\%          & 14.34\%          & \textbf{13.90\%} \\
+  & Region R²     & $+0.3130$ & $+0.2821$        & $+0.5314$        & \textbf{$+0.5419$} \\
+\midrule
+\multirow{3}{*}{Poland}
+  & Region NRMSE  & \textbf{12.61\%} & 17.30\%   & 16.90\%          & 16.24\% \\
+  & EU NRMSE      & \textbf{4.08\%}  & 13.47\%   & 12.34\%          & 12.12\% \\
+  & Region R²     & \textbf{$+0.5711$} & $+0.1921$ & $+0.2290$      & $+0.2887$ \\
+
+\midrule
+ & & \textbf{MLP-Small} & \textbf{FT-Transformer} & \textbf{1D-CNN} & \\
+\multirow{3}{*}{All}
+  & Region R²          & $+0.3711$ & $-0.1164$ & $+0.4098$ & --- \\
+  & Region RMSE        &    1.1768 &    1.5679 &    1.1401 & --- \\
+  & EU R²              & $-0.8202$ & $-5.7892$ & $-1.3415$ & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\clearpage
+
+\section{Conclusion (1 page)}\label{sec3}
+This study set out to answer a simple but largely unexplored question about seeing if satellite-derived meteorological and agricultural features in the CY-Bench dataset carry actionable information for European wheat futures price prediction. Across five model types evaluated in a strictly out-of-sample walk-forward framework, the answer is no. All models produce negative out-of-sample R² on the primary futures prediction task, and directional accuracy ranges only from 46.97\% to 51.37\%, with no model generating meaningful predictive accuracy. The consistency of this result across linear models, tree ensembles, and neural networks of varying depth rules out the possibility that the failure is simply a modelling choice and it is more likely that the signal is not there to be found, at least not in publicly available form we used.
+
+The secondary yield prediction task confirms that this is not a data quality problem. The same CY-Bench features that fail to predict futures returns do carry agricultural signals. ExtraTrees achieves a regional NRMSE of 13.00\% for Germany and 17.77\% for France at end-of-season, broadly competitive with established benchmarks~\cite{bib16}, and tree ensembles consistently outperform linear models in a pattern consistent with meaningful non-linear feature combinations. The difference between the two task results is the central finding of our paper, and it points toward a specific conclusion: CY-Bench agricultural data is informative about crop production but that information is already reflected in Euronext wheat futures prices by the time it appears in publicly available satellite records.
+
+Several limitations should be noted. The study covers only three countries, France, Germany, and Poland, and future work should extend the analysis to additional European producers such as the United Kingdom, Romania, and Ukraine, whose crop conditions also materially influence Euronext prices. Incorporating WOFOST crop simulation outputs of the kind used by Paudel et al.~\cite{bib16} would provide deeper features that better depict how conditions translate into crop growth, and represents the next obvious path for improvement available within the current framework.
+
+On the futures side, the most natural extension is to test whether proprietary or higher-frequency satellite data, preferably obtained before it enters public benchmarks, can recover the signal that publicly available data cannot. The results of Thaker et al.~\cite{bib19} suggest that satellite-derived agricultural signals can generate positive alpha in wheat futures, but that performance decays rapidly as data becomes widely available. This implies that the informational advantage lies in timeliness rather than in the features themselves, and that future work should focus on data acquisition speed and exclusivity rather than model complexity. A potential area of exploration could be to extend or re-frame the futures prediction task, targeting large price moves driven by unexpected crop shocks rather than average-week directional prediction.
+
+
+\clearpage
+
+\bibliography{sn-bibliography}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+\clearpage
+
+\section{Generative AI Statement}
+
+\clearpage
+
+\begin{appendices}
+
+\section{Section title of first appendix}\label{secA1}
+
+An appendix contains supplementary information that is not an essential part of the text itself but which may be helpful in providing a more comprehensive understanding of the research problem or it is information that is too cumbersome to be included in the body of the paper.
+
+%%=============================================%%
+%% For submissions to Nature Portfolio Journals %%
+%% please use the heading ``Extended Data''.   %%
+%%=============================================%%
+
+%%=============================================================%%
+%% Sample for another appendix section			       %%
+%%=============================================================%%
+
+%% \section{Example of another appendix section}\label{secA2}%
+%% Appendices may be used for helpful, supporting or essential material that would otherwise 
+%% clutter, break up or be distracting to the text. Appendices can consist of sections, figures, 
+%% tables and equations etc.
+
+\end{appendices}
+
+%%===========================================================================================%%
+%% If you are submitting to one of the Nature Portfolio journals, using the eJP submission   %%
+%% system, please include the references within the manuscript file itself. You may do this  %%
+%% by copying the reference list from your .bbl file, paste it into the main manuscript .tex %%
+%% file, and delete the associated \verb+\bibliography+ commands.                            %%
+%%===========================================================================================%%
+
+\end{document}
